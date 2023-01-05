@@ -27,7 +27,7 @@ module.exports = {
     const { results, pagination } = await entityManager[method](permissionQuery, model);
 
     ctx.body = {
-      results: results.map(entity => permissionChecker.sanitizeOutput(entity)),
+      results: results.map((entity) => permissionChecker.sanitizeOutput(entity)),
       pagination,
     };
   },
@@ -78,7 +78,7 @@ module.exports = {
       const entity = await entityManager.create(sanitizeFn(body), model);
       ctx.body = permissionChecker.sanitizeOutput(entity);
 
-      await strapi.telemetry.send('didCreateFirstContentTypeEntry', { model });
+      // await strapi.telemetry.send('didCreateFirstContentTypeEntry', { model });
     })();
   },
 
@@ -220,7 +220,7 @@ module.exports = {
 
     const results = await entityManager.findAndDelete(params, model);
 
-    ctx.body = results.map(result => permissionChecker.sanitizeOutput(result));
+    ctx.body = results.map((result) => permissionChecker.sanitizeOutput(result));
   },
 
   async previewManyRelations(ctx) {
@@ -239,7 +239,7 @@ module.exports = {
     }
 
     const modelDef = strapi.getModel(model);
-    const assoc = modelDef.associations.find(a => a.alias === targetField);
+    const assoc = modelDef.associations.find((a) => a.alias === targetField);
 
     if (!assoc || !MANY_RELATIONS.includes(assoc.nature)) {
       return ctx.badRequest('Invalid target field');

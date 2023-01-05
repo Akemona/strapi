@@ -6,8 +6,10 @@ const { getRelationalFields } = require('strapi-utils').relations;
 const sendDidConfigureListView = async (contentType, configuration) => {
   const displayedFields = prop('length', configuration.layouts.list);
   const relationalFields = getRelationalFields(contentType);
-  const displayedRelationalFields = intersection(relationalFields, configuration.layouts.list)
-    .length;
+  const displayedRelationalFields = intersection(
+    relationalFields,
+    configuration.layouts.list
+  ).length;
 
   const data = {
     containsRelationalFields: !!displayedRelationalFields,
@@ -21,7 +23,7 @@ const sendDidConfigureListView = async (contentType, configuration) => {
   }
 
   try {
-    await strapi.telemetry.send('didConfigureListView', data);
+    // await strapi.telemetry.send('didConfigureListView', data);
   } catch (e) {
     // silence
   }

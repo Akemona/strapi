@@ -2,7 +2,7 @@
 
 const _ = require('lodash');
 
-const { hasDraftAndPublish } = require('strapi-utils').contentTypes;
+// const { hasDraftAndPublish } = require('strapi-utils').contentTypes;
 
 const {
   validateContentTypeInput,
@@ -23,8 +23,8 @@ module.exports = {
     const contentTypeService = strapi.plugins['content-type-builder'].services.contenttypes;
 
     const contentTypes = Object.keys(strapi.contentTypes)
-      .filter(uid => !kind || _.get(strapi.contentTypes[uid], 'kind', 'collectionType') === kind)
-      .map(uid => contentTypeService.formatContentType(strapi.contentTypes[uid]));
+      .filter((uid) => !kind || _.get(strapi.contentTypes[uid], 'kind', 'collectionType') === kind)
+      .map((uid) => contentTypeService.formatContentType(strapi.contentTypes[uid]));
 
     ctx.send({
       data: contentTypes,
@@ -64,23 +64,23 @@ module.exports = {
         components: body.components,
       });
 
-      const metricsProperties = {
-        kind: contentType.kind,
-        hasDraftAndPublish: hasDraftAndPublish(contentType.schema),
-      };
+      // const metricsProperties = {
+      //   kind: contentType.kind,
+      //   hasDraftAndPublish: hasDraftAndPublish(contentType.schema),
+      // };
 
-      if (_.isEmpty(strapi.api)) {
+      /*  if (_.isEmpty(strapi.api)) {
         await strapi.telemetry.send('didCreateFirstContentType', metricsProperties);
       } else {
         await strapi.telemetry.send('didCreateContentType', metricsProperties);
-      }
+      } */
 
       setImmediate(() => strapi.reload());
 
       ctx.send({ data: { uid: contentType.uid } }, 201);
     } catch (error) {
       strapi.log.error(error);
-      await strapi.telemetry.send('didNotCreateContentType', { error: error.message });
+      // await strapi.telemetry.send('didNotCreateContentType', { error: error.message });
       ctx.send({ error: error.message }, 400);
     }
   },

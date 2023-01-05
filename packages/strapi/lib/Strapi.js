@@ -24,7 +24,7 @@ const { webhookModel, createWebhookStore } = require('./services/webhook-store')
 const { createCoreStore, coreStoreModel } = require('./services/core-store');
 const createEntityService = require('./services/entity-service');
 const entityValidator = require('./services/entity-validator');
-const createTelemetry = require('./services/metrics');
+// const createTelemetry = require('./services/metrics');
 const createUpdateNotifier = require('./utils/update-notifier');
 const ee = require('./utils/ee');
 
@@ -161,7 +161,7 @@ class Strapi {
   initServer() {
     this.server = http.createServer(this.handleRequest.bind(this));
     // handle port in use cleanly
-    this.server.on('error', err => {
+    this.server.on('error', (err) => {
       if (err.code === 'EADDRINUSE') {
         return this.stopWithError(`The port ${err.port} is already used by another application.`);
       }
@@ -172,16 +172,16 @@ class Strapi {
     // Close current connections to fully destroy the server
     const connections = {};
 
-    this.server.on('connection', conn => {
+    this.server.on('connection', (conn) => {
       const key = conn.remoteAddress + ':' + conn.remotePort;
       connections[key] = conn;
 
-      conn.on('close', function() {
+      conn.on('close', function () {
         delete connections[key];
       });
     });
 
-    this.server.destroy = cb => {
+    this.server.destroy = (cb) => {
       this.server.close(cb);
 
       for (let key in connections) {
@@ -207,11 +207,11 @@ class Strapi {
 
   async destroy() {
     if (_.has(this, 'server.destroy')) {
-      await new Promise(res => this.server.destroy(res));
+      await new Promise((res) => this.server.destroy(res));
     }
 
     await Promise.all(
-      Object.values(this.plugins).map(plugin => {
+      Object.values(this.plugins).map((plugin) => {
         if (_.has(plugin, 'destroy') && typeof plugin.destroy === 'function') {
           return plugin.destroy();
         }
@@ -228,7 +228,7 @@ class Strapi {
       await this.db.destroy();
     }
 
-    this.telemetry.destroy();
+    // this.telemetry.destroy();
 
     delete global.strapi;
   }
@@ -237,7 +237,7 @@ class Strapi {
    * Add behaviors to the server
    */
   async listen(cb) {
-    const onListen = async err => {
+    const onListen = async (err) => {
       if (err) return this.stopWithError(err);
 
       // Is the project initialised?
@@ -257,14 +257,14 @@ class Strapi {
       }
 
       // Get database clients
-      const databaseClients = _.map(this.config.get('connections'), _.property('settings.client'));
+      // const databaseClients = _.map(this.config.get('connections'), _.property('settings.client'));
 
       // Emit started event.
-      await this.telemetry.send('didStartServer', {
-        database: databaseClients,
-        plugins: this.config.installedPlugins,
-        providers: this.config.installedProviders,
-      });
+      // await this.telemetry.send('didStartServer', {
+      //   database: databaseClients,
+      //   plugins: this.config.installedPlugins,
+      //   providers: this.config.installedProviders,
+      // });
 
       if (cb && typeof cb === 'function') {
         cb();
@@ -280,7 +280,7 @@ class Strapi {
     };
 
     const listenSocket = this.config.get('server.socket');
-    const listenErrHandler = err => onListen(err).catch(err => this.stopWithError(err));
+    const listenErrHandler = (err) => onListen(err).catch((err) => this.stopWithError(err));
 
     if (listenSocket) {
       this.server.listen(listenSocket, listenErrHandler);
@@ -370,7 +370,7 @@ class Strapi {
       entityValidator: this.entityValidator,
     });
 
-    this.telemetry = createTelemetry(this);
+    // this.telemetry = createTelemetry(this);
 
     // Initialize hooks and middlewares.
     await initializeMiddlewares.call(this);
@@ -385,7 +385,7 @@ class Strapi {
 
   async startWebhooks() {
     const webhooks = await this.webhookStore.findWebhooks();
-    webhooks.forEach(webhook => this.webhookRunner.add(webhook));
+    webhooks.forEach((webhook) => this.webhookRunner.add(webhook));
   }
 
   reload() {
@@ -393,7 +393,7 @@ class Strapi {
       shouldReload: 0,
     };
 
-    const reload = function() {
+    const reload = function () {
       if (state.shouldReload > 0) {
         // Reset the reloading state
         state.shouldReload -= 1;
@@ -410,7 +410,7 @@ class Strapi {
     Object.defineProperty(reload, 'isWatching', {
       configurable: true,
       enumerable: true,
-      set: value => {
+      set: (value) => {
         // Special state when the reloader is disabled temporarly (see GraphQL plugin example).
         if (state.isWatching === false && value === true) {
           state.shouldReload += 1;
@@ -429,7 +429,7 @@ class Strapi {
   }
 
   async runLifecyclesFunctions(lifecycleName) {
-    const execLifecycle = async fn => {
+    const execLifecycle = async (fn) => {
       if (!fn) {
         return;
       }
@@ -441,10 +441,10 @@ class Strapi {
 
     // plugins
     await Promise.all(
-      Object.keys(this.plugins).map(plugin => {
+      Object.keys(this.plugins).map((plugin) => {
         const pluginFunc = _.get(this.plugins[plugin], `config.${configPath}`);
 
-        return execLifecycle(pluginFunc).catch(err => {
+        return execLifecycle(pluginFunc).catch((err) => {
           strapi.log.error(`${lifecycleName} function in plugin "${plugin}" failed`);
           strapi.log.error(err);
           strapi.stop();
@@ -457,7 +457,7 @@ class Strapi {
 
     // admin
     const adminFunc = _.get(this.admin.config, configPath);
-    return execLifecycle(adminFunc).catch(err => {
+    return execLifecycle(adminFunc).catch((err) => {
       strapi.log.error(`${lifecycleName} function in admin failed`);
       strapi.log.error(err);
       strapi.stop();
@@ -486,7 +486,7 @@ class Strapi {
   }
 }
 
-module.exports = options => {
+module.exports = (options) => {
   const strapi = new Strapi(options);
   global.strapi = strapi;
   return strapi;

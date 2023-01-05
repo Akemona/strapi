@@ -35,7 +35,7 @@ module.exports = {
         return next();
       })(ctx, next);
     },
-    ctx => {
+    (ctx) => {
       const { user } = ctx.state;
 
       ctx.body = {
@@ -136,7 +136,7 @@ module.exports = {
       roles: superAdminRole ? [superAdminRole.id] : [],
     });
 
-    await strapi.telemetry.send('didCreateFirstAdmin');
+    // await strapi.telemetry.send('didCreateFirstAdmin');
 
     ctx.body = {
       data: {

@@ -74,7 +74,7 @@ module.exports = {
         const newEntity = await entityManager.create(sanitizeFn(body), model, { params: query });
         ctx.body = permissionChecker.sanitizeOutput(newEntity);
 
-        await strapi.telemetry.send('didCreateFirstContentTypeEntry', { model });
+        // await strapi.telemetry.send('didCreateFirstContentTypeEntry', { model });
         return;
       }
 

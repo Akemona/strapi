@@ -55,11 +55,11 @@ module.exports = function createComponentBuilder() {
         .set('pluginOptions', infos.pluginOptions)
         .setAttributes(this.convertAttributes(infos.attributes));
 
-      if (this.components.size === 0) {
+      /*  if (this.components.size === 0) {
         strapi.telemetry.send('didCreateFirstComponent');
       } else {
         strapi.telemetry.send('didCreateComponent');
-      }
+      } */
 
       this.components.set(uid, handler);
 
@@ -106,11 +106,11 @@ module.exports = function createComponentBuilder() {
         .setAttributes(this.convertAttributes(newAttributes));
 
       if (newUID !== uid) {
-        this.components.forEach(compo => {
+        this.components.forEach((compo) => {
           compo.updateComponent(uid, newUID);
         });
 
-        this.contentTypes.forEach(ct => {
+        this.contentTypes.forEach((ct) => {
           ct.updateComponent(uid, newUID);
         });
       }
@@ -123,11 +123,11 @@ module.exports = function createComponentBuilder() {
         throw new Error('component.notFound');
       }
 
-      this.components.forEach(compo => {
+      this.components.forEach((compo) => {
         compo.removeComponent(uid);
       });
 
-      this.contentTypes.forEach(ct => {
+      this.contentTypes.forEach((ct) => {
         ct.removeComponent(uid);
       });
 
