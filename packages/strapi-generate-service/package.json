@@ -1,0 +1,47 @@
+{
+  "name": "@akemona/strapi-generate-service",
+  "version": "3.6.11",
+  "description": "Generate a service for a Strapi API.",
+  "homepage": "https://strapi.akemona.com",
+  "keywords": [
+    "generate",
+    "generator",
+    "service",
+    "strapi"
+  ],
+  "main": "./lib/index.js",
+  "directories": {
+    "lib": "./lib"
+  },
+  "dependencies": {
+    "lodash": "4.17.21",
+    "strapi-utils": "3.6.11"
+  },
+  "scripts": {
+    "test": "echo \"no tests yet\""
+  },
+  "author": {
+    "email": "strapi@akemona.com",
+    "name": "Akemona team",
+    "url": "https://strapi.akemona.com"
+  },
+  "maintainers": [
+    {
+      "name": "Akemona team",
+      "email": "strapi@akemona.com",
+      "url": "https://strapi.akemona.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/akemona/strapi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/akemona/strapi/issues"
+  },
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "SEE LICENSE IN LICENSE"
+}

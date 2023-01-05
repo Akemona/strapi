@@ -1,0 +1,46 @@
+{
+  "name": "@akemona/strapi-hook-ejs",
+  "version": "3.6.11",
+  "description": "EJS hook for the Strapi framework",
+  "homepage": "https://strapi.akemona.com",
+  "keywords": [
+    "ejs",
+    "hook",
+    "strapi"
+  ],
+  "directories": {
+    "lib": "./lib"
+  },
+  "main": "./lib",
+  "dependencies": {
+    "co": "^4.6.0",
+    "koa-ejs": "^4.2.0"
+  },
+  "scripts": {
+    "test": "echo \"no tests yet\""
+  },
+  "author": {
+    "email": "strapi@akemona.com",
+    "name": "Akemona team",
+    "url": "https://strapi.akemona.com"
+  },
+  "maintainers": [
+    {
+      "name": "Akemona team",
+      "email": "strapi@akemona.com",
+      "url": "https://strapi.akemona.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/akemona/strapi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/akemona/strapi/issues"
+  },
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "SEE LICENSE IN LICENSE"
+}

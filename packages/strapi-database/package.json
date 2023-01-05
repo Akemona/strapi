@@ -1,0 +1,37 @@
+{
+  "name": "@akemona/strapi-database",
+  "version": "3.6.11",
+  "description": "Strapi's database layer",
+  "homepage": "https://strapi.akemona.com",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"no tests yet\""
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "author": {
+    "name": "Akemona team",
+    "email": "strapi@akemona.com",
+    "url": "https://strapi.akemona.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/akemona/strapi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/akemona/strapi/issues"
+  },
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "debug": "4.3.1",
+    "lodash": "4.17.21",
+    "p-map": "4.0.0",
+    "strapi-utils": "3.6.11",
+    "verror": "^1.10.0"
+  }
+}

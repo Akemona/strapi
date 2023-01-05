@@ -1,0 +1,48 @@
+{
+  "name": "@akemona/strapi-utils",
+  "version": "3.6.11",
+  "description": "Shared utilities for the Strapi packages",
+  "homepage": "https://strapi.akemona.com",
+  "keywords": [
+    "strapi",
+    "utilities",
+    "utils",
+    "winston"
+  ],
+  "directories": {
+    "lib": "./lib"
+  },
+  "main": "./lib",
+  "dependencies": {
+    "@sindresorhus/slugify": "1.1.0",
+    "date-fns": "^2.19.0",
+    "lodash": "4.17.21",
+    "pino": "^4.7.1",
+    "pluralize": "^8.0.0",
+    "yup": "^0.32.9"
+  },
+  "author": {
+    "email": "strapi@akemona.com",
+    "name": "Akemona team",
+    "url": "https://strapi.akemona.com"
+  },
+  "maintainers": [
+    {
+      "name": "Akemona team",
+      "email": "strapi@akemona.com",
+      "url": "https://strapi.akemona.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/akemona/strapi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/akemona/strapi/issues"
+  },
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "SEE LICENSE IN LICENSE"
+}

@@ -1,0 +1,7 @@
+comment:
+  branches:
+    - main
+    - develop
+
+github_checks:
+  annotations: false

@@ -1,0 +1,8 @@
+'use strict';
+
+/**
+ * Read the documentation (https://strapi.akemona.com/documentation/developer-docs/latest/development/backend-customization.html#core-services)
+ * to customize this service
+ */
+
+module.exports = {};

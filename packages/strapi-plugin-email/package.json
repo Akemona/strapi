@@ -1,0 +1,44 @@
+{
+  "name": "@akemona/strapi-plugin-email",
+  "version": "3.6.11",
+  "description": "Easily configure your Strapi application to send emails.",
+  "strapi": {
+    "name": "Email",
+    "icon": "paper-plane",
+    "description": "email.plugin.description",
+    "required": true
+  },
+  "scripts": {
+    "test": "echo \"no tests yet\""
+  },
+  "dependencies": {
+    "lodash": "4.17.21",
+    "strapi-provider-email-sendmail": "3.6.11",
+    "strapi-utils": "3.6.11"
+  },
+  "devDependencies": {
+    "rimraf": "3.0.2",
+    "strapi-helper-plugin": "3.6.11"
+  },
+  "author": {
+    "name": "Akemona team",
+    "email": "strapi@akemona.com",
+    "url": "https://strapi.akemona.com"
+  },
+  "maintainers": [
+    {
+      "name": "Akemona team",
+      "email": "strapi@akemona.com",
+      "url": "https://strapi.akemona.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/akemona/strapi.git"
+  },
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "SEE LICENSE IN LICENSE"
+}
