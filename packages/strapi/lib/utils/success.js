@@ -4,15 +4,15 @@
  * Module dependencies
  */
 
-const fetch = require('node-fetch');
-const { machineIdSync } = require('node-machine-id');
+// const fetch = require('node-fetch');
+// const { machineIdSync } = require('node-machine-id');
 
 /*
  * No need to worry about this file, we only retrieve anonymous data here.
  * It allows us to know on how many times the package has been installed globally.
  */
 
-try {
+/* try {
   if (
     process.env.npm_config_global === 'true' ||
     JSON.parse(process.env.npm_config_argv).original.includes('global')
@@ -28,4 +28,4 @@ try {
   }
 } catch (e) {
   //...
-}
+} */

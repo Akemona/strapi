@@ -1,8 +1,10 @@
-
 ## WORK IN PROGRESS
 
 ### This is Strapi v3 maintenance release with focus on current LTS Node & MongoDB Support
 
+## Motivation
+
+After strapi decided to drop MongoDB support on v4, we have decided to maintain v3 for our internal use, but anyone can use this at their own risk.
 
 ### Features
 

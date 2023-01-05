@@ -84,20 +84,20 @@ export class Admin extends React.Component {
     this.props.setAppError();
   }
 
-  emitEvent = async (event, properties) => {
+  emitEvent = async (/* event, properties */) => {
     const {
       global: { uuid },
     } = this.props;
 
     if (uuid) {
       try {
-        await axios.post('https://analytics.strapi.io/track', {
+        /*  await axios.post('https://analytics.strapi.io/track', {
           event,
           // PROJECT_TYPE is an env variable defined in the webpack config
           // eslint-disable-next-line no-undef
           properties: { ...properties, projectType: PROJECT_TYPE },
           uuid,
-        });
+        }); */
       } catch (err) {
         // Silent
       }
@@ -158,12 +158,12 @@ export class Admin extends React.Component {
     }
   };
 
-  hasApluginNotReady = props => {
+  hasApluginNotReady = (props) => {
     const {
       global: { plugins },
     } = props;
 
-    return !Object.keys(plugins).every(plugin => plugins[plugin].isReady === true);
+    return !Object.keys(plugins).every((plugin) => plugins[plugin].isReady === true);
   };
 
   initApp = async () => {
@@ -197,7 +197,7 @@ export class Admin extends React.Component {
     }, []);
   };
 
-  renderPluginDispatcher = props => {
+  renderPluginDispatcher = (props) => {
     // NOTE: Send the needed props instead of everything...
 
     return <PluginDispatcher {...this.props} {...props} {...this.helpers} />;
@@ -205,7 +205,7 @@ export class Admin extends React.Component {
 
   renderRoute = (props, Component) => <Component {...this.props} {...props} />;
 
-  setUpdateMenu = updateMenuFn => {
+  setUpdateMenu = (updateMenuFn) => {
     this.setState({ updateMenu: updateMenuFn });
   };
 
@@ -269,7 +269,7 @@ export class Admin extends React.Component {
               <Header />
               <Content>
                 <Switch>
-                  <Route path="/" render={props => this.renderRoute(props, HomePage)} exact />
+                  <Route path="/" render={(props) => this.renderRoute(props, HomePage)} exact />
                   <Route path="/me" component={ProfilePage} />
                   <Route path="/plugins/:pluginId" render={this.renderPluginDispatcher} />
                   <Route path="/list-plugins" exact>

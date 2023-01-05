@@ -26,7 +26,7 @@ import NotFoundPage from '../NotFoundPage';
 // eslint-disable-next-line import/no-cycle
 import NotificationProvider from '../NotificationProvider';
 import Theme from '../Theme';
-import { getUID } from './utils';
+// import { getUID } from './utils';
 import { Content, Wrapper } from './components';
 import { getDataSucceeded } from './actions';
 import NewNotification from '../NewNotification';
@@ -80,9 +80,8 @@ function App(props) {
 
         if (uuid) {
           try {
-            const deviceId = await getUID();
-
-            fetch('https://analytics.strapi.io/track', {
+            // const deviceId = await getUID();
+            /*   fetch('https://analytics.strapi.io/track', {
               method: 'POST',
               body: JSON.stringify({
                 event: 'didInitializeAdministration',
@@ -92,7 +91,7 @@ function App(props) {
               headers: {
                 'Content-Type': 'application/json',
               },
-            });
+            }); */
           } catch (e) {
             // Silent.
           }
@@ -111,7 +110,7 @@ function App(props) {
     getData();
   }, []);
 
-  const setHasAdmin = hasAdmin => setState(prev => ({ ...prev, hasAdmin }));
+  const setHasAdmin = (hasAdmin) => setState((prev) => ({ ...prev, hasAdmin }));
 
   if (isLoading) {
     return <LoadingIndicatorPage />;
@@ -129,7 +128,7 @@ function App(props) {
               {authRoutes}
               <Route
                 path="/auth/:authType"
-                render={routerProps => (
+                render={(routerProps) => (
                   <AuthPage {...routerProps} setHasAdmin={setHasAdmin} hasAdmin={hasAdmin} />
                 )}
                 exact

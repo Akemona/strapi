@@ -2,7 +2,7 @@
 
 const os = require('os');
 const _ = require('lodash');
-const fetch = require('node-fetch');
+// const fetch = require('node-fetch');
 const sentry = require('@sentry/node');
 
 /**
@@ -41,7 +41,7 @@ function captureStderr(name, error) {
     error.stderr
       .trim()
       .split('\n')
-      .forEach(line => {
+      .forEach((line) => {
         sentry.addBreadcrumb({
           category: 'stderr',
           message: line,
@@ -53,8 +53,8 @@ function captureStderr(name, error) {
   return captureError(name);
 }
 
-function trackEvent(event, body) {
-  try {
+function trackEvent(/* event, body */) {
+  /*  try {
     return fetch('https://analytics.strapi.io/track', {
       method: 'POST',
       body: JSON.stringify({
@@ -65,9 +65,10 @@ function trackEvent(event, body) {
       headers: { 'Content-Type': 'application/json' },
     }).catch(() => {});
   } catch (err) {
-    /** ignore errors*/
     return Promise.resolve();
-  }
+  } */
+
+  return Promise.resolve();
 }
 
 function trackError({ scope, error }) {
