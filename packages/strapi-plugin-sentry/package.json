@@ -1,6 +1,9 @@
 {
   "name": "@akemona-org/strapi-plugin-sentry",
-  "version": "3.6.11",
+  "version": "3.7.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Send Strapi error events to Sentry",
   "strapi": {
     "name": "Sentry",

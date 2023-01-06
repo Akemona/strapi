@@ -1,6 +1,9 @@
 {
   "name": "@akemona-org/strapi-plugin-upload",
-  "version": "3.6.11",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "3.7.0",
   "description": "Makes it easy to upload images and files to your Strapi Application.",
   "strapi": {
     "name": "Media Library",
@@ -12,6 +15,9 @@
     "test": "echo \"no tests yet\""
   },
   "dependencies": {
+    "@akemona-org/strapi-helper-plugin": "3.7.0",
+    "@akemona-org/strapi-provider-upload-local": "3.7.0",
+    "@akemona-org/strapi-utils": "3.7.0",
     "@buffetjs/core": "3.3.8",
     "@buffetjs/custom": "3.3.8",
     "@buffetjs/hooks": "3.3.8",
@@ -36,9 +42,6 @@
     "react-router-dom": "^5.0.0",
     "reactstrap": "8.4.1",
     "sharp": "0.31.1",
-    "@akemona-org/strapi-helper-plugin": "3.6.11",
-    "@akemona-org/strapi-provider-upload-local": "3.6.11",
-    "@akemona-org/strapi-utils": "3.6.11",
     "stream-to-array": "^2.3.0",
     "uuid": "^3.2.1"
   },

@@ -1,6 +1,9 @@
 {
   "name": "@akemona-org/strapi-connector-mongoose",
-  "version": "3.6.11",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "3.7.0",
   "description": "Mongoose hook for the Strapi framework",
   "homepage": "https://strapi.akemona.com",
   "keywords": [
@@ -15,14 +18,14 @@
   },
   "main": "./lib",
   "dependencies": {
+    "@akemona-org/strapi-utils": "3.7.0",
     "lodash": "4.17.21",
     "mongoose": "5.10.8",
     "mongoose-float": "^1.0.4",
     "mongoose-long": "^0.3.2",
     "p-map": "4.0.0",
     "pluralize": "^8.0.0",
-    "semver": "^7.3.5",
-    "@akemona-org/strapi-utils": "3.6.11"
+    "semver": "^7.3.5"
   },
   "author": {
     "email": "strapi@akemona.com",

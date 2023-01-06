@@ -1,6 +1,9 @@
 {
   "name": "@akemona-org/strapi-provider-email-nodemailer",
-  "version": "3.6.11",
+  "version": "3.7.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Nodemailer provider for Strapi 3",
   "homepage": "https://strapi.akemona.com",
   "keywords": [

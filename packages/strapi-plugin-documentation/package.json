@@ -1,6 +1,9 @@
 {
   "name": "@akemona-org/strapi-plugin-documentation",
-  "version": "3.6.11",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "3.7.0",
   "description": "Create an OpenAPI Document and visualize your API with SWAGGER UI.",
   "strapi": {
     "name": "Documentation",
@@ -11,6 +14,7 @@
     "test": "echo \"no tests yet\""
   },
   "dependencies": {
+    "@akemona-org/strapi-helper-plugin": "3.7.0",
     "@buffetjs/core": "3.3.8",
     "@buffetjs/custom": "3.3.8",
     "@buffetjs/hooks": "3.3.8",
@@ -36,7 +40,6 @@
     "redux": "^4.0.1",
     "redux-immutable": "^4.0.0",
     "reselect": "^4.0.0",
-    "@akemona-org/strapi-helper-plugin": "3.6.11",
     "swagger-ui-dist": "3.47.1"
   },
   "repository": {

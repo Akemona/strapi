@@ -1,6 +1,9 @@
 {
   "name": "@akemona-org/strapi-hook-redis",
-  "version": "3.6.11",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "3.7.0",
   "description": "Redis hook for the Strapi framework",
   "homepage": "https://strapi.akemona.com",
   "keywords": [
@@ -15,11 +18,11 @@
   },
   "main": "./lib",
   "dependencies": {
+    "@akemona-org/strapi-utils": "3.7.0",
     "ioredis": "^4.27.1",
     "lodash": "4.17.21",
     "rimraf": "3.0.2",
-    "stack-trace": "0.0.10",
-    "@akemona-org/strapi-utils": "3.6.11"
+    "stack-trace": "0.0.10"
   },
   "author": {
     "email": "strapi@akemona.com",

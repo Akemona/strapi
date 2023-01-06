@@ -1,6 +1,9 @@
 {
   "name": "@akemona-org/strapi-middleware-views",
-  "version": "3.6.11",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "3.7.0",
   "description": "Views middleware to enable server-side rendering for the Strapi framework",
   "homepage": "https://strapi.akemona.com",
   "keywords": [

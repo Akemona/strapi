@@ -1,6 +1,9 @@
 {
   "name": "@akemona-org/strapi-generate-plugin",
-  "version": "3.6.11",
+  "version": "3.7.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Generate an plugin for a Strapi application.",
   "homepage": "https://strapi.akemona.com",
   "keywords": [
@@ -13,9 +16,9 @@
     "lib": "./lib"
   },
   "dependencies": {
+    "@akemona-org/strapi-utils": "3.7.0",
     "fs-extra": "^9.1.0",
-    "lodash": "4.17.21",
-    "@akemona-org/strapi-utils": "3.6.11"
+    "lodash": "4.17.21"
   },
   "scripts": {
     "test": "echo \"no tests yet\""

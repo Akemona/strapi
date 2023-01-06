@@ -1,6 +1,9 @@
 {
   "name": "@akemona-org/strapi-database",
-  "version": "3.6.11",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "3.7.0",
   "description": "Strapi's database layer",
   "homepage": "https://strapi.akemona.com",
   "main": "./lib/index.js",
@@ -28,10 +31,10 @@
   },
   "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
+    "@akemona-org/strapi-utils": "3.7.0",
     "debug": "4.3.1",
     "lodash": "4.17.21",
     "p-map": "4.0.0",
-    "@akemona-org/strapi-utils": "3.6.11",
     "verror": "^1.10.0"
   }
 }

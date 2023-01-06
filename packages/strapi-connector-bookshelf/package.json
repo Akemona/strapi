@@ -1,6 +1,9 @@
 {
   "name": "@akemona-org/strapi-connector-bookshelf",
-  "version": "3.6.11",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "3.7.0",
   "description": "Bookshelf hook for the Strapi framework",
   "homepage": "https://strapi.akemona.com",
   "keywords": [
@@ -16,14 +19,14 @@
   },
   "main": "./lib",
   "dependencies": {
+    "@akemona-org/strapi-utils": "3.7.0",
     "bookshelf": "^1.0.1",
     "date-fns": "^2.19.0",
     "inquirer": "^6.3.1",
     "lodash": "4.17.21",
     "p-map": "4.0.0",
     "pluralize": "^8.0.0",
-    "rimraf": "3.0.2",
-    "@akemona-org/strapi-utils": "3.6.11"
+    "rimraf": "3.0.2"
   },
   "peerDependencies": {
     "knex": "0.21.18"

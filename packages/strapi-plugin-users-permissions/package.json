@@ -1,6 +1,9 @@
 {
   "name": "@akemona-org/strapi-plugin-users-permissions",
-  "version": "3.6.11",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "3.7.0",
   "description": "Protect your API with a full-authentication process based on JWT",
   "strapi": {
     "name": "Roles & Permissions",
@@ -12,6 +15,8 @@
     "test": "echo \"no tests yet\""
   },
   "dependencies": {
+    "@akemona-org/strapi-helper-plugin": "3.7.0",
+    "@akemona-org/strapi-utils": "3.7.0",
     "@buffetjs/core": "3.3.8",
     "@buffetjs/custom": "3.3.8",
     "@buffetjs/hooks": "3.3.8",
@@ -35,8 +40,6 @@
     "reactstrap": "8.4.1",
     "redux-saga": "^0.16.0",
     "request": "^2.83.0",
-    "@akemona-org/strapi-helper-plugin": "3.6.11",
-    "@akemona-org/strapi-utils": "3.6.11",
     "uuid": "^3.1.0"
   },
   "devDependencies": {

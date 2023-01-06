@@ -1,6 +1,9 @@
 {
   "name": "@akemona-org/strapi-helper-plugin",
-  "version": "3.6.11",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "3.7.0",
   "description": "Helper for Strapi plugins development",
   "files": [
     "dist"

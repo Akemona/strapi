@@ -1,6 +1,9 @@
 {
   "name": "@akemona-org/strapi-generate-api",
-  "version": "3.6.11",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "3.7.0",
   "description": "Generate an API for a Strapi application.",
   "homepage": "https://strapi.akemona.com",
   "keywords": [
@@ -13,9 +16,9 @@
     "lib": "./lib"
   },
   "dependencies": {
+    "@akemona-org/strapi-utils": "3.7.0",
     "lodash": "4.17.21",
-    "pluralize": "^8.0.0",
-    "@akemona-org/strapi-utils": "3.6.11"
+    "pluralize": "^8.0.0"
   },
   "scripts": {
     "test": "echo \"no tests yet\""

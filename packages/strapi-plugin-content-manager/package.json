@@ -1,6 +1,9 @@
 {
   "name": "@akemona-org/strapi-plugin-content-manager",
-  "version": "3.6.11",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "3.7.0",
   "description": "A powerful UI to easily manage your data.",
   "strapi": {
     "name": "Content Manager",
@@ -9,6 +12,8 @@
     "required": true
   },
   "dependencies": {
+    "@akemona-org/strapi-helper-plugin": "3.7.0",
+    "@akemona-org/strapi-utils": "3.7.0",
     "@buffetjs/core": "3.3.8",
     "@buffetjs/custom": "3.3.8",
     "@buffetjs/hooks": "3.3.8",
@@ -45,8 +50,6 @@
     "redux-immutable": "^4.0.0",
     "reselect": "^4.0.0",
     "sanitize-html": "2.7.2",
-    "@akemona-org/strapi-helper-plugin": "3.6.11",
-    "@akemona-org/strapi-utils": "3.6.11",
     "yup": "^0.32.9"
   },
   "author": {
