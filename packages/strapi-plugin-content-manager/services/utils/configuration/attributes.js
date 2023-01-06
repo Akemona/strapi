@@ -1,7 +1,7 @@
 'use strict';
 
 const _ = require('lodash');
-const { contentTypes: contentTypesUtils } = require('strapi-utils');
+const { contentTypes: contentTypesUtils } = require('@akemona-org/strapi-utils');
 
 const { PUBLISHED_AT_ATTRIBUTE } = contentTypesUtils.constants;
 
@@ -96,7 +96,7 @@ const isVisible = (schema, name) => {
   return true;
 };
 
-const isPublicationField = name => {
+const isPublicationField = (name) => {
   return PUBLISHED_AT_ATTRIBUTE === name;
 };
 
@@ -115,7 +115,7 @@ const isTimestamp = (schema, name) => {
   }
 };
 
-const isRelation = attribute => attribute.type === 'relation';
+const isRelation = (attribute) => attribute.type === 'relation';
 
 const hasRelationAttribute = (schema, name) => {
   if (!_.has(schema.attributes, name)) {
@@ -154,14 +154,14 @@ const hasEditableAttribute = (schema, name) => {
   return true;
 };
 
-const findFirstStringAttribute = schema => {
-  return Object.keys(schema.attributes || {}).find(key => {
+const findFirstStringAttribute = (schema) => {
+  return Object.keys(schema.attributes || {}).find((key) => {
     const { type } = schema.attributes[key];
     return type === 'string' && key !== 'id';
   });
 };
 
-const getDefaultMainField = schema => findFirstStringAttribute(schema) || 'id';
+const getDefaultMainField = (schema) => findFirstStringAttribute(schema) || 'id';
 
 module.exports = {
   isSortable,

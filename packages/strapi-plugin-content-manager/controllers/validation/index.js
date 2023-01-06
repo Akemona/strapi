@@ -1,36 +1,32 @@
 'use strict';
 
 const _ = require('lodash');
-const { yup, formatYupErrors } = require('strapi-utils');
+const { yup, formatYupErrors } = require('@akemona-org/strapi-utils');
 
 const createModelConfigurationSchema = require('./model-configuration');
 
 const TYPES = ['singleType', 'collectionType'];
 
-const handleError = error => {
+const handleError = (error) => {
   throw strapi.errors.badRequest('ValidationError', formatYupErrors(error));
 };
 
 /**
  * Validates type kind
  */
-const validateKind = kind => {
+const validateKind = (kind) => {
   return yup
     .string()
     .oneOf(TYPES)
     .nullable()
     .validate(kind)
-    .catch(error => Promise.reject(formatYupErrors(error)));
+    .catch((error) => Promise.reject(formatYupErrors(error)));
 };
 
 const validateBulkDeleteInput = (data = {}) => {
   return yup
     .object({
-      ids: yup
-        .array()
-        .of(yup.strapiID())
-        .min(1)
-        .required(),
+      ids: yup.array().of(yup.strapiID()).min(1).required(),
     })
     .required()
     .validate(data, {
@@ -40,7 +36,7 @@ const validateBulkDeleteInput = (data = {}) => {
     .catch(handleError);
 };
 
-const validateGenerateUIDInput = data => {
+const validateGenerateUIDInput = (data) => {
   return yup
     .object({
       contentTypeUID: yup.string().required(),
@@ -54,15 +50,12 @@ const validateGenerateUIDInput = data => {
     .catch(handleError);
 };
 
-const validateCheckUIDAvailabilityInput = data => {
+const validateCheckUIDAvailabilityInput = (data) => {
   return yup
     .object({
       contentTypeUID: yup.string().required(),
       field: yup.string().required(),
-      value: yup
-        .string()
-        .matches(new RegExp('^[A-Za-z0-9-_.~]*$'))
-        .required(),
+      value: yup.string().matches(new RegExp('^[A-Za-z0-9-_.~]*$')).required(),
     })
     .validate(data, {
       strict: true,

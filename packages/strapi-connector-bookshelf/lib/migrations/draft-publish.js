@@ -2,7 +2,7 @@
 
 const _ = require('lodash');
 const pmap = require('p-map');
-const { contentTypes: contentTypesUtils } = require('strapi-utils');
+const { contentTypes: contentTypesUtils } = require('@akemona-org/strapi-utils');
 
 const { PUBLISHED_AT_ATTRIBUTE } = contentTypesUtils.constants;
 
@@ -23,7 +23,7 @@ const deleteDrafts = async ({ ORM, model }) => {
         .limit(BATCH_SIZE);
       offset += BATCH_SIZE;
 
-      await pmap(batch, entry => model.deleteRelations(entry.id, { transacting: trx }), {
+      await pmap(batch, (entry) => model.deleteRelations(entry.id, { transacting: trx }), {
         concurrency: 100,
         stopOnError: true,
       });
@@ -33,10 +33,7 @@ const deleteDrafts = async ({ ORM, model }) => {
       }
     }
 
-    await trx
-      .delete()
-      .from(model.collectionName)
-      .where(PUBLISHED_AT_ATTRIBUTE, null);
+    await trx.delete().from(model.collectionName).where(PUBLISHED_AT_ATTRIBUTE, null);
 
     await trx.commit();
   } catch (e) {
@@ -77,7 +74,7 @@ const before = async ({ model, definition, previousDefinition, ORM }, context) =
         // Need to recreate the table
         context.recreateSqliteTable = true;
       } else {
-        await ORM.knex.schema.table(definition.collectionName, table => {
+        await ORM.knex.schema.table(definition.collectionName, (table) => {
           table.dropColumn(PUBLISHED_AT_ATTRIBUTE);
         });
       }

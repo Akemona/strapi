@@ -7,7 +7,7 @@
 // Public node modules.
 const _ = require('lodash');
 const pluralize = require('pluralize');
-const { nameToSlug } = require('strapi-utils');
+const { nameToSlug } = require('@akemona-org/strapi-utils');
 
 /**
  * This `before` function is run before generating targets.
@@ -61,7 +61,7 @@ module.exports = (scope, cb) => {
     scope.attributes = scope.args.attributes;
   } else {
     // Map attributes and split them for CLI.
-    scope.attributes = scope.args.attributes.map(attribute => {
+    scope.attributes = scope.args.attributes.map((attribute) => {
       if (_.isString(attribute)) {
         const parts = attribute.split(':');
 
@@ -94,7 +94,7 @@ module.exports = (scope, cb) => {
 
     // Make sure there aren't duplicates.
     if (
-      _(scope.attributes.map(attribute => attribute.name))
+      _(scope.attributes.map((attribute) => attribute.name))
         .uniq()
         .valueOf().length !== scope.attributes.length
     ) {

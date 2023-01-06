@@ -1,5 +1,5 @@
 {
-  "name": "@akemona/strapi-provider-email-mailgun",
+  "name": "@akemona-org/strapi-provider-email-mailgun",
   "version": "3.6.11",
   "description": "Mailgun provider for strapi email plugin",
   "homepage": "https://strapi.akemona.com",
@@ -14,7 +14,7 @@
   "main": "./lib",
   "dependencies": {
     "mailgun-js": "0.22.0",
-    "strapi-utils": "3.6.11"
+    "@akemona-org/strapi-utils": "3.6.11"
   },
   "strapi": {
     "isProvider": true

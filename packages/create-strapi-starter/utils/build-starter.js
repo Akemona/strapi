@@ -8,7 +8,7 @@ const ora = require('ora');
 const ciEnv = require('ci-info');
 const chalk = require('chalk');
 
-const generateNewApp = require('strapi-generate-new');
+const generateNewApp = require('@akemona-org/strapi-generate-new');
 
 const hasYarn = require('./has-yarn');
 const { runInstall, runApp, initGit } = require('./child-process');
@@ -69,10 +69,7 @@ async function installWithLogs(path) {
   const installPrefix = chalk.yellow('Installing dependencies:');
   const loader = ora(installPrefix).start();
   const logInstall = (chunk = '') => {
-    loader.text = `${installPrefix} ${chunk
-      .toString()
-      .split('\n')
-      .join(' ')}`;
+    loader.text = `${installPrefix} ${chunk.toString().split('\n').join(' ')}`;
   };
 
   const runner = runInstall(path);

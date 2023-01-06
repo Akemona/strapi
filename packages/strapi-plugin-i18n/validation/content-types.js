@@ -1,16 +1,16 @@
 'use strict';
 
-const { yup, formatYupErrors } = require('strapi-utils');
+const { yup, formatYupErrors } = require('@akemona-org/strapi-utils');
 const { get } = require('lodash/fp');
 
-const handleReject = error => Promise.reject(formatYupErrors(error));
+const handleReject = (error) => Promise.reject(formatYupErrors(error));
 
 const validateGetNonLocalizedAttributesSchema = yup
   .object()
   .shape({
     model: yup.string().required(),
     id: yup.mixed().when('model', {
-      is: model => get('kind', strapi.getModel(model)) === 'singleType',
+      is: (model) => get('kind', strapi.getModel(model)) === 'singleType',
       then: yup.strapiID().nullable(),
       otherwise: yup.strapiID().required(),
     }),
@@ -19,7 +19,7 @@ const validateGetNonLocalizedAttributesSchema = yup
   .noUnknown()
   .required();
 
-const validateGetNonLocalizedAttributesInput = data => {
+const validateGetNonLocalizedAttributesInput = (data) => {
   return validateGetNonLocalizedAttributesSchema
     .validate(data, { strict: true, abortEarly: false })
     .catch(handleReject);

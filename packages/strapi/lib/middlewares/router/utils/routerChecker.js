@@ -8,12 +8,12 @@
 const _ = require('lodash');
 
 // Strapi utilities.
-const { finder, policy: policyUtils } = require('strapi-utils');
+const { finder, policy: policyUtils } = require('@akemona-org/strapi-utils');
 
-const getMethod = route => _.trim(_.toLower(route.method));
-const getEndpoint = route => _.trim(route.path);
+const getMethod = (route) => _.trim(_.toLower(route.method));
+const getEndpoint = (route) => _.trim(route.path);
 
-module.exports = strapi =>
+module.exports = (strapi) =>
   function routerChecker(value, plugin) {
     const method = getMethod(value);
     const endpoint = getEndpoint(value);
@@ -65,7 +65,7 @@ module.exports = strapi =>
     }
 
     if (_.isArray(policyOption)) {
-      policyOption.forEach(policyName => {
+      policyOption.forEach((policyName) => {
         try {
           policies.push(policyUtils.get(policyName, plugin, currentApiName));
         } catch (error) {

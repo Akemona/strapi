@@ -1,9 +1,9 @@
 'use strict';
 
 const _ = require('lodash');
-const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
+const { parseMultipartData, sanitizeEntity } = require('@akemona-org/strapi-utils');
 
-const createSanitizeFn = model => data => {
+const createSanitizeFn = (model) => (data) => {
   return sanitizeEntity(data, { model: strapi.getModel(model.uid) });
 };
 

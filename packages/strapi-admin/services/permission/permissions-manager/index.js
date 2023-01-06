@@ -7,7 +7,7 @@ const { permittedFieldsOf } = require('@casl/ability/extra');
 const {
   sanitizeEntity,
   contentTypes: { constants },
-} = require('strapi-utils');
+} = require('@akemona-org/strapi-utils');
 const { buildStrapiQuery, buildCaslQuery } = require('./query-builers');
 
 module.exports = ({ ability, action, model }) => ({
@@ -62,7 +62,7 @@ module.exports = ({ ability, action, model }) => ({
     } = options;
 
     if (_.isArray(data)) {
-      return data.map(entity => this.sanitize(entity, { action, withPrivate, isOutput }));
+      return data.map((entity) => this.sanitize(entity, { action, withPrivate, isOutput }));
     }
 
     const permittedFields = permittedFieldsOf(ability, actionOverride, subject);

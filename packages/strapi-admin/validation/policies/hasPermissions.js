@@ -1,16 +1,12 @@
 'use strict';
 
 const _ = require('lodash');
-const { yup, formatYupErrors } = require('strapi-utils');
+const { yup, formatYupErrors } = require('@akemona-org/strapi-utils');
 
 const hasPermissionsSchema = yup.array().of(
-  yup.lazy(val => {
+  yup.lazy((val) => {
     if (_.isArray(val)) {
-      return yup
-        .array()
-        .of(yup.string())
-        .min(1)
-        .max(2);
+      return yup.array().of(yup.string()).min(1).max(2);
     }
 
     if (_.isString(val)) {
@@ -24,7 +20,7 @@ const hasPermissionsSchema = yup.array().of(
   })
 );
 
-const validateHasPermissionsInput = data => {
+const validateHasPermissionsInput = (data) => {
   try {
     return hasPermissionsSchema.validateSync(data, { strict: true, abortEarly: true });
   } catch (e) {

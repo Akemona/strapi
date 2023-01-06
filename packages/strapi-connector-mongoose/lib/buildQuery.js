@@ -9,7 +9,7 @@ const {
     constants: { DP_PUB_STATES },
     hasDraftAndPublish,
   },
-} = require('strapi-utils');
+} = require('@akemona-org/strapi-utils');
 const utils = require('./utils')();
 const populateQueries = require('./utils/populate-queries');
 
@@ -170,8 +170,8 @@ const buildDeepQuery = ({ model, filters, search, populate }, { session }) => {
     then(...args) {
       return query
         .append({ $project: { _id: true } })
-        .then(results => results.map(el => el._id))
-        .then(ids => {
+        .then((results) => results.map((el) => el._id))
+        .then((ids) => {
           if (ids.length === 0) return [];
 
           const idsMap = ids.reduce((acc, id, idx) => assoc(id, idx, acc), {});
@@ -191,13 +191,13 @@ const buildDeepQuery = ({ model, filters, search, populate }, { session }) => {
         .then(...args);
     },
     catch(...args) {
-      return this.then(r => r).catch(...args);
+      return this.then((r) => r).catch(...args);
     },
     /**
      * Maps to query.count
      */
     count() {
-      return query.count('count').then(results => _.get(results, ['0', 'count'], 0));
+      return query.count('count').then((results) => _.get(results, ['0', 'count'], 0));
     },
 
     /**
@@ -211,8 +211,8 @@ const buildDeepQuery = ({ model, filters, search, populate }, { session }) => {
      */
     lean() {
       // Returns plain js objects without the transformations we normally do on find
-      return this.then(results => {
-        return results.map(r => r.toObject({ transform: false }));
+      return this.then((results) => {
+        return results.map((r) => r.toObject({ transform: false }));
       });
     },
   };
@@ -266,17 +266,17 @@ const applyQueryParams = ({ model, query, filters }) => {
  */
 const computePopulatedPaths = ({ model, populate = [], where = [] }) => {
   const castedPopulatePaths = populate
-    .map(el => (Array.isArray(el) ? el.join('.') : el))
-    .map(path => findModelPath({ rootModel: model, path }))
-    .map(path => {
+    .map((el) => (Array.isArray(el) ? el.join('.') : el))
+    .map((path) => findModelPath({ rootModel: model, path }))
+    .map((path) => {
       const assocModel = findModelByPath({ rootModel: model, path });
 
       // autoload morph relations
       let extraPaths = [];
       if (assocModel) {
         extraPaths = assocModel.associations
-          .filter(assoc => assoc.nature.toLowerCase().indexOf('morph') !== -1)
-          .map(assoc => `${path}.${assoc.alias}`);
+          .filter((assoc) => assoc.nature.toLowerCase().indexOf('morph') !== -1)
+          .map((assoc) => `${path}.${assoc.alias}`);
       }
 
       return [path, ...extraPaths];
@@ -294,13 +294,13 @@ const computePopulatedPaths = ({ model, populate = [], where = [] }) => {
 const recursiveCastedWherePaths = (whereClauses, { model }) => {
   const paths = whereClauses.map(({ field, operator, value }) => {
     if (BOOLEAN_OPERATORS.includes(operator)) {
-      return value.map(where => recursiveCastedWherePaths(where, { model }));
+      return value.map((where) => recursiveCastedWherePaths(where, { model }));
     }
 
     return findModelPath({ rootModel: model, path: field });
   });
 
-  return _.flattenDeep(paths).filter(path => !!path);
+  return _.flattenDeep(paths).filter((path) => !!path);
 };
 
 /**
@@ -319,7 +319,7 @@ const recursiveCastedWherePaths = (whereClauses, { model }) => {
  * }
  * @param {Array<string>} paths - A list of paths to transform
  */
-const pathsToTree = paths => paths.reduce((acc, path) => _.merge(acc, _.set({}, path, {})), {});
+const pathsToTree = (paths) => paths.reduce((acc, path) => _.merge(acc, _.set({}, path, {})), {});
 
 /**
  * Builds the aggregations pipeline of the query
@@ -342,7 +342,7 @@ const buildQueryAggregate = (model, filters, { paths } = {}) => {
  * @param {Object} options.paths - A tree of paths to aggregate inside the current lookup e.g { { tags : { label: {}}}
  */
 const buildLookup = ({ model, key, paths, filters }) => {
-  const assoc = model.associations.find(a => a.alias === key);
+  const assoc = model.associations.find((a) => a.alias === key);
   const assocModel = strapi.db.getModelByAssoc(assoc);
 
   if (!assocModel) return [];
@@ -484,7 +484,7 @@ const buildLookupMatch = ({ assoc, assocModel, filters = {} }) => {
  */
 const buildQueryMatches = (model, filters, search = []) => {
   if (_.has(filters, 'where') && Array.isArray(filters.where)) {
-    const wheres = filters.where.map(whereClause => {
+    const wheres = filters.where.map((whereClause) => {
       return buildWhereClause(formatWhereClause(model, whereClause));
     });
 
@@ -542,7 +542,7 @@ const buildQueryPagination = (model, filters) => {
  * Cast values
  * @param {*} value - Value to cast
  */
-const formatValue = value => utils.valueToId(value);
+const formatValue = (value) => utils.valueToId(value);
 
 /**
  * Builds a where clause
@@ -554,7 +554,7 @@ const formatValue = value => utils.valueToId(value);
 const buildWhereClause = ({ field, operator, value }) => {
   if (Array.isArray(value) && !['or', 'in', 'nin'].includes(operator)) {
     return {
-      $or: value.map(val => buildWhereClause({ field, operator, value: val })),
+      $or: value.map((val) => buildWhereClause({ field, operator, value: val })),
     };
   }
 
@@ -563,7 +563,7 @@ const buildWhereClause = ({ field, operator, value }) => {
   switch (operator) {
     case 'or': {
       return {
-        $or: value.map(orClause => {
+        $or: value.map((orClause) => {
           if (Array.isArray(orClause)) {
             return {
               $and: orClause.map(buildWhereClause),
@@ -646,7 +646,7 @@ const formatWhereClause = (model, { field, operator, value }) => {
     return {
       field,
       operator,
-      value: value.map(v => v.map(whereClause => formatWhereClause(model, whereClause))),
+      value: value.map((v) => v.map((whereClause) => formatWhereClause(model, whereClause))),
     };
   }
 
@@ -677,7 +677,7 @@ const getAssociationFromFieldKey = (model, fieldKey) => {
   const parts = fieldKey.split('.');
 
   for (let key of parts) {
-    assoc = tmpModel.associations.find(ast => ast.alias === key);
+    assoc = tmpModel.associations.find((ast) => ast.alias === key);
     if (assoc) {
       tmpModel = strapi.db.getModelByAssoc(assoc);
     }
@@ -700,7 +700,7 @@ const findModelByPath = ({ rootModel, path }) => {
 
   let tmpModel = rootModel;
   for (let part of parts) {
-    const assoc = tmpModel.associations.find(ast => ast.alias === part);
+    const assoc = tmpModel.associations.find((ast) => ast.alias === part);
     if (assoc) {
       tmpModel = strapi.db.getModelByAssoc(assoc);
     }
@@ -721,7 +721,7 @@ const findModelPath = ({ rootModel, path }) => {
   let tmpModel = rootModel;
   let tmpPath = [];
   for (let part of parts) {
-    const assoc = tmpModel.associations.find(ast => ast.alias === part);
+    const assoc = tmpModel.associations.find((ast) => ast.alias === part);
 
     if (assoc) {
       tmpModel = strapi.db.getModelByAssoc(assoc);
@@ -736,13 +736,13 @@ const findModelPath = ({ rootModel, path }) => {
  * Order a list of entities based on an indexMap
  * @param {Object} indexMap - index map of the form { [id]: index }
  */
-const orderByIndexMap = indexMap => entities => {
+const orderByIndexMap = (indexMap) => (entities) => {
   return entities
     .reduce((acc, entry) => {
       acc[indexMap[entry._id]] = entry;
       return acc;
     }, [])
-    .filter(entity => !isNil(entity));
+    .filter((entity) => !isNil(entity));
 };
 
 module.exports = buildQuery;

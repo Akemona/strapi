@@ -1,6 +1,6 @@
 'use strict';
 
-const { providerFactory, hooks } = require('strapi-utils');
+const { providerFactory, hooks } = require('@akemona-org/strapi-utils');
 const { validateRegisterProviderAction } = require('../../validation/action-provider');
 const domain = require('./index');
 
@@ -14,7 +14,7 @@ const domain = require('./index');
  * Creates a new instance of an action provider
  * @return {Provider & ActionProviderOverride}
  */
-const createActionProvider = options => {
+const createActionProvider = (options) => {
   const provider = providerFactory(options);
   const actionHooks = {
     appliesPropertyToSubject: hooks.createAsyncParallelHook(),
@@ -75,7 +75,7 @@ const createActionProvider = options => {
         subject,
       });
 
-      return results.every(result => result !== false);
+      return results.every((result) => result !== false);
     },
   };
 };

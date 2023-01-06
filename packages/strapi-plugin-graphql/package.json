@@ -1,5 +1,5 @@
 {
-  "name": "@akemona/strapi-plugin-graphql",
+  "name": "@akemona-org/strapi-plugin-graphql",
   "version": "3.6.11",
   "description": "Adds GraphQL endpoint with default API methods.",
   "strapi": {
@@ -27,7 +27,7 @@
     "koa-compose": "^4.1.0",
     "lodash": "4.17.21",
     "pluralize": "^8.0.0",
-    "strapi-utils": "3.6.11"
+    "@akemona-org/strapi-utils": "3.6.11"
   },
   "repository": {
     "type": "git",

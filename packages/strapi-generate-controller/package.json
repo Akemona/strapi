@@ -1,5 +1,5 @@
 {
-  "name": "@akemona/strapi-generate-controller",
+  "name": "@akemona-org/strapi-generate-controller",
   "version": "3.6.11",
   "description": "Generate a controller for a Strapi API.",
   "homepage": "https://strapi.akemona.com",
@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "lodash": "4.17.21",
-    "strapi-utils": "3.6.11"
+    "@akemona-org/strapi-utils": "3.6.11"
   },
   "scripts": {
     "test": "echo \"no tests yet\""

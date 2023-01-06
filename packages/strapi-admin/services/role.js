@@ -17,7 +17,7 @@ const {
   generateTimestampCode,
   stringIncludes,
   hooks: { createAsyncSeriesWaterfallHook },
-} = require('strapi-utils');
+} = require('@akemona-org/strapi-utils');
 const permissionDomain = require('../domain/permission');
 const { validatePermissionsExist } = require('../validation/permission');
 const { getService } = require('../utils');
@@ -35,7 +35,7 @@ const sanitizeRole = omit(['users', 'permissions']);
 
 const fieldsToCompare = ['action', 'subject', 'properties', 'conditions'];
 
-const sortDeep = data => {
+const sortDeep = (data) => {
   if (isArray(data)) {
     return data.slice(0).sort();
   }
@@ -47,7 +47,7 @@ const sortDeep = data => {
   return data;
 };
 
-const sortPermissionProperties = permission => {
+const sortPermissionProperties = (permission) => {
   return Object.entries(permission.properties).reduce(
     (acc, [name, value]) => permissionDomain.setProperty(name, sortDeep(value), acc),
     permission
@@ -69,7 +69,7 @@ const arePermissionsEqual = (p1, p2) => {
  * @param attributes A partial role object
  * @returns {Promise<role>}
  */
-const create = async attributes => {
+const create = async (attributes) => {
   const alreadyExists = await exists({ name: attributes.name });
 
   if (alreadyExists) {
@@ -168,7 +168,7 @@ const update = async (params, attributes) => {
  * @param params query params to find the role
  * @returns {Promise<boolean>}
  */
-const exists = async params => {
+const exists = async (params) => {
   const foundCount = await strapi.query('role', 'admin').count(params);
 
   return foundCount > 0;
@@ -226,7 +226,7 @@ const deleteByIds = async (ids = []) => {
  * @returns {Promise<number>}
  * @param roleId
  */
-const getUsersCount = async roleId => {
+const getUsersCount = async (roleId) => {
   return strapi.query('user', 'admin').count({ roles: [roleId] });
 };
 
@@ -252,7 +252,7 @@ const createRolesIfNoneExist = async () => {
   const { actionProvider } = getService('permission');
 
   const allActions = actionProvider.values();
-  const contentTypesActions = allActions.filter(a => a.section === 'contentTypes');
+  const contentTypesActions = allActions.filter((a) => a.section === 'contentTypes');
 
   // create 3 roles
   const superAdminRole = await create({
@@ -285,7 +285,7 @@ const createRolesIfNoneExist = async () => {
 
   const authorPermissions = editorPermissions
     .filter(({ action }) => action !== ACTIONS.publish)
-    .map(permission =>
+    .map((permission) =>
       permissionDomain.create({ ...permission, conditions: ['admin::is-creator'] })
     );
 
@@ -370,7 +370,7 @@ const assignPermissions = async (roleId, permissions = []) => {
 
   if (permissionsToAdd.length > 0) {
     const createdPermissions = await addPermissions(roleId, permissionsToAdd);
-    permissionsToReturn.push(...createdPermissions.map(p => ({ ...p, role: p.role.id })));
+    permissionsToReturn.push(...createdPermissions.map((p) => ({ ...p, role: p.role.id })));
   }
 
   if (!isSuperAdmin && (permissionsToAdd.length || permissionsToDelete.length)) {
@@ -402,20 +402,21 @@ const resetSuperAdminPermissions = async () => {
   }
 
   const allActions = getService('permission').actionProvider.values();
-  const contentTypesActions = allActions.filter(a => a.section === 'contentTypes');
-  const otherActions = allActions.filter(a => a.section !== 'contentTypes');
+  const contentTypesActions = allActions.filter((a) => a.section === 'contentTypes');
+  const otherActions = allActions.filter((a) => a.section !== 'contentTypes');
 
   // First, get the content-types permissions
-  const permissions = getService('content-type').getPermissionsWithNestedFields(
-    contentTypesActions
-  );
+  const permissions =
+    getService('content-type').getPermissionsWithNestedFields(contentTypesActions);
 
   // Then add every other permission
   const otherPermissions = otherActions.reduce((acc, action) => {
     const { actionId, subjects } = action;
 
     if (isArray(subjects)) {
-      acc.push(...subjects.map(subject => permissionDomain.create({ action: actionId, subject })));
+      acc.push(
+        ...subjects.map((subject) => permissionDomain.create({ action: actionId, subject }))
+      );
     } else {
       acc.push(permissionDomain.create({ action: actionId }));
     }
@@ -435,7 +436,7 @@ const resetSuperAdminPermissions = async () => {
  * @param {object} user
  * @return {boolean}
  */
-const hasSuperAdminRole = user => {
+const hasSuperAdminRole = (user) => {
   const roles = _.get(user, 'roles', []);
 
   return roles.map(prop('code')).includes(SUPER_ADMIN_CODE);

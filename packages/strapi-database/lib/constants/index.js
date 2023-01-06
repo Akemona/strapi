@@ -1,12 +1,9 @@
 'use strict';
 
-const { contentTypes: contentTypesUtils } = require('strapi-utils');
+const { contentTypes: contentTypesUtils } = require('@akemona-org/strapi-utils');
 
-const {
-  PUBLISHED_AT_ATTRIBUTE,
-  CREATED_BY_ATTRIBUTE,
-  UPDATED_BY_ATTRIBUTE,
-} = contentTypesUtils.constants;
+const { PUBLISHED_AT_ATTRIBUTE, CREATED_BY_ATTRIBUTE, UPDATED_BY_ATTRIBUTE } =
+  contentTypesUtils.constants;
 
 // contentTypes and components reserved names
 const RESERVED_MODEL_NAMES = ['admin', 'boolean', 'date', 'date-time', 'time', 'upload'];

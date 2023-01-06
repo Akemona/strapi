@@ -1,5 +1,5 @@
 {
-  "name": "@akemona/strapi-provider-email-nodemailer",
+  "name": "@akemona-org/strapi-provider-email-nodemailer",
   "version": "3.6.11",
   "description": "Nodemailer provider for Strapi 3",
   "homepage": "https://strapi.akemona.com",

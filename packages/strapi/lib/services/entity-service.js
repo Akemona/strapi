@@ -7,13 +7,13 @@ const {
   sanitizeEntity,
   webhook: webhookUtils,
   contentTypes: contentTypesUtils,
-} = require('strapi-utils');
+} = require('@akemona-org/strapi-utils');
 const uploadFiles = require('./utils/upload-files');
 
 // TODO: those should be strapi events used by the webhooks not the other way arround
 const { ENTRY_CREATE, ENTRY_UPDATE, ENTRY_DELETE } = webhookUtils.webhookEvents;
 
-module.exports = ctx => {
+module.exports = (ctx) => {
   const implementation = createDefaultImplementation(ctx);
 
   const service = {
@@ -31,7 +31,7 @@ module.exports = ctx => {
   const delegator = delegate(service, 'implementation');
 
   // delegate every method in implementation
-  Object.keys(service.implementation).forEach(key => delegator.method(key));
+  Object.keys(service.implementation).forEach((key) => delegator.method(key));
 
   return service;
 };

@@ -10,10 +10,11 @@
 const crypto = require('crypto');
 const _ = require('lodash');
 const grant = require('grant-koa');
-const { sanitizeEntity } = require('strapi-utils');
+const { sanitizeEntity } = require('@akemona-org/strapi-utils');
 
-const emailRegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-const formatError = error => [
+const emailRegExp =
+  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const formatError = (error) => [
   { messages: [{ id: error.id, message: error.message, field: error.field }] },
 ];
 
@@ -263,9 +264,8 @@ module.exports = {
 
     // Ability to pass OAuth callback dynamically
     grantConfig[provider].callback = _.get(ctx, 'query.callback') || grantConfig[provider].callback;
-    grantConfig[provider].redirect_uri = strapi.plugins[
-      'users-permissions'
-    ].services.providers.buildRedirectUri(provider);
+    grantConfig[provider].redirect_uri =
+      strapi.plugins['users-permissions'].services.providers.buildRedirectUri(provider);
 
     return grant(grantConfig)(ctx, next);
   },
@@ -324,7 +324,7 @@ module.exports = {
     // Generate random token.
     const resetPasswordToken = crypto.randomBytes(64).toString('hex');
 
-    const settings = await pluginStore.get({ key: 'email' }).then(storeEmail => {
+    const settings = await pluginStore.get({ key: 'email' }).then((storeEmail) => {
       try {
         return storeEmail['reset_password'].options;
       } catch (error) {

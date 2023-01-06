@@ -1,7 +1,7 @@
 'use strict';
 
 const { assoc, has, prop, omit } = require('lodash/fp');
-const strapiUtils = require('strapi-utils');
+const strapiUtils = require('@akemona-org/strapi-utils');
 
 const { sanitizeEntity } = strapiUtils;
 const { hasDraftAndPublish } = strapiUtils.contentTypes;
@@ -23,7 +23,7 @@ const emitEvent = (event, fn) => async (entity, model) => {
   return result;
 };
 
-const findCreatorRoles = entity => {
+const findCreatorRoles = (entity) => {
   const createdByPath = `${CREATED_BY_ATTRIBUTE}.id`;
 
   if (has(createdByPath, entity)) {

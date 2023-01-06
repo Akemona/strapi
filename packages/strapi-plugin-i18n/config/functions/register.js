@@ -1,7 +1,7 @@
 'use strict';
 
 const _ = require('lodash');
-const { PUBLISHED_AT_ATTRIBUTE } = require('strapi-utils').contentTypes.constants;
+const { PUBLISHED_AT_ATTRIBUTE } = require('@akemona-org/strapi-utils').contentTypes.constants;
 
 const { getService } = require('../../utils');
 const fieldMigration = require('./migrations/field');
@@ -14,7 +14,7 @@ module.exports = () => {
 
   _.set(strapi.plugins.i18n.config, 'schema.graphql', {});
 
-  Object.values(strapi.contentTypes).forEach(contentType => {
+  Object.values(strapi.contentTypes).forEach((contentType) => {
     if (contentTypeService.isLocalizedContentType(contentType)) {
       const { attributes, modelName } = contentType;
 

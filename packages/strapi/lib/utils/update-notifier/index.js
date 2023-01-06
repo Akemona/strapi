@@ -6,7 +6,7 @@ const Configstore = require('configstore');
 const semver = require('semver');
 const boxen = require('boxen');
 const chalk = require('chalk');
-const { env } = require('strapi-utils');
+const { env } = require('@akemona-org/strapi-utils');
 
 const pkg = require('../../../package');
 
@@ -31,7 +31,7 @@ Check out the new the releases at: ${releaseLink}
 `.trim();
 };
 
-const createUpdateNotifier = strapi => {
+const createUpdateNotifier = (strapi) => {
   let config = null;
 
   try {
@@ -45,7 +45,7 @@ const createUpdateNotifier = strapi => {
     // we silence the error
   }
 
-  const checkUpdate = async checkInterval => {
+  const checkUpdate = async (checkInterval) => {
     const now = Date.now();
     const lastUpdateCheck = config.get('lastUpdateCheck') || 0;
     if (lastUpdateCheck + checkInterval > now) {
@@ -63,7 +63,7 @@ const createUpdateNotifier = strapi => {
     }
   };
 
-  const display = notifInterval => {
+  const display = (notifInterval) => {
     const now = Date.now();
     const latestVersion = config.get('latest');
     const lastNotification = config.get('lastNotification') || 0;

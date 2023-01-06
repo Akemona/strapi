@@ -1,5 +1,5 @@
 {
-  "name": "@akemona/strapi-middleware-views",
+  "name": "@akemona-org/strapi-middleware-views",
   "version": "3.6.11",
   "description": "Views middleware to enable server-side rendering for the Strapi framework",
   "homepage": "https://strapi.akemona.com",

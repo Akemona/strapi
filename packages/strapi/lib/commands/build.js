@@ -2,8 +2,8 @@
 const { green } = require('chalk');
 
 // eslint-disable-next-line node/no-extraneous-require
-const strapiAdmin = require('strapi-admin');
-const { getConfigUrls } = require('strapi-utils');
+const strapiAdmin = require('@akemona-org/strapi-admin');
+const { getConfigUrls } = require('@akemona-org/strapi-utils');
 const loadConfiguration = require('../core/app-configuration');
 const ee = require('../utils/ee');
 
@@ -40,7 +40,7 @@ module.exports = async ({ clean, optimization }) => {
     .then(() => {
       process.exit();
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(err);
       process.exit(1);
     });

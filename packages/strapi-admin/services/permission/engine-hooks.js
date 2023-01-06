@@ -1,7 +1,7 @@
 'use strict';
 
 const { cloneDeep, has } = require('lodash/fp');
-const { hooks } = require('strapi-utils');
+const { hooks } = require('@akemona-org/strapi-utils');
 
 const permissionDomain = require('../../domain/permission');
 
@@ -18,7 +18,7 @@ const createEngineHooks = () => ({
  * @param {Permission} permission
  * @return {{readonly permission: Permission, addCondition(string): this}}
  */
-const createWillEvaluateContext = permission => ({
+const createWillEvaluateContext = (permission) => ({
   get permission() {
     return cloneDeep(permission);
   },

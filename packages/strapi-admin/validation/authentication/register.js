@@ -1,6 +1,6 @@
 'use strict';
 
-const { yup, formatYupErrors } = require('strapi-utils');
+const { yup, formatYupErrors } = require('@akemona-org/strapi-utils');
 const validators = require('../common-validators');
 
 const registrationSchema = yup
@@ -19,10 +19,10 @@ const registrationSchema = yup
   })
   .noUnknown();
 
-const validateRegistrationInput = data => {
+const validateRegistrationInput = (data) => {
   return registrationSchema
     .validate(data, { strict: true, abortEarly: false })
-    .catch(error => Promise.reject(formatYupErrors(error)));
+    .catch((error) => Promise.reject(formatYupErrors(error)));
 };
 
 const registrationInfoQuerySchema = yup
@@ -33,10 +33,10 @@ const registrationInfoQuerySchema = yup
   .required()
   .noUnknown();
 
-const validateRegistrationInfoQuery = query => {
+const validateRegistrationInfoQuery = (query) => {
   return registrationInfoQuerySchema
     .validate(query, { strict: true, abortEarly: false })
-    .catch(error => Promise.reject(formatYupErrors(error)));
+    .catch((error) => Promise.reject(formatYupErrors(error)));
 };
 
 const adminRegistrationSchema = yup
@@ -50,10 +50,10 @@ const adminRegistrationSchema = yup
   .required()
   .noUnknown();
 
-const validateAdminRegistrationInput = data => {
+const validateAdminRegistrationInput = (data) => {
   return adminRegistrationSchema
     .validate(data, { strict: true, abortEarly: false })
-    .catch(error => Promise.reject(formatYupErrors(error)));
+    .catch((error) => Promise.reject(formatYupErrors(error)));
 };
 
 module.exports = {

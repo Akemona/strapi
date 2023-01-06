@@ -2,16 +2,18 @@
 
 const _ = require('lodash');
 
-const { yup } = require('strapi-utils');
+const { yup } = require('@akemona-org/strapi-utils');
 
 /**
  * Utility function to compose validators
  */
-const composeValidators = (...fns) => (attr, { isDraft }) => {
-  return fns.reduce((validator, fn) => {
-    return fn(attr, validator, { isDraft });
-  }, yup.mixed());
-};
+const composeValidators =
+  (...fns) =>
+  (attr, { isDraft }) => {
+    return fns.reduce((validator, fn) => {
+      return fn(attr, validator, { isDraft });
+    }, yup.mixed());
+  };
 
 /* Validator utils */
 
@@ -86,7 +88,7 @@ const uidValidator = composeValidators(stringValidator, (attr, validator) =>
   validator.matches(new RegExp('^[A-Za-z0-9-_.~]*$'))
 );
 
-const enumerationValidator = attr => {
+const enumerationValidator = (attr) => {
   return yup.string().oneOf((Array.isArray(attr.enum) ? attr.enum : [attr.enum]).concat(null));
 };
 

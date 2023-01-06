@@ -1,5 +1,5 @@
 {
-  "name": "@akemona/strapi-utils",
+  "name": "@akemona-org/strapi-utils",
   "version": "3.6.11",
   "description": "Shared utilities for the Strapi packages",
   "homepage": "https://strapi.akemona.com",

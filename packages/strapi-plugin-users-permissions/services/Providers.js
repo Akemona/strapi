@@ -11,7 +11,7 @@ const request = require('request');
 // Purest strategies.
 const purest = require('purest')({ request });
 const purestConfig = require('@purest/providers');
-const { getAbsoluteServerUrl } = require('strapi-utils');
+const { getAbsoluteServerUrl } = require('@akemona-org/strapi-utils');
 const jwt = require('jsonwebtoken');
 
 /**
@@ -72,7 +72,7 @@ const connect = (provider, query) => {
         }
 
         if (
-          !_.isEmpty(_.find(users, user => user.provider !== provider)) &&
+          !_.isEmpty(_.find(users, (user) => user.provider !== provider)) &&
           advanced.unique_email
         ) {
           return resolve([
@@ -259,7 +259,7 @@ const getProfile = async (provider, query, callback) => {
               return callback(null, {
                 username: userbody.login,
                 email: Array.isArray(emailsbody)
-                  ? emailsbody.find(email => email.primary === true).email
+                  ? emailsbody.find((email) => email.primary === true).email
                   : null,
               });
             });

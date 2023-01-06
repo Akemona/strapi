@@ -1,5 +1,5 @@
 {
-  "name": "@akemona/strapi-connector-mongoose",
+  "name": "@akemona-org/strapi-connector-mongoose",
   "version": "3.6.11",
   "description": "Mongoose hook for the Strapi framework",
   "homepage": "https://strapi.akemona.com",
@@ -22,7 +22,7 @@
     "p-map": "4.0.0",
     "pluralize": "^8.0.0",
     "semver": "^7.3.5",
-    "strapi-utils": "3.6.11"
+    "@akemona-org/strapi-utils": "3.6.11"
   },
   "author": {
     "email": "strapi@akemona.com",

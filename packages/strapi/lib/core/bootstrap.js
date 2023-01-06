@@ -1,11 +1,11 @@
 'use strict';
 
 const _ = require('lodash');
-const { getConfigUrls, contentTypes: contentTypesUtils } = require('strapi-utils');
+const { getConfigUrls, contentTypes: contentTypesUtils } = require('@akemona-org/strapi-utils');
 
 const { createCoreApi } = require('../core-api');
 
-module.exports = function(strapi) {
+module.exports = function (strapi) {
   // Set connections.
   strapi.connections = {};
 
@@ -39,7 +39,7 @@ module.exports = function(strapi) {
   }, {});
 
   // Set components
-  Object.keys(strapi.components).forEach(componentName => {
+  Object.keys(strapi.components).forEach((componentName) => {
     const component = strapi.components[componentName];
     component.connection = component.connection || defaultConnection;
   });
@@ -70,14 +70,14 @@ module.exports = function(strapi) {
   }, []);
 
   // Init admin controllers.
-  Object.keys(strapi.admin.controllers || []).forEach(key => {
+  Object.keys(strapi.admin.controllers || []).forEach((key) => {
     if (!strapi.admin.controllers[key].identity) {
       strapi.admin.controllers[key].identity = key;
     }
   });
 
   // Init admin models.
-  Object.keys(strapi.admin.models || []).forEach(modelName => {
+  Object.keys(strapi.admin.models || []).forEach((modelName) => {
     let model = strapi.admin.models[modelName];
 
     // mutate model
@@ -86,7 +86,7 @@ module.exports = function(strapi) {
     strapi.contentTypes[model.uid] = model;
   });
 
-  Object.keys(strapi.plugins).forEach(pluginName => {
+  Object.keys(strapi.plugins).forEach((pluginName) => {
     let plugin = strapi.plugins[pluginName];
     Object.assign(plugin, {
       controllers: plugin.controllers || [],
@@ -94,7 +94,7 @@ module.exports = function(strapi) {
       models: plugin.models || [],
     });
 
-    Object.keys(plugin.controllers).forEach(key => {
+    Object.keys(plugin.controllers).forEach((key) => {
       let controller = plugin.controllers[key];
 
       Object.assign(controller, {
@@ -102,7 +102,7 @@ module.exports = function(strapi) {
       });
     });
 
-    Object.keys(plugin.models || []).forEach(modelName => {
+    Object.keys(plugin.models || []).forEach((modelName) => {
       let model = plugin.models[modelName];
 
       // mutate model

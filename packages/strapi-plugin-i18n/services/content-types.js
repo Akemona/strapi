@@ -2,19 +2,15 @@
 
 const _ = require('lodash');
 const { pick, pipe, has, prop, isNil, cloneDeep, isArray } = require('lodash/fp');
-const {
-  isRelationalAttribute,
-  getVisibleAttributes,
-  isMediaAttribute,
-  isTypedAttribute,
-} = require('strapi-utils').contentTypes;
+const { isRelationalAttribute, getVisibleAttributes, isMediaAttribute, isTypedAttribute } =
+  require('@akemona-org/strapi-utils').contentTypes;
 const { getService } = require('../utils');
 
-const hasLocalizedOption = modelOrAttribute => {
+const hasLocalizedOption = (modelOrAttribute) => {
   return prop('pluginOptions.i18n.localized', modelOrAttribute) === true;
 };
 
-const getValidLocale = async locale => {
+const getValidLocale = async (locale) => {
   const localesService = getService('locales');
 
   if (isNil(locale)) {
@@ -34,7 +30,7 @@ const getValidLocale = async locale => {
  * @param {Object} relatedEntity related entity
  * @returns {id[]} related entity
  */
-const getNewLocalizationsFrom = async relatedEntity => {
+const getNewLocalizationsFrom = async (relatedEntity) => {
   if (relatedEntity) {
     return [relatedEntity.id, ...relatedEntity.localizations.map(prop('id'))];
   }
@@ -94,7 +90,7 @@ const isLocalizedAttribute = (model, attributeName) => {
  * @param {*} model
  * @returns
  */
-const isLocalizedContentType = model => {
+const isLocalizedContentType = (model) => {
   return hasLocalizedOption(model);
 };
 
@@ -103,20 +99,20 @@ const isLocalizedContentType = model => {
  * @param {object} model
  * @returns {string[]}
  */
-const getNonLocalizedAttributes = model => {
+const getNonLocalizedAttributes = (model) => {
   return getVisibleAttributes(model).filter(
-    attributeName => !isLocalizedAttribute(model, attributeName)
+    (attributeName) => !isLocalizedAttribute(model, attributeName)
   );
 };
 
-const removeId = value => {
+const removeId = (value) => {
   if (typeof value === 'object' && (has('id', value) || has('_id', value))) {
     delete value.id;
     delete value._id;
   }
 };
 
-const removeIds = model => entry => removeIdsMut(model, cloneDeep(entry));
+const removeIds = (model) => (entry) => removeIdsMut(model, cloneDeep(entry));
 
 const removeIdsMut = (model, entry) => {
   if (isNil(entry)) {
@@ -128,7 +124,7 @@ const removeIdsMut = (model, entry) => {
   _.forEach(model.attributes, (attr, attrName) => {
     const value = entry[attrName];
     if (attr.type === 'dynamiczone' && isArray(value)) {
-      value.forEach(compo => {
+      value.forEach((compo) => {
         if (has('__component', compo)) {
           const model = strapi.components[compo.__component];
           removeIdsMut(model, compo);
@@ -137,7 +133,7 @@ const removeIdsMut = (model, entry) => {
     } else if (attr.type === 'component') {
       const [model] = strapi.db.getModelsByAttribute(attr);
       if (isArray(value)) {
-        value.forEach(compo => removeIdsMut(model, compo));
+        value.forEach((compo) => removeIdsMut(model, compo));
       } else {
         removeIdsMut(model, value);
       }
@@ -164,8 +160,8 @@ const copyNonLocalizedAttributes = (model, entry) => {
  * @param {object} model
  * @returns {string[]}
  */
-const getLocalizedAttributes = model => {
-  return getVisibleAttributes(model).filter(attributeName =>
+const getLocalizedAttributes = (model) => {
+  return getVisibleAttributes(model).filter((attributeName) =>
     isLocalizedAttribute(model, attributeName)
   );
 };

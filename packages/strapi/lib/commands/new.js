@@ -6,6 +6,6 @@
  * Generate a new Strapi application.
  */
 
-module.exports = function(...args) {
-  return require('strapi-generate-new')(...args);
+module.exports = function (...args) {
+  return require('@akemona-org/strapi-generate-new')(...args);
 };

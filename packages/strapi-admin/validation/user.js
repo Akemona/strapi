@@ -1,10 +1,10 @@
 'use strict';
 
 const { isUndefined } = require('lodash/fp');
-const { yup, formatYupErrors } = require('strapi-utils');
+const { yup, formatYupErrors } = require('@akemona-org/strapi-utils');
 const validators = require('./common-validators');
 
-const handleReject = error => Promise.reject(formatYupErrors(error));
+const handleReject = (error) => Promise.reject(formatYupErrors(error));
 
 const userCreationSchema = yup
   .object()
@@ -17,7 +17,7 @@ const userCreationSchema = yup
   })
   .noUnknown();
 
-const validateUserCreationInput = data => {
+const validateUserCreationInput = (data) => {
   return userCreationSchema.validate(data, { strict: true, abortEarly: false }).catch(handleReject);
 };
 
@@ -37,7 +37,7 @@ const profileUpdateSchema = yup
   })
   .noUnknown();
 
-const validateProfileUpdateInput = data => {
+const validateProfileUpdateInput = (data) => {
   return profileUpdateSchema
     .validate(data, { strict: true, abortEarly: false })
     .catch(handleReject);
@@ -56,22 +56,18 @@ const userUpdateSchema = yup
   })
   .noUnknown();
 
-const validateUserUpdateInput = data => {
+const validateUserUpdateInput = (data) => {
   return userUpdateSchema.validate(data, { strict: true, abortEarly: false }).catch(handleReject);
 };
 
 const usersDeleteSchema = yup
   .object()
   .shape({
-    ids: yup
-      .array()
-      .of(yup.strapiID())
-      .min(1)
-      .required(),
+    ids: yup.array().of(yup.strapiID()).min(1).required(),
   })
   .noUnknown();
 
-const validateUsersDeleteInput = async data => {
+const validateUsersDeleteInput = async (data) => {
   return usersDeleteSchema.validate(data, { strict: true, abortEarly: false }).catch(handleReject);
 };
 

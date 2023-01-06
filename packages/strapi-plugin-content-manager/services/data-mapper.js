@@ -2,8 +2,8 @@
 
 const { upperFirst, has, prop, pick, getOr } = require('lodash/fp');
 const pluralize = require('pluralize');
-const { contentTypes: contentTypesUtils } = require('strapi-utils');
-const { isMediaAttribute } = require('strapi-utils').contentTypes;
+const { contentTypes: contentTypesUtils } = require('@akemona-org/strapi-utils');
+const { isMediaAttribute } = require('@akemona-org/strapi-utils').contentTypes;
 
 const dtoFields = [
   'uid',
@@ -41,7 +41,7 @@ module.exports = {
   toDto: pick(dtoFields),
 };
 
-const formatContentTypeLabel = contentType => {
+const formatContentTypeLabel = (contentType) => {
   const name = prop('info.name', contentType) || contentType.modelName;
 
   try {
@@ -54,7 +54,7 @@ const formatContentTypeLabel = contentType => {
   }
 };
 
-const formatAttributes = model => {
+const formatAttributes = (model) => {
   const { getVisibleAttributes } = contentTypesUtils;
 
   // only get attributes that can be seen in the auto generated Edit view or List view
@@ -71,11 +71,11 @@ const formatAttribute = (key, attribute, { model }) => {
     return toMedia(attribute);
   }
 
-  const relation = (model.associations || []).find(assoc => assoc.alias === key);
+  const relation = (model.associations || []).find((assoc) => assoc.alias === key);
   return toRelation(attribute, relation);
 };
 
-const toMedia = attribute => {
+const toMedia = (attribute) => {
   return {
     type: 'media',
     multiple: attribute.collection ? true : false,
@@ -95,4 +95,4 @@ const toRelation = (attribute, relation) => {
   };
 };
 
-const isVisible = model => getOr(true, 'pluginOptions.content-manager.visible', model) === true;
+const isVisible = (model) => getOr(true, 'pluginOptions.content-manager.visible', model) === true;

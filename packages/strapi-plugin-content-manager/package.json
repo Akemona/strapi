@@ -1,5 +1,5 @@
 {
-  "name": "@akemona/strapi-plugin-content-manager",
+  "name": "@akemona-org/strapi-plugin-content-manager",
   "version": "3.6.11",
   "description": "A powerful UI to easily manage your data.",
   "strapi": {
@@ -45,8 +45,8 @@
     "redux-immutable": "^4.0.0",
     "reselect": "^4.0.0",
     "sanitize-html": "2.7.2",
-    "strapi-helper-plugin": "3.6.11",
-    "strapi-utils": "3.6.11",
+    "@akemona-org/strapi-helper-plugin": "3.6.11",
+    "@akemona-org/strapi-utils": "3.6.11",
     "yup": "^0.32.9"
   },
   "author": {

@@ -6,7 +6,7 @@ const fs = require('fs-extra');
 const chokidar = require('chokidar');
 const execa = require('execa');
 
-const { logger } = require('strapi-utils');
+const { logger } = require('@akemona-org/strapi-utils');
 const loadConfiguration = require('../core/app-configuration');
 const strapi = require('../index');
 
@@ -14,7 +14,7 @@ const strapi = require('../index');
  * `$ strapi develop`
  *
  */
-module.exports = async function({ build, watchAdmin, polling, browser }) {
+module.exports = async function ({ build, watchAdmin, polling, browser }) {
   const dir = process.cwd();
   const config = loadConfiguration(dir);
 
@@ -80,7 +80,7 @@ module.exports = async function({ build, watchAdmin, polling, browser }) {
         polling,
       });
 
-      process.on('message', message => {
+      process.on('message', (message) => {
         switch (message) {
           case 'isKilled':
             strapiInstance.server.destroy(() => {
@@ -140,15 +140,15 @@ function watchFileChanges({ dir, strapiInstance, watchIgnoreFiles, polling }) {
   });
 
   watcher
-    .on('add', path => {
+    .on('add', (path) => {
       strapiInstance.log.info(`File created: ${path}`);
       restart();
     })
-    .on('change', path => {
+    .on('change', (path) => {
       strapiInstance.log.info(`File changed: ${path}`);
       restart();
     })
-    .on('unlink', path => {
+    .on('unlink', (path) => {
       strapiInstance.log.info(`File deleted: ${path}`);
       restart();
     });

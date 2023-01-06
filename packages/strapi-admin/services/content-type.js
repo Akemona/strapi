@@ -2,7 +2,7 @@
 
 const _ = require('lodash');
 const { uniq, startsWith, intersection } = require('lodash/fp');
-const { contentTypes: contentTypesUtils } = require('strapi-utils');
+const { contentTypes: contentTypesUtils } = require('@akemona-org/strapi-utils');
 const { getService } = require('../utils');
 const actionDomain = require('../domain/action');
 const permissionDomain = require('../domain/permission');
@@ -124,7 +124,9 @@ const getPermissionsWithNestedFields = (
   { nestingLevel, restrictedSubjects = [] } = {}
 ) => {
   return actions.reduce((permissions, action) => {
-    const validSubjects = action.subjects.filter(subject => !restrictedSubjects.includes(subject));
+    const validSubjects = action.subjects.filter(
+      (subject) => !restrictedSubjects.includes(subject)
+    );
 
     // Create a Permission for each subject (content-type uid) within the action
     for (const subject of validSubjects) {
@@ -158,7 +160,7 @@ const getPermissionsWithNestedFields = (
 const cleanPermissionFields = (permissions, { nestingLevel } = {}) => {
   const { actionProvider } = getService('permission');
 
-  return permissions.map(permission => {
+  return permissions.map((permission) => {
     const {
       action: actionId,
       subject,
@@ -191,7 +193,7 @@ const cleanPermissionFields = (permissions, { nestingLevel } = {}) => {
     const badNestedFields = uniq([...intersection(fields, possibleFields), ...requiredFields]);
 
     const newFields = badNestedFields.filter(
-      field => !badNestedFields.some(startsWith(`${field}.`))
+      (field) => !badNestedFields.some(startsWith(`${field}.`))
     );
 
     return permissionDomain.setProperty('fields', newFields, permission);

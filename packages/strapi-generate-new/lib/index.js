@@ -5,7 +5,7 @@ const os = require('os');
 const crypto = require('crypto');
 const { machineIdSync } = require('node-machine-id');
 const uuid = require('uuid/v4');
-const sentry = require('@sentry/node');
+// const sentry = require('@sentry/node');
 
 const hasYarn = require('./utils/has-yarn');
 const checkRequirements = require('./utils/check-requirements');
@@ -13,9 +13,9 @@ const { trackError, captureException } = require('./utils/usage');
 const parseDatabaseArguments = require('./utils/parse-db-arguments');
 const generateNew = require('./generate-new');
 
-sentry.init({
-  dsn: 'https://841d2b2c9b4d4b43a4cde92794cb705a@sentry.io/1762059',
-});
+// sentry.init({
+//   dsn: 'https://841d2b2c9b4d4b43a4cde92794cb705a@sentry.io/1762059',
+// });
 
 module.exports = (projectDirectory, cliArguments) => {
   checkRequirements();
@@ -47,20 +47,20 @@ module.exports = (projectDirectory, cliArguments) => {
     useYarn: !useNpm && hasYarn(),
     installDependencies: true,
     strapiDependencies: [
-      'strapi',
-      'strapi-admin',
-      'strapi-utils',
-      'strapi-plugin-content-type-builder',
-      'strapi-plugin-content-manager',
-      'strapi-plugin-users-permissions',
-      'strapi-plugin-email',
-      'strapi-plugin-upload',
-      'strapi-plugin-i18n',
+      'akemona-strapi',
+      'akemona-strapi-admin',
+      'akemona-strapi-utils',
+      'akemona-strapi-plugin-content-type-builder',
+      'akemona-strapi-plugin-content-manager',
+      'akemona-strapi-plugin-users-permissions',
+      'akemona-strapi-plugin-email',
+      'akemona-strapi-plugin-upload',
+      'akemona-strapi-plugin-i18n',
     ],
     additionalsDependencies: {},
   };
 
-  sentry.configureScope(function(sentryScope) {
+  /* sentry.configureScope(function (sentryScope) {
     const tags = {
       os_type: os.type(),
       os_platform: os.platform(),
@@ -70,15 +70,15 @@ module.exports = (projectDirectory, cliArguments) => {
       docker: scope.docker,
     };
 
-    Object.keys(tags).forEach(tag => {
+    Object.keys(tags).forEach((tag) => {
       sentryScope.setTag(tag, tags[tag]);
     });
-  });
+  }); */
 
   parseDatabaseArguments({ scope, args: cliArguments });
   initCancelCatcher(scope);
 
-  return generateNew(scope).catch(error => {
+  return generateNew(scope).catch((error) => {
     console.error(error);
     return captureException(error).then(() => {
       return trackError({ scope, error }).then(() => {
@@ -96,7 +96,7 @@ function initCancelCatcher() {
       output: process.stdout,
     });
 
-    rl.on('SIGINT', function() {
+    rl.on('SIGINT', function () {
       process.emit('SIGINT');
     });
   }

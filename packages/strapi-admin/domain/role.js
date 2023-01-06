@@ -2,7 +2,7 @@
 
 const {
   contentTypes: { hasDraftAndPublish },
-} = require('strapi-utils');
+} = require('@akemona-org/strapi-utils');
 const {
   AUTHOR_CODE,
   PUBLISH_ACTION,

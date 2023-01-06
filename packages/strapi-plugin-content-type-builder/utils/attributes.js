@@ -1,11 +1,11 @@
 'use strict';
 
 const _ = require('lodash');
-const utils = require('strapi-utils');
-const { isMediaAttribute } = require('strapi-utils').contentTypes;
+const utils = require('@akemona-org/strapi-utils');
+const { isMediaAttribute } = require('@akemona-org/strapi-utils').contentTypes;
 
 const toUID = (name, plugin) => {
-  const modelUID = Object.keys(strapi.contentTypes).find(key => {
+  const modelUID = Object.keys(strapi.contentTypes).find((key) => {
     const ct = strapi.contentTypes[key];
     if (ct.modelName === name && ct.plugin === plugin) return true;
   });
@@ -13,24 +13,24 @@ const toUID = (name, plugin) => {
   return modelUID;
 };
 
-const fromUID = uid => {
+const fromUID = (uid) => {
   const contentType = strapi.contentTypes[uid];
   const { modelName, plugin } = contentType;
 
   return { modelName, plugin };
 };
 
-const hasComponent = model => {
-  const compoKeys = Object.keys(model.attributes || {}).filter(key => {
+const hasComponent = (model) => {
+  const compoKeys = Object.keys(model.attributes || {}).filter((key) => {
     return model.attributes[key].type === 'component';
   });
 
   return compoKeys.length > 0;
 };
 
-const isConfigurable = attribute => _.get(attribute, 'configurable', true);
+const isConfigurable = (attribute) => _.get(attribute, 'configurable', true);
 
-const isRelation = attribute =>
+const isRelation = (attribute) =>
   _.has(attribute, 'target') || _.has(attribute, 'model') || _.has(attribute, 'collection');
 
 /**
@@ -39,7 +39,7 @@ const isRelation = attribute =>
  * @param {Object} context - function context
  * @param {Object} context.component - the associated component
  */
-const formatAttributes = model => {
+const formatAttributes = (model) => {
   const { getVisibleAttributes } = utils.contentTypes;
 
   // only get attributes that can be seen in the CTB
@@ -60,7 +60,7 @@ const formatAttribute = (key, attribute, { model }) => {
   if (_.has(attribute, 'type')) return attribute;
 
   // format relations
-  const relation = (model.associations || []).find(assoc => assoc.alias === key);
+  const relation = (model.associations || []).find((assoc) => assoc.alias === key);
   const { plugin, configurable } = attribute;
   let targetEntity = attribute.model || attribute.collection;
 
@@ -96,7 +96,7 @@ const formatAttribute = (key, attribute, { model }) => {
 };
 
 // TODO: move to schema builder
-const replaceTemporaryUIDs = uidMap => schema => {
+const replaceTemporaryUIDs = (uidMap) => (schema) => {
   return {
     ...schema,
     attributes: Object.keys(schema.attributes).reduce((acc, key) => {
@@ -122,7 +122,7 @@ const replaceTemporaryUIDs = uidMap => schema => {
       ) {
         acc[key] = {
           ...attr,
-          components: attr.components.map(value => {
+          components: attr.components.map((value) => {
             if (_.has(uidMap, value)) return uidMap[value];
 
             if (!_.has(strapi.components, value)) {

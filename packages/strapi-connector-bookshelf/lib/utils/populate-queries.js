@@ -6,15 +6,17 @@ const {
     hasDraftAndPublish,
     constants: { DP_PUB_STATE_LIVE, DP_PUB_STATE_PREVIEW, PUBLISHED_AT_ATTRIBUTE },
   },
-} = require('strapi-utils');
+} = require('@akemona-org/strapi-utils');
 
 const optionsMap = {
   publicationState: {
     queries: {
-      [DP_PUB_STATE_LIVE]: ({ model, alias }) => qb => {
-        const { collectionName } = model;
-        qb.whereNotNull(`${alias || collectionName}.${PUBLISHED_AT_ATTRIBUTE}`);
-      },
+      [DP_PUB_STATE_LIVE]:
+        ({ model, alias }) =>
+        (qb) => {
+          const { collectionName } = model;
+          qb.whereNotNull(`${alias || collectionName}.${PUBLISHED_AT_ATTRIBUTE}`);
+        },
       [DP_PUB_STATE_PREVIEW]: () => null,
     },
     validate({ model, query: publicationState }) {
@@ -23,7 +25,7 @@ const optionsMap = {
   },
 };
 
-const isValidOption = optionName => _.has(optionsMap, optionName);
+const isValidOption = (optionName) => _.has(optionsMap, optionName);
 
 const validate = (optionName, params) => {
   const opt = _.get(optionsMap, optionName, {});
@@ -37,7 +39,7 @@ const resolveQuery = (option, params) => optionsMap[option].queries[params.query
  * @param options
  * @returns Array<Function>
  */
-const toQueries = options => {
+const toQueries = (options) => {
   return Object.keys(options).reduce((acc, key) => {
     const params = options[key];
 
@@ -57,7 +59,7 @@ const toQueries = options => {
  * @param qb
  */
 const runPopulateQueries = (queries, qb) => {
-  qb.where(qb => queries.forEach(query => query(qb)));
+  qb.where((qb) => queries.forEach((query) => query(qb)));
 };
 
 /**
@@ -68,7 +70,7 @@ const runPopulateQueries = (queries, qb) => {
  */
 const bindPopulateQueries = (paths, options) => {
   const queries = toQueries(options);
-  const qbFn = qb => {
+  const qbFn = (qb) => {
     runPopulateQueries(queries, qb);
   };
 
@@ -84,8 +86,8 @@ const bindPopulateQueries = (paths, options) => {
 const extendWithPopulateQueries = (fns, options) => {
   const queries = toQueries(options);
 
-  return qb => {
-    fns.filter(_.isFunction).forEach(fn => fn(qb));
+  return (qb) => {
+    fns.filter(_.isFunction).forEach((fn) => fn(qb));
     runPopulateQueries(queries, qb);
   };
 };

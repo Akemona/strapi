@@ -4,7 +4,7 @@
 const rimraf = require('rimraf');
 
 // Logger.
-const logger = require('strapi-utils').logger;
+const logger = require('@akemona-org/strapi-utils').logger;
 
 module.exports = (scope, success, error) => {
   const Redis = require(`ioredis`);
@@ -12,7 +12,7 @@ module.exports = (scope, success, error) => {
     port: scope.database.settings.port,
     host: scope.database.settings.host,
     password: scope.database.settings.password,
-    db: scope.database.settings.database
+    db: scope.database.settings.database,
   });
 
   redis.connect((err) => {
@@ -33,6 +33,5 @@ module.exports = (scope, success, error) => {
 
       success();
     });
-
   });
 };

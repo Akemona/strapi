@@ -1,6 +1,6 @@
 'use strict';
 
-const { yup, formatYupErrors } = require('strapi-utils');
+const { yup, formatYupErrors } = require('@akemona-org/strapi-utils');
 const { validateRoleUpdateInput } = require('../validation/role');
 const { validatedUpdatePermissionsInput } = require('../validation/permission');
 const { EDITOR_CODE, AUTHOR_CODE, SUPER_ADMIN_CODE } = require('../services/constants');
@@ -124,7 +124,7 @@ module.exports = {
     let permissionsToAssign;
 
     if ([EDITOR_CODE, AUTHOR_CODE].includes(role.code)) {
-      permissionsToAssign = input.permissions.map(permission => {
+      permissionsToAssign = input.permissions.map((permission) => {
         const action = actionProvider.get(permission.action);
 
         if (action.section !== 'contentTypes') {

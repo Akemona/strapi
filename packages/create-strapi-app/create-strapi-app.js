@@ -1,7 +1,7 @@
 'use strict';
 
 const commander = require('commander');
-const generateNewApp = require('strapi-generate-new');
+const generateNewApp = require('@akemona-org/strapi-generate-new');
 const promptUser = require('./utils/prompt-user');
 const packageJson = require('./package.json');
 
@@ -27,7 +27,7 @@ program
   .option('--dbforce', 'Overwrite database content if any')
   .option('--template <templateurl>', 'Specify a Strapi template')
   .description('create a new application')
-  .action(directory => {
+  .action((directory) => {
     initProject(directory, program);
   })
   .parse(process.argv);

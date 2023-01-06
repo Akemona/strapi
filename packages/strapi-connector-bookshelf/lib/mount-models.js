@@ -2,7 +2,10 @@
 const _ = require('lodash');
 const { singular } = require('pluralize');
 
-const { models: utilsModels, contentTypes: contentTypesUtils } = require('strapi-utils');
+const {
+  models: utilsModels,
+  contentTypes: contentTypesUtils,
+} = require('@akemona-org/strapi-utils');
 const relations = require('./relations');
 const buildDatabaseSchema = require('./build-database-schema');
 const {
@@ -13,15 +16,12 @@ const { createParser } = require('./parser');
 const { createFormatter } = require('./formatter');
 const populateFetch = require('./populate');
 
-const {
-  PUBLISHED_AT_ATTRIBUTE,
-  CREATED_BY_ATTRIBUTE,
-  UPDATED_BY_ATTRIBUTE,
-} = contentTypesUtils.constants;
+const { PUBLISHED_AT_ATTRIBUTE, CREATED_BY_ATTRIBUTE, UPDATED_BY_ATTRIBUTE } =
+  contentTypesUtils.constants;
 
 const PIVOT_PREFIX = '_pivot_';
 
-const getDatabaseName = connection => {
+const getDatabaseName = (connection) => {
   const dbName = _.get(connection.settings, 'database');
   const dbSchema = _.get(connection.settings, 'schema', 'public');
   switch (_.get(connection.settings, 'client')) {
@@ -45,7 +45,7 @@ const isARelatedField = (morphAttrInfo, attr) => {
   return isMorph && sameModel && samePlugin;
 };
 
-const getRelatedFieldsOfMorphModel = morphAttrInfo => morphModel => {
+const getRelatedFieldsOfMorphModel = (morphAttrInfo) => (morphModel) => {
   const relatedFields = _.reduce(
     morphModel.attributes,
     (fields, attr, attrName) => {
@@ -61,7 +61,7 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
   const { GLOBALS, connection, ORM } = ctx;
 
   // Parse every authenticated model.
-  const updateModel = async model => {
+  const updateModel = async (model) => {
     const definition = models[model];
 
     if (!definition.uid.startsWith('strapi::') && definition.modelType !== 'component') {
@@ -138,12 +138,12 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
       definition.options
     );
 
-    const componentAttributes = Object.keys(definition.attributes).filter(key =>
+    const componentAttributes = Object.keys(definition.attributes).filter((key) =>
       ['component', 'dynamiczone'].includes(definition.attributes[key].type)
     );
 
     if (_.isString(_.get(connection, 'options.pivot_prefix'))) {
-      loadedModel.toJSON = function(options = {}) {
+      loadedModel.toJSON = function (options = {}) {
         const { shallow = false, omitPivot = false } = options;
         const attributes = this.serialize(options);
 
@@ -151,7 +151,7 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
           const pivot = this.pivot && !omitPivot && this.pivot.attributes;
 
           // Remove pivot attributes with prefix.
-          _.keys(pivot).forEach(key => delete attributes[`${PIVOT_PREFIX}${key}`]);
+          _.keys(pivot).forEach((key) => delete attributes[`${PIVOT_PREFIX}${key}`]);
 
           // Add pivot attributes without prefix.
           const pivotAttributes = _.mapKeys(
@@ -175,7 +175,7 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
 
     // Add every relationships to the loaded model for Bookshelf.
     // Basic attributes don't need this-- only relations.
-    Object.keys(definition.attributes).forEach(name => {
+    Object.keys(definition.attributes).forEach((name) => {
       const details = definition.attributes[name];
       if (details.type !== undefined) {
         return;
@@ -205,7 +205,7 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
             ? strapi.plugins[details.plugin].models[details.model]
             : strapi.models[details.model];
 
-          const FK = _.findKey(target.attributes, details => {
+          const FK = _.findKey(target.attributes, (details) => {
             if (
               _.has(details, 'model') &&
               details.model === model &&
@@ -218,7 +218,7 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
 
           const columnName = _.get(target.attributes, [FK, 'columnName'], FK);
 
-          loadedModel[name] = function() {
+          loadedModel[name] = function () {
             return this.hasOne(GLOBALS[globalId], columnName);
           };
           break;
@@ -246,13 +246,13 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
           // Set this info to be able to see if this field is a real database's field.
           details.isVirtual = true;
 
-          loadedModel[name] = function() {
+          loadedModel[name] = function () {
             return this.hasMany(GLOBALS[globalId], columnName);
           };
           break;
         }
         case 'belongsTo': {
-          loadedModel[name] = function() {
+          loadedModel[name] = function () {
             return this.belongsTo(GLOBALS[globalId], _.get(details, 'columnName', name));
           };
           break;
@@ -280,7 +280,7 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
               details.attribute = `related_${details.attribute}`;
             }
 
-            loadedModel[name] = function() {
+            loadedModel[name] = function () {
               const targetBookshelfModel = GLOBALS[globalId];
               let collection = this.belongsToMany(
                 targetBookshelfModel,
@@ -316,7 +316,7 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
               relationship.attribute = singular(details.via);
             }
 
-            loadedModel[name] = function() {
+            loadedModel[name] = function () {
               const targetBookshelfModel = GLOBALS[globalId];
 
               const foreignKey = `${relationship.attribute}_${relationship.column}`;
@@ -347,12 +347,12 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
           const globalId = `${model.collectionName}_morph`;
           const filter = _.get(model, ['attributes', details.via, 'filter'], 'field');
 
-          loadedModel[name] = function() {
+          loadedModel[name] = function () {
             return this.morphOne(
               GLOBALS[globalId],
               details.via,
               `${definition.collectionName}`
-            ).query(qb => {
+            ).query((qb) => {
               qb.where(filter, name);
             });
           };
@@ -366,12 +366,12 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
           const globalId = `${collection.collectionName}_morph`;
           const filter = _.get(model, ['attributes', details.via, 'filter'], 'field');
 
-          loadedModel[name] = function() {
+          loadedModel[name] = function () {
             return this.morphMany(
               GLOBALS[globalId],
               details.via,
               `${definition.collectionName}`
-            ).query(qb => {
+            ).query((qb) => {
               qb.where(filter, name).orderBy('order');
             });
           };
@@ -393,16 +393,16 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
           const options = {
             requireFetch: false,
             tableName: `${definition.collectionName}_morph`,
-            [definition.collectionName]: function() {
+            [definition.collectionName]: function () {
               return this.belongsTo(
                 GLOBALS[definition.globalId],
                 `${definition.collectionName}_id`
               );
             },
-            related: function() {
+            related: function () {
               return this.morphTo(
                 name,
-                ...association.related.map(morphModel => [
+                ...association.related.map((morphModel) => [
                   GLOBALS[morphModel.globalId],
                   morphModel.collectionName,
                 ])
@@ -417,10 +417,10 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
 
           // Hack Bookshelf to create a many-to-many polymorphic association.
           // Upload has many Upload_morph that morph to different model.
-          const populateFn = qb => {
-            qb.where(qb => {
+          const populateFn = (qb) => {
+            qb.where((qb) => {
               for (const modelAndFields of morphModelsAndFields) {
-                qb.orWhere(qb => {
+                qb.orWhere((qb) => {
                   qb.where({
                     [`${morphAttrInfo.name}_type`]: modelAndFields.collectionName,
                   }).whereIn('field', modelAndFields.relatedFields);
@@ -429,7 +429,7 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
             });
           };
 
-          loadedModel[name] = function() {
+          loadedModel[name] = function () {
             if (verbose === 'belongsToMorph') {
               return this.hasOne(
                 GLOBALS[options.tableName],
@@ -457,7 +457,7 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
     try {
       // External function to map key that has been updated with `columnName`
       const mapper = (params = {}) => {
-        Object.keys(params).map(key => {
+        Object.keys(params).map((key) => {
           const attr = definition.attributes[key] || {};
 
           params[key] = parseValue(attr.type, params[key]);
@@ -472,15 +472,15 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
 
       // Extract association except polymorphic.
       const associations = definition.associations.filter(
-        association => association.nature.toLowerCase().indexOf('morph') === -1
+        (association) => association.nature.toLowerCase().indexOf('morph') === -1
       );
       // Extract polymorphic association.
       const polymorphicAssociations = definition.associations.filter(
-        association => association.nature.toLowerCase().indexOf('morph') !== -1
+        (association) => association.nature.toLowerCase().indexOf('morph') !== -1
       );
 
       // Update serialize to reformat data for polymorphic associations.
-      loadedModel.serialize = function(options) {
+      loadedModel.serialize = function (options) {
         const attrs = _.clone(this.attributes);
 
         if (options && options.shallow) {
@@ -489,7 +489,7 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
 
         const relations = this.relations;
 
-        componentAttributes.forEach(key => {
+        componentAttributes.forEach((key) => {
           if (!_.has(relations, key)) return;
 
           const attr = definition.attributes[key];
@@ -499,16 +499,16 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
             case 'component': {
               const { repeatable } = attr;
 
-              const components = relations[key].toJSON().map(el => el.component);
+              const components = relations[key].toJSON().map((el) => el.component);
 
               attrs[key] = repeatable === true ? components : _.first(components) || null;
 
               break;
             }
             case 'dynamiczone': {
-              attrs[key] = relations[key].toJSON().map(el => {
+              attrs[key] = relations[key].toJSON().map((el) => {
                 const componentKey = Object.keys(strapi.components).find(
-                  key => strapi.components[key].collectionName === el.component_type
+                  (key) => strapi.components[key].collectionName === el.component_type
                 );
 
                 return {
@@ -525,7 +525,7 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
           }
         });
 
-        polymorphicAssociations.map(association => {
+        polymorphicAssociations.map((association) => {
           // Retrieve relation Bookshelf object.
           const relation = relations[association.alias];
 
@@ -546,7 +546,7 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
                 break;
               case 'manyToManyMorph':
                 attrs[association.alias] = attrs[association.alias].map(
-                  rel => rel[model.collectionName]
+                  (rel) => rel[model.collectionName]
                 );
                 break;
               case 'oneMorphToOne': {
@@ -569,7 +569,7 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
               }
               case 'manyMorphToOne':
               case 'manyMorphToMany':
-                attrs[association.alias] = attrs[association.alias].map(obj => {
+                attrs[association.alias] = attrs[association.alias].map((obj) => {
                   const contentType = strapi.db.getModelByCollectionName(
                     obj[`${association.alias}_type`]
                   );
@@ -585,7 +585,7 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
           }
         });
 
-        associations.map(association => {
+        associations.map((association) => {
           const relation = relations[association.alias];
 
           if (relation) {
@@ -594,7 +594,7 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
 
             if (_.isArray(association.populate)) {
               const { alias, populate } = association;
-              const pickPopulate = entry => _.pick(entry, populate);
+              const pickPopulate = (entry) => _.pick(entry, populate);
 
               attrs[alias] = _.isArray(attrs[alias])
                 ? _.map(attrs[alias], pickPopulate)
@@ -607,7 +607,7 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
       };
 
       // Initialize lifecycle callbacks.
-      loadedModel.initialize = function() {
+      loadedModel.initialize = function () {
         // Load bookshelf plugin arguments from model options
         this.constructor.__super__.initialize.apply(this, arguments);
 
@@ -621,7 +621,7 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
 
         const formatValue = createFormatter(definition.client);
         function formatEntry(entry) {
-          Object.keys(entry.attributes).forEach(key => {
+          Object.keys(entry.attributes).forEach((key) => {
             if (key.startsWith('_strapi_tmp_')) {
               delete entry.attributes[key];
               return;
@@ -631,9 +631,9 @@ module.exports = async ({ models, target }, ctx, { selfFinalize = false } = {}) 
           });
         }
 
-        this.on('saved fetched fetched:collection', instance => {
+        this.on('saved fetched fetched:collection', (instance) => {
           if (Array.isArray(instance.models)) {
-            instance.models.forEach(entry => formatEntry(entry));
+            instance.models.forEach((entry) => formatEntry(entry));
           } else {
             formatEntry(instance);
           }

@@ -1,5 +1,5 @@
 {
-  "name": "@akemona/strapi-provider-upload-aws-s3",
+  "name": "@akemona-org/strapi-provider-upload-aws-s3",
   "version": "3.6.11",
   "description": "AWS S3 provider for strapi upload",
   "homepage": "https://strapi.akemona.com",

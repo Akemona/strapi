@@ -12,7 +12,7 @@ var chalk = require('chalk');
 var spawn = require('cross-spawn');
 var opn = require('opn');
 const fetch = require('node-fetch');
-const { getAbsoluteAdminUrl } = require('strapi-utils');
+const { getAbsoluteAdminUrl } = require('@akemona-org/strapi-utils');
 
 // https://github.com/sindresorhus/opn#app
 var OSX_CHROME = 'google chrome';
@@ -47,7 +47,7 @@ function executeNodeScript(scriptPath, url) {
   const child = spawn('node', [scriptPath, ...extraArgs, url], {
     stdio: 'inherit',
   });
-  child.on('close', code => {
+  child.on('close', (code) => {
     if (code !== 0) {
       console.log();
       console.log(chalk.red('The script specified as BROWSER environment variable failed.'));

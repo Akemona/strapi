@@ -1,5 +1,5 @@
 {
-  "name": "@akemona/strapi-admin",
+  "name": "@akemona-org/strapi-admin",
   "version": "3.6.11",
   "description": "Strapi Admin",
   "repository": {
@@ -101,8 +101,8 @@
     "sanitize.css": "^4.1.0",
     "semver": "7.3.5",
     "sift": "13.5.0",
-    "strapi-helper-plugin": "3.6.11",
-    "strapi-utils": "3.6.11",
+    "@akemona-org/strapi-helper-plugin": "3.6.11",
+    "@akemona-org/strapi-utils": "3.6.11",
     "style-loader": "^0.23.1",
     "styled-components": "^5.2.3",
     "terser-webpack-plugin": "^1.2.3",

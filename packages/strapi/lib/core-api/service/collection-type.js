@@ -5,9 +5,9 @@ const { propOr } = require('lodash/fp');
 const {
   hasDraftAndPublish,
   constants: { PUBLISHED_AT_ATTRIBUTE },
-} = require('strapi-utils').contentTypes;
+} = require('@akemona-org/strapi-utils').contentTypes;
 
-const setPublishedAt = data => {
+const setPublishedAt = (data) => {
   data[PUBLISHED_AT_ATTRIBUTE] = propOr(new Date(), PUBLISHED_AT_ATTRIBUTE, data);
 };
 

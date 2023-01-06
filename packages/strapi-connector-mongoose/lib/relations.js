@@ -11,14 +11,14 @@ const mongoose = require('mongoose');
 // Utils
 const {
   models: { getValuePrimaryKey },
-} = require('strapi-utils');
+} = require('@akemona-org/strapi-utils');
 
 const transformToArrayID = (array, pk) => {
   if (_.isArray(array)) {
     return array
-      .map(value => value && (getValuePrimaryKey(value, pk) || value))
-      .filter(n => n)
-      .map(val => _.toString(val));
+      .map((value) => value && (getValuePrimaryKey(value, pk) || value))
+      .filter((n) => n)
+      .map((val) => _.toString(val));
   }
 
   return transformToArrayID([array]);
@@ -85,7 +85,7 @@ const removeRelationMorph = async (model, params, { session = null } = {}) => {
 module.exports = {
   async update(params, { session = null } = {}) {
     const relationUpdates = [];
-    const populate = this.associations.map(x => x.alias);
+    const populate = this.associations.map((x) => x.alias);
     const primaryKeyValue = getValuePrimaryKey(params, this.primaryKey);
 
     const entry = await this.findOne({ [this.primaryKey]: primaryKeyValue })
@@ -98,7 +98,7 @@ module.exports = {
       const currentValue = entry[attribute];
       const newValue = params.values[attribute];
 
-      const association = this.associations.find(x => x.alias === attribute);
+      const association = this.associations.find((x) => x.alias === attribute);
 
       const details = this._attributes[attribute];
 
@@ -162,7 +162,7 @@ module.exports = {
               {
                 [assocModel.primaryKey]: {
                   $in: toRemove.map(
-                    val => new mongoose.Types.ObjectId(val[assocModel.primaryKey] || val)
+                    (val) => new mongoose.Types.ObjectId(val[assocModel.primaryKey] || val)
                   ),
                 },
               },
@@ -174,7 +174,7 @@ module.exports = {
                 {
                   [assocModel.primaryKey]: {
                     $in: newValue.map(
-                      val => new mongoose.Types.ObjectId(val[assocModel.primaryKey] || val)
+                      (val) => new mongoose.Types.ObjectId(val[assocModel.primaryKey] || val)
                     ),
                   },
                 },
@@ -195,7 +195,7 @@ module.exports = {
             return _.set(
               acc,
               attribute,
-              newValue ? newValue.map(val => val[assocModel.primaryKey] || val) : newValue
+              newValue ? newValue.map((val) => val[assocModel.primaryKey] || val) : newValue
             );
           }
 
@@ -204,7 +204,7 @@ module.exports = {
               {
                 [assocModel.primaryKey]: {
                   $in: currentValue.map(
-                    val => new mongoose.Types.ObjectId(val[assocModel.primaryKey] || val)
+                    (val) => new mongoose.Types.ObjectId(val[assocModel.primaryKey] || val)
                   ),
                 },
               },
@@ -221,7 +221,7 @@ module.exports = {
                   [assocModel.primaryKey]: {
                     $in: newValue
                       ? newValue.map(
-                          val => new mongoose.Types.ObjectId(val[assocModel.primaryKey] || val)
+                          (val) => new mongoose.Types.ObjectId(val[assocModel.primaryKey] || val)
                         )
                       : newValue,
                   },
@@ -239,7 +239,7 @@ module.exports = {
         // media -> model
         case 'manyMorphToMany':
         case 'manyMorphToOne': {
-          newValue.forEach(obj => {
+          newValue.forEach((obj) => {
             const refModel = strapi.db.getModel(obj.ref, obj.source);
 
             const createRelation = () => {
@@ -258,7 +258,7 @@ module.exports = {
             };
 
             // Clear relations to refModel
-            const reverseAssoc = refModel.associations.find(assoc => assoc.alias === obj.field);
+            const reverseAssoc = refModel.associations.find((assoc) => assoc.alias === obj.field);
             if (reverseAssoc && reverseAssoc.nature === 'oneToManyMorph') {
               relationUpdates.push(
                 removeRelationMorph(
@@ -324,7 +324,7 @@ module.exports = {
           }
 
           const addPromise = Promise.all(
-            toAdd.map(id => {
+            toAdd.map((id) => {
               return addRelationMorph(
                 model,
                 {
@@ -342,7 +342,7 @@ module.exports = {
 
           relationUpdates.push(addPromise);
 
-          toRemove.forEach(id => {
+          toRemove.forEach((id) => {
             relationUpdates.push(
               removeRelationMorph(
                 model,
@@ -390,7 +390,7 @@ module.exports = {
     const primaryKeyValue = entry[this.primaryKey];
 
     return Promise.all(
-      this.associations.map(async association => {
+      this.associations.map(async (association) => {
         const { nature, via, dominant } = association;
 
         // TODO: delete all the ref to the model
@@ -461,7 +461,7 @@ module.exports = {
 
             if (Array.isArray(entry[association.alias])) {
               return Promise.all(
-                entry[association.alias].map(val => {
+                entry[association.alias].map((val) => {
                   const targetModel = strapi.db.getModelByGlobalId(val.kind);
 
                   // ignore them ghost relations
@@ -469,7 +469,7 @@ module.exports = {
 
                   const field = val[association.filter];
                   const reverseAssoc = targetModel.associations.find(
-                    assoc => assoc.alias === field
+                    (assoc) => assoc.alias === field
                   );
 
                   if (reverseAssoc && reverseAssoc.nature === 'oneToManyMorph') {

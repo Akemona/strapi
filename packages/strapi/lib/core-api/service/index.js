@@ -6,7 +6,7 @@ const {
   isSingleType,
   getNonWritableAttributes,
   constants: { DP_PUB_STATE_LIVE },
-} = require('strapi-utils').contentTypes;
+} = require('@akemona-org/strapi-utils').contentTypes;
 
 const createSingleTypeService = require('./single-type');
 const createCollectionTypeService = require('./collection-type');
@@ -35,7 +35,7 @@ const getLimitConfigDefaults = () => ({
   maxLimit: _.toNumber(strapi.config.get('api.rest.maxLimit')) || null,
 });
 
-const getLimitParam = params => {
+const getLimitParam = (params) => {
   const { defaultLimit, maxLimit } = getLimitConfigDefaults();
 
   if (params._limit === undefined) {
@@ -70,7 +70,7 @@ const getFetchParams = (params = {}) => {
 const createUtils = ({ model }) => {
   return {
     // make sure to keep the call to getNonWritableAttributes dynamic
-    sanitizeInput: data => _.omit(data, getNonWritableAttributes(model)),
+    sanitizeInput: (data) => _.omit(data, getNonWritableAttributes(model)),
     getFetchParams,
   };
 };

@@ -2,7 +2,7 @@
 
 const _ = require('lodash');
 const pmap = require('p-map');
-const { contentTypes: contentTypesUtils } = require('strapi-utils');
+const { contentTypes: contentTypesUtils } = require('@akemona-org/strapi-utils');
 
 const { PUBLISHED_AT_ATTRIBUTE } = contentTypesUtils.constants;
 
@@ -18,16 +18,13 @@ const deleteDrafts = async ({ model }) => {
       findParams._id = { $gt: lastId };
     }
 
-    const batch = await model
-      .find(findParams, ['id'])
-      .sort({ _id: 1 })
-      .limit(BATCH_SIZE);
+    const batch = await model.find(findParams, ['id']).sort({ _id: 1 }).limit(BATCH_SIZE);
 
     if (batch.length > 0) {
       lastId = batch[batch.length - 1]._id;
     }
 
-    await pmap(batch, entry => model.deleteRelations(entry), {
+    await pmap(batch, (entry) => model.deleteRelations(entry), {
       concurrency: 100,
       stopOnError: true,
     });

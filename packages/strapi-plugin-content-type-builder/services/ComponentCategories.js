@@ -2,7 +2,7 @@
 
 const { join } = require('path');
 
-const { nameToSlug } = require('strapi-utils');
+const { nameToSlug } = require('@akemona-org/strapi-utils');
 const createBuilder = require('./schema-builder');
 
 /**
@@ -27,7 +27,7 @@ const editCategory = async (name, infos) => {
 
   const builder = createBuilder();
 
-  builder.components.forEach(component => {
+  builder.components.forEach((component) => {
     const oldUID = component.uid;
     const newUID = `${newName}.${component.modelName}`;
 
@@ -36,11 +36,11 @@ const editCategory = async (name, infos) => {
 
     component.setUID(newUID).setDir(join(componentsDir, newName));
 
-    builder.components.forEach(compo => {
+    builder.components.forEach((compo) => {
       compo.updateComponent(oldUID, newUID);
     });
 
-    builder.contentTypes.forEach(ct => {
+    builder.contentTypes.forEach((ct) => {
       ct.updateComponent(oldUID, newUID);
     });
   });
@@ -54,14 +54,14 @@ const editCategory = async (name, infos) => {
  * Deletes a category and its components
  * @param {string} name category name to delete
  */
-const deleteCategory = async name => {
+const deleteCategory = async (name) => {
   if (!categoryExists(name)) {
     throw strapi.errors.notFound('cateogry.notFound');
   }
 
   const builder = createBuilder();
 
-  builder.components.forEach(component => {
+  builder.components.forEach((component) => {
     if (component.category === name) {
       builder.deleteComponent(component.uid);
     }
@@ -74,9 +74,9 @@ const deleteCategory = async name => {
  * Checks if a category exists
  * @param {string} name category name to serach for
  */
-const categoryExists = name => {
+const categoryExists = (name) => {
   const matchingIndex = Object.values(strapi.components).findIndex(
-    component => component.category === name
+    (component) => component.category === name
   );
 
   return matchingIndex > -1;

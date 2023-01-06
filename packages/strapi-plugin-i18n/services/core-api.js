@@ -2,7 +2,7 @@
 
 const _ = require('lodash');
 const { has, prop, pick, reduce, map, keys, toPath } = require('lodash/fp');
-const { contentTypes, parseMultipartData, sanitizeEntity } = require('strapi-utils');
+const { contentTypes, parseMultipartData, sanitizeEntity } = require('@akemona-org/strapi-utils');
 
 const { getService } = require('../utils');
 
@@ -13,7 +13,7 @@ const { getContentTypeRoutePrefix, isSingleType, getWritableAttributes } = conte
  * @param {object} ctx - Koa request context
  * @returns {{ data: { [key: string]: any }, files: { [key: string]: any } }}
  */
-const parseRequest = ctx => {
+const parseRequest = (ctx) => {
   if (ctx.is('multipart')) {
     return parseMultipartData(ctx);
   } else {
@@ -26,7 +26,7 @@ const parseRequest = ctx => {
  * @param {object} entry
  * @returns {string[]}
  */
-const getAllLocales = entry => {
+const getAllLocales = (entry) => {
   return [entry.locale, ...map(prop('locale'), entry.localizations)];
 };
 
@@ -35,7 +35,7 @@ const getAllLocales = entry => {
  * @param {object} entry
  * @returns {any[]}
  */
-const getAllLocalizationsIds = entry => {
+const getAllLocalizationsIds = (entry) => {
   return [entry.id, ...map(prop('id'), entry.localizations)];
 };
 
@@ -47,14 +47,14 @@ const getAllLocalizationsIds = entry => {
  *    sanitizeInputFiles(files: object): object
  * }}
  */
-const createSanitizer = contentType => {
+const createSanitizer = (contentType) => {
   /**
    * Returns the writable attributes of a content type in the localization routes
    * @returns {string[]}
    */
   const getAllowedAttributes = () => {
     return getWritableAttributes(contentType).filter(
-      attributeName => !['locale', 'localizations'].includes(attributeName)
+      (attributeName) => !['locale', 'localizations'].includes(attributeName)
     );
   };
 
@@ -63,7 +63,7 @@ const createSanitizer = contentType => {
    * @param {object} files - input files to sanitize
    * @returns {object}
    */
-  const sanitizeInputFiles = files => {
+  const sanitizeInputFiles = (files) => {
     const allowedFields = getAllowedAttributes();
     return reduce(
       (acc, keyPath) => {
@@ -84,7 +84,7 @@ const createSanitizer = contentType => {
    * @param {object} data - input data to sanitize
    * @returns {object}
    */
-  const sanitizeInput = data => {
+  const sanitizeInput = (data) => {
     return pick(getAllowedAttributes(), data);
   };
 
@@ -96,7 +96,7 @@ const createSanitizer = contentType => {
  * @param {object} contentType
  * @returns {(object) => void}
  */
-const createLocalizationHandler = contentType => {
+const createLocalizationHandler = (contentType) => {
   const { copyNonLocalizedAttributes } = getService('content-types');
 
   const { sanitizeInput, sanitizeInputFiles } = createSanitizer(contentType);
@@ -141,7 +141,7 @@ const createLocalizationHandler = contentType => {
   };
 
   if (isSingleType(contentType)) {
-    return async function(ctx) {
+    return async function (ctx) {
       const entry = await strapi.query(contentType.uid).findOne();
 
       if (!entry) {
@@ -152,7 +152,7 @@ const createLocalizationHandler = contentType => {
     };
   }
 
-  return async function(ctx) {
+  return async function (ctx) {
     const { id: baseEntryId } = ctx.params;
 
     const entry = await strapi.query(contentType.uid).findOne({ id: baseEntryId });
@@ -170,7 +170,7 @@ const createLocalizationHandler = contentType => {
  * @param {object} contentType
  * @returns {{ method: string, path: string, handler: string, config: { policies: string[] }}}
  */
-const createLocalizationRoute = contentType => {
+const createLocalizationRoute = (contentType) => {
   const { modelName } = contentType;
 
   const routePrefix = getContentTypeRoutePrefix(contentType);
@@ -192,7 +192,7 @@ const createLocalizationRoute = contentType => {
  * Adds a route & an action to the core api controller of a content type to allow creating new localizations
  * @param {object} contentType
  */
-const addCreateLocalizationAction = contentType => {
+const addCreateLocalizationAction = (contentType) => {
   const { modelName, apiName } = contentType;
 
   const localizationRoute = createLocalizationRoute(contentType);
@@ -215,7 +215,7 @@ const mergeCustomizer = (dest, src) => {
  * Add a graphql schema to the plugin's global graphl schema to be processed
  * @param {object} schema
  */
-const addGraphqlSchema = schema => {
+const addGraphqlSchema = (schema) => {
   _.mergeWith(strapi.plugins.i18n.config.schema.graphql, schema, mergeCustomizer);
 };
 
@@ -223,7 +223,7 @@ const addGraphqlSchema = schema => {
  * Add localization mutation & filters to use with the graphql plugin
  * @param {object} contentType
  */
-const addGraphqlLocalizationAction = contentType => {
+const addGraphqlLocalizationAction = (contentType) => {
   const { globalId, modelName } = contentType;
 
   if (!strapi.plugins.graphql) {

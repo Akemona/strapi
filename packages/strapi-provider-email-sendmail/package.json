@@ -1,5 +1,5 @@
 {
-  "name": "@akemona/strapi-provider-email-sendmail",
+  "name": "@akemona-org/strapi-provider-email-sendmail",
   "version": "3.6.11",
   "description": "Sendmail provider for strapi email",
   "homepage": "https://strapi.akemona.com",
@@ -13,7 +13,7 @@
   "main": "./lib",
   "dependencies": {
     "sendmail": "^1.6.1",
-    "strapi-utils": "3.6.11"
+    "@akemona-org/strapi-utils": "3.6.11"
   },
   "strapi": {
     "isProvider": true

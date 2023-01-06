@@ -1,5 +1,5 @@
 {
-  "name": "@akemona/strapi-helper-plugin",
+  "name": "@akemona-org/strapi-helper-plugin",
   "version": "3.6.11",
   "description": "Helper for Strapi plugins development",
   "files": [

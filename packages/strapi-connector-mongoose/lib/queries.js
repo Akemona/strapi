@@ -6,8 +6,8 @@
 const _ = require('lodash');
 const { prop, omit } = require('lodash/fp');
 const pmap = require('p-map');
-const { convertRestQueryParams, buildQuery } = require('strapi-utils');
-const { contentTypes: contentTypesUtils } = require('strapi-utils');
+const { convertRestQueryParams, buildQuery } = require('@akemona-org/strapi-utils');
+const { contentTypes: contentTypesUtils } = require('@akemona-org/strapi-utils');
 const mongoose = require('mongoose');
 
 const populateQueries = require('./utils/populate-queries');
@@ -23,8 +23,8 @@ const getPK = (obj, model) => (_.has(obj, model.primaryKey) ? obj[model.primaryK
 const pickCountFilters = omit(['sort', 'limit', 'start']);
 
 module.exports = ({ model, strapi }) => {
-  const assocKeys = model.associations.map(ast => ast.alias);
-  const componentKeys = Object.keys(model.attributes).filter(key =>
+  const assocKeys = model.associations.map((ast) => ast.alias);
+  const componentKeys = Object.keys(model.attributes).filter((key) =>
     ['component', 'dynamiczone'].includes(model.attributes[key].type)
   );
   const hasDraftAndPublish = contentTypesUtils.hasDraftAndPublish(model);
@@ -33,8 +33,8 @@ module.exports = ({ model, strapi }) => {
 
   const defaultPopulate = (options = {}) =>
     model.associations
-      .filter(ast => ast.autoPopulate !== false)
-      .map(ast => {
+      .filter((ast) => ast.autoPopulate !== false)
+      .map((ast) => {
         const assocModel = strapi.db.getModelByAssoc(ast);
 
         const populateOptions = {
@@ -61,21 +61,23 @@ module.exports = ({ model, strapi }) => {
         return populate;
       });
 
-  const pickRelations = values => {
+  const pickRelations = (values) => {
     return _.pick(values, assocKeys);
   };
 
-  const omitExernalValues = values => {
+  const omitExernalValues = (values) => {
     return _.omit(values, excludedKeys);
   };
 
-  const wrapErrors = fn => async (...args) => {
-    try {
-      return await fn(...args);
-    } catch (error) {
-      return handleDatabaseError(error);
-    }
-  };
+  const wrapErrors =
+    (fn) =>
+    async (...args) => {
+      try {
+        return await fn(...args);
+      } catch (error) {
+        return handleDatabaseError(error);
+      }
+    };
 
   async function createComponents(entry, values, { isDraft, session = null } = {}) {
     if (componentKeys.length === 0) return;
@@ -101,12 +103,12 @@ module.exports = ({ model, strapi }) => {
 
         if (repeatable === true) {
           const components = await Promise.all(
-            componentValue.map(value => {
+            componentValue.map((value) => {
               return strapi.query(component).create(value, { session });
             })
           );
 
-          const componentsArr = components.map(componentEntry => ({
+          const componentsArr = components.map((componentEntry) => ({
             kind: componentModel.globalId,
             ref: componentEntry.id,
           }));
@@ -141,12 +143,12 @@ module.exports = ({ model, strapi }) => {
         const dynamiczoneValues = values[key];
 
         const dynamiczones = await Promise.all(
-          dynamiczoneValues.map(value => {
+          dynamiczoneValues.map((value) => {
             const component = value.__component;
             return strapi
               .query(component)
               .create(value, { session })
-              .then(entity => {
+              .then((entity) => {
                 return {
                   __component: value.__component,
                   entity,
@@ -209,9 +211,9 @@ module.exports = ({ model, strapi }) => {
           });
 
           const components = await Promise.all(
-            componentValue.map(value => updateOrCreateComponent({ componentUID, value }))
+            componentValue.map((value) => updateOrCreateComponent({ componentUID, value }))
           );
-          const componentsArr = components.map(component => ({
+          const componentsArr = components.map((component) => ({
             kind: componentModel.globalId,
             ref: component.id,
           }));
@@ -251,9 +253,9 @@ module.exports = ({ model, strapi }) => {
         });
 
         const dynamiczones = await Promise.all(
-          dynamiczoneValues.map(value => {
+          dynamiczoneValues.map((value) => {
             const componentUID = value.__component;
-            return updateOrCreateComponent({ componentUID, value }).then(entity => {
+            return updateOrCreateComponent({ componentUID, value }).then((entity) => {
               return {
                 componentUID,
                 entity,
@@ -294,15 +296,15 @@ module.exports = ({ model, strapi }) => {
 
     const allIds = []
       .concat(entry[key] || [])
-      .filter(el => el.ref)
-      .map(el => ({
+      .filter((el) => el.ref)
+      .map((el) => ({
         id: el.ref._id.toString(),
         componentUID: findComponentByGlobalId(el.kind).uid,
       }));
 
     // verify the provided ids are realted to this entity.
     idsToKeep.forEach(({ id, componentUID }) => {
-      if (!allIds.find(el => el.id === id && el.componentUID === componentUID)) {
+      if (!allIds.find((el) => el.id === id && el.componentUID === componentUID)) {
         const err = new Error(
           `Some of the provided components in ${key} are not related to the entity`
         );
@@ -312,7 +314,7 @@ module.exports = ({ model, strapi }) => {
     });
 
     const idsToDelete = allIds.reduce((acc, { id, componentUID }) => {
-      if (!idsToKeep.find(el => el.id === id && el.componentUID === componentUID)) {
+      if (!idsToKeep.find((el) => el.id === id && el.componentUID === componentUID)) {
         acc.push({
           id,
           componentUID,
@@ -333,7 +335,7 @@ module.exports = ({ model, strapi }) => {
       }, {});
 
       await Promise.all(
-        Object.keys(deleteMap).map(componentUID => {
+        Object.keys(deleteMap).map((componentUID) => {
           return strapi
             .query(componentUID)
             .delete({ [`${model.primaryKey}_in`]: deleteMap[componentUID] }, { session });
@@ -350,17 +352,17 @@ module.exports = ({ model, strapi }) => {
     const componentArr = Array.isArray(componentValue) ? componentValue : [componentValue];
 
     const idsToKeep = componentArr
-      .filter(val => hasPK(val, componentModel))
-      .map(val => getPK(val, componentModel));
+      .filter((val) => hasPK(val, componentModel))
+      .map((val) => getPK(val, componentModel));
 
     const allIds = []
       .concat(entry[key] || [])
-      .filter(el => el.ref)
-      .map(el => el.ref._id);
+      .filter((el) => el.ref)
+      .map((el) => el.ref._id);
 
     // verify the provided ids are related to this entity.
-    idsToKeep.forEach(id => {
-      if (allIds.findIndex(currentId => currentId.toString() === id.toString()) === -1) {
+    idsToKeep.forEach((id) => {
+      if (allIds.findIndex((currentId) => currentId.toString() === id.toString()) === -1) {
         const err = new Error(
           `Some of the provided components in ${key} are not related to the entity`
         );
@@ -393,7 +395,7 @@ module.exports = ({ model, strapi }) => {
         const componentModel = strapi.components[component];
 
         if (Array.isArray(entry[key]) && entry[key].length > 0) {
-          const idsToDelete = entry[key].map(el => el.ref);
+          const idsToDelete = entry[key].map((el) => el.ref);
           await strapi
             .query(componentModel.uid)
             .delete({ [`${model.primaryKey}_in`]: idsToDelete }, { session });
@@ -402,7 +404,7 @@ module.exports = ({ model, strapi }) => {
 
       if (type === 'dynamiczone') {
         if (Array.isArray(entry[key]) && entry[key].length > 0) {
-          const idsToDelete = entry[key].map(el => ({
+          const idsToDelete = entry[key].map((el) => ({
             componentUID: findComponentByGlobalId(el.kind).uid,
             id: el.ref,
           }));
@@ -418,7 +420,7 @@ module.exports = ({ model, strapi }) => {
           }, {});
 
           await Promise.all(
-            Object.keys(deleteMap).map(componentUID => {
+            Object.keys(deleteMap).map((componentUID) => {
               return strapi.query(componentUID).delete(
                 {
                   [`${model.primaryKey}_in`]: deleteMap[componentUID],
@@ -441,7 +443,7 @@ module.exports = ({ model, strapi }) => {
       filters,
       populate: populateOpt,
       session,
-    }).then(results => results.map(result => (result ? result.toObject() : null)));
+    }).then((results) => results.map((result) => (result ? result.toObject() : null)));
   }
 
   async function findOne(params, populate, { session = null } = {}) {
@@ -522,7 +524,7 @@ module.exports = ({ model, strapi }) => {
 
     if (returning) {
       const entries = await find(params, null, { session });
-      return pmap(entries, entry => deleteOne(entry[model.primaryKey], { session }), {
+      return pmap(entries, (entry) => deleteOne(entry[model.primaryKey], { session }), {
         concurrency: 100,
         stopOnError: true,
       });
@@ -533,7 +535,7 @@ module.exports = ({ model, strapi }) => {
     // eslint-disable-next-line no-constant-condition
     while (true) {
       const batch = await find(batchParams, null, { session });
-      await pmap(batch, entry => deleteOne(entry[model.primaryKey], { session }), {
+      await pmap(batch, (entry) => deleteOne(entry[model.primaryKey], { session }), {
         concurrency: 100,
         stopOnError: true,
       });
@@ -572,7 +574,7 @@ module.exports = ({ model, strapi }) => {
       searchParam: params._q,
       populate: populateOpt,
       session,
-    }).then(results => results.map(result => (result ? result.toObject() : null)));
+    }).then((results) => results.map((result) => (result ? result.toObject() : null)));
   }
 
   function countSearch(params, { session = null } = {}) {
@@ -588,7 +590,7 @@ module.exports = ({ model, strapi }) => {
   }
 
   async function fetchRelationCounters(attribute, entitiesIds = []) {
-    const assoc = model.associations.find(assoc => assoc.alias === attribute);
+    const assoc = model.associations.find((assoc) => assoc.alias === attribute);
 
     switch (prop('nature', assoc)) {
       case 'oneToMany': {

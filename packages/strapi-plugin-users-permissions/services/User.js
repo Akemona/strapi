@@ -9,7 +9,7 @@
 const crypto = require('crypto');
 const bcrypt = require('bcryptjs');
 
-const { sanitizeEntity, getAbsoluteServerUrl } = require('strapi-utils');
+const { sanitizeEntity, getAbsoluteServerUrl } = require('@akemona-org/strapi-utils');
 
 module.exports = {
   /**
@@ -133,7 +133,7 @@ module.exports = {
 
     const settings = await pluginStore
       .get({ key: 'email' })
-      .then(storeEmail => storeEmail['email_confirmation'].options);
+      .then((storeEmail) => storeEmail['email_confirmation'].options);
 
     const userInfo = sanitizeEntity(user, {
       model: strapi.query('user', 'users-permissions').model,

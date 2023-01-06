@@ -1,12 +1,12 @@
 'use strict';
 
-const { setCreatorFields, sanitizeEntity } = require('strapi-utils');
+const { setCreatorFields, sanitizeEntity } = require('@akemona-org/strapi-utils');
 const { pick } = require('lodash/fp');
 const { getService } = require('../utils');
 const { validateCreateLocaleInput, validateUpdateLocaleInput } = require('../validation/locales');
 const { formatLocale } = require('../domain/locale');
 
-const sanitizeLocale = locale => {
+const sanitizeLocale = (locale) => {
   const model = strapi.getModel('locale', 'i18n');
 
   return sanitizeEntity(locale, { model });

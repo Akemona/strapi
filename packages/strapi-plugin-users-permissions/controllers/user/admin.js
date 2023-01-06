@@ -2,11 +2,11 @@
 
 const _ = require('lodash');
 
-const { contentTypes: contentTypesUtils } = require('strapi-utils');
+const { contentTypes: contentTypesUtils } = require('@akemona-org/strapi-utils');
 
 const { UPDATED_BY_ATTRIBUTE, CREATED_BY_ATTRIBUTE } = contentTypesUtils.constants;
 
-const formatError = error => [
+const formatError = (error) => [
   { messages: [{ id: error.id, message: error.message, field: error.field }] },
 ];
 
