@@ -4,7 +4,7 @@ const isPolymorphic = ({ assoc }) => {
   return assoc.nature.toLowerCase().indexOf('morph') !== -1;
 };
 
-const getManyRelations = definition => {
+const getManyRelations = (definition) => {
   return definition.associations.filter(({ nature }) => ['manyToMany', 'manyWay'].includes(nature));
 };
 

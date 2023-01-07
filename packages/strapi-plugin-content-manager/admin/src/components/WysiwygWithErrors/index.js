@@ -65,7 +65,7 @@ class WysiwygWithErrors extends React.Component {
                 error={hasError}
                 name={name}
                 onBlur={isFunction(handleBlur) ? handleBlur : onBlur}
-                onChange={e => {
+                onChange={(e) => {
                   if (!canCheck) {
                     dispatch({
                       type: 'SET_CHECK',

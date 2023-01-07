@@ -8,6 +8,7 @@
 const path = require('path');
 
 // Local dependencies.
+// eslint-disable-next-line import/extensions
 const routesJSON = require('../json/routes.json.js');
 
 /**

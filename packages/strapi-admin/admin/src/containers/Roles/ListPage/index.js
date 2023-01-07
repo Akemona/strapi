@@ -38,20 +38,20 @@ const RoleListPage = () => {
   }, []);
 
   const handleGoTo = useCallback(
-    id => {
+    (id) => {
       push(`${settingsBaseURL}/roles/${id}`);
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [settingsBaseURL]
   );
 
-  const handleToggle = useCallback(e => {
+  const handleToggle = useCallback((e) => {
     e.preventDefault();
     e.stopPropagation();
-    setIsOpen(prev => !prev);
+    setIsOpen((prev) => !prev);
   }, []);
 
-  const handleToggleModalForCreatingRole = useCallback(e => {
+  const handleToggleModalForCreatingRole = useCallback((e) => {
     e.preventDefault();
     e.stopPropagation();
     emitEvent('didShowRBACUpgradeModal');
@@ -105,7 +105,7 @@ const RoleListPage = () => {
           )}
           items={results}
           isLoading={isLoading}
-          customRowComponent={role => (
+          customRowComponent={(role) => (
             <RoleRow
               onClick={() => handleGoTo(role.id)}
               canUpdate={canUpdate}

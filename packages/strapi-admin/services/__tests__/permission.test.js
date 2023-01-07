@@ -37,7 +37,7 @@ describe('Permission Service', () => {
 
   describe('Find User Permissions', () => {
     test('Find calls the right db query', async () => {
-      const find = jest.fn(({ role_in }) => role_in.map(roleId => ({ role: roleId })));
+      const find = jest.fn(({ role_in }) => role_in.map((roleId) => ({ role: roleId })));
 
       global.strapi = merge(global.strapi, {
         query() {
@@ -48,11 +48,11 @@ describe('Permission Service', () => {
       const rolesId = [1, 2];
 
       const res = await permissionService.findUserPermissions({
-        roles: rolesId.map(id => ({ id })),
+        roles: rolesId.map((id) => ({ id })),
       });
 
       expect(find).toHaveBeenCalledWith({ role_in: rolesId, _limit: -1 }, []);
-      expect(res.map(permission => permission.role)).toStrictEqual(rolesId);
+      expect(res.map((permission) => permission.role)).toStrictEqual(rolesId);
     });
 
     test('Returns default result when no roles provided', async () => {
@@ -64,7 +64,7 @@ describe('Permission Service', () => {
 
   describe('Sanitize Permission', () => {
     test('Removes unwanted properties', () => {
-      const isValidCondition = jest.fn(condition => ['cond'].includes(condition));
+      const isValidCondition = jest.fn((condition) => ['cond'].includes(condition));
 
       global.strapi = merge(global.strapi, {
         admin: { services: { condition: { isValidCondition } } },
@@ -131,7 +131,7 @@ describe('Permission Service', () => {
         permsInDb[2],
         { ...permsInDb[4], properties: { fields: ['name', 'galaxy'] } },
         { ...permsInDb[5], properties: { fields: ['name'] } },
-      ].map(p => ({ ...p, conditions: [] }));
+      ].map((p) => ({ ...p, conditions: [] }));
 
       const findPage = jest.fn(() =>
         Promise.resolve({
@@ -153,8 +153,8 @@ describe('Permission Service', () => {
             'content-type': { cleanPermissionFields },
             permission: {
               actionProvider: {
-                has: jest.fn(id => registeredPerms.has(id)),
-                get: jest.fn(id => registeredPerms.get(id)),
+                has: jest.fn((id) => registeredPerms.has(id)),
+                get: jest.fn((id) => registeredPerms.get(id)),
               },
             },
           },

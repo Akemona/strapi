@@ -44,9 +44,9 @@ const checkDuplicatedTableNames = ({ strapi }) => {
     });
   });
 
-  modelsWithInfo.forEach(modelA => {
+  modelsWithInfo.forEach((modelA) => {
     const similarModelFound = modelsWithInfo.find(
-      modelB =>
+      (modelB) =>
         modelB.model.collectionName === modelA.model.collectionName &&
         modelB.model.uid !== modelA.model.uid
     );

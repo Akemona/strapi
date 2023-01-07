@@ -18,7 +18,7 @@ const getGeneralLinks = async (
 
   const settingsLinkPermissions = getSettingsMenuLinksPermissions(settingsMenu);
   const settingsLinkIndex = authorizedGeneralSectionLinks.findIndex(
-    obj => obj.destination === SETTINGS_BASE_URL
+    (obj) => obj.destination === SETTINGS_BASE_URL
   );
 
   if (settingsLinkIndex === -1) {

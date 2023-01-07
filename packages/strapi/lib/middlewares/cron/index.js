@@ -12,7 +12,7 @@ const cron = require('node-schedule');
  * CRON hook
  */
 
-module.exports = strapi => {
+module.exports = (strapi) => {
   return {
     /**
      * Initialize the hook
@@ -20,7 +20,7 @@ module.exports = strapi => {
 
     initialize() {
       if (strapi.config.get('server.cron.enabled', false) === true) {
-        _.forEach(_.keys(strapi.config.get('functions.cron', {})), taskExpression => {
+        _.forEach(_.keys(strapi.config.get('functions.cron', {})), (taskExpression) => {
           const taskValue = strapi.config.functions.cron[taskExpression];
 
           if (_.isFunction(taskValue)) {

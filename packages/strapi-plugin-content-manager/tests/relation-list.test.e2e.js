@@ -62,28 +62,30 @@ const shops = [
   },
 ];
 
-const products = ({ withPublished = false }) => ({ shop }) => {
-  const shops = [shop[0].id];
+const products =
+  ({ withPublished = false }) =>
+  ({ shop }) => {
+    const shops = [shop[0].id];
 
-  const entries = [
-    {
-      name: 'tomato',
-      shops,
-      published_at: new Date(),
-    },
-    {
-      name: 'apple',
-      shops,
-      published_at: null,
-    },
-  ];
+    const entries = [
+      {
+        name: 'tomato',
+        shops,
+        published_at: new Date(),
+      },
+      {
+        name: 'apple',
+        shops,
+        published_at: null,
+      },
+    ];
 
-  if (withPublished) {
-    return entries;
-  }
+    if (withPublished) {
+      return entries;
+    }
 
-  return entries.map(omit('published_at'));
-};
+    return entries.map(omit('published_at'));
+  };
 
 describe('Relation-list route', () => {
   describe('without draftAndPublish', () => {
@@ -164,8 +166,8 @@ describe('Relation-list route', () => {
 
       expect(res.body).toHaveLength(data.products.length);
 
-      const tomatoProductRes = res.body.find(p => p.name === 'tomato');
-      const appleProductRes = res.body.find(p => p.name === 'apple');
+      const tomatoProductRes = res.body.find((p) => p.name === 'tomato');
+      const appleProductRes = res.body.find((p) => p.name === 'apple');
 
       expect(tomatoProductRes).toMatchObject(pick(['_id', 'id', 'name'], data.products[0]));
       expect(tomatoProductRes.published_at).toBeISODate();

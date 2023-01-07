@@ -20,7 +20,7 @@ export class LocaleToggle extends React.Component {
   // eslint-disable-line
   state = { isOpen: false };
 
-  toggle = () => this.setState(prevState => ({ isOpen: !prevState.isOpen }));
+  toggle = () => this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
 
   render() {
     const {
@@ -37,7 +37,7 @@ export class LocaleToggle extends React.Component {
           </DropdownToggle>
 
           <DropdownMenu className={style}>
-            {languages.map(language => (
+            {languages.map((language) => (
               <DropdownItem
                 key={language}
                 onClick={() => this.props.changeLocale(language)}

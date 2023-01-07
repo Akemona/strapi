@@ -23,7 +23,7 @@ const InputModal = ({
   selectedFiles,
   step,
 }) => {
-  const singularTypes = allowedTypes.map(type => type.substring(0, type.length - 1));
+  const singularTypes = allowedTypes.map((type) => type.substring(0, type.length - 1));
   const permissions = React.useMemo(() => omit(pluginPermissions, 'main'), []);
   const { allowedActions, isLoading } = useUserPermissions(permissions);
 

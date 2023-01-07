@@ -15,7 +15,7 @@ const createComponentModels = async ({ model, definition, ORM, GLOBALS }) => {
     const joinColumn = `${pluralize.singular(collectionName)}_${primaryKey}`;
 
     const relatedComponents = componentAttributes
-      .map(key => {
+      .map((key) => {
         const attr = definition.attributes[key];
         const { type } = attr;
 
@@ -26,7 +26,7 @@ const createComponentModels = async ({ model, definition, ORM, GLOBALS }) => {
           }
           case 'dynamiczone': {
             const { components } = attr;
-            return components.map(component => strapi.components[component]);
+            return components.map((component) => strapi.components[component]);
           }
           default: {
             throw new Error(`Invalid type for attribute ${key}: ${type}`);
@@ -41,7 +41,7 @@ const createComponentModels = async ({ model, definition, ORM, GLOBALS }) => {
       component() {
         return this.morphTo(
           'component',
-          ...relatedComponents.map(component => GLOBALS[component.globalId])
+          ...relatedComponents.map((component) => GLOBALS[component.globalId])
         );
       },
     });
@@ -49,13 +49,13 @@ const createComponentModels = async ({ model, definition, ORM, GLOBALS }) => {
     joinModel.foreignKey = joinColumn;
     definition.componentsJoinModel = joinModel;
 
-    componentAttributes.forEach(name => {
+    componentAttributes.forEach((name) => {
       model[name] = function relation() {
-        return this.hasMany(joinModel, joinColumn).query(qb => {
+        return this.hasMany(joinModel, joinColumn).query((qb) => {
           qb.where('field', name)
             .whereIn(
               'component_type',
-              relatedComponents.map(component => component.collectionName)
+              relatedComponents.map((component) => component.collectionName)
             )
             .orderBy('order');
         });
@@ -75,19 +75,13 @@ const createComponentJoinTables = async ({ definition, ORM }) => {
 
     if (await ORM.knex.schema.hasTable(joinTable)) return;
 
-    await ORM.knex.schema.createTable(joinTable, table => {
+    await ORM.knex.schema.createTable(joinTable, (table) => {
       table.increments();
       table.string('field').notNullable();
-      table
-        .integer('order')
-        .unsigned()
-        .notNullable();
+      table.integer('order').unsigned().notNullable();
       table.string('component_type').notNullable();
       table.integer('component_id').notNullable();
-      table
-        .integer(joinColumn)
-        .unsigned()
-        .notNullable();
+      table.integer(joinColumn).unsigned().notNullable();
 
       table
         .foreign(joinColumn, `${joinColumn}_fk`)

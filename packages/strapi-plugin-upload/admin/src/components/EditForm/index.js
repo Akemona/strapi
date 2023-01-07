@@ -125,7 +125,7 @@ const EditForm = forwardRef(
     };
 
     const handleToggleCropMode = () => {
-      setIsCropping(prev => {
+      setIsCropping((prev) => {
         if (!prev && isEditingUploadedFile) {
           toggleDisableForm(true);
         }
@@ -154,7 +154,7 @@ const EditForm = forwardRef(
           const canvas = cropper.current.getCroppedCanvas();
 
           canvas.toBlob(
-            async blob => {
+            async (blob) => {
               const {
                 file: { lastModifiedDate, lastModified, name },
               } = fileToEdit;
@@ -212,12 +212,12 @@ const EditForm = forwardRef(
 
           aRef.current.click();
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
         });
     };
 
-    const handleSubmit = e => {
+    const handleSubmit = (e) => {
       e.preventDefault();
 
       onSubmitEdit(e);
@@ -340,7 +340,7 @@ const EditForm = forwardRef(
                   {form.map(({ key, inputs }) => {
                     return (
                       <Row key={key}>
-                        {inputs.map(input => {
+                        {inputs.map((input) => {
                           return (
                             <div className="col-12" key={input.name}>
                               <Inputs
@@ -402,7 +402,7 @@ EditForm.defaultProps = {
   onAbortUpload: () => {},
   onChange: () => {},
   onClickDeleteFileToUpload: () => {},
-  onSubmitEdit: e => e.preventDefault(),
+  onSubmitEdit: (e) => e.preventDefault(),
   setCropResult: () => {},
   toggleDisableForm: () => {},
 };

@@ -168,10 +168,10 @@ function Inputs({
     return disabled;
   }, [disabled, isCreatingEntry, isUserAllowedToEditField, isUserAllowedToReadField]);
 
-  const options = useMemo(() => generateOptions(fieldSchema.enum || [], isRequired), [
-    fieldSchema,
-    isRequired,
-  ]);
+  const options = useMemo(
+    () => generateOptions(fieldSchema.enum || [], isRequired),
+    [fieldSchema, isRequired]
+  );
 
   const otherFields = useMemo(() => {
     return fieldApi.getFields();

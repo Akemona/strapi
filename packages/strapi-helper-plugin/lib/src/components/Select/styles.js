@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 /* eslint-disable no-nested-ternary */
 
-const getStyles = theme => {
+const getStyles = (theme) => {
   const { colors, fontWeights, sizes } = theme.main;
 
   // Colors that does not exist in the theme.main.colors
@@ -15,7 +15,7 @@ const getStyles = theme => {
   const controlMinHeight = `34px`;
 
   return {
-    container: base => ({
+    container: (base) => ({
       ...base,
       width: '100%',
     }),
@@ -57,7 +57,7 @@ const getStyles = theme => {
         width: '100%',
       };
     },
-    menu: base => ({
+    menu: (base) => ({
       ...base,
       width: '100%',
       margin: '0',
@@ -70,7 +70,7 @@ const getStyles = theme => {
       borderTop: '0 !important',
       fontSize: sizes.fonts.md,
     }),
-    menuList: base => ({
+    menuList: (base) => ({
       ...base,
       maxHeight: '112px',
       paddingTop: sizes.borderRadius,
@@ -92,18 +92,18 @@ const getStyles = theme => {
       textOverflow: 'ellipsis',
       whiteSpace: 'nowrap',
     }),
-    placeholder: base => ({
+    placeholder: (base) => ({
       ...base,
       marginTop: 0,
       color: unknownGrey,
     }),
-    valueContainer: base => ({
+    valueContainer: (base) => ({
       ...base,
       padding: '2px 10px 4px 10px', // These value don't exist in the theme
       fontSize: sizes.fonts.md,
       lineHeight: '18px',
     }),
-    indicatorsContainer: base => ({
+    indicatorsContainer: (base) => ({
       ...base,
       width: '32px',
       display: 'flex',

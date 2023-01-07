@@ -12,7 +12,7 @@ const urlSchema = yup.object().shape({
       name: 'isUrlValid',
       message: '${path}',
       test(values) {
-        const filtered = values.filter(val => {
+        const filtered = values.filter((val) => {
           try {
             // eslint-disable-next-line no-new
             new URL(val);

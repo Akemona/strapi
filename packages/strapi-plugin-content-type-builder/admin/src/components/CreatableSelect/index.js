@@ -20,7 +20,7 @@ const CreatableSelect = ({ onChange, name, styles, value }) => {
   };
 
   const formatOptions = () => {
-    const options = allComponentsCategories.map(cat => ({ value: cat, label: cat }));
+    const options = allComponentsCategories.map((cat) => ({ value: cat, label: cat }));
 
     if (value) {
       return uniqBy(options.concat({ value, label: value }), 'value');
@@ -30,7 +30,7 @@ const CreatableSelect = ({ onChange, name, styles, value }) => {
   };
 
   const getValue = () => {
-    return formatOptions().find(el => el.value === value);
+    return formatOptions().find((el) => el.value === value);
   };
 
   return (

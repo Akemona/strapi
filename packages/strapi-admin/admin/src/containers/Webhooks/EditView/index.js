@@ -40,14 +40,8 @@ function EditView() {
   const { signal } = abortController;
   const isCreating = id === 'create';
 
-  const {
-    formErrors,
-    modifiedData,
-    initialData,
-    isLoading,
-    isTriggering,
-    triggerResponse,
-  } = reducerState.toJS();
+  const { formErrors, modifiedData, initialData, isLoading, isTriggering, triggerResponse } =
+    reducerState.toJS();
 
   useEffect(() => {
     isMounted.current = true;
@@ -96,7 +90,7 @@ function EditView() {
   const isTriggerActionDisabled = isCreating || (!isCreating && !areActionDisabled) || isTriggering;
 
   const formattedErrors = Object.keys(formErrors)
-    .filter(key => key.includes('headers'))
+    .filter((key) => key.includes('headers'))
     .reduce((obj, key) => {
       obj[key] = formErrors[key];
 
@@ -216,7 +210,7 @@ function EditView() {
     }
   };
 
-  const getErrorMessage = error => {
+  const getErrorMessage = (error) => {
     if (!error) {
       return null;
     }
@@ -284,7 +278,7 @@ function EditView() {
     }
   };
 
-  const handleRemove = index => {
+  const handleRemove = (index) => {
     dispatch({
       type: 'ON_HEADER_REMOVE',
       index,
@@ -298,7 +292,7 @@ function EditView() {
       type: 'RESET_FORM',
     });
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setSubmittedOnce(true);
     checkFormErrors(true);
@@ -318,7 +312,7 @@ function EditView() {
     setErrors(errors);
   };
 
-  const resetHeadersError = keys => {
+  const resetHeadersError = (keys) => {
     const errors = formErrors;
 
     setErrors(omit(errors, [keys]));
@@ -327,7 +321,7 @@ function EditView() {
   const resetHeadersErrors = () => {
     const errors = formErrors;
     const newErrors = Object.keys(errors)
-      .filter(key => !key.includes('headers'))
+      .filter((key) => !key.includes('headers'))
       .reduce((obj, key) => {
         obj[key] = formErrors[key];
 
@@ -337,7 +331,7 @@ function EditView() {
     setErrors(newErrors);
   };
 
-  const setErrors = errors => {
+  const setErrors = (errors) => {
     dispatch({
       type: 'SET_ERRORS',
       errors,
@@ -384,7 +378,7 @@ function EditView() {
   };
 
   const shouldShowDPEvents = useMemo(
-    () => collectionTypes.some(ct => ct.options.draftAndPublish === true),
+    () => collectionTypes.some((ct) => ct.options.draftAndPublish === true),
     [collectionTypes]
   );
 
@@ -410,7 +404,7 @@ function EditView() {
         <div className="form-wrapper">
           <div className="form-card">
             <div className="row">
-              {Object.keys(form).map(key => {
+              {Object.keys(form).map((key) => {
                 return (
                   <div key={key} className={form[key].styleName}>
                     <InputsIndex

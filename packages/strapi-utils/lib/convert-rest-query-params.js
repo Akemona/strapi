@@ -72,7 +72,7 @@ const convertRestQueryParams = (params = {}, defaults = {}) => {
  * @param {object} params
  * @returns {object}
  */
-const convertExtraRootParams = params => {
+const convertExtraRootParams = (params) => {
   return Object.entries(params).reduce((acc, [key, value]) => {
     if (_.startsWith(key, '_') && !QUERY_OPERATORS.includes(key)) {
       acc[key.slice(1)] = value;
@@ -88,14 +88,14 @@ const convertExtraRootParams = params => {
  * Sort query parser
  * @param {string} sortQuery - ex: id:asc,price:desc
  */
-const convertSortQueryParams = sortQuery => {
+const convertSortQueryParams = (sortQuery) => {
   if (typeof sortQuery !== 'string') {
     throw new Error(`convertSortQueryParams expected a string, got ${typeof sortQuery}`);
   }
 
   const sortKeys = [];
 
-  sortQuery.split(',').forEach(part => {
+  sortQuery.split(',').forEach((part) => {
     // split field and order param with default order to ascending
     const [field, order = 'asc'] = part.split(':');
 
@@ -119,7 +119,7 @@ const convertSortQueryParams = sortQuery => {
  * Start query parser
  * @param {string} startQuery - ex: id:asc,price:desc
  */
-const convertStartQueryParams = startQuery => {
+const convertStartQueryParams = (startQuery) => {
   const startAsANumber = _.toNumber(startQuery);
 
   if (!_.isInteger(startAsANumber) || startAsANumber < 0) {
@@ -135,7 +135,7 @@ const convertStartQueryParams = startQuery => {
  * Limit query parser
  * @param {string} limitQuery - ex: id:asc,price:desc
  */
-const convertLimitQueryParams = limitQuery => {
+const convertLimitQueryParams = (limitQuery) => {
   const limitAsANumber = _.toNumber(limitQuery);
 
   if (!_.isInteger(limitAsANumber) || (limitAsANumber !== -1 && limitAsANumber < 0)) {
@@ -151,7 +151,7 @@ const convertLimitQueryParams = limitQuery => {
  * publicationState query parser
  * @param {string} publicationState - eg: 'live', 'preview'
  */
-const convertPublicationStateParams = publicationState => {
+const convertPublicationStateParams = (publicationState) => {
   if (!DP_PUB_STATES.includes(publicationState)) {
     throw new Error(
       `convertPublicationStateParams expected a value from: ${DP_PUB_STATES.join(
@@ -183,7 +183,7 @@ const VALID_REST_OPERATORS = [
 /**
  * Parse where params
  */
-const convertWhereParams = whereParams => {
+const convertWhereParams = (whereParams) => {
   let finalWhere = [];
 
   if (Array.isArray(whereParams)) {
@@ -192,11 +192,12 @@ const convertWhereParams = whereParams => {
     }, []);
   }
 
-  Object.keys(whereParams).forEach(whereClause => {
-    const { field, operator = 'eq', value } = convertWhereClause(
-      whereClause,
-      whereParams[whereClause]
-    );
+  Object.keys(whereParams).forEach((whereClause) => {
+    const {
+      field,
+      operator = 'eq',
+      value,
+    } = convertWhereClause(whereClause, whereParams[whereClause]);
 
     finalWhere.push({
       field,

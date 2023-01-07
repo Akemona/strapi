@@ -23,7 +23,7 @@ const MarketPlacePage = () => {
     return <LoadingIndicatorPage />;
   }
 
-  const handleDownloadPlugin = async pluginId => {
+  const handleDownloadPlugin = async (pluginId) => {
     emitEvent('willInstallPlugin', { plugin: pluginId });
 
     // Force the Overlayblocker to be displayed
@@ -80,7 +80,7 @@ const MarketPlacePage = () => {
         />
         <MarketplaceBanner />
         <div className="row" style={{ paddingTop: '4.1rem' }}>
-          {data.map(plugin => {
+          {data.map((plugin) => {
             return (
               <PluginCard
                 autoReload={autoReload}

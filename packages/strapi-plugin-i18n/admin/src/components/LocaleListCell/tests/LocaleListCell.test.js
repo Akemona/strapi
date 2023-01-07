@@ -7,8 +7,8 @@ jest.mock('@buffetjs/styles', () => ({
 }));
 
 jest.mock('@buffetjs/core', () => ({
-  Padded: props => <div {...props} />,
-  Text: props => <p {...props} />,
+  Padded: (props) => <div {...props} />,
+  Text: (props) => <p {...props} />,
 }));
 
 describe('LocaleListCell', () => {

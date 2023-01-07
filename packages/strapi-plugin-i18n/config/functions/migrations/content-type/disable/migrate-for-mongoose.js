@@ -14,16 +14,13 @@ const migrateForMongoose = async ({ model, defaultLocale }) => {
       findParams._id = { $gt: lastId };
     }
 
-    const batch = await model
-      .find(findParams, ['id'])
-      .sort({ _id: 1 })
-      .limit(BATCH_SIZE);
+    const batch = await model.find(findParams, ['id']).sort({ _id: 1 }).limit(BATCH_SIZE);
 
     if (batch.length > 0) {
       lastId = batch[batch.length - 1]._id;
     }
 
-    await pmap(batch, entry => model.deleteRelations(entry), {
+    await pmap(batch, (entry) => model.deleteRelations(entry), {
       concurrency: 100,
       stopOnError: true,
     });

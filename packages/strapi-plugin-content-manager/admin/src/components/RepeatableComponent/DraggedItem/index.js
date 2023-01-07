@@ -60,14 +60,8 @@ const DraggedItem = ({
       const dragPath = item.originalPath;
       const hoverPath = componentFieldName;
       const fullPathToComponentArray = dragPath.split('.');
-      const dragIndexString = fullPathToComponentArray
-        .slice()
-        .splice(-1)
-        .join('');
-      const hoverIndexString = hoverPath
-        .split('.')
-        .splice(-1)
-        .join('');
+      const dragIndexString = fullPathToComponentArray.slice().splice(-1).join('');
+      const hoverIndexString = hoverPath.split('.').splice(-1).join('');
       const pathToComponentArray = fullPathToComponentArray.slice(
         0,
         fullPathToComponentArray.length - 1
@@ -120,7 +114,7 @@ const DraggedItem = ({
       // Update the errors
       triggerFormValidation();
     },
-    collect: monitor => ({
+    collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
   });

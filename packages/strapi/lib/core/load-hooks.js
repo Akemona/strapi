@@ -10,7 +10,7 @@ const findPackagePath = require('../load/package-path');
 /**
  * Load hooks
  */
-module.exports = async function({ installedHooks, installedPlugins, appPath }) {
+module.exports = async function ({ installedHooks, installedPlugins, appPath }) {
   let hooks = {};
 
   await Promise.all([
@@ -33,7 +33,7 @@ const loadHooksInDir = async (dir, hooks) => {
     cwd: dir,
   });
 
-  files.forEach(f => {
+  files.forEach((f) => {
     const name = f.split('/')[0];
     mountHooks(name, [path.resolve(dir, f)], hooks);
   });
@@ -48,7 +48,7 @@ const loadPluginsHooks = async (plugins, hooks) => {
   }
 };
 
-const loadAdminHooks = async hooks => {
+const loadAdminHooks = async (hooks) => {
   const hooksDir = 'hooks';
   const dir = path.resolve(findPackagePath('strapi-admin'), hooksDir);
   await loadHooksInDir(dir, hooks);
@@ -89,7 +89,7 @@ const loadHookDependencies = async (installedHooks, hooks) => {
 };
 
 const mountHooks = (name, files, hooks) => {
-  files.forEach(file => {
+  files.forEach((file) => {
     hooks[name] = hooks[name] || { loaded: false };
 
     let dependencies = [];

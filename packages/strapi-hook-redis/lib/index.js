@@ -16,7 +16,7 @@ const stackTrace = require('stack-trace');
  * Redis hook
  */
 
-module.exports = function(strapi) {
+module.exports = function (strapi) {
   const hook = {
     /**
      * Default options
@@ -75,7 +75,7 @@ module.exports = function(strapi) {
           )
         );
 
-        redis.on('error', err => {
+        redis.on('error', (err) => {
           strapi.log.error(err);
           process.exit(0);
         });

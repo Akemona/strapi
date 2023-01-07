@@ -18,7 +18,7 @@ import pluginId from './pluginId';
 import reducers from './reducers';
 import formsAPI from './utils/formAPI';
 
-export default strapi => {
+export default (strapi) => {
   const pluginDescription = pluginPkg.strapi.description || pluginPkg.description;
   const icon = pluginPkg.strapi.icon;
   const name = pluginPkg.strapi.name;

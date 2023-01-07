@@ -14,7 +14,7 @@ describe('Session middleware', () => {
     jest.doMock(
       path.resolve(__dirname, 'node_modules', 'koa-mysql-session'),
       () => {
-        return function(options) {
+        return function (options) {
           mockKoaMySqlSessionCalled = true;
           this.options = options;
           this.get = jest.fn();

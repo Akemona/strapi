@@ -24,18 +24,15 @@ const Collapse = ({
   pathToData,
 }) => {
   const [modalState, setModalState] = useState({ isOpen: false, isMounted: false });
-  const {
-    modifiedData,
-    onChangeParentCheckbox,
-    onChangeSimpleCheckbox,
-  } = usePermissionsDataManager();
+  const { modifiedData, onChangeParentCheckbox, onChangeSimpleCheckbox } =
+    usePermissionsDataManager();
 
   const handleToggleModalIsOpen = () => {
-    setModalState(prevState => ({ isMounted: true, isOpen: !prevState.isOpen }));
+    setModalState((prevState) => ({ isMounted: true, isOpen: !prevState.isOpen }));
   };
 
   const handleModalClose = () => {
-    setModalState(prevState => ({ ...prevState, isMounted: false }));
+    setModalState((prevState) => ({ ...prevState, isMounted: false }));
   };
 
   // This corresponds to the data related to the CT left checkbox

@@ -19,13 +19,13 @@ const reducer = (state = initialState, action) => {
     case actions.ADD_COMPONENTS_TO_DYNAMIC_ZONE: {
       const { name, components, shouldAddComponents } = action;
 
-      return state.updateIn(['modifiedData', name], list => {
+      return state.updateIn(['modifiedData', name], (list) => {
         let updatedList = list;
 
         if (shouldAddComponents) {
           updatedList = list.concat(components);
         } else {
-          updatedList = list.filter(comp => {
+          updatedList = list.filter((comp) => {
             return components.indexOf(comp) === -1;
           });
         }
@@ -34,7 +34,7 @@ const reducer = (state = initialState, action) => {
       });
     }
     case actions.ON_CHANGE:
-      return state.update('modifiedData', obj => {
+      return state.update('modifiedData', (obj) => {
         const {
           selectedContentTypeFriendlyName,
           keys,
@@ -62,10 +62,10 @@ const reducer = (state = initialState, action) => {
 
               return null;
             })
-            .update('name', oldValue => {
+            .update('name', (oldValue) => {
               return pluralize(snakeCase(oldValue), shouldPluralizeName(value));
             })
-            .update('targetAttribute', oldValue => {
+            .update('targetAttribute', (oldValue) => {
               if (['oneWay', 'manyWay'].includes(value)) {
                 return '-';
               }
@@ -75,7 +75,7 @@ const reducer = (state = initialState, action) => {
                 shouldPluralizeTargetAttribute(value)
               );
             })
-            .update('targetColumnName', oldValue => {
+            .update('targetColumnName', (oldValue) => {
               if (['oneWay', 'manyWay'].includes(value)) {
                 return null;
               }
@@ -90,7 +90,7 @@ const reducer = (state = initialState, action) => {
 
           return obj
             .update('target', () => value)
-            .update('nature', currentNature => {
+            .update('nature', (currentNature) => {
               if (targetContentTypeAllowedRelations === null) {
                 return currentNature;
               }
@@ -149,11 +149,11 @@ const reducer = (state = initialState, action) => {
         });
       }
 
-      return state.updateIn(['modifiedData', 'allowedTypes'], currentList => {
+      return state.updateIn(['modifiedData', 'allowedTypes'], (currentList) => {
         let list = currentList || fromJS([]);
 
         if (list.includes(action.name)) {
-          list = list.filter(v => v !== action.name);
+          list = list.filter((v) => v !== action.name);
 
           if (list.size === 0) {
             return null;

@@ -47,7 +47,7 @@ const LocaleList = ({ canUpdateLocale, canDeleteLocale, onToggleCreateModal, isC
           title={listTitle}
           items={locales}
           isLoading={isLoading}
-          customRowComponent={locale => (
+          customRowComponent={(locale) => (
             <LocaleRow locale={locale} onDelete={handleDeleteLocale} onEdit={handleEditLocale} />
           )}
         />

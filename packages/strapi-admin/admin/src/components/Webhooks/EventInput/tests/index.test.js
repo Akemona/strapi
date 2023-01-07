@@ -13,7 +13,7 @@ function nodeWithIntlProp(node) {
   return React.cloneElement(node, { intl });
 }
 
-const shallowWithIntl = node => {
+const shallowWithIntl = (node) => {
   return shallow(nodeWithIntlProp(node), { context: { intl } });
 };
 
@@ -55,10 +55,7 @@ describe('<EventInput />', () => {
       wrapper.dive();
       let child = wrapper.find(EventRow);
 
-      child
-        .at(0)
-        .props()
-        .handleChange(event);
+      child.at(0).props().handleChange(event);
 
       expect(props.onChange).toHaveBeenCalledWith(formattedEvent);
     });
@@ -82,10 +79,7 @@ describe('<EventInput />', () => {
       wrapper.dive();
       let child = wrapper.find(EventRow);
 
-      child
-        .at(0)
-        .props()
-        .handleChange(event);
+      child.at(0).props().handleChange(event);
 
       expect(props.onChange).toHaveBeenCalledWith(formattedEvent);
     });
@@ -110,10 +104,7 @@ describe('<EventInput />', () => {
     wrapper.dive();
     let child = wrapper.find(EventRow);
 
-    child
-      .at(0)
-      .props()
-      .handleChangeAll(event);
+    child.at(0).props().handleChangeAll(event);
 
     expect(props.onChange).toHaveBeenCalledWith(formattedEvent);
   });
@@ -137,10 +128,7 @@ describe('<EventInput />', () => {
     wrapper.dive();
     let child = wrapper.find(EventRow);
 
-    child
-      .at(0)
-      .props()
-      .handleChangeAll(event);
+    child.at(0).props().handleChangeAll(event);
 
     expect(props.onChange).toHaveBeenCalledWith(formattedEvent);
   });

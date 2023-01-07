@@ -68,7 +68,7 @@ const FormModal = () => {
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const formModalSelector = useMemo(makeSelectFormModal, []);
   const dispatch = useDispatch();
-  const reducerState = useSelector(state => formModalSelector(state), shallowEqual);
+  const reducerState = useSelector((state) => formModalSelector(state), shallowEqual);
   const { push } = useHistory();
   const { search } = useLocation();
   const { emitEvent, formatMessage } = useGlobalContext();
@@ -457,7 +457,7 @@ const FormModal = () => {
         // in order to prevent the user from creating a relation with a targetAttribute
         // that may exist in the other content type
         alreadyTakenTargetContentTypeAttributes = Object.keys(targetContentTypeAttributes).filter(
-          attrName => {
+          (attrName) => {
             // Keep all the target content type attributes when creating a relation
             if (state.actionType !== 'edit') {
               return true;
@@ -577,7 +577,7 @@ const FormModal = () => {
     });
   };
 
-  const toggleConfirmModal = useCallback(() => setShowConfirmModal(prev => !prev), []);
+  const toggleConfirmModal = useCallback(() => setShowConfirmModal((prev) => !prev), []);
 
   const handleChange = useCallback(
     ({ target: { name, value, type, ...rest } }) => {
@@ -1068,7 +1068,7 @@ const FormModal = () => {
     }
   };
 
-  const sendAdvancedTabEvent = tab => {
+  const sendAdvancedTabEvent = (tab) => {
     if (tab !== 'advanced') {
       return;
     }
@@ -1084,7 +1084,7 @@ const FormModal = () => {
     }
   };
 
-  const sendButtonAddMoreFieldEvent = shouldContinue => {
+  const sendButtonAddMoreFieldEvent = (shouldContinue) => {
     if (
       state.modalType === 'attribute' &&
       state.forTarget === 'contentType' &&
@@ -1142,7 +1142,7 @@ const FormModal = () => {
                   step: state.step,
                 }}
               >
-                {msg => <span>{upperFirst(msg)}</span>}
+                {(msg) => <span>{upperFirst(msg)}</span>}
               </FormattedMessage>
 
               {!isPickingAttribute && (
@@ -1159,7 +1159,7 @@ const FormModal = () => {
                             key={link.id}
                             {...link}
                             onClick={() => {
-                              setState(prev => ({
+                              setState((prev) => ({
                                 ...prev,
                                 settingType: link.id,
                               }));
@@ -1246,7 +1246,7 @@ const FormModal = () => {
                                       textTransform="uppercase"
                                     >
                                       <FormattedMessage id={getTrad(tradId)}>
-                                        {txt => txt}
+                                        {(txt) => txt}
                                       </FormattedMessage>
                                     </Text>
                                   </Padded>
@@ -1295,7 +1295,7 @@ const FormModal = () => {
                             // - and we just want to access { "pluginOptions.i18n.localized": {...} }
                             // NOTE: this is a hack
                             const pluginOptionError = Object.keys(formErrors).find(
-                              key => key === input.name
+                              (key) => key === input.name
                             );
 
                             // Retrieve the error for a specific input
@@ -1311,7 +1311,7 @@ const FormModal = () => {
                                       // Since the component info is stored in the
                                       // componentToCreate object we can access the error
                                       // By removing the key
-                                      .filter(key => key !== 'componentToCreate'),
+                                      .filter((key) => key !== 'componentToCreate'),
                                     'id',
                                   ],
                                   null
@@ -1438,7 +1438,7 @@ const FormModal = () => {
                     <Button
                       type={isCreating ? 'button' : 'submit'}
                       color="success"
-                      onClick={e => {
+                      onClick={(e) => {
                         handleSubmit(e, false);
                       }}
                       style={{ marginRight: '10px' }}
@@ -1450,7 +1450,7 @@ const FormModal = () => {
                     <Button
                       type="button"
                       color="delete"
-                      onClick={e => {
+                      onClick={(e) => {
                         e.preventDefault();
                         deleteData();
                       }}
@@ -1463,7 +1463,7 @@ const FormModal = () => {
                     <Button
                       type="button"
                       color="delete"
-                      onClick={e => {
+                      onClick={(e) => {
                         e.preventDefault();
 
                         deleteCategory(initialData.name);
@@ -1487,7 +1487,7 @@ const FormModal = () => {
                           ? 'success'
                           : 'primary'
                       }
-                      onClick={e => handleSubmit(e, true)}
+                      onClick={(e) => handleSubmit(e, true)}
                       icon={
                         (isCreatingAttribute &&
                           !isCreatingComponentFromAView &&
@@ -1514,7 +1514,7 @@ const FormModal = () => {
                           ? 'success'
                           : 'primary'
                       }
-                      onClick={e => handleSubmit(e, true)}
+                      onClick={(e) => handleSubmit(e, true)}
                       icon={
                         (isCreatingAttribute &&
                           !isCreatingComponentFromAView &&

@@ -37,7 +37,7 @@ const defaults = {
 
 const isMongooseConnection = ({ connector }) => connector === 'mongoose';
 
-const createConnectionURL = opts => {
+const createConnectionURL = (opts) => {
   const { protocol, auth, host, port } = opts;
 
   return {
@@ -47,31 +47,23 @@ const createConnectionURL = opts => {
   };
 };
 
-module.exports = function(strapi) {
+module.exports = function (strapi) {
   const { connections } = strapi.config;
-  const mongooseConnections = Object.keys(connections).filter(key =>
+  const mongooseConnections = Object.keys(connections).filter((key) =>
     isMongooseConnection(connections[key])
   );
 
   function initialize() {
     registerCoreMigrations();
 
-    const connectionsPromises = mongooseConnections.map(async connectionName => {
+    const connectionsPromises = mongooseConnections.map(async (connectionName) => {
       const connection = connections[connectionName];
       const instance = new Mongoose();
 
       _.defaults(connection.settings, strapi.config.hook.settings.mongoose);
 
-      const {
-        uri,
-        host,
-        port,
-        username,
-        password,
-        database,
-        srv,
-        useUnifiedTopology,
-      } = connection.settings;
+      const { uri, host, port, username, password, database, srv, useUnifiedTopology } =
+        connection.settings;
 
       // eslint-disable-next-line node/no-deprecated-api
       const uriOptions = uri ? url.parse(uri, true).query : {};
@@ -188,7 +180,7 @@ module.exports = function(strapi) {
 
   function mountPlugins(connectionName, ctx) {
     return Promise.all(
-      Object.keys(strapi.plugins).map(name => {
+      Object.keys(strapi.plugins).map((name) => {
         const plugin = strapi.plugins[name];
         return mountModels(
           {
@@ -203,7 +195,7 @@ module.exports = function(strapi) {
 
   async function destroy() {
     await Promise.all(
-      mongooseConnections.map(connName => {
+      mongooseConnections.map((connName) => {
         const mongooseConnection = strapi.connections[connName];
 
         if (

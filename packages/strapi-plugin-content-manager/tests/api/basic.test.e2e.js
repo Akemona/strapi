@@ -77,7 +77,7 @@ describe('CM API - Basic', () => {
         }),
       ])
     );
-    res.body.results.forEach(p => expect(p.published_at).toBeUndefined());
+    res.body.results.forEach((p) => expect(p.published_at).toBeUndefined());
   });
 
   test('Update product', async () => {

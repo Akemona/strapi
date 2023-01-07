@@ -16,16 +16,16 @@ const reducer = (state, action) => {
 
   switch (action.type) {
     case 'ADD_RELATION':
-      return state.updateIn(layoutPathRelations, list => list.push(action.name));
+      return state.updateIn(layoutPathRelations, (list) => list.push(action.name));
     case 'MOVE_RELATION': {
-      return state.updateIn(layoutPathRelations, list => {
+      return state.updateIn(layoutPathRelations, (list) => {
         return list
           .delete(action.dragIndex)
           .insert(action.hoverIndex, state.getIn([...layoutPathRelations, action.dragIndex]));
       });
     }
     case 'MOVE_ROW':
-      return state.updateIn(layoutPathEdit, list => {
+      return state.updateIn(layoutPathEdit, (list) => {
         return list
           .delete(action.dragRowIndex)
           .insert(action.hoverRowIndex, state.getIn([...layoutPathEdit, action.dragRowIndex]));
@@ -34,7 +34,7 @@ const reducer = (state, action) => {
       const size = getInputSize(state.getIn(['modifiedData', 'attributes', action.name, 'type']));
 
       const listSize = state.getIn(layoutPathEdit).size;
-      const newList = state.getIn(layoutPathEdit).updateIn([listSize - 1, 'rowContent'], list => {
+      const newList = state.getIn(layoutPathEdit).updateIn([listSize - 1, 'rowContent'], (list) => {
         if (list) {
           return list.push({
             name: action.name,
@@ -60,9 +60,9 @@ const reducer = (state, action) => {
 
       // Delete the entire row if length is one or if lenght is equal to 2 and the second element is the hidden div used to make the dnd exp smoother
       if (row.size === 1 || (row.size === 2 && row.getIn([1, 'name']) === '_TEMP_')) {
-        newState = state.updateIn(layoutPathEdit, list => list.delete(action.rowIndex));
+        newState = state.updateIn(layoutPathEdit, (list) => list.delete(action.rowIndex));
       } else {
-        newState = state.updateIn([...layoutPathEdit, action.rowIndex, 'rowContent'], list =>
+        newState = state.updateIn([...layoutPathEdit, action.rowIndex, 'rowContent'], (list) =>
           list.delete(action.fieldIndex)
         );
       }
@@ -71,13 +71,13 @@ const reducer = (state, action) => {
       return state.updateIn(layoutPathEdit, () => updatedList);
     }
     case 'REMOVE_RELATION':
-      return state.updateIn(layoutPathRelations, list => list.delete(action.index));
+      return state.updateIn(layoutPathRelations, (list) => list.delete(action.index));
     case 'REORDER_DIFF_ROW': {
       const newState = state
-        .updateIn([...layoutPathEdit, action.dragRowIndex, 'rowContent'], list => {
+        .updateIn([...layoutPathEdit, action.dragRowIndex, 'rowContent'], (list) => {
           return list.remove(action.dragIndex);
         })
-        .updateIn([...layoutPathEdit, action.hoverRowIndex, 'rowContent'], list => {
+        .updateIn([...layoutPathEdit, action.hoverRowIndex, 'rowContent'], (list) => {
           return list.insert(
             action.hoverIndex,
             state.getIn([...layoutPathEdit, action.dragRowIndex, 'rowContent', action.dragIndex])
@@ -91,7 +91,7 @@ const reducer = (state, action) => {
     case 'REORDER_ROW': {
       const newState = state.updateIn(
         [...layoutPathEdit, action.dragRowIndex, 'rowContent'],
-        list => {
+        (list) => {
           return list
             .delete(action.dragIndex)
             .insert(action.hoverIndex, list.get(action.dragIndex));

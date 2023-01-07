@@ -241,9 +241,8 @@ module.exports = {
 
     for (const provider in providers) {
       if (provider !== 'email') {
-        providers[provider].redirectUri = strapi.plugins[
-          'users-permissions'
-        ].services.providers.buildRedirectUri(provider);
+        providers[provider].redirectUri =
+          strapi.plugins['users-permissions'].services.providers.buildRedirectUri(provider);
       }
     }
 
@@ -272,11 +271,11 @@ const searchQueries = {
   bookshelf({ model }) {
     return ({ id }) => {
       return model
-        .query(function(qb) {
+        .query(function (qb) {
           qb.where('username', 'LIKE', `%${id}%`).orWhere('email', 'LIKE', `%${id}%`);
         })
         .fetchAll()
-        .then(results => results.toJSON());
+        .then((results) => results.toJSON());
     };
   },
   mongoose({ model }) {

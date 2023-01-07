@@ -85,7 +85,7 @@ const advancedForm = {
       ],
     };
   },
-  enumeration: data => {
+  enumeration: (data) => {
     return {
       items: [
         [
@@ -102,13 +102,13 @@ const advancedForm = {
                 key="hidden___value__placeholder"
                 id="components.InputSelect.option.placeholder"
               >
-                {msg => <option value="">{msg}</option>}
+                {(msg) => <option value="">{msg}</option>}
               </FormattedMessage>,
             ].concat(
               data.enum
                 ? data.enum
                     .filter((val, index) => data.enum.indexOf(val) === index && !isEmpty(val))
-                    .map(val => (
+                    .map((val) => (
                       <option key={val} value={val}>
                         {val}
                       </option>
@@ -159,7 +159,7 @@ const advancedForm = {
       ],
     };
   },
-  number: data => {
+  number: (data) => {
     const inputStep = data.type === 'decimal' || data.type === 'float' ? 'any' : '1';
 
     return {
@@ -194,7 +194,7 @@ const advancedForm = {
       ],
     };
   },
-  relation: data => {
+  relation: (data) => {
     const targetAttributeValue = get(data, 'targetAttribute', null);
     const nameValue = get(data, 'name', null);
 
@@ -253,7 +253,7 @@ const advancedForm = {
       ],
     };
   },
-  uid: data => {
+  uid: (data) => {
     return {
       items: [
         [{ ...options.default, disabled: Boolean(data.targetField), type: 'text' }],

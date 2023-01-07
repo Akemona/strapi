@@ -5,7 +5,7 @@
  * @param {Array<Action>} actions - array of actions
  * @returns {Object} "{ contentTypes, plugins, settings }"
  */
-const formatActionsBySections = actions =>
+const formatActionsBySections = (actions) =>
   actions.reduce((result, p) => {
     const checkboxItem = {
       displayName: p.displayName,

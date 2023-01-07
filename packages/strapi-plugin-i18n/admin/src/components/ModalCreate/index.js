@@ -39,7 +39,7 @@ const ModalCreate = ({ alreadyUsedLocales, onClose, isOpened }) => {
   };
 
   const options = (defaultLocales || [])
-    .map(locale => ({
+    .map((locale) => ({
       label: locale.code,
       value: locale.name,
     }))
@@ -63,7 +63,7 @@ const ModalCreate = ({ alreadyUsedLocales, onClose, isOpened }) => {
           displayName: defaultOption.value,
           isDefault: false,
         }}
-        onSubmit={values =>
+        onSubmit={(values) =>
           addLocale({
             code: values.code,
             name: values.displayName,

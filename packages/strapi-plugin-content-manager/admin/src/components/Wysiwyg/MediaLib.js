@@ -19,7 +19,7 @@ const MediaLib = ({ isOpen, onChange, onToggle }) => {
 
   const Component = getComponent('media-library').Component;
 
-  const handleInputChange = data => {
+  const handleInputChange = (data) => {
     if (data) {
       const formattedData = data.map(({ name, alternativeText, url }) => {
         const alt = alternativeText || name;

@@ -14,9 +14,9 @@ const RelationTargetPicker = ({ onChange, oneThatIsCreatingARelationWithAnother,
   const allowedContentTypesForRelation = useMemo(
     () =>
       sortedContentTypesList
-        .filter(obj => obj.kind === 'collectionType')
+        .filter((obj) => obj.kind === 'collectionType')
         .filter(
-          obj =>
+          (obj) =>
             obj.restrictRelationsTo === null ||
             (Array.isArray(obj.restrictRelationsTo) && obj.restrictRelationsTo.length > 0)
         ),

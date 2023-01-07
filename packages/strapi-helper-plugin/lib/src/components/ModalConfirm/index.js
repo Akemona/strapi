@@ -21,7 +21,7 @@ const ModalConfirm = ({
   ...rest
 }) => {
   const handleToggle = useCallback(
-    e => {
+    (e) => {
       // Prevent action when loading
       if (showButtonLoader) {
         return;

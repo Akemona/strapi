@@ -116,7 +116,7 @@ const CMEditViewLocalePicker = ({
               ...styles.indicatorsContainer(base, state),
               height: '32px',
             }),
-            valueContainer: base => ({
+            valueContainer: (base) => ({
               ...base,
               padding: '2px 0px 4px 10px',
               lineHeight: '18px',

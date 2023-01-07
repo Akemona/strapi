@@ -36,10 +36,7 @@ function Filter({
       format = dateFormats.datetime;
     }
 
-    displayedValue = moment
-      .parseZone(date)
-      .utc()
-      .format(format);
+    displayedValue = moment.parseZone(date).utc().format(format);
   }
   const displayedName = name.split('.')[0];
 

@@ -28,12 +28,12 @@ const ListItem = styled.li`
   justify-content: center;
 
   &:hover {
-    background: ${props => props.theme.main.colors.mediumGrey};
+    background: ${(props) => props.theme.main.colors.mediumGrey};
   }
 `;
 
 const EllipsisParagraph = styled(Text)`
-  width: ${props => props.width};
+  width: ${(props) => props.width};
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -61,7 +61,7 @@ const LocalePicker = () => {
     return null;
   }
 
-  const displayedLocales = locales.filter(locale => {
+  const displayedLocales = locales.filter((locale) => {
     const canCreate = createPermissions.find(({ properties }) => {
       return get(properties, 'locales', []).includes(locale.code);
     });
@@ -75,7 +75,7 @@ const LocalePicker = () => {
   return (
     <Picker
       position="right"
-      renderButtonContent={isOpen => (
+      renderButtonContent={(isOpen) => (
         <Flex>
           <EllipsisParagraph width="20ch">{selected.name}</EllipsisParagraph>
 
@@ -84,8 +84,8 @@ const LocalePicker = () => {
           </Padded>
         </Flex>
       )}
-      renderSectionContent={onToggle => {
-        const handleClick = locale => {
+      renderSectionContent={(onToggle) => {
+        const handleClick = (locale) => {
           dispatch({ type: 'ContentManager/RBACManager/RESET_PERMISSIONS' });
           setSelected(locale);
 
@@ -100,7 +100,7 @@ const LocalePicker = () => {
         return hasMultipleLocales ? (
           <Padded left right>
             <List>
-              {displayedLocales.map(locale => {
+              {displayedLocales.map((locale) => {
                 if (locale.id === selected.id) {
                   return null;
                 }

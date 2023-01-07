@@ -61,7 +61,7 @@ const EditPage = () => {
         ];
   /* eslint-enable indent */
 
-  const handleEditRoleSubmit = async data => {
+  const handleEditRoleSubmit = async (data) => {
     try {
       strapi.lockAppWithOverlay();
       setIsSubmiting(true);

@@ -19,10 +19,8 @@ const checkReservedAttributeNames = (model, { manager }) => {
     ).defaultTimestamps;
 
     if (Array.isArray(model.options.timestamps)) {
-      const [
-        createdAtAttribute = connectorCreatedAt,
-        updatedAtAttribute = connectorUpdatedAt,
-      ] = model.options.timestamps;
+      const [createdAtAttribute = connectorCreatedAt, updatedAtAttribute = connectorUpdatedAt] =
+        model.options.timestamps;
 
       reservedNames.push(createdAtAttribute, updatedAtAttribute);
     } else {
@@ -43,7 +41,7 @@ const checkReservedAttributeNames = (model, { manager }) => {
   }
 };
 
-const checkReservedModelName = model => {
+const checkReservedModelName = (model) => {
   if (constants.RESERVED_MODEL_NAMES.includes(model.modelName)) {
     throw new ModelError(
       `"${model.modelName}" is a reserved model name. You need to rename your model and the files associated with it.`
@@ -51,13 +49,13 @@ const checkReservedModelName = model => {
   }
 };
 
-const getModelsFrom = source => _.flatMap(source, iteratee => _.values(iteratee.models));
+const getModelsFrom = (source) => _.flatMap(source, (iteratee) => _.values(iteratee.models));
 
 /**
  * Checks that there are no model using reserved names (content type, component, attributes)
  */
 module.exports = ({ strapi, manager }) => {
-  [...getModelsFrom(strapi.api), ...getModelsFrom(strapi.plugins)].forEach(model => {
+  [...getModelsFrom(strapi.api), ...getModelsFrom(strapi.plugins)].forEach((model) => {
     checkReservedModelName(model);
     checkReservedAttributeNames(model, { manager });
   });

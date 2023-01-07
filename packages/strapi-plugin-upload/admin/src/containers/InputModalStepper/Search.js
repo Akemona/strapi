@@ -22,7 +22,7 @@ const Search = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearch, canRead]);
 
-  const handleSearchChange = e => {
+  const handleSearchChange = (e) => {
     setValue(e.target.value);
   };
 

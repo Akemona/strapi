@@ -22,7 +22,7 @@ const EditPage = ({ canUpdate }) => {
     params: { id },
   } = useRouteMatch(`${settingsBaseURL}/users/:id`);
 
-  const cbSuccess = data => {
+  const cbSuccess = (data) => {
     const userInfos = auth.getUserInfo();
 
     // The user is updating themself
@@ -85,7 +85,7 @@ const EditPage = ({ canUpdate }) => {
               id: 'app.components.Users.ModalCreateBody.block-title.details',
             })}
           >
-            {Object.keys(form).map(key => {
+            {Object.keys(form).map((key) => {
               return (
                 <SizedInput
                   {...form[key]}

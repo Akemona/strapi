@@ -9,7 +9,7 @@ const loadConfig = require('../load/load-config-files');
 const mergeRoutes = (a, b, key) =>
   _.isArray(a) && _.isArray(b) && key === 'routes' ? a.concat(b) : undefined;
 
-module.exports = async strapi => {
+module.exports = async (strapi) => {
   const adminPath = findPackagePath('strapi-admin');
   const [files, config] = await Promise.all([
     loadFiles(adminPath, '!(config|node_modules|tests|ee|scripts)/*.*(js|json)'),

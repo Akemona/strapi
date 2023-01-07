@@ -77,7 +77,7 @@ async function rollback(uid) {
  * Creates a delete function to clear an api folder
  * @param {string} baseName
  */
-const createDeleteApiFunction = baseName => {
+const createDeleteApiFunction = (baseName) => {
   const startWithBaseName = startWithName(baseName + '.');
 
   /**
@@ -85,7 +85,7 @@ const createDeleteApiFunction = baseName => {
    * Will only update routes.json instead of deleting it if other routes are present
    * @param {string} filePath file path to delete
    */
-  return async filePath => {
+  return async (filePath) => {
     const fileName = path.basename(filePath);
 
     if (startWithBaseName(fileName)) return fse.remove(filePath);
@@ -93,7 +93,7 @@ const createDeleteApiFunction = baseName => {
     if (fileName === 'routes.json') {
       const { routes } = await fse.readJSON(filePath);
 
-      const routesToKeep = routes.filter(route => !startWithBaseName(route.handler));
+      const routesToKeep = routes.filter((route) => !startWithBaseName(route.handler));
 
       if (routesToKeep.length === 0) {
         return fse.remove(filePath);
@@ -117,12 +117,12 @@ const createDeleteApiFunction = baseName => {
  * @param {string} prefix
  * @returns {Function} a comparing function
  */
-const startWithName = prefix => {
+const startWithName = (prefix) => {
   /**
    * Checks if str starts with prefix case insensitive
    * @param {string} str string to compare
    */
-  return str => _.startsWith(_.toLower(str), _.toLower(prefix));
+  return (str) => _.startsWith(_.toLower(str), _.toLower(prefix));
 };
 
 /**

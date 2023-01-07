@@ -16,11 +16,7 @@ const playerModel = {
     },
     level: {
       type: 'enumeration',
-      enum: [
-        'amateur',
-        'intermediary',
-        'pro'
-      ],
+      enum: ['amateur', 'intermediary', 'pro'],
       default: 'amateur',
     },
   },
@@ -30,7 +26,7 @@ const playerModel = {
   collectionName: '',
   globalId: 'Player',
   kind: 'collectionType',
-  modelName: 'player'
+  modelName: 'player',
 };
 
 describe('generateInputModel', () => {
@@ -91,8 +87,8 @@ describe('buildShadowCrud', () => {
         },
       },
     };
-    global.strapi.contentTypes = [playerModel]
-    global.strapi.components = {}
+    global.strapi.contentTypes = [playerModel];
+    global.strapi.components = {};
     expect(JSON.stringify(buildShadowCrud({}))).toEqual(
       '{"definition":"\\ntype Player {id: ID!\\nundefined: ID!\\nlastname: String\\nfirstname: String}\\n\\n      input PlayerInput {\\n\\n        lastname: String\\nfirstname: String\\n      }\\n\\n      input editPlayerInput {\\n        \\n        lastname: String\\nfirstname: String\\n      }\\n    ","query":{},"mutation":{},"resolvers":{"Query":{},"Mutation":{},"Player":{}}}'
     );

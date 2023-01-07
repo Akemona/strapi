@@ -25,7 +25,7 @@ describe('Entity service', () => {
       'count',
       'findPage',
       'searchPage',
-    ])('Can decorate', async method => {
+    ])('Can decorate', async (method) => {
       const instance = createEntityService({
         db: {},
         eventHub: new EventEmitter(),
@@ -85,7 +85,7 @@ describe('Entity service', () => {
       beforeAll(() => {
         const fakeQuery = {
           count: jest.fn(() => 0),
-          create: jest.fn(data => data),
+          create: jest.fn((data) => data),
         };
 
         const fakeModel = {

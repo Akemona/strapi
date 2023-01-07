@@ -30,7 +30,7 @@ const ListSettingsView = ({ layout, slug, updateLayout }) => {
   const [isDraggingSibling, setIsDraggingSibling] = useState(false);
   const { formatMessage } = useIntl();
   const { emitEvent, updateMenu } = useGlobalContext();
-  const toggleModalForm = () => setIsModalFormOpen(prevState => !prevState);
+  const toggleModalForm = () => setIsModalFormOpen((prevState) => !prevState);
   const { labelForm, labelToEdit, initialData, modifiedData } = reducerState.toJS();
   const attributes = useMemo(() => {
     return get(modifiedData, ['attributes'], {});
@@ -48,16 +48,16 @@ const ListSettingsView = ({ layout, slug, updateLayout }) => {
     const metadatas = get(modifiedData, ['metadatas'], {});
 
     return Object.keys(metadatas)
-      .filter(key => {
+      .filter((key) => {
         return checkIfAttributeIsDisplayable(get(attributes, key, {}));
       })
-      .filter(field => {
+      .filter((field) => {
         return !displayedFields.includes(field);
       })
       .sort();
   }, [displayedFields, attributes, modifiedData]);
 
-  const handleClickEditLabel = labelToEdit => {
+  const handleClickEditLabel = (labelToEdit) => {
     dispatch({
       type: 'SET_LABEL_TO_EDIT',
       labelToEdit,
@@ -147,7 +147,7 @@ const ListSettingsView = ({ layout, slug, updateLayout }) => {
         {shouldDisplaySortToggle && (
           <div className="col-6" style={{ marginBottom: 4 }}>
             <FormattedMessage id={`${pluginId}.form.Input.sort.field`}>
-              {label => (
+              {(label) => (
                 <Input
                   label={label}
                   type="bool"
@@ -207,7 +207,7 @@ const ListSettingsView = ({ layout, slug, updateLayout }) => {
                       move={move}
                       name={item}
                       onClick={handleClickEditLabel}
-                      onRemove={e => {
+                      onRemove={(e) => {
                         e.stopPropagation();
 
                         if (displayedFields.length === 1) {
@@ -234,7 +234,7 @@ const ListSettingsView = ({ layout, slug, updateLayout }) => {
             isOpen={isOpen}
             toggle={() => {
               if (listRemainingFields.length > 0) {
-                setIsOpen(prevState => !prevState);
+                setIsOpen((prevState) => !prevState);
               }
             }}
             direction="down"
@@ -246,7 +246,7 @@ const ListSettingsView = ({ layout, slug, updateLayout }) => {
           >
             <Toggle disabled={listRemainingFields.length === 0} />
             <MenuDropdown>
-              {listRemainingFields.map(item => (
+              {listRemainingFields.map((item) => (
                 <DropdownItem
                   key={item}
                   onClick={() => {
@@ -267,7 +267,7 @@ const ListSettingsView = ({ layout, slug, updateLayout }) => {
         headerId={`${pluginId}.containers.ListSettingsView.modal-form.edit-label`}
         isOpen={isModalFormOpen}
         onClosed={handleClosed}
-        onSubmit={e => {
+        onSubmit={(e) => {
           e.preventDefault();
           toggleModalForm();
           dispatch({

@@ -45,7 +45,7 @@ class Search extends React.Component {
     this.triggerChange('');
   };
 
-  triggerChange = value => {
+  triggerChange = (value) => {
     const method = value ? 'push' : 'remove';
     const params = method === 'push' ? { _q: value, page: 1 } : { _q: '' };
 
@@ -58,7 +58,7 @@ class Search extends React.Component {
 
     return (
       <FormattedMessage id={getTrad('components.Search.placeholder')}>
-        {placeholder => (
+        {(placeholder) => (
           <HeaderSearch
             label={upperFirst(model)}
             onChange={this.handleChange}

@@ -15,7 +15,7 @@ const createPermissionChecker = ({ userAbility, model }) => {
     model,
   });
 
-  const toSubject = entity => (entity ? permissionsManager.toSubject(entity, model) : model);
+  const toSubject = (entity) => (entity ? permissionsManager.toSubject(entity, model) : model);
 
   const can = (action, entity, field) => {
     return userAbility.can(action, toSubject(entity), field);
@@ -40,15 +40,15 @@ const createPermissionChecker = ({ userAbility, model }) => {
     });
   };
 
-  const sanitizeCreateInput = data => sanitizeInput(ACTIONS.create, data);
-  const sanitizeUpdateInput = entity => data => sanitizeInput(ACTIONS.update, data, entity);
+  const sanitizeCreateInput = (data) => sanitizeInput(ACTIONS.create, data);
+  const sanitizeUpdateInput = (entity) => (data) => sanitizeInput(ACTIONS.update, data, entity);
 
   const buildPermissionQuery = (query, action) => permissionsManager.queryFrom(query, action);
 
-  const buildReadQuery = query => buildPermissionQuery(query, ACTIONS.read);
-  const buildDeleteQuery = query => buildPermissionQuery(query, ACTIONS.delete);
+  const buildReadQuery = (query) => buildPermissionQuery(query, ACTIONS.read);
+  const buildDeleteQuery = (query) => buildPermissionQuery(query, ACTIONS.delete);
 
-  Object.keys(ACTIONS).forEach(action => {
+  Object.keys(ACTIONS).forEach((action) => {
     can[action] = (...args) => can(ACTIONS[action], ...args);
     cannot[action] = (...args) => cannot(ACTIONS[action], ...args);
   });

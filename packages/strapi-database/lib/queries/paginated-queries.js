@@ -2,15 +2,17 @@
 
 const _ = require('lodash');
 
-const createPaginatedQuery = ({ fetch, count }) => async (queryParams, ...args) => {
-  const params = _.omit(queryParams, ['page', 'pageSize']);
-  const pagination = await getPaginationInfos(queryParams, count, ...args);
+const createPaginatedQuery =
+  ({ fetch, count }) =>
+  async (queryParams, ...args) => {
+    const params = _.omit(queryParams, ['page', 'pageSize']);
+    const pagination = await getPaginationInfos(queryParams, count, ...args);
 
-  Object.assign(params, paginationToQueryParams(pagination));
-  const results = await fetch(params, undefined, ...args);
+    Object.assign(params, paginationToQueryParams(pagination));
+    const results = await fetch(params, undefined, ...args);
 
-  return { results, pagination };
-};
+    return { results, pagination };
+  };
 
 const createSearchPageQuery = ({ search, countSearch }) =>
   createPaginatedQuery({ fetch: search, count: countSearch });
@@ -29,7 +31,7 @@ const getPaginationInfos = async (queryParams, count, ...args) => {
   };
 };
 
-const withDefaultPagination = params => {
+const withDefaultPagination = (params) => {
   const { page = 1, pageSize = 100, ...rest } = params;
 
   return {

@@ -16,11 +16,8 @@ const StyledButton = styled(Base)`
 const Button = ({ isTemporary, isInContentTypeView, contentTypeKind, targetUid }) => {
   const { formatMessage } = useIntl();
   const { push } = useHistory();
-  const {
-    collectionTypesConfigurations,
-    componentsConfigurations,
-    singleTypesConfigurations,
-  } = pluginPermissions;
+  const { collectionTypesConfigurations, componentsConfigurations, singleTypesConfigurations } =
+    pluginPermissions;
   const icon = <LayoutIcon className="colored" fill={isTemporary ? '#B4B6BA' : '#007eff'} />;
   const label = formatMessage({ id: 'content-type-builder.form.button.configure-view' });
   let permissionsToApply = collectionTypesConfigurations;

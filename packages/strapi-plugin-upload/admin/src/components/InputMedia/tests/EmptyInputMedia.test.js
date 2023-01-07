@@ -6,7 +6,7 @@ import themes from '../../../../../../strapi-admin/admin/src/themes';
 import EmptyInputMedia from '../EmptyInputMedia';
 
 jest.mock('../../../utils', () => ({
-  getTrad: id => id,
+  getTrad: (id) => id,
 }));
 
 jest.mock('react-intl', () => ({

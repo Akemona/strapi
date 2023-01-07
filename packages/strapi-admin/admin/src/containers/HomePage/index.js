@@ -18,8 +18,7 @@ import SocialLink from './SocialLink';
 
 const FIRST_BLOCK_LINKS = [
   {
-    link:
-      'https://strapi.akemona.com/documentation/developer-docs/latest/getting-started/quick-start.html#_4-create-a-category-content-type',
+    link: 'https://strapi.akemona.com/documentation/developer-docs/latest/getting-started/quick-start.html#_4-create-a-category-content-type',
     contentId: 'app.components.BlockLink.documentation.content',
     titleId: 'app.components.BlockLink.documentation',
   },
@@ -66,7 +65,7 @@ const HomePage = ({ history: { push } }) => {
   // Temporary until we develop the menu API
   const { collectionTypes, singleTypes, isLoading: isLoadingForModels } = useModels();
 
-  const handleClick = e => {
+  const handleClick = (e) => {
     e.preventDefault();
 
     push(
@@ -75,7 +74,7 @@ const HomePage = ({ history: { push } }) => {
   };
 
   const hasAlreadyCreatedContentTypes = useMemo(() => {
-    const filterContentTypes = contentTypes => contentTypes.filter(c => c.isDisplayed);
+    const filterContentTypes = (contentTypes) => contentTypes.filter((c) => c.isDisplayed);
 
     return (
       filterContentTypes(collectionTypes).length > 1 || filterContentTypes(singleTypes).length > 0
@@ -108,7 +107,7 @@ const HomePage = ({ history: { push } }) => {
   return (
     <>
       <FormattedMessage id="HomePage.helmet.title">
-        {title => <PageTitle title={title} />}
+        {(title) => <PageTitle title={title} />}
       </FormattedMessage>
       <Container className="container-fluid">
         <div className="row">
@@ -121,21 +120,21 @@ const HomePage = ({ history: { push } }) => {
                   name: upperFirst(username),
                 }}
               >
-                {msg => <h2 id="mainHeader">{msg}</h2>}
+                {(msg) => <h2 id="mainHeader">{msg}</h2>}
               </FormattedMessage>
               {hasAlreadyCreatedContentTypes ? (
                 <FormattedMessage id="app.components.HomePage.welcomeBlock.content.again">
-                  {msg => <P>{msg}</P>}
+                  {(msg) => <P>{msg}</P>}
                 </FormattedMessage>
               ) : (
                 <FormattedMessage id="HomePage.welcome.congrats">
-                  {congrats => {
+                  {(congrats) => {
                     return (
                       <FormattedMessage id="HomePage.welcome.congrats.content">
-                        {content => {
+                        {(content) => {
                           return (
                             <FormattedMessage id="HomePage.welcome.congrats.content.bold">
-                              {boldContent => {
+                              {(boldContent) => {
                                 return (
                                   <P>
                                     <b>{congrats}</b>&nbsp;
@@ -166,7 +165,7 @@ const HomePage = ({ history: { push } }) => {
                 </div>
               )}
               <FormattedMessage id={linkProps.id}>
-                {msg => (
+                {(msg) => (
                   <ALink
                     rel="noopener noreferrer"
                     {...linkProps}
@@ -184,10 +183,10 @@ const HomePage = ({ history: { push } }) => {
                   return (
                     <LinkWrapper href={data.link} target="_blank" key={data.link} type={type}>
                       <FormattedMessage id={data.titleId}>
-                        {title => <p className="bold">{title}</p>}
+                        {(title) => <p className="bold">{title}</p>}
                       </FormattedMessage>
                       <FormattedMessage id={data.contentId}>
-                        {content => <p>{content}</p>}
+                        {(content) => <p>{content}</p>}
                       </FormattedMessage>
                     </LinkWrapper>
                   );
@@ -198,12 +197,12 @@ const HomePage = ({ history: { push } }) => {
 
           <div className="col-md-12 col-lg-4">
             <Block style={{ paddingRight: 30, paddingBottom: 0 }}>
-              <FormattedMessage id="HomePage.community">{msg => <h2>{msg}</h2>}</FormattedMessage>
+              <FormattedMessage id="HomePage.community">{(msg) => <h2>{msg}</h2>}</FormattedMessage>
               <FormattedMessage id="app.components.HomePage.community.content">
-                {content => <P style={{ marginTop: 7, marginBottom: 0 }}>{content}</P>}
+                {(content) => <P style={{ marginTop: 7, marginBottom: 0 }}>{content}</P>}
               </FormattedMessage>
               <FormattedMessage id="HomePage.roadmap">
-                {msg => (
+                {(msg) => (
                   <ALink
                     rel="noopener noreferrer"
                     href="https://portal.productboard.com/strapi/1-public-roadmap/tabs/2-under-consideration"

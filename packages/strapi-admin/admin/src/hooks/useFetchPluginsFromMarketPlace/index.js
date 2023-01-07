@@ -31,7 +31,7 @@ const useFetchPluginsFromMarketPlace = () => {
           // Silent
         } else {
           // handle error
-          setState(prev => ({ ...prev, isLoading: false, error: true }));
+          setState((prev) => ({ ...prev, isLoading: false, error: true }));
         }
       }
     };

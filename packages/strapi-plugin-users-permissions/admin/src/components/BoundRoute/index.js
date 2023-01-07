@@ -26,7 +26,7 @@ function BoundRoute({ route }) {
       <Wrapper>
         <Verb className={toLower(get(route, 'method'))}>{get(route, 'method')}</Verb>
         <Path>
-          {map(formattedRoute, value => (
+          {map(formattedRoute, (value) => (
             <span key={value} style={includes(value, ':') ? { color: '#787E8F' } : {}}>
               /{value}
             </span>

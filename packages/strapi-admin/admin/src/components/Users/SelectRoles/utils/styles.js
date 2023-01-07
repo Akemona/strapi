@@ -47,7 +47,7 @@ const styles = {
       backgroundColor,
     };
   },
-  menu: base => {
+  menu: (base) => {
     return {
       ...base,
       width: 'calc(100% - 0px)',
@@ -62,7 +62,7 @@ const styles = {
       fontSize: '13px',
     };
   },
-  menuList: base => ({
+  menuList: (base) => ({
     ...base,
     maxHeight: '112px',
     paddingTop: 2,
@@ -83,13 +83,13 @@ const styles = {
       cursor: 'pointer',
     };
   },
-  placeholder: base => ({
+  placeholder: (base) => ({
     ...base,
     marginTop: 0,
     marginLeft: 8,
     color: '#aaa',
   }),
-  valueContainer: base => ({
+  valueContainer: (base) => ({
     ...base,
     padding: '2px 4px 4px 4px',
     lineHeight: '18px',

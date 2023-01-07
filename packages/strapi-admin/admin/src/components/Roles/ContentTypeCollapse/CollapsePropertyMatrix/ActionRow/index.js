@@ -46,7 +46,7 @@ const ActionRow = ({
 
   const handleClick = useCallback(() => {
     if (isCollapsable) {
-      setRowToOpen(prev => {
+      setRowToOpen((prev) => {
         if (prev === name) {
           return null;
         }

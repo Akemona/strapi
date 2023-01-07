@@ -50,10 +50,7 @@ const productWithDz = {
 
 describe('Core API - Basic + dz', () => {
   beforeAll(async () => {
-    await builder
-      .addComponent(compo)
-      .addContentType(productWithDz)
-      .build();
+    await builder.addComponent(compo).addContentType(productWithDz).build();
 
     strapi = await createStrapiInstance();
     rq = await createAuthRequest({ strapi });
@@ -98,7 +95,7 @@ describe('Core API - Basic + dz', () => {
     expect(Array.isArray(res.body.results)).toBe(true);
     expect(res.body.results).toHaveLength(1);
     expect(res.body.results[0]).toMatchObject(data.productsWithDz[0]);
-    res.body.results.forEach(p => expect(p.published_at).toBeUndefined());
+    res.body.results.forEach((p) => expect(p.published_at).toBeUndefined());
   });
 
   test('Update product with compo', async () => {

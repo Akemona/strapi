@@ -19,7 +19,7 @@ const ProfilePage = () => {
   const changeLanguage = useChangeLanguage();
   const { formatMessage } = useIntl();
 
-  const onSubmitSuccessCb = data => {
+  const onSubmitSuccessCb = (data) => {
     changeLanguage(data.preferedLanguage);
     auth.setUserInfo(data);
   };
@@ -66,7 +66,7 @@ const ProfilePage = () => {
             isLoading={isLoading}
             title={formatMessage({ id: 'Settings.profile.form.section.profile.title' })}
           >
-            {Object.keys(form).map(key => (
+            {Object.keys(form).map((key) => (
               <SizedInput
                 {...form[key]}
                 key={key}
@@ -135,9 +135,9 @@ const ProfilePage = () => {
                     <Select
                       aria-labelledby="interface-language"
                       selectedValue={get(modifiedData, 'preferedLanguage')}
-                      onChange={nextLocaleCode => setField('preferedLanguage', nextLocaleCode)}
+                      onChange={(nextLocaleCode) => setField('preferedLanguage', nextLocaleCode)}
                     >
-                      {languages.map(language => {
+                      {languages.map((language) => {
                         const langName = languageNativeNames[language];
 
                         return (

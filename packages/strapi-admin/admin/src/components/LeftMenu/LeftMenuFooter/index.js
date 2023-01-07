@@ -16,7 +16,12 @@ function LeftMenuFooter({ version }) {
   return (
     <Wrapper>
       <div className="poweredBy">
-        <A key="website" href="https://strapi.akemona.com" target="_blank" rel="noopener noreferrer">
+        <A
+          key="website"
+          href="https://strapi.akemona.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Strapi
         </A>
         &nbsp;

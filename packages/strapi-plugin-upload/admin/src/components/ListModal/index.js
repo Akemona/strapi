@@ -14,7 +14,7 @@ import BaselineAlignmentWrapper from './BaselineAlignmentWrapper';
 const ListModal = () => {
   const { currentTab, goTo, handleModalTabChange, selectedFiles } = useModalContext();
 
-  const handleClick = to => {
+  const handleClick = (to) => {
     handleModalTabChange(to);
   };
 
@@ -53,7 +53,7 @@ const ListModal = () => {
       links={links}
       renderRightContent={renderUploadModalButton}
     >
-      {to => (
+      {(to) => (
         <ModalSection>
           {to === 'browse' && <BrowseAssets />}
           {to === 'selected' && <SelectedAssets />}

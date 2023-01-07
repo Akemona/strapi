@@ -35,9 +35,9 @@ const defaults = {
 
 const isBookshelfConnection = ({ connector }) => connector === 'bookshelf';
 
-module.exports = function(strapi) {
+module.exports = function (strapi) {
   const { connections } = strapi.config;
-  const bookshelfConnections = Object.keys(connections).filter(key =>
+  const bookshelfConnections = Object.keys(connections).filter((key) =>
     isBookshelfConnection(connections[key])
   );
 
@@ -48,7 +48,7 @@ module.exports = function(strapi) {
 
     const GLOBALS = {};
 
-    const connectionsPromises = bookshelfConnections.map(connectionName => {
+    const connectionsPromises = bookshelfConnections.map((connectionName) => {
       const connection = connections[connectionName];
 
       _.defaults(connection.settings, strapi.config.hook.settings.bookshelf);
@@ -141,7 +141,7 @@ module.exports = function(strapi) {
 
   function mountPlugins(connectionName, ctx) {
     return Promise.all(
-      Object.keys(strapi.plugins).map(name => {
+      Object.keys(strapi.plugins).map((name) => {
         const plugin = strapi.plugins[name];
         return mountModels(
           {
@@ -155,7 +155,9 @@ module.exports = function(strapi) {
   }
 
   async function destroy() {
-    await Promise.all(bookshelfConnections.map(connName => strapi.connections[connName].destroy()));
+    await Promise.all(
+      bookshelfConnections.map((connName) => strapi.connections[connName].destroy())
+    );
   }
 
   return {

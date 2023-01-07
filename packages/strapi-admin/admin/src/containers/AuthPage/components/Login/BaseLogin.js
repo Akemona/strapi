@@ -68,7 +68,7 @@ const Login = ({ children, formErrors, modifiedData, onChange, onSubmit, request
 
 Login.defaultProps = {
   children: null,
-  onSubmit: e => e.preventDefault(),
+  onSubmit: (e) => e.preventDefault(),
   requestError: null,
 };
 

@@ -6,7 +6,7 @@ const { csp } = require('koa-lusca');
  * CSP hook
  */
 
-module.exports = strapi => {
+module.exports = (strapi) => {
   return {
     /**
      * Initialize the hook
@@ -16,10 +16,7 @@ module.exports = strapi => {
       strapi.app.use(async (ctx, next) => {
         if (ctx.request.admin) return await next();
 
-        return await convert(csp(strapi.config.middleware.settings.csp))(
-          ctx,
-          next
-        );
+        return await convert(csp(strapi.config.middleware.settings.csp))(ctx, next);
       });
     },
   };

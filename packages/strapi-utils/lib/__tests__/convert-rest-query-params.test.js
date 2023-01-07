@@ -157,7 +157,7 @@ describe('convertRestQueryParams', () => {
       { _publicationState: 'foobar' },
       { _publicationState: undefined },
       { _publicationState: null },
-    ])('Throws on invalid params (%#)', params => {
+    ])('Throws on invalid params (%#)', (params) => {
       expect(() => convertRestQueryParams(params)).toThrow();
     });
 

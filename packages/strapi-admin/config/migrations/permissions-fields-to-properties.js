@@ -4,7 +4,7 @@ const { has, isObject } = require('lodash/fp');
 
 const permissionModelUID = 'strapi::permission';
 
-const hasAttribute = attribute => has(`attributes.${attribute}`);
+const hasAttribute = (attribute) => has(`attributes.${attribute}`);
 const hasFieldsAttribute = hasAttribute('fields');
 const hasPropertiesAttribute = hasAttribute('properties');
 
@@ -26,7 +26,7 @@ const permissionsFinderByORM = {
   async bookshelf(model) {
     const permissions = await model.fetchAll();
 
-    return permissions.toJSON().map(permission => {
+    return permissions.toJSON().map((permission) => {
       const fields = permission.fields;
 
       return {
@@ -74,7 +74,7 @@ module.exports = {
     const { permissions = [] } = permissionsFieldsToProperties;
 
     if (model.orm === 'bookshelf') {
-      const update = async transacting => {
+      const update = async (transacting) => {
         for (const permission of permissions) {
           const { fields, ...rest } = permission;
 
@@ -84,7 +84,7 @@ module.exports = {
         }
       };
 
-      await ORM.transaction(transacting => update(transacting));
+      await ORM.transaction((transacting) => update(transacting));
     }
 
     if (model.orm === 'mongoose') {

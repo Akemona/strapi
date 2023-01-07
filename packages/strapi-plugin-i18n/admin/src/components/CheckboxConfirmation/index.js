@@ -10,7 +10,7 @@ const CheckboxConfirmation = ({ description, isCreating, label, name, onChange, 
   const { formatMessage } = useIntl();
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     if (isCreating || e.target.value) {
       return onChange(e);
     }
@@ -27,7 +27,7 @@ const CheckboxConfirmation = ({ description, isCreating, label, name, onChange, 
     setIsOpen(false);
   };
 
-  const handleToggle = () => setIsOpen(prev => !prev);
+  const handleToggle = () => setIsOpen((prev) => !prev);
 
   return (
     <>

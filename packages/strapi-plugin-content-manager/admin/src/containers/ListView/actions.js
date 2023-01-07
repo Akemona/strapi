@@ -78,7 +78,7 @@ export function toggleModalDelete() {
   };
 }
 
-export const setLayout = contentType => {
+export const setLayout = (contentType) => {
   const { layouts } = contentType;
 
   return {
@@ -88,4 +88,4 @@ export const setLayout = contentType => {
   };
 };
 
-export const onChangeListHeaders = target => ({ type: ON_CHANGE_LIST_HEADERS, target });
+export const onChangeListHeaders = (target) => ({ type: ON_CHANGE_LIST_HEADERS, target });

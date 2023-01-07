@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { Flex, Text } from '@buffetjs/core';
 
-export const TabNavRaw = styled(props => <Flex flexDirection="column" {...props} />)`
+export const TabNavRaw = styled((props) => <Flex flexDirection="column" {...props} />)`
   width: 100%;
 `;
 
-export const TabsRaw = styled(props => (
+export const TabsRaw = styled((props) => (
   <Flex alignItems="center" justifyContent="flex-end" {...props} />
 ))`
   width: 100%;
@@ -14,7 +14,7 @@ export const TabsRaw = styled(props => (
   border-bottom: 1px solid ${({ theme }) => theme.main.colors.brightGrey};
 `;
 
-export const TabButton = styled(props => (
+export const TabButton = styled((props) => (
   <Text
     as="button"
     textTransform="uppercase"
@@ -28,7 +28,7 @@ export const TabButton = styled(props => (
   letter-spacing: 0.7px;
   margin-left: 3rem;
   border-bottom: 2px solid
-    ${props => (props['aria-selected'] ? props.theme.main.colors.mediumBlue : 'transparent')};
+    ${(props) => (props['aria-selected'] ? props.theme.main.colors.mediumBlue : 'transparent')};
   padding: 0;
 `;
 

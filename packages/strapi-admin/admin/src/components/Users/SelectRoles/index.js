@@ -27,9 +27,9 @@ const SelectRoles = ({ error, isDisabled, name, onChange, value }) => {
           MultiValueContainer,
         }}
         error={error}
-        getOptionLabel={option => option.name}
-        getOptionValue={option => option.id}
-        onChange={data => {
+        getOptionLabel={(option) => option.name}
+        getOptionValue={(option) => option.id}
+        onChange={(data) => {
           onChange({ target: { name, value: data } });
         }}
         isClearable

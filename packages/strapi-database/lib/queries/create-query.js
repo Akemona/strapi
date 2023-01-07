@@ -21,7 +21,7 @@ module.exports = function createQuery(opts) {
   });
 
   const createMany = (entities, { concurrency = 100 } = {}, ...rest) => {
-    return pmap(entities, entity => createFn(entity, ...rest), {
+    return pmap(entities, (entity) => createFn(entity, ...rest), {
       concurrency,
       stopOnError: true,
     });

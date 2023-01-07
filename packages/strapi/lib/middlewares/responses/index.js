@@ -2,7 +2,7 @@
 
 const _ = require('lodash');
 
-module.exports = strapi => {
+module.exports = (strapi) => {
   return {
     initialize() {
       strapi.app.use(async (ctx, next) => {

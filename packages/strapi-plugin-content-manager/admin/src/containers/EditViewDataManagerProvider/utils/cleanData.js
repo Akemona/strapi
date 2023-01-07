@@ -32,7 +32,7 @@ const cleanData = (retrievedData, currentSchema, componentsSchema) => {
           break;
         case 'media':
           if (getOtherInfos(schema, [current, 'multiple']) === true) {
-            cleanedData = value ? value.filter(file => !(file instanceof File)) : null;
+            cleanedData = value ? value.filter((file) => !(file instanceof File)) : null;
           } else {
             cleanedData = get(value, 0) instanceof File ? null : get(value, 'id', null);
           }
@@ -40,7 +40,7 @@ const cleanData = (retrievedData, currentSchema, componentsSchema) => {
         case 'component':
           if (isRepeatable) {
             cleanedData = value
-              ? value.map(data => {
+              ? value.map((data) => {
                   const subCleanedData = recursiveCleanData(data, componentsSchema[component]);
 
                   return subCleanedData;
@@ -51,7 +51,7 @@ const cleanData = (retrievedData, currentSchema, componentsSchema) => {
           }
           break;
         case 'dynamiczone':
-          cleanedData = value.map(componentData => {
+          cleanedData = value.map((componentData) => {
             const subCleanedData = recursiveCleanData(
               componentData,
               componentsSchema[componentData.__component]
@@ -76,7 +76,7 @@ const cleanData = (retrievedData, currentSchema, componentsSchema) => {
 
 export const helperCleanData = (value, key) => {
   if (isArray(value)) {
-    return value.map(obj => (obj[key] ? obj[key] : obj));
+    return value.map((obj) => (obj[key] ? obj[key] : obj));
   }
   if (isObject(value)) {
     return value[key];

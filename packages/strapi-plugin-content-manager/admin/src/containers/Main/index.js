@@ -26,12 +26,12 @@ function Main({ getData, getDataSucceeded, isLoading, resetProps }) {
     const abortController = new AbortController();
     const { signal } = abortController;
 
-    const fetchData = async signal => {
+    const fetchData = async (signal) => {
       getData();
 
       try {
         const [{ data: components }, { data: models }] = await Promise.all(
-          ['components', 'content-types'].map(endPoint =>
+          ['components', 'content-types'].map((endPoint) =>
             request(getRequestUrl(endPoint), { method: 'GET', signal })
           )
         );

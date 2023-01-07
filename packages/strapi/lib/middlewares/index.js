@@ -15,17 +15,17 @@ const requiredMiddlewares = [
   'favicon',
 ];
 
-module.exports = async function() {
+module.exports = async function () {
   /** Utils */
   const middlewareConfig = this.config.middleware;
 
   // check if a middleware exists
-  const middlewareExists = key => {
+  const middlewareExists = (key) => {
     return !isUndefined(this.middleware[key]);
   };
 
   // check if a middleware is enabled
-  const middlewareEnabled = key => {
+  const middlewareEnabled = (key) => {
     return (
       requiredMiddlewares.includes(key) ||
       get(middlewareConfig, ['settings', key, 'enabled'], false) === true
@@ -36,7 +36,7 @@ module.exports = async function() {
   const enabledMiddlewares = Object.keys(this.middleware).filter(middlewareEnabled);
 
   // Method to initialize middlewares and emit an event.
-  const initialize = middlewareKey => {
+  const initialize = (middlewareKey) => {
     if (this.middleware[middlewareKey].loaded === true) return;
 
     const module = this.middleware[middlewareKey].load;
@@ -56,7 +56,7 @@ module.exports = async function() {
           this.middleware[middlewareKey].loaded = true;
           resolve();
         })
-        .catch(err => {
+        .catch((err) => {
           clearTimeout(timeout);
 
           if (err) {
@@ -72,7 +72,7 @@ module.exports = async function() {
 
   // Run beforeInitialize of every middleware
   await Promise.all(
-    enabledMiddlewares.map(key => {
+    enabledMiddlewares.map((key) => {
       const { beforeInitialize } = this.middleware[key].load;
       if (typeof beforeInitialize === 'function') {
         return beforeInitialize();
@@ -81,7 +81,7 @@ module.exports = async function() {
   );
 
   // run the initialization of an array of middlewares sequentially
-  const initMiddlewaresSeq = async middlewareArr => {
+  const initMiddlewaresSeq = async (middlewareArr) => {
     for (let key of uniq(middlewareArr)) {
       await initialize(key);
     }

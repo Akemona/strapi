@@ -51,7 +51,7 @@ const RelationPreviewList = ({
   const size = value ? value.count : 0;
 
   const handleTooltipToggle = () => {
-    setDisplayTooltip(prev => !prev);
+    setDisplayTooltip((prev) => !prev);
   };
 
   return (

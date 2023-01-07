@@ -32,7 +32,7 @@ describe('USERS PERMISSIONS | CONTAINERS | AdvancedSettings | reducer', () => {
       state.initialData = true;
       state.modifiedData = true;
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.isLoading = true;
         draft.initialData = {};
         draft.modifiedData = {};
@@ -56,7 +56,7 @@ describe('USERS PERMISSIONS | CONTAINERS | AdvancedSettings | reducer', () => {
         data,
       };
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.isLoading = false;
         draft.initialData = { ok: true };
         draft.modifiedData = { ok: true };
@@ -78,7 +78,7 @@ describe('USERS PERMISSIONS | CONTAINERS | AdvancedSettings | reducer', () => {
 
       state.isLoading = false;
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.isLoading = true;
       });
 
@@ -96,7 +96,7 @@ describe('USERS PERMISSIONS | CONTAINERS | AdvancedSettings | reducer', () => {
         value: 'test@test.io',
       };
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.modifiedData = {
           from: { name: 'test@test.io' },
           test: 'test',
@@ -114,7 +114,7 @@ describe('USERS PERMISSIONS | CONTAINERS | AdvancedSettings | reducer', () => {
 
       const action = { type: 'ON_RESET' };
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.modifiedData = { test: true };
       });
 
@@ -128,7 +128,7 @@ describe('USERS PERMISSIONS | CONTAINERS | AdvancedSettings | reducer', () => {
         type: 'ON_SUBMIT',
       };
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.isConfirmButtonLoading = true;
       });
 
@@ -144,7 +144,7 @@ describe('USERS PERMISSIONS | CONTAINERS | AdvancedSettings | reducer', () => {
 
       const action = { type: 'ON_SUBMIT_SUCCEEDED' };
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.initialData = { test: false };
         draft.isConfirmButtonLoading = false;
       });
@@ -159,7 +159,7 @@ describe('USERS PERMISSIONS | CONTAINERS | AdvancedSettings | reducer', () => {
 
       const action = { type: 'ON_SUBMIT_ERROR' };
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.isConfirmButtonLoading = false;
       });
 

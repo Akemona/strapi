@@ -16,44 +16,45 @@ import getInjectors from './sagaInjectors';
  *   - constants.ONCE_TILL_UNMOUNT—behaves like 'RESTART_ON_REMOUNT' but never runs it again.
  *
  */
-export default ({ key, saga, mode, pluginId }) => WrappedComponent => {
-  class InjectSaga extends React.Component {
-    static WrappedComponent = WrappedComponent;
-    static displayName = `withSaga(${WrappedComponent.displayName ||
-      WrappedComponent.name ||
-      'Component'})`;
+export default ({ key, saga, mode, pluginId }) =>
+  (WrappedComponent) => {
+    class InjectSaga extends React.Component {
+      static WrappedComponent = WrappedComponent;
+      static displayName = `withSaga(${
+        WrappedComponent.displayName || WrappedComponent.name || 'Component'
+      })`;
 
-    static contextType = ReactReduxContext;
+      static contextType = ReactReduxContext;
 
-    constructor(props, context) {
-      super(props, context);
+      constructor(props, context) {
+        super(props, context);
 
-      this.injectors = getInjectors(context.store);
-      const sagaName = pluginId ? `${pluginId}_${key}` : key;
+        this.injectors = getInjectors(context.store);
+        const sagaName = pluginId ? `${pluginId}_${key}` : key;
 
-      console.warn(
-        'Warning: strapi.injectSaga will be removed in the next major release. \n Please update your code.'
-      );
+        console.warn(
+          'Warning: strapi.injectSaga will be removed in the next major release. \n Please update your code.'
+        );
 
-      this.injectors.injectSaga(sagaName, { saga, mode }, this.props);
+        this.injectors.injectSaga(sagaName, { saga, mode }, this.props);
+      }
+
+      componentWillUnmount() {
+        const { ejectSaga } = this.injectors;
+        const sagaName = pluginId ? `${pluginId}_${key}` : key;
+
+        ejectSaga(sagaName);
+      }
+
+      injectors = getInjectors(this.context.store);
+
+      render() {
+        return <WrappedComponent {...this.props} />;
+      }
     }
 
-    componentWillUnmount() {
-      const { ejectSaga } = this.injectors;
-      const sagaName = pluginId ? `${pluginId}_${key}` : key;
-
-      ejectSaga(sagaName);
-    }
-
-    injectors = getInjectors(this.context.store);
-
-    render() {
-      return <WrappedComponent {...this.props} />;
-    }
-  }
-
-  return hoistNonReactStatics(InjectSaga, WrappedComponent);
-};
+    return hoistNonReactStatics(InjectSaga, WrappedComponent);
+  };
 
 const useInjectSaga = ({ key, saga, mode, pluginId }) => {
   const context = React.useContext(ReactReduxContext);

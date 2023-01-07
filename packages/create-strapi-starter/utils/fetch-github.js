@@ -89,7 +89,7 @@ async function downloadGitHubRepo(repoInfo, tmpDir) {
     stopProcess(`Could not download the repository ${message}: ${chalk.yellow(fullName)}.`);
   }
 
-  await new Promise(resolve => {
+  await new Promise((resolve) => {
     response.body.pipe(tar.extract({ strip: 1, cwd: tmpDir })).on('close', resolve);
   });
 }

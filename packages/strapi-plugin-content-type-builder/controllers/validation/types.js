@@ -18,7 +18,7 @@ const {
 const maxLengthIsGreaterThanOrEqualToMinLength = {
   name: 'isGreaterThanMin',
   message: 'maxLength must be greater or equal to minLength',
-  test: function(value) {
+  test: function (value) {
     const { minLength } = this.parent;
     if (!_.isUndefined(minLength) && !_.isUndefined(value) && value < minLength) {
       return false;
@@ -30,10 +30,7 @@ const maxLengthIsGreaterThanOrEqualToMinLength = {
 
 const getTypeValidator = (attribute, { types, modelType, attributes }) => {
   return yup.object({
-    type: yup
-      .string()
-      .oneOf(types)
-      .required(),
+    type: yup.string().oneOf(types).required(),
     configurable: yup.boolean().nullable(),
     private: yup.boolean().nullable(),
     pluginOptions: yup.object(),
@@ -65,7 +62,7 @@ const getTypeShape = (attribute, { modelType, attributes } = {}) => {
         targetField: yup
           .string()
           .oneOf(
-            Object.keys(attributes).filter(key =>
+            Object.keys(attributes).filter((key) =>
               VALID_UID_TARGETS.includes(_.get(attributes[key], 'type'))
             )
           )
@@ -75,7 +72,7 @@ const getTypeShape = (attribute, { modelType, attributes } = {}) => {
           .test(
             'isValidDefaultUID',
             'cannot define a default UID if the targetField is set',
-            function(value) {
+            function (value) {
               const { targetField } = this.parent;
               if (_.isNil(targetField) || _.isNil(value)) {
                 return true;
@@ -91,13 +88,7 @@ const getTypeShape = (attribute, { modelType, attributes } = {}) => {
           separator: yup.string(),
           lowercase: yup.boolean(),
           decamelize: yup.boolean(),
-          customReplacements: yup.array().of(
-            yup
-              .array()
-              .of(yup.string())
-              .min(2)
-              .max(2)
-          ),
+          customReplacements: yup.array().of(yup.array().of(yup.string()).min(2).max(2)),
           preserveLeadingUnderscore: yup.boolean(),
         }),
       };
@@ -136,16 +127,11 @@ const getTypeShape = (attribute, { modelType, attributes } = {}) => {
       return {
         enum: yup
           .array()
-          .of(
-            yup
-              .string()
-              .test(isValidEnum)
-              .required()
-          )
+          .of(yup.string().test(isValidEnum).required())
           .min(1)
           .test(areEnumValuesUnique)
           .required(),
-        default: yup.string().when('enum', enumVal => yup.string().oneOf(enumVal)),
+        default: yup.string().when('enum', (enumVal) => yup.string().oneOf(enumVal)),
         enumName: yup.string().test(isValidName),
         required: validators.required,
         unique: validators.unique,
@@ -178,20 +164,11 @@ const getTypeShape = (attribute, { modelType, attributes } = {}) => {
     }
     case 'biginteger': {
       return {
-        default: yup
-          .string()
-          .nullable()
-          .matches(/^\d*$/),
+        default: yup.string().nullable().matches(/^\d*$/),
         required: validators.required,
         unique: validators.unique,
-        min: yup
-          .string()
-          .nullable()
-          .matches(/^\d*$/),
-        max: yup
-          .string()
-          .nullable()
-          .matches(/^\d*$/),
+        min: yup.string().nullable().matches(/^\d*$/),
+        max: yup.string().nullable().matches(/^\d*$/),
       };
     }
     case 'float': {
@@ -237,7 +214,7 @@ const getTypeShape = (attribute, { modelType, attributes } = {}) => {
           .string()
           .test({
             name: 'Check max component nesting is 1 lvl',
-            test: function(compoUID) {
+            test: function (compoUID) {
               const targetCompo = strapi.components[compoUID];
               if (!targetCompo) return true; // ignore this error as it will fail beforehand
 
@@ -262,7 +239,7 @@ const getTypeShape = (attribute, { modelType, attributes } = {}) => {
         components: yup
           .array()
           .of(yup.string().required())
-          .test('isArray', '${path} must be an array', value => Array.isArray(value)),
+          .test('isArray', '${path} must be an array', (value) => Array.isArray(value)),
         min: yup.number(),
         max: yup.number(),
       };

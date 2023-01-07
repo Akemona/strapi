@@ -34,7 +34,7 @@ describe('Resolvers builder', () => {
     test("Returns ctx.body if it's not falsy and the resolver is a string", async () => {
       expect.assertions(1);
 
-      strapi.api['my-api'].controllers['my-controller'].myAction = async ctx => {
+      strapi.api['my-api'].controllers['my-controller'].myAction = async (ctx) => {
         ctx.body = 1;
       };
 
@@ -49,7 +49,7 @@ describe('Resolvers builder', () => {
     test("Returns ctx.body if it's not undefined and the resolver is a string", async () => {
       expect.assertions(1);
 
-      strapi.api['my-api'].controllers['my-controller'].myAction = async ctx => {
+      strapi.api['my-api'].controllers['my-controller'].myAction = async (ctx) => {
         ctx.body = 0;
       };
 
@@ -79,7 +79,7 @@ describe('Resolvers builder', () => {
     test("Returns ctx.body if it's not falsy and the resolver is a string", async () => {
       expect.assertions(1);
 
-      strapi.api['my-api'].controllers['my-controller'].myAction = async ctx => {
+      strapi.api['my-api'].controllers['my-controller'].myAction = async (ctx) => {
         ctx.body = 1;
       };
 
@@ -94,7 +94,7 @@ describe('Resolvers builder', () => {
     test("Returns ctx.body if it's not undefined and the resolver is a string", async () => {
       expect.assertions(1);
 
-      strapi.api['my-api'].controllers['my-controller'].myAction = async ctx => {
+      strapi.api['my-api'].controllers['my-controller'].myAction = async (ctx) => {
         ctx.body = 0;
       };
 

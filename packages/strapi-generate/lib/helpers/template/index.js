@@ -23,7 +23,7 @@ const fileHelper = require('../file');
 module.exports = function (options, cb) {
   cb = reportback.extend(cb, {
     noTemplate: 'error',
-    alreadyExists: 'error'
+    alreadyExists: 'error',
   });
 
   // Compute the canonical path to a template
@@ -49,7 +49,7 @@ module.exports = function (options, cb) {
 
     try {
       const compiled = _.template(contents, {
-        interpolate: /<%=([\s\S]+?)%>/g
+        interpolate: /<%=([\s\S]+?)%>/g,
       });
       contents = compiled(options);
 
@@ -62,8 +62,11 @@ module.exports = function (options, cb) {
       return cb(e);
     }
 
-    return fileHelper(_.merge(options, {
-      contents
-    }), cb);
+    return fileHelper(
+      _.merge(options, {
+        contents,
+      }),
+      cb
+    );
   });
 };

@@ -13,7 +13,7 @@ const InputFileModal = ({ name, onChange }) => {
   const { formatMessage } = useGlobalContext();
   const ref = createRef();
 
-  const handleAllowDrop = e => e.preventDefault();
+  const handleAllowDrop = (e) => e.preventDefault();
 
   const handleChange = ({ target: { files } }) => {
     onChange({ target: { name, value: files } });
@@ -31,7 +31,7 @@ const InputFileModal = ({ name, onChange }) => {
     setIsDragging(false);
   };
 
-  const handleDrop = e => {
+  const handleDrop = (e) => {
     e.preventDefault();
 
     setIsDragging(false);

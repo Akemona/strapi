@@ -72,8 +72,8 @@ function SettingsPage() {
   // Only display accessible sections
   const filteredMenu = useMemo(() => getSectionsToDisplay(menu), [menu]);
 
-  const toggleHeaderSearch = label =>
-    setShowHeaderSearchState(prev => {
+  const toggleHeaderSearch = (label) =>
+    setShowHeaderSearchState((prev) => {
       if (prev.show) {
         return {
           show: false,
@@ -107,7 +107,7 @@ function SettingsPage() {
             <MenuWrapper>
               <ApplicationDetailLink />
               <StyledLeftMenu>
-                {filteredMenu.map(item => {
+                {filteredMenu.map((item) => {
                   return <LeftMenuList {...item} key={item.id} />;
                 })}
               </StyledLeftMenu>

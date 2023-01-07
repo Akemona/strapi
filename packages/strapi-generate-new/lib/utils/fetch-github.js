@@ -86,7 +86,7 @@ async function downloadGitHubRepo(repoInfo, tmpDir) {
     throw Error(`Could not download the ${chalk.yellow(fullName)} repository.`);
   }
 
-  await new Promise(resolve => {
+  await new Promise((resolve) => {
     response.body.pipe(tar.extract({ strip: 1, cwd: tmpDir })).on('close', resolve);
   });
 }

@@ -4,18 +4,18 @@ import styled from 'styled-components';
 const Body = styled.div`
   padding-top: 2.1rem;
   padding-bottom: 1.5rem;
-  padding-right: ${props => props.theme.main.sizes.paddings.md};
-  padding-left: ${props => props.theme.main.sizes.paddings.md};
+  padding-right: ${(props) => props.theme.main.sizes.paddings.md};
+  padding-left: ${(props) => props.theme.main.sizes.paddings.md};
   text-align: center;
 `;
 
 const HeaderWrapper = styled.div`
   width: 100%;
-  padding-left: ${props => props.theme.main.sizes.paddings.md};
-  padding-right: ${props => props.theme.main.sizes.paddings.md};
+  padding-left: ${(props) => props.theme.main.sizes.paddings.md};
+  padding-right: ${(props) => props.theme.main.sizes.paddings.md};
   padding-top: 17px;
   padding-bottom: 22px;
-  background-color: ${props => props.theme.main.colors.lightGrey};
+  background-color: ${(props) => props.theme.main.colors.lightGrey};
   border-top-left-radius: ${({ theme }) => theme.main.sizes.borderRadius};
   border-top-right-radius: ${({ theme }) => theme.main.sizes.borderRadius};
   border: 0;
@@ -41,7 +41,7 @@ const Footer = styled.div`
   width: 100%;
   margin-top: 19px;
   justify-content: space-between;
-  background-color: ${props => props.theme.main.colors.strapi['gray-light']};
+  background-color: ${(props) => props.theme.main.colors.strapi['gray-light']};
   padding: 15px 30px 17px 30px;
   border-bottom-left-radius: ${({ theme }) => theme.main.sizes.borderRadius};
   border-bottom-right-radius: ${({ theme }) => theme.main.sizes.borderRadius};

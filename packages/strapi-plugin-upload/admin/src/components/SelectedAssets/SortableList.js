@@ -18,7 +18,7 @@ const SortableList = ({
   onClickEditFile,
   selectedItems,
 }) => {
-  const handleClick = e => {
+  const handleClick = (e) => {
     e.stopPropagation();
   };
 
@@ -28,9 +28,9 @@ const SortableList = ({
         {data.map((item, index) => {
           const { id } = item;
           const url = get(item, ['formats', 'thumbnail', 'url'], item.url);
-          const checked = selectedItems.findIndex(file => file.id === id) !== -1;
+          const checked = selectedItems.findIndex((file) => file.id === id) !== -1;
           const fileUrl = prefixFileUrlWithBackendUrl(url);
-          const handleEditClick = e => {
+          const handleEditClick = (e) => {
             e.stopPropagation();
             onClickEditFile(id);
           };
@@ -62,7 +62,7 @@ const SortableList = ({
                       title="edit"
                       color="#9EA7B8"
                       type="pencil"
-                      onClick={e => handleEditClick(e)}
+                      onClick={(e) => handleEditClick(e)}
                     />
                   </CardControlsWrapper>
                 )}

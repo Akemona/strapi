@@ -15,7 +15,7 @@ const DeleteModalAdditionalInfos = () => {
       <FormattedMessage
         id={getTrad('Settings.list.actions.deleteAdditionalInfos')}
         values={{
-          em: chunks => <em>{chunks}</em>,
+          em: (chunks) => <em>{chunks}</em>,
         }}
       />
     </span>

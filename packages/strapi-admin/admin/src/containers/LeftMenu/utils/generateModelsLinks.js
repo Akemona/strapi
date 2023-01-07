@@ -3,8 +3,8 @@ import { stringify } from 'qs';
 
 const generateLinks = (links, type, configurations = []) => {
   return links
-    .filter(link => link.isDisplayed)
-    .map(link => {
+    .filter((link) => link.isDisplayed)
+    .map((link) => {
       const collectionTypesPermissions = [
         { action: 'plugins::content-manager.explorer.create', subject: link.uid },
         { action: 'plugins::content-manager.explorer.read', subject: link.uid },

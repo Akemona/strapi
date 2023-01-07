@@ -30,20 +30,20 @@ const RepeatableComponent = ({
   const [collapseToOpen, setCollapseToOpen] = useState('');
   const [, drop] = useDrop({ accept: ItemTypes.COMPONENT });
   const { getComponentLayout } = useContentTypeLayout();
-  const componentLayoutData = useMemo(() => getComponentLayout(componentUid), [
-    componentUid,
-    getComponentLayout,
-  ]);
+  const componentLayoutData = useMemo(
+    () => getComponentLayout(componentUid),
+    [componentUid, getComponentLayout]
+  );
 
   const nextTempKey = useMemo(() => {
     return getMaxTempKey(componentValue || []) + 1;
   }, [componentValue]);
 
   const componentErrorKeys = Object.keys(formErrors)
-    .filter(errorKey => {
+    .filter((errorKey) => {
       return take(errorKey.split('.'), isNested ? 3 : 1).join('.') === name;
     })
-    .map(errorKey => {
+    .map((errorKey) => {
       return errorKey
         .split('.')
         .slice(0, name.split('.').length + 1)
@@ -54,7 +54,7 @@ const RepeatableComponent = ({
     setCollapseToOpen('');
   };
   const missingComponentsValue = min - componentValueLength;
-  const errorsArray = componentErrorKeys.map(key => get(formErrors, [key, 'id'], ''));
+  const errorsArray = componentErrorKeys.map((key) => get(formErrors, [key, 'id'], ''));
 
   const hasMinError = get(errorsArray, [0], '').includes('min');
 
@@ -86,7 +86,7 @@ const RepeatableComponent = ({
       {componentValueLength === 0 && (
         <EmptyComponent hasMinError={hasMinError}>
           <FormattedMessage id={`${pluginId}.components.empty-repeatable`}>
-            {msg => <p>{msg}</p>}
+            {(msg) => <p>{msg}</p>}
           </FormattedMessage>
         </EmptyComponent>
       )}

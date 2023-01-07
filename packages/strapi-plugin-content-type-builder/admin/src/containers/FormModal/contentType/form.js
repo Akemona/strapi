@@ -55,7 +55,7 @@ const forms = {
     },
   },
   base: {
-    create: value => {
+    create: (value) => {
       return {
         items: [
           [

@@ -11,7 +11,7 @@ describe('Format yup errors', () => {
         name: yup.string().required('name is required'),
       })
       .validate({})
-      .catch(err => {
+      .catch((err) => {
         expect(formatYupErrors(err)).toMatchObject({
           name: ['name is required'],
         });
@@ -22,10 +22,7 @@ describe('Format yup errors', () => {
     expect.hasAssertions();
     return yup
       .object({
-        name: yup
-          .string()
-          .min(2, 'min length is 2')
-          .required(),
+        name: yup.string().min(2, 'min length is 2').required(),
       })
       .validate(
         {
@@ -36,7 +33,7 @@ describe('Format yup errors', () => {
           abortEarly: false,
         }
       )
-      .catch(err => {
+      .catch((err) => {
         expect(formatYupErrors(err)).toMatchObject({
           name: ['min length is 2'],
         });
@@ -47,15 +44,8 @@ describe('Format yup errors', () => {
     expect.hasAssertions();
     return yup
       .object({
-        name: yup
-          .string()
-          .min(2, 'min length is 2')
-          .typeError('name must be a string')
-          .required(),
-        price: yup
-          .number()
-          .integer()
-          .required('price is required'),
+        name: yup.string().min(2, 'min length is 2').typeError('name must be a string').required(),
+        price: yup.number().integer().required('price is required'),
       })
       .validate(
         {
@@ -66,7 +56,7 @@ describe('Format yup errors', () => {
           abortEarly: false,
         }
       )
-      .catch(err => {
+      .catch((err) => {
         expect(formatYupErrors(err)).toMatchObject({
           price: ['price is required'],
           name: ['name must be a string'],

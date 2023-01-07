@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { getTrad } from '../../utils';
 import { DELETE_LOCALE } from '../constants';
 
-const deleteLocale = async id => {
+const deleteLocale = async (id) => {
   try {
     const data = await request(`/i18n/locales/${id}`, {
       method: 'DELETE',
@@ -30,7 +30,7 @@ const useDeleteLocale = () => {
   const [isLoading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
-  const removeLocale = async id => {
+  const removeLocale = async (id) => {
     setLoading(true);
 
     await deleteLocale(id);

@@ -88,7 +88,7 @@ const FieldComponent = ({
       </Label>
       {showResetComponent && (
         <Reset
-          onClick={e => {
+          onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
             removeComponentFromField(name, componentUid);

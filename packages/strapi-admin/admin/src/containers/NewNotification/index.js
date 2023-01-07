@@ -12,11 +12,11 @@ import Notification from './Notification';
 import NotificationsWrapper from './Wrapper';
 
 const NotificationsContainer = () => {
-  const notifications = useSelector(state => state.get('newNotification').notifications);
+  const notifications = useSelector((state) => state.get('newNotification').notifications);
 
   return (
     <NotificationsWrapper>
-      {notifications.map(notification => (
+      {notifications.map((notification) => (
         <CSSTransition
           key={notification.id}
           classNames="notification"

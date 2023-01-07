@@ -2,7 +2,7 @@
 const chalk = require('chalk');
 const _ = require('lodash');
 
-const codeToColor = code => {
+const codeToColor = (code) => {
   return code >= 500
     ? chalk.red(code)
     : code >= 400
@@ -18,7 +18,7 @@ const codeToColor = code => {
  * Logger hook
  */
 
-module.exports = strapi => {
+module.exports = (strapi) => {
   return {
     /**
      * Initialize the hook

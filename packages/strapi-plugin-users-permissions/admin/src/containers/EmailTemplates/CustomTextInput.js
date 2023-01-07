@@ -56,7 +56,7 @@ const CustomTextInput = ({
             id={inputId}
             aria-invalid={error ? 'true' : 'false'}
             onBlur={onBlur}
-            onChange={e => {
+            onChange={(e) => {
               if (!canCheck) {
                 dispatch({
                   type: 'SET_CHECK',

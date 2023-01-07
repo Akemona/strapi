@@ -24,7 +24,7 @@ const List = ({
 }) => {
   const selectedAssets = selectedItems.length;
 
-  const handleCheckboxClick = e => {
+  const handleCheckboxClick = (e) => {
     e.stopPropagation();
   };
 
@@ -38,12 +38,12 @@ const List = ({
         />
       )}
       <ListRow>
-        {data.map(item => {
+        {data.map((item) => {
           const { id } = item;
           const thumbnail = get(item, ['formats', 'small'], item);
           const isAllowed =
             allowedTypes.length > 0 ? allowedTypes.includes(getType(item.mime)) : true;
-          const checked = selectedItems.findIndex(file => file.id === id) !== -1;
+          const checked = selectedItems.findIndex((file) => file.id === id) !== -1;
 
           const fileUrl = prefixFileUrlWithBackendUrl(thumbnail.url);
 

@@ -15,7 +15,7 @@ describe('adminReducer', () => {
   });
 
   it('should set the latest release version', () => {
-    const expected = produce(state, draft => {
+    const expected = produce(state, (draft) => {
       draft.shouldUpdateStrapi = true;
       draft.latestStrapiReleaseTag = 'v3.3.4';
     });
@@ -30,7 +30,7 @@ describe('adminReducer', () => {
   });
 
   it('should handle the setAppError action correctly', () => {
-    const expected = produce(state, draft => {
+    const expected = produce(state, (draft) => {
       draft.appError = true;
     });
 

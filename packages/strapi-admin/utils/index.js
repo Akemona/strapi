@@ -2,7 +2,7 @@
 
 const { prop } = require('lodash/fp');
 
-const getService = name => {
+const getService = (name) => {
   return prop(`admin.services.${name}`, strapi);
 };
 

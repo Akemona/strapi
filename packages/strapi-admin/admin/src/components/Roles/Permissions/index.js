@@ -32,8 +32,8 @@ const Permissions = forwardRef(({ layout, isFormDisabled, permissions }, ref) =>
         if (isEmpty(contentTypesDiff)) {
           didUpdateConditions = false;
         } else {
-          didUpdateConditions = Object.values(contentTypesDiff).some(permission => {
-            return Object.values(permission).some(permissionValue =>
+          didUpdateConditions = Object.values(contentTypesDiff).some((permission) => {
+            return Object.values(permission).some((permissionValue) =>
               has(permissionValue, 'conditions')
             );
           });
@@ -74,7 +74,7 @@ const Permissions = forwardRef(({ layout, isFormDisabled, permissions }, ref) =>
     });
   };
 
-  const handleChangeConditions = conditions => {
+  const handleChangeConditions = (conditions) => {
     dispatch({ type: 'ON_CHANGE_CONDITIONS', conditions });
   };
 
@@ -102,7 +102,8 @@ const Permissions = forwardRef(({ layout, isFormDisabled, permissions }, ref) =>
         onChangeConditions: handleChangeConditions,
         onChangeSimpleCheckbox: handleChangeSimpleCheckbox,
         onChangeParentCheckbox: handleChangeParentCheckbox,
-        onChangeCollectionTypeLeftActionRowCheckbox: handleChangeCollectionTypeLeftActionRowCheckbox,
+        onChangeCollectionTypeLeftActionRowCheckbox:
+          handleChangeCollectionTypeLeftActionRowCheckbox,
         onChangeCollectionTypeGlobalActionCheckbox: handleChangeCollectionTypeGlobalActionCheckbox,
       }}
     >

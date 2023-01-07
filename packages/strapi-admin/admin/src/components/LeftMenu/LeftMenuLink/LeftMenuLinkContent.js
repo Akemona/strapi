@@ -47,7 +47,7 @@ const LeftMenuLinkContent = ({
           label: `${label.id || label}`,
         }}
       >
-        {message => <LinkLabel>{message}</LinkLabel>}
+        {(message) => <LinkLabel>{message}</LinkLabel>}
       </FormattedMessage>
     ) : (
       <LinkLabel>{labelId}</LinkLabel>

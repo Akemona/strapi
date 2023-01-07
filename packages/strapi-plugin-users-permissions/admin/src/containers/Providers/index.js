@@ -49,7 +49,7 @@ const ProvidersPage = () => {
 
   const providers = useMemo(() => createProvidersArray(modifiedData), [modifiedData]);
   const enabledProvidersCount = useMemo(
-    () => providers.filter(provider => provider.enabled).length,
+    () => providers.filter((provider) => provider.enabled).length,
     [providers]
   );
   const isProviderWithSubdomain = useMemo(() => {
@@ -57,7 +57,7 @@ const ProvidersPage = () => {
       return false;
     }
 
-    const providerToEdit = providers.find(obj => obj.name === providerToEditName);
+    const providerToEdit = providers.find((obj) => obj.name === providerToEditName);
 
     return has(providerToEdit, 'subdomain');
   }, [providers, providerToEditName]);
@@ -105,11 +105,11 @@ const ProvidersPage = () => {
   }, []);
 
   const handleToggle = useCallback(() => {
-    setIsOpen(prev => !prev);
+    setIsOpen((prev) => !prev);
   }, []);
 
   const handleClickEdit = useCallback(
-    provider => {
+    (provider) => {
       if (canUpdate) {
         setProviderToEditName(provider.name);
         handleToggle();
@@ -129,7 +129,7 @@ const ProvidersPage = () => {
   }, []);
 
   const handleSubmit = useCallback(
-    async e => {
+    async (e) => {
       e.preventDefault();
       const { schema } = formToRender;
       let errors = {};
@@ -196,14 +196,14 @@ const ProvidersPage = () => {
           title={listTitle}
           items={providers}
           isLoading={isLoadingForPermissions || isLoading}
-          customRowComponent={provider => (
+          customRowComponent={(provider) => (
             <ListRow
               {...provider}
               onClick={() => handleClickEdit(provider)}
               links={[
                 {
                   icon: canUpdate ? <Pencil fill="#0e1622" /> : null,
-                  onClick: e => {
+                  onClick: (e) => {
                     e.stopPropagation();
                     handleClickEdit(provider);
                   },
@@ -247,7 +247,7 @@ const ProvidersPage = () => {
         {showForm && (
           <form onSubmit={handleSubmit}>
             <Row>
-              {formToRender.form.map(input => {
+              {formToRender.form.map((input) => {
                 const label = input.label.params
                   ? { ...input.label, params: { provider: upperFirst(providerToEditName) } }
                   : input.label;

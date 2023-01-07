@@ -3,7 +3,7 @@
  */
 'use strict';
 
-const webhookModel = config => ({
+const webhookModel = (config) => ({
   connection: config.get('database.defaultConnection'),
   uid: 'strapi::webhooks',
   globalId: 'StrapiWebhooks',
@@ -39,7 +39,7 @@ const webhookModel = config => ({
   },
 });
 
-const toDBObject = data => {
+const toDBObject = (data) => {
   return {
     name: data.name,
     url: data.url,
@@ -49,7 +49,7 @@ const toDBObject = data => {
   };
 };
 
-const fromDBObject = row => {
+const fromDBObject = (row) => {
   return {
     id: row.id,
     name: row.name,

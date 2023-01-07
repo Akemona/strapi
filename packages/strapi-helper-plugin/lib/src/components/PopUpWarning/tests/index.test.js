@@ -29,7 +29,7 @@ describe('<PopUpWarning />', () => {
   };
 
   beforeAll(() => {
-    ReactDOM.createPortal = jest.fn(element => {
+    ReactDOM.createPortal = jest.fn((element) => {
       return element;
     });
   });

@@ -11,7 +11,7 @@ const initialState = {
 
 const reducer = (state, action) =>
   // eslint-disable-next-line consistent-return
-  produce(state, draftState => {
+  produce(state, (draftState) => {
     switch (action.type) {
       case 'GET_DATA': {
         draftState.isLoading = true;
@@ -26,7 +26,10 @@ const reducer = (state, action) =>
         draftState.isLoading = false;
         draftState.initialData = action.data.settings;
         draftState.modifiedData = action.data.settings;
-        draftState.roles = action.data.roles.map(role => ({ label: role.name, value: role.type }));
+        draftState.roles = action.data.roles.map((role) => ({
+          label: role.name,
+          value: role.type,
+        }));
 
         break;
       }

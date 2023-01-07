@@ -14,6 +14,7 @@ const generate = require('@akemona-org/strapi-generate');
 const { logger } = require('@akemona-org/strapi-utils');
 
 // Local Strapi dependencies.
+// eslint-disable-next-line import/extensions
 const packageJSON = require('../../package.json');
 
 /**

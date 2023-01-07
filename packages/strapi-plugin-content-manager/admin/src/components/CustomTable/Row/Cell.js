@@ -10,7 +10,7 @@ const Cell = ({ options }) => {
   const [tooltipIsDisplayed, setDisplayTooltip] = useState(false);
 
   const handleTooltipToggle = () => {
-    setDisplayTooltip(prev => !prev);
+    setDisplayTooltip((prev) => !prev);
   };
 
   const { type, cellId, value } = options;

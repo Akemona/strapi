@@ -19,7 +19,7 @@ import trads from './translations';
 import pluginId from './pluginId';
 import { getTrad } from './utils';
 
-export default strapi => {
+export default (strapi) => {
   const pluginDescription = pluginPkg.strapi.description || pluginPkg.description;
   const icon = pluginPkg.strapi.icon;
   const name = pluginPkg.strapi.name;

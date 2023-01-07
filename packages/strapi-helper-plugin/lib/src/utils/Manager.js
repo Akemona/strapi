@@ -20,10 +20,7 @@ class Manager {
   getAttrInfos(index) {
     const name = this.getAttrName(index);
     const appearance = this.layout.getIn([name, 'appearance']);
-    const type =
-      appearance !== '' && appearance !== undefined
-        ? appearance
-        : this.getType(name);
+    const type = appearance !== '' && appearance !== undefined ? appearance : this.getType(name);
     const bootstrapCol = this.getBootStrapCol(type);
 
     const infos = {
@@ -59,12 +56,8 @@ class Manager {
         ret = ['__col-md-3__'];
     }
 
-    const random = Math.random()
-      .toString(36)
-      .substring(7);
-    const random1 = Math.random()
-      .toString(36)
-      .substring(8);
+    const random = Math.random().toString(36).substring(7);
+    const random1 = Math.random().toString(36).substring(8);
 
     return ret.map((v, i) => {
       if (i === 0) {
@@ -153,10 +146,7 @@ class Manager {
         } = this.getAttrInfos(i + 1);
 
         if (!nextType && nextName.includes('__col')) {
-          nextBootstrapCol = parseInt(
-            nextName.split('__')[1].split('-')[2],
-            10,
-          );
+          nextBootstrapCol = parseInt(nextName.split('__')[1].split('-')[2], 10);
         }
 
         if (sum + nextBootstrapCol > 12) {
@@ -193,13 +183,7 @@ class Manager {
    * @returns {String}
    */
   getAttrName(itemIndex) {
-    return this.state.getIn([
-      'modifiedSchema',
-      'models',
-      ...this.keys,
-      'fields',
-      itemIndex,
-    ]);
+    return this.state.getIn(['modifiedSchema', 'models', ...this.keys, 'fields', itemIndex]);
   }
 
   /**
@@ -213,9 +197,7 @@ class Manager {
     return elements.reduce((acc, current) => {
       const appearance = this.layout.getIn([current, 'appearance']);
       const type =
-        appearance !== '' && appearance !== undefined
-          ? appearance
-          : this.getType(current);
+        appearance !== '' && appearance !== undefined ? appearance : this.getType(current);
       const col = current.includes('__col')
         ? parseInt(current.split('__')[1].split('-')[2], 10)
         : this.getBootStrapCol(type);
@@ -234,15 +216,12 @@ class Manager {
     let result = {};
     let didFindResult = false;
 
-    this.arrayOfEndLineElements.forEach(item => {
+    this.arrayOfEndLineElements.forEach((item) => {
       const rightBondCondition =
         findIndex(this.arrayOfEndLineElements, ['index', pivot]) !== -1
           ? item.index < pivot
           : item.index <= pivot;
-      const condition =
-        dir === true
-          ? item.index >= pivot && !didFindResult
-          : rightBondCondition; // Left or right bound of an item in the bootstrap grid.
+      const condition = dir === true ? item.index >= pivot && !didFindResult : rightBondCondition; // Left or right bound of an item in the bootstrap grid.
 
       if (condition) {
         didFindResult = true;
@@ -250,10 +229,10 @@ class Manager {
           dir === true
             ? item
             : {
-              name: this.list.get(item.index + 1),
-              index: item.index + 1,
-              isFullSize: false,
-            };
+                name: this.list.get(item.index + 1),
+                index: item.index + 1,
+                isFullSize: false,
+              };
       }
     });
 
@@ -269,13 +248,10 @@ class Manager {
     let sum = 0;
 
     this.arrayOfEndLineElements.forEach((item, i) => {
-      const firstLineItem =
-        i === 0 ? 0 : this.arrayOfEndLineElements[i - 1].index + 1;
+      const firstLineItem = i === 0 ? 0 : this.arrayOfEndLineElements[i - 1].index + 1;
       const lastLineItem = item.index + 1;
       const lineRange =
-        firstLineItem === lastLineItem
-          ? [firstLineItem]
-          : range(firstLineItem, lastLineItem);
+        firstLineItem === lastLineItem ? [firstLineItem] : range(firstLineItem, lastLineItem);
       const lineItems = this.getElementsOnALine(lineRange);
       const lineSize = this.getLineSize(lineItems);
 

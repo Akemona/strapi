@@ -10,24 +10,17 @@ import Wrapper from './components';
 import Item from './Item';
 
 const FieldsReorder = ({ className }) => {
-  const {
-    attributes,
-    buttonData,
-    layout,
-    moveItem,
-    moveRow,
-    onAddData,
-    removeField,
-  } = useLayoutDnd();
+  const { attributes, buttonData, layout, moveItem, moveRow, onAddData, removeField } =
+    useLayoutDnd();
 
   const getComponent = useCallback(
-    attributeName => {
+    (attributeName) => {
       return get(attributes, [attributeName, 'component'], '');
     },
     [attributes]
   );
   const getType = useCallback(
-    attributeName => {
+    (attributeName) => {
       const attribute = get(attributes, [attributeName], {});
 
       return attribute.type;
@@ -35,7 +28,7 @@ const FieldsReorder = ({ className }) => {
     [attributes]
   );
   const getDynamicZoneComponents = useCallback(
-    attributeName => {
+    (attributeName) => {
       const attribute = get(attributes, [attributeName], {});
 
       return attribute.components || [];
@@ -80,11 +73,7 @@ const FieldsReorder = ({ className }) => {
           );
         })}
         <Wrapper style={{ marginBottom: 10 }}>
-          <Add
-            data={buttonData}
-            onClick={onAddData}
-            style={{ width: '100%', margin: '0 5px' }}
-          />
+          <Add data={buttonData} onClick={onAddData} style={{ width: '100%', margin: '0 5px' }} />
         </Wrapper>
       </SortWrapper>
     </div>

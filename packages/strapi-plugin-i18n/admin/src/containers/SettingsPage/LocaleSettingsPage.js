@@ -17,7 +17,7 @@ const LocaleSettingsPage = ({
   const [isOpenedCreateModal, setIsOpenedCreateModal] = useState(false);
 
   const handleToggleModalCreate = canCreateLocale
-    ? () => setIsOpenedCreateModal(s => !s)
+    ? () => setIsOpenedCreateModal((s) => !s)
     : undefined;
 
   const actions = [
@@ -27,7 +27,7 @@ const LocaleSettingsPage = ({
       color: 'primary',
       type: 'button',
       icon: true,
-      Component: props => (canCreateLocale ? <Button {...props} /> : null),
+      Component: (props) => (canCreateLocale ? <Button {...props} /> : null),
       style: {
         paddingLeft: 15,
         paddingRight: 15,

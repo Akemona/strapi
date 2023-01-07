@@ -9,7 +9,7 @@ module.exports = async (entry, files, { model, source }) => {
 
   const uploadService = strapi.plugins.upload.services.upload;
 
-  const findModelFromUploadPath = path => {
+  const findModelFromUploadPath = (path) => {
     if (path.length === 0) return { model, source };
 
     let currentPath = [];
@@ -66,5 +66,5 @@ module.exports = async (entry, files, { model, source }) => {
     }
   };
 
-  await Promise.all(Object.keys(files).map(key => doUpload(key, files[key])));
+  await Promise.all(Object.keys(files).map((key) => doUpload(key, files[key])));
 };

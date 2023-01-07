@@ -41,8 +41,8 @@ const ModalEdit = ({ localeToEdit, onClose, locales }) => {
   let defaultOption;
 
   if (localeToEdit) {
-    options = locales.map(locale => ({ label: locale.code, value: locale.id }));
-    defaultOption = options.find(option => option.value === localeToEdit.id);
+    options = locales.map((locale) => ({ label: locale.code, value: locale.id }));
+    defaultOption = options.find((option) => option.value === localeToEdit.id);
   }
 
   return (

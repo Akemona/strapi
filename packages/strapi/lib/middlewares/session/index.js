@@ -7,12 +7,12 @@ const session = require('koa-session');
 /**
  * Session middleware
  */
-module.exports = strapi => {
-  const requireStore = store => {
+module.exports = (strapi) => {
+  const requireStore = (store) => {
     return require(path.resolve(strapi.config.appPath, 'node_modules', 'koa-' + store));
   };
 
-  const defineStore = session => {
+  const defineStore = (session) => {
     if (_.isEmpty(_.get(session, 'client'))) {
       return strapi.log.error(
         '(middleware:session) please provide a valid client to store session'

@@ -39,9 +39,10 @@ const Header = ({
   const [shouldUnpublish, setShouldUnpublish] = useState(false);
   const [shouldPublish, setShouldPublish] = useState(false);
 
-  const currentContentTypeMainField = useMemo(() => get(layout, ['settings', 'mainField'], 'id'), [
-    layout,
-  ]);
+  const currentContentTypeMainField = useMemo(
+    () => get(layout, ['settings', 'mainField'], 'id'),
+    [layout]
+  );
 
   const currentContentTypeName = useMemo(() => get(layout, ['info', 'name']), [layout]);
 
@@ -100,7 +101,7 @@ const Header = ({
       /* eslint-disable indent */
       const onClick = isPublished
         ? () => setWarningUnpublish(true)
-        : e => {
+        : (e) => {
             if (!checkIfHasDraftRelations()) {
               onPublish(e);
             } else {
@@ -145,10 +146,10 @@ const Header = ({
     };
   }, [headerActions, headerTitle, apiID]);
 
-  const toggleWarningPublish = () => setWarningUnpublish(prevState => !prevState);
+  const toggleWarningPublish = () => setWarningUnpublish((prevState) => !prevState);
 
   const toggleWarningDraftRelation = useCallback(() => {
-    setShowWarningDraftRelation(prev => !prev);
+    setShowWarningDraftRelation((prev) => !prev);
   }, []);
 
   const handleConfirmPublish = useCallback(() => {
@@ -162,7 +163,7 @@ const Header = ({
   }, []);
 
   const handleCloseModalPublish = useCallback(
-    e => {
+    (e) => {
       if (shouldPublish) {
         onPublish(e);
       }
@@ -173,7 +174,7 @@ const Header = ({
   );
 
   const handleCloseModalUnpublish = useCallback(
-    e => {
+    (e) => {
       if (shouldUnpublish) {
         onUnpublish(e);
       }
@@ -218,7 +219,7 @@ const Header = ({
               id: getTrad(`popUpwarning.warning.has-draft-relations.message.${contentIdSuffix}`),
               values: {
                 count: draftRelationsCount,
-                b: chunks => (
+                b: (chunks) => (
                   <Text as="span" fontWeight="bold">
                     {chunks}
                   </Text>

@@ -13,7 +13,7 @@ const path = require('path');
  */
 
 module.exports = {
-  templatesDirectory: scope => {
+  templatesDirectory: (scope) => {
     try {
       // Try to reach the path. If it fail, throw an error.
       fs.accessSync(

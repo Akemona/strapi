@@ -160,7 +160,7 @@ function generate(generator, scope, cb) {
             );
           },
 
-          err => {
+          (err) => {
             // Expose a `error` handler in generators.
             if (err) {
               const errorFn =

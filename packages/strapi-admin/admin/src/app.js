@@ -60,8 +60,8 @@ const strapi = Strapi();
 const pluginsReducers = {};
 const pluginsToLoad = [];
 
-Object.keys(plugins).forEach(current => {
-  const registerPlugin = plugin => {
+Object.keys(plugins).forEach((current) => {
+  const registerPlugin = (plugin) => {
     strapi.registerPlugin(plugin);
 
     return plugin;
@@ -98,7 +98,7 @@ Object.keys(plugins).forEach(current => {
   // Retrieve all reducers
   const pluginReducers = plugin.reducers || {};
 
-  Object.keys(pluginReducers).forEach(reducerName => {
+  Object.keys(pluginReducers).forEach((reducerName) => {
     pluginsReducers[reducerName] = pluginReducers[reducerName];
   });
 
@@ -116,7 +116,7 @@ const { dispatch } = store;
 
 // Load plugins, this will be removed in the v4, temporary fix until the plugin API
 // https://plugin-api-rfc.vercel.app/plugin-api/admin.html
-pluginsToLoad.forEach(plugin => {
+pluginsToLoad.forEach((plugin) => {
   const bootPlugin = plugin.boot;
 
   if (bootPlugin) {
@@ -143,10 +143,10 @@ const displayNotification = (message, status) => {
   );
   dispatch(showNotification(message, status));
 };
-const displayNewNotification = config => {
+const displayNewNotification = (config) => {
   dispatch(showNewNotification(config));
 };
-const lockApp = data => {
+const lockApp = (data) => {
   dispatch(freezeApp(data));
 };
 const unlockApp = () => {
@@ -169,27 +169,27 @@ window.strapi = Object.assign(window.strapi || {}, {
   backendURL: BACKEND_URL === '/' ? window.location.origin : BACKEND_URL,
   notification: {
     // New notification api
-    toggle: config => {
+    toggle: (config) => {
       displayNewNotification(config);
     },
-    success: message => {
+    success: (message) => {
       displayNotification(message, 'success');
     },
-    warning: message => {
+    warning: (message) => {
       displayNotification(message, 'warning');
     },
-    error: message => {
+    error: (message) => {
       displayNotification(message, 'error');
     },
-    info: message => {
+    info: (message) => {
       displayNotification(message, 'info');
     },
   },
-  refresh: pluginId => ({
-    translationMessages: translationMessagesUpdated => {
+  refresh: (pluginId) => ({
+    translationMessages: (translationMessagesUpdated) => {
       render(merge({}, translationMessages, translationMessagesUpdated));
     },
-    leftMenuSections: leftMenuSectionsUpdated => {
+    leftMenuSections: (leftMenuSectionsUpdated) => {
       store.dispatch(updatePlugin(pluginId, 'leftMenuSections', leftMenuSectionsUpdated));
     },
   }),
@@ -210,7 +210,7 @@ window.strapi = Object.assign(window.strapi || {}, {
 
 const MOUNT_NODE = document.getElementById('app') || document.createElement('div');
 
-const render = messages => {
+const render = (messages) => {
   ReactDOM.render(
     <Provider store={store}>
       <StrapiProvider strapi={strapi}>

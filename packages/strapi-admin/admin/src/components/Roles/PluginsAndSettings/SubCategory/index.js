@@ -24,11 +24,8 @@ const Border = styled.div`
 
 const SubCategory = ({ categoryName, isFormDisabled, subCategoryName, actions, pathToData }) => {
   const [modalState, setModalState] = useState({ isOpen: false, isMounted: false });
-  const {
-    modifiedData,
-    onChangeParentCheckbox,
-    onChangeSimpleCheckbox,
-  } = usePermissionsDataManager();
+  const { modifiedData, onChangeParentCheckbox, onChangeSimpleCheckbox } =
+    usePermissionsDataManager();
   const { formatMessage } = useIntl();
 
   const mainData = get(modifiedData, pathToData, {});
@@ -43,11 +40,11 @@ const SubCategory = ({ categoryName, isFormDisabled, subCategoryName, actions, p
   const { hasAllActionsSelected, hasSomeActionsSelected } = getCheckboxState(dataWithoutCondition);
 
   const handleToggleModalIsOpen = () => {
-    setModalState(prevState => ({ isMounted: true, isOpen: !prevState.isOpen }));
+    setModalState((prevState) => ({ isMounted: true, isOpen: !prevState.isOpen }));
   };
 
   const handleModalClose = () => {
-    setModalState(prevState => ({ ...prevState, isMounted: false }));
+    setModalState((prevState) => ({ ...prevState, isMounted: false }));
   };
 
   // We need to format the actions so it matches the shape of the ConditionsModal actions props

@@ -15,10 +15,8 @@ const MenuList = ({
   selectProps: { isAddingAComponentToAnotherComponent, name, onClickOption, refState, value },
   ...rest
 }) => {
-  const {
-    componentsGroupedByCategory,
-    componentsThatHaveOtherComponentInTheirAttributes,
-  } = useDataManager();
+  const { componentsGroupedByCategory, componentsThatHaveOtherComponentInTheirAttributes } =
+    useDataManager();
 
   const query = useQuery();
   const Component = components.MenuList;
@@ -31,12 +29,12 @@ const MenuList = ({
       <Ul>
         {Object.keys(componentsGroupedByCategory)
           .sort()
-          .map(categoryName => {
+          .map((categoryName) => {
             return (
               <li key={categoryName}>
                 <Category categoryName={categoryName} />
                 <Ul style={{ marginTop: '-4px' }} maxHeight="100%">
-                  {componentsGroupedByCategory[categoryName].map(component => {
+                  {componentsGroupedByCategory[categoryName].map((component) => {
                     if (
                       (isAddingAComponentToAnotherComponent &&
                         componentsThatHaveOtherComponentInTheirAttributes.includes(
@@ -61,6 +59,7 @@ const MenuList = ({
                         }}
                       >
                         <p
+                          // eslint-disable-next-line react/no-unknown-property
                           datadescr={upperFirst(component.schema.name)}
                           style={{
                             color: isSelected ? '#007eff' : '',

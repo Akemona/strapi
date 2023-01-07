@@ -2,8 +2,8 @@
 
 const _ = require('lodash');
 
-const createUtils = strapi => {
-  const login = async userInfo => {
+const createUtils = (strapi) => {
+  const login = async (userInfo) => {
     const sanitizedUserInfo = _.pick(userInfo, ['email', 'id']);
     const user = await strapi.admin.services.user.findOne(sanitizedUserInfo);
     if (!user) {
@@ -13,14 +13,14 @@ const createUtils = strapi => {
 
     return { token, user };
   };
-  const registerOrLogin = async userCredentials => {
+  const registerOrLogin = async (userCredentials) => {
     await createUserIfNotExists(userCredentials);
     return login(userCredentials);
   };
 
   const findUser = strapi.admin.services.user.findOne;
   const userExists = strapi.admin.services.user.exists;
-  const createUser = async userInfo => {
+  const createUser = async (userInfo) => {
     const superAdminRole = await strapi.admin.services.role.getSuperAdminWithUsersCount();
 
     if (superAdminRole.usersCount === 0) {
@@ -36,7 +36,7 @@ const createUtils = strapi => {
   };
   const deleteUserById = strapi.admin.services.user.deleteById;
   const deleteUsersById = strapi.admin.services.user.deleteByIds;
-  const createUserIfNotExists = async userInfo => {
+  const createUserIfNotExists = async (userInfo) => {
     const sanitizedUserInfo = _.pick(userInfo, ['email', 'id']);
     const exists = await userExists(sanitizedUserInfo);
 

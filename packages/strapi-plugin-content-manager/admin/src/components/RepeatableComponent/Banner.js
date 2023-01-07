@@ -49,7 +49,7 @@ const Banner = forwardRef(
           </div>
 
           <FormattedMessage id={`${pluginId}.containers.Edit.pluginHeader.title.new`}>
-            {msg => {
+            {(msg) => {
               // The displayed value may be "falsey" when the main field is a number or boolean
               return <div style={{ display }}>{displayedValue ?? msg}</div>;
             }}
@@ -60,7 +60,7 @@ const Banner = forwardRef(
                 <div
                   className="trash-icon"
                   style={{ marginRight: 10, padding: '0 5px' }}
-                  onClick={e => {
+                  onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
                     onClickRemove();

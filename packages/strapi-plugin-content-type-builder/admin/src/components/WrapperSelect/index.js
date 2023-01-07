@@ -10,7 +10,7 @@ import CreatableSelect from '../CreatableSelect';
 
 const WrapperSelect = ({ error, label, name, type, ...rest }) => {
   const styles = {
-    container: base => ({
+    container: (base) => ({
       ...base,
       'z-index': 9999,
       //
@@ -25,7 +25,7 @@ const WrapperSelect = ({ error, label, name, type, ...rest }) => {
         : '1px solid #E3E9F3 !important',
       borderRadius: '2px !important',
     }),
-    menu: base => {
+    menu: (base) => {
       return {
         ...base,
         padding: '0 15px',

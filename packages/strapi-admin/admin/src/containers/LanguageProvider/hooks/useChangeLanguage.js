@@ -4,7 +4,7 @@ import { changeLocale } from '../actions';
 const useChangeLanguage = () => {
   const dispatch = useDispatch();
 
-  const changeLanguage = nextLocale => {
+  const changeLanguage = (nextLocale) => {
     dispatch(changeLocale(nextLocale));
   };
 

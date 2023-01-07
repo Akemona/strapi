@@ -6,12 +6,12 @@ const sharp = require('sharp');
 
 const { bytesToKbytes } = require('../utils/file');
 
-const getMetadatas = buffer =>
+const getMetadatas = (buffer) =>
   sharp(buffer)
     .metadata()
     .catch(() => ({})); // ignore errors
 
-const getDimensions = buffer =>
+const getDimensions = (buffer) =>
   getMetadatas(buffer)
     .then(({ width = null, height = null }) => ({ width, height }))
     .catch(() => ({})); // ignore errors
@@ -29,7 +29,7 @@ const resizeTo = (buffer, options) =>
     .toBuffer()
     .catch(() => null);
 
-const generateThumbnail = async file => {
+const generateThumbnail = async (file) => {
   if (!(await canBeProccessed(file.buffer))) {
     return null;
   }
@@ -59,11 +59,9 @@ const generateThumbnail = async file => {
   return null;
 };
 
-const optimize = async buffer => {
-  const {
-    sizeOptimization = false,
-    autoOrientation = false,
-  } = await strapi.plugins.upload.services.upload.getSettings();
+const optimize = async (buffer) => {
+  const { sizeOptimization = false, autoOrientation = false } =
+    await strapi.plugins.upload.services.upload.getSettings();
 
   if (!sizeOptimization || !(await canBeProccessed(buffer))) {
     return { buffer };
@@ -96,10 +94,9 @@ const DEFAULT_BREAKPOINTS = {
 
 const getBreakpoints = () => strapi.config.get('plugins.upload.breakpoints', DEFAULT_BREAKPOINTS);
 
-const generateResponsiveFormats = async file => {
-  const {
-    responsiveDimensions = false,
-  } = await strapi.plugins.upload.services.upload.getSettings();
+const generateResponsiveFormats = async (file) => {
+  const { responsiveDimensions = false } =
+    await strapi.plugins.upload.services.upload.getSettings();
 
   if (!responsiveDimensions) return [];
 
@@ -111,7 +108,7 @@ const generateResponsiveFormats = async file => {
 
   const breakpoints = getBreakpoints();
   return Promise.all(
-    Object.keys(breakpoints).map(key => {
+    Object.keys(breakpoints).map((key) => {
       const breakpoint = breakpoints[key];
 
       if (breakpointSmallerThan(breakpoint, originalDimensions)) {
@@ -153,7 +150,7 @@ const breakpointSmallerThan = (breakpoint, { width, height }) => {
 };
 
 const formatsToProccess = ['jpeg', 'png', 'webp', 'tiff'];
-const canBeProccessed = async buffer => {
+const canBeProccessed = async (buffer) => {
   const { format } = await getMetadatas(buffer);
   return format && formatsToProccess.includes(format);
 };

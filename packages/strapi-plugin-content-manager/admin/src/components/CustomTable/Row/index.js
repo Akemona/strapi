@@ -28,14 +28,14 @@ function Row({ canCreate, canDelete, canUpdate, isBulkable, row, headers, goTo }
   const links = [
     {
       icon: canCreate ? <Duplicate fill="black" /> : null,
-      onClick: e => {
+      onClick: (e) => {
         e.stopPropagation();
         goTo(`create/clone/${row.id}`);
       },
     },
     {
       icon: canUpdate ? <FontAwesomeIcon icon="pencil-alt" /> : null,
-      onClick: e => {
+      onClick: (e) => {
         e.stopPropagation();
         emitEventRef.current('willDeleteEntryFromList');
         goTo(row.id);
@@ -43,23 +43,23 @@ function Row({ canCreate, canDelete, canUpdate, isBulkable, row, headers, goTo }
     },
     {
       icon: canDelete ? <FontAwesomeIcon icon="trash-alt" /> : null,
-      onClick: e => {
+      onClick: (e) => {
         e.stopPropagation();
         emitEventRef.current('willDeleteEntryFromList');
         onClickDelete(row.id);
       },
     },
-  ].filter(icon => icon);
+  ].filter((icon) => icon);
 
   return (
     <>
       {isBulkable && (
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-        <td key="i" onClick={e => e.stopPropagation()}>
+        <td key="i" onClick={(e) => e.stopPropagation()}>
           <CustomInputCheckbox
             name={row.id}
             onChange={onChangeBulk}
-            value={entriesToDelete.filter(id => toString(id) === toString(row.id)).length > 0}
+            value={entriesToDelete.filter((id) => toString(id) === toString(row.id)).length > 0}
           />
         </td>
       )}

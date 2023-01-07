@@ -16,7 +16,7 @@ const Policies = () => {
   const controllerRoutes = get(routes, path[0]);
   const displayedRoutes = isEmpty(controllerRoutes)
     ? []
-    : controllerRoutes.filter(o => toLower(o.handler) === toLower(takeRight(path, 2).join('.')));
+    : controllerRoutes.filter((o) => toLower(o.handler) === toLower(takeRight(path, 2).join('.')));
 
   const inputName = `${selectedAction}.policy`;
 

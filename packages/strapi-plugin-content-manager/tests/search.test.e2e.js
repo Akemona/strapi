@@ -118,10 +118,7 @@ const bedFixtures = [
 
 describe('Search query', () => {
   beforeAll(async () => {
-    await builder
-      .addContentType(bedModel)
-      .addFixtures(bedModel.name, bedFixtures)
-      .build();
+    await builder.addContentType(bedModel).addFixtures(bedModel.name, bedFixtures).build();
 
     strapi = await createStrapiInstance();
     rq = await createAuthRequest({ strapi });
@@ -149,7 +146,7 @@ describe('Search query', () => {
       expect(res.body.results[0]).toMatchObject(data.beds[2]);
     });
 
-    test.each(Object.keys(bedFixtures[0]))('search that target column %p', async columnName => {
+    test.each(Object.keys(bedFixtures[0]))('search that target column %p', async (columnName) => {
       const res = await rq({
         method: 'GET',
         url: '/content-manager/collection-types/application::bed.bed',
@@ -224,8 +221,7 @@ describe('Search query', () => {
     test('search with an empty query & peopleNumber in [1, 6]', async () => {
       const res = await rq({
         method: 'GET',
-        url:
-          '/content-manager/collection-types/application::bed.bed?peopleNumber=1&peopleNumber=6&_q=',
+        url: '/content-manager/collection-types/application::bed.bed?peopleNumber=1&peopleNumber=6&_q=',
       });
 
       expect(Array.isArray(res.body.results)).toBe(true);

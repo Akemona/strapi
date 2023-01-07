@@ -4,13 +4,13 @@ const fse = require('fs-extra');
 
 const walk = require('./walk');
 
-const loadFunctions = dir => {
+const loadFunctions = (dir) => {
   if (!fse.existsSync(dir)) return {};
 
   return walk(dir, { loader: loadFunction });
 };
 
-const loadFunction = file => {
+const loadFunction = (file) => {
   try {
     return require(file);
   } catch (error) {

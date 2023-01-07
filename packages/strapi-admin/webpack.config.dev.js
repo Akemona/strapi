@@ -2,7 +2,7 @@
 
 const path = require('path');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const webpackConfig = require('./webpack.config.js');
+const webpackConfig = require('./webpack.config');
 
 module.exports = () => {
   const analyzeBundle = process.env.ANALYZE_BUNDLE;

@@ -8,9 +8,9 @@ const generateNew = require('../../packages/strapi-generate-new/lib/generate-new
  * Delete the testApp folder
  * @param {string} appName - name of the app / folder where the app is located
  */
-const cleanTestApp = appName => {
+const cleanTestApp = (appName) => {
   return new Promise((resolve, reject) => {
-    rimraf(path.resolve(appName), err => {
+    rimraf(path.resolve(appName), (err) => {
       if (err) reject(err);
       resolve();
     });
@@ -34,6 +34,7 @@ const generateTestApp = async ({ appName, database }) => {
     // disable quickstart run app after creation
     runQuickstartApp: false,
     // use package version as strapiVersion (all packages have the same version);
+    // eslint-disable-next-line import/extensions
     strapiVersion: require('../../packages/strapi/package.json').version,
     debug: false,
     quick: false,

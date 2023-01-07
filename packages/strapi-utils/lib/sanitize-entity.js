@@ -31,7 +31,7 @@ const sanitizeEntity = (dataSource, options) => {
   }
 
   if (_.isArray(data)) {
-    return data.map(entity => sanitizeEntity(entity, options));
+    return data.map((entity) => sanitizeEntity(entity, options));
   }
 
   if (_.isNil(model)) {
@@ -77,7 +77,7 @@ const sanitizeEntity = (dataSource, options) => {
 
       let sanitizeFn;
       if (relation === '*') {
-        sanitizeFn = entity => {
+        sanitizeFn = (entity) => {
           if (_.isNil(entity) || !_.has(entity, '__contentType')) {
             return entity;
           }
@@ -88,7 +88,7 @@ const sanitizeEntity = (dataSource, options) => {
           });
         };
       } else {
-        sanitizeFn = entity =>
+        sanitizeFn = (entity) =>
           sanitizeEntity(entity, {
             model: strapi.getModel(relation, attribute.plugin),
             ...baseOptions,
@@ -104,7 +104,7 @@ const sanitizeEntity = (dataSource, options) => {
 
     // Dynamic zones
     if (attribute && attribute.type === 'dynamiczone' && value !== null && isAllowedField) {
-      const nextVal = value.map(elem =>
+      const nextVal = value.map((elem) =>
         sanitizeEntity(elem, {
           model: strapi.getModel(elem.__component),
           withPrivate,
@@ -126,7 +126,7 @@ const sanitizeEntity = (dataSource, options) => {
   return _.reduce(data, reducerFn, {});
 };
 
-const parseOriginalData = data => (_.isFunction(data.toJSON) ? data.toJSON() : data);
+const parseOriginalData = (data) => (_.isFunction(data.toJSON) ? data.toJSON() : data);
 
 const COMPONENT_FIELDS = ['__component'];
 const STATIC_FIELDS = [ID_ATTRIBUTE, '__v'];
@@ -161,8 +161,8 @@ const getNextFields = (fields, key, { allowedFieldsHasKey }) => {
   const searchStr = `${key}.`;
 
   const transformedFields = (fields || [])
-    .filter(field => field.startsWith(searchStr))
-    .map(field => field.replace(searchStr, ''));
+    .filter((field) => field.startsWith(searchStr))
+    .map((field) => field.replace(searchStr, ''));
 
   const isAllowed = allowedFieldsHasKey || transformedFields.length > 0;
   const nextFields = allowedFieldsHasKey ? null : transformedFields;

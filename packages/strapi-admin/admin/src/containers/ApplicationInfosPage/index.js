@@ -11,9 +11,9 @@ import makeSelectApp from '../App/selectors';
 import makeSelectAdmin from '../Admin/selectors';
 import { Detail, InfoText } from './components';
 
-const makeSelectAppInfos = () => createSelector(makeSelectApp(), appState => appState.appInfos);
+const makeSelectAppInfos = () => createSelector(makeSelectApp(), (appState) => appState.appInfos);
 const makeSelectLatestRelease = () =>
-  createSelector(makeSelectAdmin(), adminState => ({
+  createSelector(makeSelectAdmin(), (adminState) => ({
     latestStrapiReleaseTag: adminState.latestStrapiReleaseTag,
     shouldUpdateStrapi: adminState.shouldUpdateStrapi,
   }));
@@ -22,8 +22,8 @@ const ApplicationInfosPage = () => {
   const { formatMessage } = useIntl();
   const selectAppInfos = useMemo(makeSelectAppInfos, []);
   const selectLatestRealase = useMemo(makeSelectLatestRelease, []);
-  const appInfos = useSelector(state => selectAppInfos(state));
-  const { shouldUpdateStrapi, latestStrapiReleaseTag } = useSelector(state =>
+  const appInfos = useSelector((state) => selectAppInfos(state));
+  const { shouldUpdateStrapi, latestStrapiReleaseTag } = useSelector((state) =>
     selectLatestRealase(state)
   );
 

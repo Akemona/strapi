@@ -64,7 +64,7 @@ async function getStarterQuestion() {
     };
   }
 
-  const choices = content.map(option => {
+  const choices = content.map((option) => {
     const name = option.title.replace('Starter', '');
 
     return {

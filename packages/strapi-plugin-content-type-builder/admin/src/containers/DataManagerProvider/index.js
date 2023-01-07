@@ -94,18 +94,15 @@ const DataManagerProvider = ({
 
   getDataRef.current = async () => {
     try {
-      const [
-        { data: componentsArray },
-        { data: contentTypesArray },
-        reservedNames,
-      ] = await Promise.all(
-        ['components', 'content-types', 'reserved-names'].map(endPoint => {
-          return request(`/${pluginId}/${endPoint}`, {
-            method: 'GET',
-            signal,
-          });
-        })
-      );
+      const [{ data: componentsArray }, { data: contentTypesArray }, reservedNames] =
+        await Promise.all(
+          ['components', 'content-types', 'reserved-names'].map((endPoint) => {
+            return request(`/${pluginId}/${endPoint}`, {
+              method: 'GET',
+              signal,
+            });
+          })
+        );
 
       const components = createDataObject(componentsArray);
       const contentTypes = createDataObject(contentTypesArray);
@@ -232,7 +229,7 @@ const DataManagerProvider = ({
     });
   };
 
-  const deleteCategory = async categoryUid => {
+  const deleteCategory = async (categoryUid) => {
     try {
       const requestURL = `/${pluginId}/component-categories/${categoryUid}`;
       // eslint-disable-next-line no-alert
@@ -419,7 +416,7 @@ const DataManagerProvider = ({
 
   const redirectEndpoint = useMemo(() => {
     const allowedEndpoints = Object.keys(contentTypes)
-      .filter(uid => get(contentTypes, [uid, 'schema', 'visible'], true))
+      .filter((uid) => get(contentTypes, [uid, 'schema', 'visible'], true))
       .sort();
 
     return get(allowedEndpoints, '0', '');
@@ -429,7 +426,7 @@ const DataManagerProvider = ({
     return <Redirect to={`/plugins/${pluginId}/content-types/${redirectEndpoint}`} />;
   }
 
-  const submitData = async additionalContentTypeData => {
+  const submitData = async (additionalContentTypeData) => {
     try {
       const isCreating = get(modifiedData, [firstKeyToMainSchema, 'isTemporary'], false);
       const body = {
@@ -506,7 +503,7 @@ const DataManagerProvider = ({
 
   // Open the modal warning cancel changes
   const toggleModalCancel = () => {
-    toggleInfoModal(prev => ({ ...prev, cancel: !prev.cancel }));
+    toggleInfoModal((prev) => ({ ...prev, cancel: !prev.cancel }));
   };
 
   const updatePermissions = async () => {
@@ -536,7 +533,8 @@ const DataManagerProvider = ({
         changeDynamicZoneComponents,
         components,
         componentsGroupedByCategory: groupBy(components, 'category'),
-        componentsThatHaveOtherComponentInTheirAttributes: getAllComponentsThatHaveAComponentInTheirAttributes(),
+        componentsThatHaveOtherComponentInTheirAttributes:
+          getAllComponentsThatHaveAComponentInTheirAttributes(),
         contentTypes,
         createSchema,
         deleteCategory,

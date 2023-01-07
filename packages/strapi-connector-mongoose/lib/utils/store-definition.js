@@ -2,9 +2,9 @@
 
 const _ = require('lodash');
 
-const getKeyForDefinition = definition => `model_def_${definition.uid}`;
+const getKeyForDefinition = (definition) => `model_def_${definition.uid}`;
 
-const formatDefinitionToStore = definition =>
+const formatDefinitionToStore = (definition) =>
   JSON.stringify(
     _.pick(definition, [
       'uid',

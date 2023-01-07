@@ -7,13 +7,14 @@ const { xframe } = require('koa-lusca');
  * CRON hook
  */
 
-module.exports = strapi => {
+module.exports = (strapi) => {
   return {
     /**
      * Initialize the hook
      */
 
     initialize() {
+      // eslint-disable-next-line import/extensions
       const defaults = require('./defaults.json');
 
       strapi.app.use(async (ctx, next) => {

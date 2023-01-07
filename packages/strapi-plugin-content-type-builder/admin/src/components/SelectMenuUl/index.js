@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Ul = styled.ul`
-  max-height: ${props => props.maxHeight};
+  max-height: ${(props) => props.maxHeight};
   padding: 0 15px;
   background-color: #fff;
   list-style: none;

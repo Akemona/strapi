@@ -10,7 +10,7 @@ const findPackagePath = require('../load/package-path');
 /**
  * Load middlewares
  */
-module.exports = async function(strapi) {
+module.exports = async function (strapi) {
   const { installedMiddlewares, installedPlugins, appPath } = strapi.config;
 
   let middlewares = {};
@@ -36,19 +36,19 @@ module.exports = async function(strapi) {
  * Build loader functions
  * @param {*} strapi - strapi instance
  */
-const createLoaders = strapi => {
+const createLoaders = (strapi) => {
   const loadMiddlewaresInDir = async (dir, middlewares) => {
     const files = await glob('*/*(index|defaults).*(js|json)', {
       cwd: dir,
     });
 
-    files.forEach(f => {
+    files.forEach((f) => {
       const name = f.split('/')[0];
       mountMiddleware(name, [path.resolve(dir, f)], middlewares);
     });
   };
 
-  const loadInternalMiddlewares = middlewares =>
+  const loadInternalMiddlewares = (middlewares) =>
     loadMiddlewaresInDir(path.resolve(__dirname, '..', 'middlewares'), middlewares);
 
   const loadLocalMiddlewares = (appPath, middlewares) =>
@@ -77,7 +77,7 @@ const createLoaders = strapi => {
     }
   };
 
-  const loadAdminMiddlewares = async middlewares => {
+  const loadAdminMiddlewares = async (middlewares) => {
     const middlewaresDir = 'middlewares';
     const dir = path.resolve(findPackagePath(`strapi-admin`), middlewaresDir);
     await loadMiddlewaresInDir(dir, middlewares);
@@ -101,7 +101,7 @@ const createLoaders = strapi => {
   };
 
   const mountMiddleware = (name, files, middlewares) => {
-    files.forEach(file => {
+    files.forEach((file) => {
       middlewares[name] = middlewares[name] || { loaded: false };
 
       if (_.endsWith(file, 'index.js') && !middlewares[name].load) {

@@ -21,12 +21,12 @@ function StaticLinks() {
       icon: 'file',
       label: formatMessage({ id: 'app.static.links.cheatsheet' }),
       destination: 'https://strapi-showcase.s3-us-west-2.amazonaws.com/CheatSheet.pdf',
-    }
+    },
   ];
 
   return (
     <ul className="list">
-      {staticLinks.map(link => {
+      {staticLinks.map((link) => {
         const { icon, label, destination } = link;
 
         return (

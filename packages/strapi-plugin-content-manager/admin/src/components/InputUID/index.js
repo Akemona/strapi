@@ -237,7 +237,7 @@ const InputUID = ({
                 error={hasError}
                 onFocus={handleFocus}
                 name={name}
-                onChange={e => handleChange(e, canCheck, dispatch)}
+                onChange={(e) => handleChange(e, canCheck, dispatch)}
                 type="text"
                 onBlur={onBlur}
                 // eslint-disable-next-line no-irregular-whitespace
@@ -272,7 +272,7 @@ const InputUID = ({
               </RightContent>
               {availability && availability.suggestion && isSuggestionOpen && (
                 <FormattedMessage id={`${pluginId}.components.uid.suggested`}>
-                  {msg => (
+                  {(msg) => (
                     <Options
                       title={msg}
                       options={[

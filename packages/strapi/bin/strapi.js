@@ -8,9 +8,10 @@ const { Command } = require('commander');
 
 const program = new Command();
 
+// eslint-disable-next-line import/extensions
 const packageJSON = require('../package.json');
 
-const checkCwdIsStrapiApp = name => {
+const checkCwdIsStrapiApp = (name) => {
   let logErrorAndExit = () => {
     console.log(
       `You need to run ${yellow(
@@ -30,36 +31,35 @@ const checkCwdIsStrapiApp = name => {
   }
 };
 
-const getLocalScript = name => (...args) => {
-  checkCwdIsStrapiApp(name);
+const getLocalScript =
+  (name) =>
+  (...args) => {
+    checkCwdIsStrapiApp(name);
 
-  const cmdPath = resolveCwd.silent(`strapi/lib/commands/${name}`);
-  if (!cmdPath) {
-    console.log(
-      `Error loading the local ${yellow(
-        name
-      )} command. Strapi might not be installed in your "node_modules". You may need to run "npm install"`
-    );
-    process.exit(1);
-  }
-
-  const script = require(cmdPath);
-
-  Promise.resolve()
-    .then(() => {
-      return script(...args);
-    })
-    .catch(error => {
-      console.error(`Error while running command ${name}: ${error.message || error}`);
+    const cmdPath = resolveCwd.silent(`strapi/lib/commands/${name}`);
+    if (!cmdPath) {
+      console.log(
+        `Error loading the local ${yellow(
+          name
+        )} command. Strapi might not be installed in your "node_modules". You may need to run "npm install"`
+      );
       process.exit(1);
-    });
-};
+    }
+
+    const script = require(cmdPath);
+
+    Promise.resolve()
+      .then(() => {
+        return script(...args);
+      })
+      .catch((error) => {
+        console.error(`Error while running command ${name}: ${error.message || error}`);
+        process.exit(1);
+      });
+  };
 
 // Initial program setup
-program
-  .storeOptionsAsProperties(false)
-  .passCommandToAction(false)
-  .allowUnknownOption(true);
+program.storeOptionsAsProperties(false).passCommandToAction(false).allowUnknownOption(true);
 
 program.helpOption('-h, --help', 'Display help for command');
 program.addHelpCommand('help [command]', 'Display help for command');

@@ -27,19 +27,11 @@ const types = {
 const Notification = ({ notification }) => {
   const { formatMessage } = useIntl();
   const dispatch = useDispatch();
-  const {
-    title,
-    message,
-    link,
-    type,
-    id,
-    onClose,
-    timeout,
-    blockTransition,
-    centered,
-  } = notification;
+  const { title, message, link, type, id, onClose, timeout, blockTransition, centered } =
+    notification;
 
-  const formattedMessage = msg => (typeof msg === 'string' ? msg : formatMessage(msg, msg.values));
+  const formattedMessage = (msg) =>
+    typeof msg === 'string' ? msg : formatMessage(msg, msg.values);
 
   const handleClose = useCallback(() => {
     if (onClose) {

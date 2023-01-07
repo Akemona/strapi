@@ -1,6 +1,6 @@
 'use strict';
 
-const coreStoreModel = config => ({
+const coreStoreModel = (config) => ({
   connection: config.get('database.defaultConnection'),
   uid: 'strapi::core-store',
   info: {
@@ -39,11 +39,13 @@ const coreStoreModel = config => ({
 const createCoreStore = ({ environment: defaultEnv, db }) => {
   return (source = {}) => {
     async function get(params = {}) {
-      const { key, environment = defaultEnv, type = 'core', name = '', tag = '' } = Object.assign(
-        {},
-        source,
-        params
-      );
+      const {
+        key,
+        environment = defaultEnv,
+        type = 'core',
+        name = '',
+        tag = '',
+      } = Object.assign({}, source, params);
 
       const prefix = `${type}${name ? `_${name}` : ''}`;
 
@@ -78,11 +80,14 @@ const createCoreStore = ({ environment: defaultEnv, db }) => {
     }
 
     async function set(params = {}) {
-      const { key, value, environment = defaultEnv, type, name, tag = '' } = Object.assign(
-        {},
-        source,
-        params
-      );
+      const {
+        key,
+        value,
+        environment = defaultEnv,
+        type,
+        name,
+        tag = '',
+      } = Object.assign({}, source, params);
 
       const prefix = `${type}${name ? `_${name}` : ''}`;
 
@@ -113,11 +118,13 @@ const createCoreStore = ({ environment: defaultEnv, db }) => {
     }
 
     async function deleteFn(params = {}) {
-      const { key, environment = defaultEnv, type, name, tag = '' } = Object.assign(
-        {},
-        source,
-        params
-      );
+      const {
+        key,
+        environment = defaultEnv,
+        type,
+        name,
+        tag = '',
+      } = Object.assign({}, source, params);
 
       const prefix = `${type}${name ? `_${name}` : ''}`;
 

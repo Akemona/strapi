@@ -60,13 +60,13 @@ const EventInput = ({ onChange, name: inputName, value: inputValue, shouldShowDP
     let set = new Set(inputValue);
 
     if (value) {
-      events[name].forEach(event => {
+      events[name].forEach((event) => {
         if (!disabledEvents.includes(event)) {
           set.add(event);
         }
       });
     } else {
-      events[name].forEach(event => set.delete(event));
+      events[name].forEach((event) => set.delete(event));
     }
     onChange({ target: { name: inputName, value: Array.from(set) } });
   };
@@ -77,11 +77,11 @@ const EventInput = ({ onChange, name: inputName, value: inputValue, shouldShowDP
         <thead>
           <tr>
             <td />
-            {headersName.map(header => {
+            {headersName.map((header) => {
               if (header === 'app.utils.publish' || header === 'app.utils.unpublish') {
                 return (
                   <FormattedMessage id="Settings.webhooks.event.publish-tooltip" key={header}>
-                    {msg => (
+                    {(msg) => (
                       <td title={msg}>
                         <FormattedMessage id={header} />
                       </td>
@@ -99,7 +99,7 @@ const EventInput = ({ onChange, name: inputName, value: inputValue, shouldShowDP
           </tr>
         </thead>
         <tbody>
-          {Object.keys(events).map(event => {
+          {Object.keys(events).map((event) => {
             return (
               <EventRow
                 disabledEvents={disabledEvents}

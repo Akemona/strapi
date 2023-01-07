@@ -45,7 +45,7 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) =>
-  produce(state, draftState => {
+  produce(state, (draftState) => {
     switch (action.type) {
       case SET_CT_OR_ST_LINKS: {
         const { authorizedCtLinks, authorizedStLinks } = action.data;

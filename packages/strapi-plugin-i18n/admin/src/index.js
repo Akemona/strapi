@@ -18,10 +18,10 @@ import LOCALIZED_FIELDS from './utils/localizedFields';
 import i18nReducers from './hooks/reducers';
 import DeleteModalAdditionalInfos from './components/DeleteModalAdditionalInfos';
 
-export default strapi => {
+export default (strapi) => {
   const pluginDescription = pluginPkg.strapi.description || pluginPkg.description;
 
-  middlewares.forEach(middleware => {
+  middlewares.forEach((middleware) => {
     strapi.middlewares.add(middleware);
   });
 
@@ -103,7 +103,7 @@ export default strapi => {
         });
 
         ctbFormsAPI.extendFields(LOCALIZED_FIELDS, {
-          validator: args => ({
+          validator: (args) => ({
             i18n: yup.object().shape({
               localized: yup.bool().test({
                 name: 'ensure-unique-localization',

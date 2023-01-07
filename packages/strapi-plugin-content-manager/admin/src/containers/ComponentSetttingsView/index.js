@@ -12,14 +12,14 @@ import EditSettingsView from '../EditSettingsView';
 const ComponentSettingsView = () => {
   const [{ isLoading, data: layout }, dispatch] = useReducer(crudReducer, crudInitialState);
   const schemasSelector = useMemo(makeSelectModelAndComponentSchemas, []);
-  const { schemas } = useSelector(state => schemasSelector(state), shallowEqual);
+  const { schemas } = useSelector((state) => schemasSelector(state), shallowEqual);
   const { uid } = useParams();
 
   useEffect(() => {
     const abortController = new AbortController();
     const { signal } = abortController;
 
-    const fetchData = async signal => {
+    const fetchData = async (signal) => {
       try {
         dispatch(getData());
 

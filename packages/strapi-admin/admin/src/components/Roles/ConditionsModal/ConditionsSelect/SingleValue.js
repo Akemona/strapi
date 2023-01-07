@@ -9,7 +9,7 @@ import { createArrayOfValues } from '../../utils';
 const Value = ({ children, selectProps, ...props }) => {
   const { formatMessage } = useIntl();
   const SingleValue = components.SingleValue;
-  const valuesArray = createArrayOfValues(selectProps.value).filter(val => val);
+  const valuesArray = createArrayOfValues(selectProps.value).filter((val) => val);
 
   return (
     <SingleValue {...props}>

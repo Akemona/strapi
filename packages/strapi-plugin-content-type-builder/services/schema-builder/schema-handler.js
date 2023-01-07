@@ -140,7 +140,7 @@ module.exports = function createSchemaHandler(infos) {
     removeContentType(uid) {
       const { attributes } = state.schema;
 
-      Object.keys(attributes).forEach(key => {
+      Object.keys(attributes).forEach((key) => {
         const attr = attributes[key];
         const target = attr.model || attr.collection;
         const plugin = attr.plugin;
@@ -159,7 +159,7 @@ module.exports = function createSchemaHandler(infos) {
     removeComponent(uid) {
       const { attributes } = state.schema;
 
-      Object.keys(attributes).forEach(key => {
+      Object.keys(attributes).forEach((key) => {
         const attr = attributes[key];
 
         if (attr.type === 'component' && attr.component === uid) {
@@ -171,7 +171,7 @@ module.exports = function createSchemaHandler(infos) {
           Array.isArray(attr.components) &&
           attr.components.includes(uid)
         ) {
-          const updatedComponentList = attributes[key].components.filter(val => val !== uid);
+          const updatedComponentList = attributes[key].components.filter((val) => val !== uid);
           this.set(['attributes', key, 'components'], updatedComponentList);
         }
       });
@@ -182,7 +182,7 @@ module.exports = function createSchemaHandler(infos) {
     updateComponent(uid, newUID) {
       const { attributes } = state.schema;
 
-      Object.keys(attributes).forEach(key => {
+      Object.keys(attributes).forEach((key) => {
         const attr = attributes[key];
 
         if (attr.type === 'component' && attr.component === uid) {
@@ -194,7 +194,7 @@ module.exports = function createSchemaHandler(infos) {
           Array.isArray(attr.components) &&
           attr.components.includes(uid)
         ) {
-          const updatedComponentList = attr.components.map(val => (val === uid ? newUID : val));
+          const updatedComponentList = attr.components.map((val) => (val === uid ? newUID : val));
 
           this.set(['attributes', key, 'components'], updatedComponentList);
         }

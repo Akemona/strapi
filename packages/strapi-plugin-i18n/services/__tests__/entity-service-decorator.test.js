@@ -80,7 +80,7 @@ describe('Entity service decorator', () => {
 
     test('Does not wrap options if model is not localized', async () => {
       const defaultService = {
-        wrapOptions: jest.fn(opts => Promise.resolve(opts)),
+        wrapOptions: jest.fn((opts) => Promise.resolve(opts)),
       };
       const service = decorator(defaultService);
 
@@ -92,7 +92,7 @@ describe('Entity service decorator', () => {
 
     test('does not change non params options', async () => {
       const defaultService = {
-        wrapOptions: jest.fn(opts => Promise.resolve(opts)),
+        wrapOptions: jest.fn((opts) => Promise.resolve(opts)),
       };
       const service = decorator(defaultService);
 
@@ -104,7 +104,7 @@ describe('Entity service decorator', () => {
 
     test('Adds locale param', async () => {
       const defaultService = {
-        wrapOptions: jest.fn(opts => Promise.resolve(opts)),
+        wrapOptions: jest.fn((opts) => Promise.resolve(opts)),
       };
       const service = decorator(defaultService);
 
@@ -133,7 +133,7 @@ describe('Entity service decorator', () => {
       "Doesn't add locale param when the params contain id or id_in - %s",
       async (action, params) => {
         const defaultService = {
-          wrapOptions: jest.fn(opts => Promise.resolve(opts)),
+          wrapOptions: jest.fn((opts) => Promise.resolve(opts)),
         };
         const service = decorator(defaultService);
 
@@ -146,7 +146,7 @@ describe('Entity service decorator', () => {
 
     test('Replaces _locale param', async () => {
       const defaultService = {
-        wrapOptions: jest.fn(opts => Promise.resolve(opts)),
+        wrapOptions: jest.fn((opts) => Promise.resolve(opts)),
       };
       const service = decorator(defaultService);
 

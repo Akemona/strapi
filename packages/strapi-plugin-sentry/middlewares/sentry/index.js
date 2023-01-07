@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = strapi => ({
+module.exports = (strapi) => ({
   beforeInitialize() {
     strapi.config.middleware.load.after.unshift('sentry');
   },
@@ -13,7 +13,7 @@ module.exports = strapi => ({
         await next();
       } catch (error) {
         sentry.sendError(error, (scope, sentryInstance) => {
-          scope.addEventProcessor(event => {
+          scope.addEventProcessor((event) => {
             // Parse Koa context to add error metadata
             return sentryInstance.Handlers.parseRequest(event, ctx.request, {
               // Don't parse the transaction name, we'll do it manually

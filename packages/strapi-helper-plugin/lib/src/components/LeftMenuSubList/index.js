@@ -15,7 +15,7 @@ const LeftMenuSubList = ({ isEditable, isFirstItem, isSearching, links, name, on
     setCollapse(!collapse);
   };
 
-  const getLabel = message => {
+  const getLabel = (message) => {
     if (isObject(message) && message.id) {
       return formatMessage({
         ...message,
@@ -43,7 +43,7 @@ const LeftMenuSubList = ({ isEditable, isFirstItem, isSearching, links, name, on
           {isEditable && (
             <FontAwesomeIcon
               icon="pencil-alt"
-              onClick={e => {
+              onClick={(e) => {
                 onClickEdit(e, { name, links, isFirstItem, isSearching });
               }}
             />
@@ -51,7 +51,7 @@ const LeftMenuSubList = ({ isEditable, isFirstItem, isSearching, links, name, on
         </button>
         <Collapse isOpen={collapse}>
           <ul>
-            {links.map(link => {
+            {links.map((link) => {
               const { name, title } = link;
 
               return (

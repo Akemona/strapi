@@ -33,7 +33,7 @@ const CustomCheckbox = ({ label, modifiedData, name, onChange, value, ...rest })
               },
             });
           }
-          setChecked(prev => !prev);
+          setChecked((prev) => !prev);
         }}
       />
       {checked && (

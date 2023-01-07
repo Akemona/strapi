@@ -13,9 +13,9 @@ import Wrapper from './Wrapper';
 class GlobalPagination extends React.Component {
   getLastPageNumber = () => Math.ceil(this.props.count / this.props.params._limit) || 1;
 
-  handleDotsClick = e => e.preventDefault();
+  handleDotsClick = (e) => e.preventDefault();
 
-  handlePreviousPageClick = e => {
+  handlePreviousPageClick = (e) => {
     e.preventDefault();
 
     if (!this.isFirstPage()) {
@@ -27,7 +27,7 @@ class GlobalPagination extends React.Component {
     }
   };
 
-  handleNextPageClick = e => {
+  handleNextPageClick = (e) => {
     e.preventDefault();
 
     if (!this.isLastPage()) {
@@ -39,7 +39,7 @@ class GlobalPagination extends React.Component {
     }
   };
 
-  handleFirstPageClick = e => {
+  handleFirstPageClick = (e) => {
     e.preventDefault();
     const target = {
       name: 'params._page',
@@ -48,7 +48,7 @@ class GlobalPagination extends React.Component {
     this.props.onChangeParams({ target });
   };
 
-  handleLastPageClick = e => {
+  handleLastPageClick = (e) => {
     e.preventDefault();
     const target = {
       name: 'params._page',
@@ -73,7 +73,7 @@ class GlobalPagination extends React.Component {
     linksOptions.push({
       value: this.props.params._page,
       isActive: true,
-      handleClick: e => e.preventDefault(),
+      handleClick: (e) => e.preventDefault(),
     });
 
     // Add previous page link

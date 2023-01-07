@@ -26,7 +26,7 @@ const constants = {
   COLLECTION_TYPE,
 };
 
-const getTimestamps = model => {
+const getTimestamps = (model) => {
   const timestamps = _.get(model, 'options.timestamps', []);
 
   if (!_.isArray(timestamps)) {
@@ -36,7 +36,7 @@ const getTimestamps = model => {
   return timestamps;
 };
 
-const getTimestampsAttributes = model => {
+const getTimestampsAttributes = (model) => {
   const timestamps = getTimestamps(model);
 
   return timestamps.reduce(
@@ -71,7 +71,7 @@ const isWritableAttribute = (model, attributeName) => {
   return getWritableAttributes(model).includes(attributeName);
 };
 
-const getNonVisibleAttributes = model => {
+const getNonVisibleAttributes = (model) => {
   const nonVisibleAttributes = _.reduce(
     model.attributes,
     (acc, attr, attrName) => (attr.visible === false ? acc.concat(attrName) : acc),
@@ -81,7 +81,7 @@ const getNonVisibleAttributes = model => {
   return _.uniq([ID_ATTRIBUTE, model.primaryKey, ...getTimestamps(model), ...nonVisibleAttributes]);
 };
 
-const getVisibleAttributes = model => {
+const getVisibleAttributes = (model) => {
   return _.difference(_.keys(model.attributes), getNonVisibleAttributes(model));
 };
 
@@ -89,20 +89,20 @@ const isVisibleAttribute = (model, attributeName) => {
   return getVisibleAttributes(model).includes(attributeName);
 };
 
-const hasDraftAndPublish = model => _.get(model, 'options.draftAndPublish', false) === true;
+const hasDraftAndPublish = (model) => _.get(model, 'options.draftAndPublish', false) === true;
 
 const isDraft = (data, model) =>
   hasDraftAndPublish(model) && _.get(data, PUBLISHED_AT_ATTRIBUTE) === null;
 
 const isSingleType = ({ kind = COLLECTION_TYPE }) => kind === SINGLE_TYPE;
 const isCollectionType = ({ kind = COLLECTION_TYPE }) => kind === COLLECTION_TYPE;
-const isKind = kind => model => model.kind === kind;
+const isKind = (kind) => (model) => model.kind === kind;
 
 const getPrivateAttributes = (model = {}) => {
   return _.union(
     strapi.config.get('api.responses.privateAttributes', []),
     _.get(model, 'options.privateAttributes', []),
-    _.keys(_.pickBy(model.attributes, attr => !!attr.private))
+    _.keys(_.pickBy(model.attributes, (attr) => !!attr.private))
   );
 };
 
@@ -110,7 +110,7 @@ const isPrivateAttribute = (model = {}, attributeName) => {
   return model && model.privateAttributes && model.privateAttributes.includes(attributeName);
 };
 
-const isScalarAttribute = attribute => {
+const isScalarAttribute = (attribute) => {
   return (
     !attribute.collection &&
     !attribute.model &&
@@ -119,13 +119,13 @@ const isScalarAttribute = attribute => {
   );
 };
 
-const isMediaAttribute = attr => {
+const isMediaAttribute = (attr) => {
   return (attr.collection || attr.model) === 'file' && attr.plugin === 'upload';
 };
 
-const getKind = obj => obj.kind || 'collectionType';
+const getKind = (obj) => obj.kind || 'collectionType';
 
-const pickSchema = model => {
+const pickSchema = (model) => {
   const schema = _.cloneDeep(
     _.pick(model, [
       'connection',
@@ -188,7 +188,7 @@ const getGlobalId = (model, modelName, prefix) => {
   return model.globalId || _.upperFirst(_.camelCase(globalId));
 };
 
-const isRelationalAttribute = attribute =>
+const isRelationalAttribute = (attribute) =>
   _.has(attribute, 'model') || _.has(attribute, 'collection');
 
 /**
@@ -205,7 +205,7 @@ const isTypedAttribute = (attribute, type) => {
  * @param {object} contentType
  * @returns {string}
  */
-const getContentTypeRoutePrefix = contentType => {
+const getContentTypeRoutePrefix = (contentType) => {
   return isSingleType(contentType)
     ? _.kebabCase(contentType.modelName)
     : _.kebabCase(pluralize(contentType.modelName));

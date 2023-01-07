@@ -121,10 +121,7 @@ const bedFixtures = [
 
 describe('Search query', () => {
   beforeAll(async () => {
-    await builder
-      .addContentType(bedModel)
-      .addFixtures(bedModel.name, bedFixtures)
-      .build();
+    await builder.addContentType(bedModel).addFixtures(bedModel.name, bedFixtures).build();
 
     strapi = await createStrapiInstance();
     rq = await createAuthRequest({ strapi });
@@ -152,7 +149,7 @@ describe('Search query', () => {
       expect(res.body[0]).toMatchObject(data.bed[2]);
     });
 
-    test.each(Object.keys(bedFixtures[0]))('search that target column %p', async columnName => {
+    test.each(Object.keys(bedFixtures[0]))('search that target column %p', async (columnName) => {
       const res = await rq({
         method: 'GET',
         url: '/beds',

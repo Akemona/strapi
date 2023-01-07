@@ -73,8 +73,8 @@ const LoadingWrapper = styled.div`
   width: 100%;
   height: 108px;
   display: flex;
-  background: ${props => props.theme.main.colors.white};
-  box-shadow: 0 2px 4px ${props => props.theme.main.colors.darkGrey};
+  background: ${(props) => props.theme.main.colors.white};
+  box-shadow: 0 2px 4px ${(props) => props.theme.main.colors.darkGrey};
   clip-path: inset(0px -5px -5px -5px);
 `;
 

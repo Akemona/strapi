@@ -6,7 +6,7 @@ import { Flex, Padded, Text } from '@buffetjs/core';
 import { RelationDPState } from 'strapi-helper-plugin';
 import { getDisplayedValue } from '../../utils';
 
-const SingleValue = props => {
+const SingleValue = (props) => {
   const Component = components.SingleValue;
   const hasDraftAndPublish = has(get(props, 'data.value'), 'published_at');
   const isDraft = isEmpty(get(props, 'data.value.published_at'));

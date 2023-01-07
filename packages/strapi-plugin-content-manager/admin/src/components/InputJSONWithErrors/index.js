@@ -16,7 +16,7 @@ import InputJSON from '../InputJSON';
 import Wrapper from './Wrapper';
 
 class InputJSONWithErrors extends React.Component {
-  handleChange = e => {
+  handleChange = (e) => {
     this.props.onChange(e);
   };
 
@@ -67,7 +67,7 @@ class InputJSONWithErrors extends React.Component {
                 deactivateErrorHighlight={deactivateErrorHighlight}
                 name={name}
                 onBlur={isFunction(handleBlur) ? handleBlur : onBlur}
-                onChange={e => {
+                onChange={(e) => {
                   if (!canCheck) {
                     dispatch({
                       type: 'SET_CHECK',

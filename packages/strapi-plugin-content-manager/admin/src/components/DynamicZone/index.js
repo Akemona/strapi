@@ -41,10 +41,10 @@ const DynamicZone = ({
   const { max = Infinity, min = -Infinity } = fieldSchema;
   const dynamicZoneErrors = useMemo(() => {
     return Object.keys(formErrors)
-      .filter(key => {
+      .filter((key) => {
         return key === name;
       })
-      .map(key => formErrors[key]);
+      .map((key) => formErrors[key]);
   }, [formErrors, name]);
 
   const dynamicZoneAvailableComponents = useMemo(() => fieldSchema.components || [], [fieldSchema]);
@@ -59,7 +59,7 @@ const DynamicZone = ({
     hasError && get(dynamicZoneErrors, [0, 'id'], '') === 'components.Input.error.validation.max';
 
   const handleAddComponent = useCallback(
-    componentUid => {
+    (componentUid) => {
       setIsOpen(false);
 
       addComponentToDynamicZone(name, componentUid, hasError);
@@ -69,7 +69,7 @@ const DynamicZone = ({
 
   const handleClickOpenPicker = () => {
     if (dynamicDisplayedComponentsLength < max) {
-      setIsOpen(prev => !prev);
+      setIsOpen((prev) => !prev);
     } else {
       strapi.notification.info(`${pluginId}.components.notification.info.maximum-requirement`);
     }

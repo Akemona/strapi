@@ -38,7 +38,7 @@ const databases = {
   },
 };
 
-const runAllTests = async args => {
+const runAllTests = async (args) => {
   return execa('yarn', ['-s', 'test:e2e', ...args], {
     stdio: 'inherit',
     cwd: path.resolve(__dirname, '..'),
@@ -71,7 +71,7 @@ yargs
   .command(
     '$0',
     'run end to end tests',
-    yargs => {
+    (yargs) => {
       yargs.option('database', {
         alias: 'db',
         describe: 'choose a database',
@@ -79,7 +79,7 @@ yargs
         default: 'sqlite',
       });
     },
-    argv => {
+    (argv) => {
       const { database, _: args } = argv;
 
       main(databases[database], args);

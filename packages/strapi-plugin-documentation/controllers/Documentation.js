@@ -16,7 +16,7 @@ const _ = require('lodash');
 const koaStatic = require('koa-static');
 
 module.exports = {
-  getInfos: async ctx => {
+  getInfos: async (ctx) => {
     try {
       const service = strapi.plugins.documentation.services.documentation;
       const docVersions = service.retrieveDocumentationVersions();
@@ -174,9 +174,9 @@ module.exports = {
     );
   },
 
-  regenerateDoc: async ctx => {
+  regenerateDoc: async (ctx) => {
     const service = strapi.plugins.documentation.services.documentation;
-    const documentationVersions = service.retrieveDocumentationVersions().map(el => el.version);
+    const documentationVersions = service.retrieveDocumentationVersions().map((el) => el.version);
     const {
       request: {
         body: { version },
@@ -218,10 +218,10 @@ module.exports = {
     }
   },
 
-  deleteDoc: async ctx => {
+  deleteDoc: async (ctx) => {
     strapi.reload.isWatching = false;
     const service = strapi.plugins.documentation.services.documentation;
-    const documentationVersions = service.retrieveDocumentationVersions().map(el => el.version);
+    const documentationVersions = service.retrieveDocumentationVersions().map((el) => el.version);
     const {
       request: {
         params: { version },
@@ -255,7 +255,7 @@ module.exports = {
     }
   },
 
-  updateSettings: async ctx => {
+  updateSettings: async (ctx) => {
     const {
       admin,
       body: { restrictedAccess, password },

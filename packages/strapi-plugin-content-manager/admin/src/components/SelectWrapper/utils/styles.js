@@ -2,7 +2,7 @@
 /* eslint-disable no-nested-ternary */
 
 const styles = {
-  container: base => ({ ...base, background: '#ffffff' }),
+  container: (base) => ({ ...base, background: '#ffffff' }),
   control: (base, state) => {
     const borderRadiusStyle = state.selectProps.menuIsOpen
       ? {
@@ -49,8 +49,8 @@ const styles = {
       backgroundColor,
     };
   },
-  input: base => ({ ...base, marginLeft: 10 }),
-  menu: base => {
+  input: (base) => ({ ...base, marginLeft: 10 }),
+  menu: (base) => {
     return {
       ...base,
       width: '100%',
@@ -65,7 +65,7 @@ const styles = {
       fontSize: '13px',
     };
   },
-  menuList: base => ({
+  menuList: (base) => ({
     ...base,
     maxHeight: '112px',
     paddingTop: 2,
@@ -85,7 +85,7 @@ const styles = {
       WebkitFontSmoothing: 'antialiased',
     };
   },
-  placeholder: base => ({
+  placeholder: (base) => ({
     ...base,
     marginTop: 0,
     marginLeft: 10,
@@ -95,7 +95,7 @@ const styles = {
     textOverflow: 'ellipsis',
     maxWidth: 'calc(100% - 32px)',
   }),
-  valueContainer: base => ({
+  valueContainer: (base) => ({
     ...base,
     padding: '2px 0px 4px 0px',
     lineHeight: '18px',

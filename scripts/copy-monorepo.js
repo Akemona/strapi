@@ -10,7 +10,7 @@ const watch = (source, dest, { runOnce, quiet }) => {
 
   chokidar
     .watch(source, {
-      ignored: [filePath => ignored.filter(reg => reg.test(filePath)).length > 0],
+      ignored: [(filePath) => ignored.filter((reg) => reg.test(filePath)).length > 0],
     })
     .on('all', (event, filePath) => {
       if (['change', 'add'].includes(event)) {
@@ -35,10 +35,10 @@ yargs
   .command(
     '$0 <dest>',
     'default command',
-    yargs => {
+    (yargs) => {
       yargs.boolean('run-once').boolean('quiet');
     },
-    argv => {
+    (argv) => {
       const source = path.resolve(__dirname, '..', 'packages');
       const dest = path.resolve(process.cwd(), argv.dest);
       watch(source, dest, argv);

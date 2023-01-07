@@ -45,7 +45,7 @@ describe('Test type time', () => {
 
   test.each(['00:00:00', '01:03:11.2', '01:03:11.93', '01:03:11.123'])(
     'Accepts multiple time formats %s',
-    async input => {
+    async (input) => {
       const res = await rq.post(
         '/content-manager/collection-types/application::withtime.withtime',
         {
@@ -61,7 +61,7 @@ describe('Test type time', () => {
 
   test.each(['24:11:23', '23:72:11', '12:45:83', 1234, {}, 'test', new Date()])(
     'Throws on invalid time (%s)',
-    async input => {
+    async (input) => {
       const res = await rq.post(
         '/content-manager/collection-types/application::withtime.withtime',
         {
@@ -80,7 +80,7 @@ describe('Test type time', () => {
 
     expect(res.statusCode).toBe(200);
     expect(Array.isArray(res.body.results)).toBe(true);
-    res.body.results.forEach(entry => {
+    res.body.results.forEach((entry) => {
       expect(entry.field).toMatch(/^2[0-3]|[01][0-9]:[0-5][0-9]:[0-5][0-9](.[0-9]{1,3})?$/);
     });
   });

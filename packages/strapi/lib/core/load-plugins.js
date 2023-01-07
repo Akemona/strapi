@@ -19,7 +19,7 @@ module.exports = async ({ dir, config }) => {
   if (pluginsIntersection.length > 0) {
     throw new Error(
       `You have some local plugins with the same name as npm installed plugins:\n${pluginsIntersection
-        .map(p => `- ${p}`)
+        .map((p) => `- ${p}`)
         .join('\n')}`
     );
   }

@@ -3,8 +3,9 @@
 const _ = require('lodash');
 const { getOr } = require('lodash/fp');
 const pluralize = require('pluralize');
-const generator = require('strapi-generate');
 
+// eslint-disable-next-line node/no-extraneous-require
+const generator = require('strapi-generate');
 const { nameToSlug, contentTypes: contentTypesUtils } = require('@akemona-org/strapi-utils');
 const { formatAttributes, replaceTemporaryUIDs } = require('../utils/attributes');
 const createBuilder = require('./schema-builder');

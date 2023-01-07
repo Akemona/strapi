@@ -21,7 +21,7 @@ function PageFooter(props) {
               className="form-control"
               id="params._limit"
               name="params._limit"
-              onChange={e => {
+              onChange={(e) => {
                 const target = {
                   name: 'params._limit',
                   value: parseInt(e.target.value, 10),
@@ -31,7 +31,7 @@ function PageFooter(props) {
               }}
               value={get(props, ['params', '_limit'], 10)}
             >
-              {[10, 20, 50, 100].map(value => (
+              {[10, 20, 50, 100].map((value) => (
                 <option value={value} key={value}>
                   {value}
                 </option>

@@ -91,7 +91,7 @@ const operationToSDL = ({ fields, configurations }) => {
  * @param {object} args arguments
  * @returns {string}
  */
-const argumentsToSDL = args => {
+const argumentsToSDL = (args) => {
   if (_.isEmpty(args)) {
     return '';
   }

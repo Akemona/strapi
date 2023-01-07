@@ -14,5 +14,5 @@ const prefixedPaths = [
 ];
 
 module.exports = function checkReservedFilenames(file) {
-  return _.some(prefixedPaths, e => file.indexOf(`config/${e}`) >= 0) ? true : false;
+  return _.some(prefixedPaths, (e) => file.indexOf(`config/${e}`) >= 0) ? true : false;
 };

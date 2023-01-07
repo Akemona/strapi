@@ -41,7 +41,7 @@ const InputModalStepperProvider = ({
   const { formatMessage } = useIntl();
   const { emitEvent, plugins } = useGlobalContext();
   const [, updated_at] = getFileModelTimestamps(plugins);
-  const [reducerState, dispatch] = useReducer(reducer, initialState, state =>
+  const [reducerState, dispatch] = useReducer(reducer, initialState, (state) =>
     init({
       ...state,
       allowedTypes,
@@ -81,7 +81,7 @@ const InputModalStepperProvider = ({
 
     try {
       await Promise.all(
-        files.map(file => {
+        files.map((file) => {
           const { source } = file;
 
           return axios
@@ -102,7 +102,7 @@ const InputModalStepperProvider = ({
                 fileTempId: file.tempId,
               });
             })
-            .catch(err => {
+            .catch((err) => {
               console.error('fetch file error', err);
 
               dispatch({
@@ -118,14 +118,14 @@ const InputModalStepperProvider = ({
     }
   };
 
-  const handleRemoveFileToUpload = fileIndex => {
+  const handleRemoveFileToUpload = (fileIndex) => {
     dispatch({
       type: 'REMOVE_FILE_TO_UPLOAD',
       fileIndex,
     });
   };
 
-  const handleModalTabChange = to => {
+  const handleModalTabChange = (to) => {
     dispatch({
       type: 'ON_CHANGE_MODAL_TAB',
       to,
@@ -135,7 +135,7 @@ const InputModalStepperProvider = ({
   const handleClickNextButton = async () => {
     try {
       await urlSchema.validate(
-        { filesToDownload: filesToDownload.filter(url => !isEmpty(url)) },
+        { filesToDownload: filesToDownload.filter((url) => !isEmpty(url)) },
         { abortEarly: false }
       );
 
@@ -196,7 +196,7 @@ const InputModalStepperProvider = ({
     });
   };
 
-  const handleEditExistingFile = file => {
+  const handleEditExistingFile = (file) => {
     dispatch({
       type: 'EDIT_EXISTING_FILE',
       file,
@@ -209,7 +209,7 @@ const InputModalStepperProvider = ({
     });
   };
 
-  const removeFilter = index => {
+  const removeFilter = (index) => {
     dispatch({
       type: 'REMOVE_FILTER',
       filterToRemove: index,
@@ -239,21 +239,21 @@ const InputModalStepperProvider = ({
     });
   };
 
-  const setParam = param => {
+  const setParam = (param) => {
     dispatch({
       type: 'SET_PARAM',
       param,
     });
   };
 
-  const goTo = to => {
+  const goTo = (to) => {
     dispatch({
       type: 'GO_TO',
       to,
     });
   };
 
-  const handleGoToEditNewFile = fileIndex => {
+  const handleGoToEditNewFile = (fileIndex) => {
     dispatch({
       type: 'SET_NEW_FILE_TO_EDIT',
       fileIndex,
@@ -262,7 +262,7 @@ const InputModalStepperProvider = ({
     goTo('edit-new');
   };
 
-  const handleGoToEditFile = fileId => {
+  const handleGoToEditFile = (fileId) => {
     dispatch({
       type: 'SET_FILE_TO_EDIT',
       fileId,
@@ -277,7 +277,7 @@ const InputModalStepperProvider = ({
     });
   };
 
-  const handleSetCropResult = blob => {
+  const handleSetCropResult = (blob) => {
     // Emit event : the user cropped a file that is not uploaded
     emitEvent('didCropFile', { duplicatedFile: null, location: 'content-manager' });
 
@@ -287,7 +287,7 @@ const InputModalStepperProvider = ({
     });
   };
 
-  const handleFormDisabled = isFormDisabled => {
+  const handleFormDisabled = (isFormDisabled) => {
     dispatch({
       type: 'SET_FORM_DISABLED',
       isFormDisabled,
@@ -304,7 +304,7 @@ const InputModalStepperProvider = ({
     });
   };
 
-  const handleCancelFileToUpload = fileIndex => {
+  const handleCancelFileToUpload = (fileIndex) => {
     const fileToCancel = get(filesToUpload, fileIndex, {});
 
     const { source } = fileToCancel;
@@ -392,7 +392,7 @@ const InputModalStepperProvider = ({
     });
   };
 
-  const handleSetFileToEditError = errorMessage => {
+  const handleSetFileToEditError = (errorMessage) => {
     dispatch({
       type: 'SET_FILE_TO_EDIT_ERROR',
       errorMessage,
@@ -430,7 +430,7 @@ const InputModalStepperProvider = ({
             false
           );
 
-          const filesToSelect = uploadedFile.filter(file => {
+          const filesToSelect = uploadedFile.filter((file) => {
             const fileType = file.mime.split('/')[0];
 
             if (allowedTypes.includes('file') && !['video', 'image'].includes(fileType)) {

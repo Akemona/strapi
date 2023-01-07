@@ -3,27 +3,27 @@ import getTrad from '../../utils/getTrad';
 
 const initialState = fromJS({ collapses: [] });
 
-const getMax = arr => {
+const getMax = (arr) => {
   if (arr.size === 0) {
     return -1;
   }
 
   return Math.max.apply(
     Math,
-    arr.toJS().map(o => o._temp__id)
+    arr.toJS().map((o) => o._temp__id)
   );
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
     case 'ADD_NEW_FIELD':
-      return state.update('collapses', list => {
+      return state.update('collapses', (list) => {
         return list
-          .map(obj => obj.update('isOpen', () => false))
+          .map((obj) => obj.update('isOpen', () => false))
           .push(fromJS({ isOpen: true, _temp__id: getMax(list) + 1 }));
       });
     case 'MOVE_COLLAPSE':
-      return state.updateIn(['collapses'], list => {
+      return state.updateIn(['collapses'], (list) => {
         const oldList = list;
         const newList = list
           .delete(action.dragIndex)
@@ -44,10 +44,10 @@ const reducer = (state, action) => {
         return newList;
       });
     case 'TOGGLE_COLLAPSE':
-      return state.update('collapses', list => {
+      return state.update('collapses', (list) => {
         return list.map((obj, index) => {
           if (index === action.index) {
-            return obj.update('isOpen', v => !v);
+            return obj.update('isOpen', (v) => !v);
           }
 
           return obj.update('isOpen', () => false);
@@ -56,8 +56,8 @@ const reducer = (state, action) => {
     case 'REMOVE_COLLAPSE':
       return state
         .removeIn(['collapses', action.index])
-        .update('collapses', list => list.map(obj => obj.set('isOpen', false)))
-        .update('collapses', list => {
+        .update('collapses', (list) => list.map((obj) => obj.set('isOpen', false)))
+        .update('collapses', (list) => {
           if (action.shouldAddEmptyField) {
             return list.push(fromJS({ isOpen: true }));
           }

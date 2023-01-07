@@ -54,7 +54,7 @@ const CreatePage = () => {
     ];
   };
 
-  const handleCreateRoleSubmit = data => {
+  const handleCreateRoleSubmit = (data) => {
     strapi.lockAppWithOverlay();
     setIsSubmiting(true);
 
@@ -76,7 +76,7 @@ const CreatePage = () => {
         // TODO
         goBack();
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
         strapi.notification.toggle({
           type: 'warning',

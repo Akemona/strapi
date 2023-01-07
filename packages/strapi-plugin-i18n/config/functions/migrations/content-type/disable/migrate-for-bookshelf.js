@@ -23,7 +23,7 @@ const migrateForBookshelf = async (
         .limit(BATCH_SIZE);
       offset += BATCH_SIZE;
 
-      await pmap(batch, entry => model.deleteRelations(entry.id, { transacting: trx }), {
+      await pmap(batch, (entry) => model.deleteRelations(entry.id, { transacting: trx }), {
         concurrency: 100,
         stopOnError: true,
       });
@@ -32,10 +32,7 @@ const migrateForBookshelf = async (
         break;
       }
     }
-    await trx
-      .from(model.collectionName)
-      .del()
-      .whereNot('locale', defaultLocale);
+    await trx.from(model.collectionName).del().whereNot('locale', defaultLocale);
     await trx.commit();
   } catch (e) {
     await trx.rollback();
@@ -47,7 +44,7 @@ const migrateForBookshelf = async (
     // Need to recreate the table
     context.recreateSqliteTable = true;
   } else {
-    await ORM.knex.schema.table(definition.collectionName, t => {
+    await ORM.knex.schema.table(definition.collectionName, (t) => {
       t.dropColumn('locale');
     });
   }

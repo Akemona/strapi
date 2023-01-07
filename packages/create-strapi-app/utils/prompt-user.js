@@ -39,7 +39,7 @@ async function getTemplateQuestion() {
     };
   }
 
-  const choices = content.map(option => {
+  const choices = content.map((option) => {
     const name = option.title.replace('Template', '');
     return {
       name,

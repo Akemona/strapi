@@ -1,7 +1,7 @@
 import { Text } from '@buffetjs/core';
 import Chevron from '../../Chevron';
 
-const activeStyle = theme => `
+const activeStyle = (theme) => `
   color: ${theme.main.colors.mediumBlue};
   ${Text} {
     color: ${theme.main.colors.mediumBlue};

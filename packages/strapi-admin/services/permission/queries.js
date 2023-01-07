@@ -25,7 +25,7 @@ const permissionDomain = require('../../domain/permission/index');
  * @param rolesIds ids of roles
  * @returns {Promise<array>}
  */
-const deleteByRolesIds = async rolesIds => {
+const deleteByRolesIds = async (rolesIds) => {
   const deletedPermissions = await strapi
     .query('permission', 'admin')
     .delete({ role_in: rolesIds });
@@ -38,7 +38,7 @@ const deleteByRolesIds = async rolesIds => {
  * @param ids ids of permissions
  * @returns {Promise<array>}
  */
-const deleteByIds = async ids => {
+const deleteByIds = async (ids) => {
   const deletedPermissions = await strapi.query('permission', 'admin').delete({ id_in: ids });
 
   return permissionDomain.toPermission(deletedPermissions);
@@ -49,7 +49,7 @@ const deleteByIds = async ids => {
  * @param permissions
  * @returns {Promise<*[]|*>}
  */
-const createMany = async permissions => {
+const createMany = async (permissions) => {
   const createdPermissions = await strapi.query('permission', 'admin').createMany(permissions);
 
   return permissionDomain.toPermission(createdPermissions);
@@ -91,7 +91,7 @@ const findUserPermissions = async ({ roles }) => {
   return find({ role_in: roles.map(prop('id')), _limit: -1 });
 };
 
-const filterPermissionsToRemove = async permissions => {
+const filterPermissionsToRemove = async (permissions) => {
   const { actionProvider } = getService('permission');
 
   const permissionsToRemove = [];
@@ -101,7 +101,7 @@ const filterPermissionsToRemove = async permissions => {
     const { applyToProperties } = options;
 
     const invalidProperties = await Promise.all(
-      (applyToProperties || []).map(async property => {
+      (applyToProperties || []).map(async (property) => {
         const applies = await actionProvider.appliesToProperty(
           property,
           permission.action,
@@ -147,11 +147,10 @@ const cleanPermissionsInDatabase = async () => {
 
     // 2. Clean permissions' fields (add required ones, remove the non-existing ones)
     const remainingPermissions = permissions.filter(
-      permission => !permissionsIdToRemove.includes(permission.id)
+      (permission) => !permissionsIdToRemove.includes(permission.id)
     );
-    const permissionsWithCleanFields = getService('content-type').cleanPermissionFields(
-      remainingPermissions
-    );
+    const permissionsWithCleanFields =
+      getService('content-type').cleanPermissionFields(remainingPermissions);
 
     // Update only the ones that need to be updated
     const permissionsNeedingToBeUpdated = differenceWith(
@@ -162,7 +161,7 @@ const cleanPermissionsInDatabase = async () => {
       remainingPermissions
     );
 
-    const updatePromiseProvider = permission => {
+    const updatePromiseProvider = (permission) => {
       return update({ id: permission.id }, permission);
     };
 
@@ -214,11 +213,11 @@ const ensureBoundPermissionsInDatabase = async () => {
     if (missingActions.length > 0) {
       const permissions = pipe(
         // Create a permission skeleton from the action id
-        map(action => ({ action, subject: contentType.uid, role: editorRole.id })),
+        map((action) => ({ action, subject: contentType.uid, role: editorRole.id })),
         // Use the permission domain to create a clean permission from the given object
         map(permissionDomain.create),
         // Adds the fields property if the permission action is eligible
-        map(permission =>
+        map((permission) =>
           BOUND_ACTIONS_FOR_FIELDS.includes(permission.action)
             ? permissionDomain.setProperty('fields', fields, permission)
             : permission

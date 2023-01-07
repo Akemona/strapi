@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-const CTSelected = props => (
+const CTSelected = (props) => (
   <svg width="60px" height="67px" viewBox="0 0 79 86" {...props}>
     <defs>
       <filter

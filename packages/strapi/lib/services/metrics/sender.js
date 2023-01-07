@@ -31,7 +31,7 @@ const addPackageJsonStrapiMetadata = (metadata, strapi) => {
  * @param {Object} strapi strapi app
  * @returns {Function} (event, payload) -> Promise{boolean}
  */
-module.exports = strapi => {
+module.exports = (strapi) => {
   const { uuid } = strapi.config;
   const deviceId = machineIdSync();
   const isEE = strapi.EE === true && ee.isEE === true;

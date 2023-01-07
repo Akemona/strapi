@@ -20,7 +20,7 @@ describe('Content Manager | Main | reducer', () => {
   it('should handle the getData action correctly', () => {
     state.isLoading = false;
 
-    const expected = produce(state, draft => {
+    const expected = produce(state, (draft) => {
       draft.isLoading = true;
     });
 
@@ -28,7 +28,7 @@ describe('Content Manager | Main | reducer', () => {
   });
 
   it('should handle the getData action correctly', () => {
-    const expected = produce(state, draft => {
+    const expected = produce(state, (draft) => {
       draft.isLoading = false;
       draft.components = ['test'];
       draft.models = ['test'];

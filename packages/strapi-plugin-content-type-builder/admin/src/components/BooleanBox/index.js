@@ -27,7 +27,7 @@ const STHackSpan = styled.span`
 const BooleanBox = ({ label, name, onChange, onChangeCallback, options, value }) => {
   const { formatMessage } = useGlobalContext();
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     onChange(e);
     onChangeCallback();
   };
@@ -36,7 +36,7 @@ const BooleanBox = ({ label, name, onChange, onChangeCallback, options, value })
     <div>
       <CustomLabel htmlFor={name}>{label}</CustomLabel>
       <Wrapper>
-        {options.map(option => (
+        {options.map((option) => (
           <Enumeration
             {...option}
             key={option.value}
@@ -49,7 +49,7 @@ const BooleanBox = ({ label, name, onChange, onChangeCallback, options, value })
             value={option.value}
           />
         ))}
-        {options.map(option => {
+        {options.map((option) => {
           const isST = option.value === 'singleType';
           const isCT = option.value === 'collectionType';
 

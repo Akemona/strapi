@@ -28,13 +28,15 @@ module.exports = async () => {
   await registerPermissionActions();
 };
 
-const wrapFunctionForErrors = fn => async (...args) => {
-  try {
-    return await fn(...args);
-  } catch (err) {
-    throw convertToStrapiError(err);
-  }
-};
+const wrapFunctionForErrors =
+  (fn) =>
+  async (...args) => {
+    try {
+      return await fn(...args);
+    } catch (err) {
+      throw convertToStrapiError(err);
+    }
+  };
 
 const createProvider = ({ provider, providerOptions, actionOptions = {} }) => {
   try {
@@ -86,7 +88,7 @@ const pruneObsoleteRelationsQuery = ({ model }) => {
   }
 
   const models = Array.from(strapi.db.models.values());
-  const modelsId = models.map(model => model.globalId);
+  const modelsId = models.map((model) => model.globalId);
 
   return model.updateMany(
     { related: { $elemMatch: { kind: { $nin: modelsId } } } },

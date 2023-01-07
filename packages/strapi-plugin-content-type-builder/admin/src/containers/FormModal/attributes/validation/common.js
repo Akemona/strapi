@@ -5,11 +5,11 @@ import getTrad from '../../../../utils/getTrad';
 
 const NAME_REGEX = new RegExp('^[A-Za-z][_0-9A-Za-z]*$');
 
-const alreadyUsedAttributeNames = usedNames => {
+const alreadyUsedAttributeNames = (usedNames) => {
   return {
     name: 'attributeNameAlreadyUsed',
     message: errorsTrads.unique,
-    test: value => {
+    test: (value) => {
       if (!value) {
         return false;
       }
@@ -22,7 +22,7 @@ const alreadyUsedAttributeNames = usedNames => {
 const getUsedContentTypeAttributeNames = (ctShema, isEdition, attributeNameToEdit) => {
   const attributes = get(ctShema, ['schema', 'attributes'], {});
 
-  return Object.keys(attributes).filter(attr => {
+  return Object.keys(attributes).filter((attr) => {
     if (isEdition) {
       return attr !== attributeNameToEdit;
     }
@@ -31,11 +31,11 @@ const getUsedContentTypeAttributeNames = (ctShema, isEdition, attributeNameToEdi
   });
 };
 
-const isNameAllowed = reservedNames => {
+const isNameAllowed = (reservedNames) => {
   return {
     name: 'forbiddenAttributeName',
     message: getTrad('error.attributeName.reserved-name'),
-    test: value => {
+    test: (value) => {
       if (!value) {
         return false;
       }
@@ -47,11 +47,7 @@ const isNameAllowed = reservedNames => {
 
 const validators = {
   default: () => yup.string().nullable(),
-  max: () =>
-    yup
-      .number()
-      .integer()
-      .nullable(),
+  max: () => yup.number().integer().nullable(),
   min: () =>
     yup
       .number()
@@ -64,11 +60,7 @@ const validators = {
         return schema;
       })
       .nullable(),
-  maxLength: () =>
-    yup
-      .number()
-      .integer()
-      .nullable(),
+  maxLength: () => yup.number().integer().nullable(),
   minLength: () =>
     yup
       .number()
@@ -108,7 +100,7 @@ const createTextShape = (usedAttributeNames, reservedNames) => {
       .test({
         name: 'isValidRegExpPattern',
         message: getTrad('error.validation.regex'),
-        test: value => {
+        test: (value) => {
           return new RegExp(value) !== null;
         },
       })

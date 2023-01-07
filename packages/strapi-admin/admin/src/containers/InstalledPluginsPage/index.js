@@ -9,7 +9,7 @@ import generateRows from './utils/generateRows';
 
 const InstalledPluginsPage = () => {
   const { formatMessage, plugins } = useGlobalContext();
-  const onConfirm = async id => {
+  const onConfirm = async (id) => {
     try {
       const requestUrl = `/admin/plugins/uninstall/${id}`;
       // Force the Overlayblocker to be displayed

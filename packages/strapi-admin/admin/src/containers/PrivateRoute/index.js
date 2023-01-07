@@ -17,7 +17,7 @@ import { auth } from 'strapi-helper-plugin';
 const PrivateRoute = ({ component: Component, path, ...rest }) => (
   <Route
     path={path}
-    render={props =>
+    render={(props) =>
       auth.getToken() !== null ? (
         <Component {...rest} {...props} />
       ) : (

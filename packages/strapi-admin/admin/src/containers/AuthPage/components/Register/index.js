@@ -37,12 +37,12 @@ const Register = ({
 
   const terms = (
     <FormattedMessage id="Auth.privacy-policy-agreement.terms" key="1">
-      {content => <Span onClick={e => handleClick(e, 'terms')}>{content}</Span>}
+      {(content) => <Span onClick={(e) => handleClick(e, 'terms')}>{content}</Span>}
     </FormattedMessage>
   );
   const policy = (
     <FormattedMessage id="Auth.privacy-policy-agreement.policy" key="2">
-      {content => <Span onClick={e => handleClick(e, 'privacy')}>{content}</Span>}
+      {(content) => <Span onClick={(e) => handleClick(e, 'privacy')}>{content}</Span>}
     </FormattedMessage>
   );
 
@@ -155,7 +155,7 @@ Register.defaultProps = {
   fieldsToDisable: [],
   inputsPrefix: '',
   noSignin: false,
-  onSubmit: e => e.preventDefault(),
+  onSubmit: (e) => e.preventDefault(),
   requestError: null,
 };
 

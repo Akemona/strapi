@@ -16,7 +16,7 @@ module.exports = {
     this.resetLoaders();
 
     // Create loaders for each relational field (exclude core models & plugins).
-    Object.values(strapi.contentTypes).forEach(model => this.createLoader(model.uid));
+    Object.values(strapi.contentTypes).forEach((model) => this.createLoader(model.uid));
   },
 
   resetLoaders() {
@@ -28,9 +28,9 @@ module.exports = {
       return this.loaders[modelUID];
     }
 
-    const loadFn = queries => this.batchQuery(modelUID, queries);
+    const loadFn = (queries) => this.batchQuery(modelUID, queries);
     const loadOptions = {
-      cacheKeyFn: key => this.serializeKey(key),
+      cacheKeyFn: (key) => this.serializeKey(key),
     };
 
     this.loaders[modelUID] = new DataLoader(loadFn, loadOptions);
@@ -42,7 +42,7 @@ module.exports = {
 
   async batchQuery(modelUID, queries) {
     // Extract queries from keys and merge similar queries.
-    return Promise.all(queries.map(query => this.makeQuery(modelUID, query)));
+    return Promise.all(queries.map((query) => this.makeQuery(modelUID, query)));
   },
 
   async makeQuery(modelUID, query = {}) {

@@ -2,7 +2,7 @@
 
 const _ = require('lodash');
 
-module.exports = ctx => {
+module.exports = (ctx) => {
   const { body = {}, files = {} } = ctx.request;
 
   if (!body.data) {

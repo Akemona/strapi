@@ -12,7 +12,7 @@ const filePathToPath = require('../load/filepath-to-prop-path');
 /**
  * Loads the extensions folder
  */
-module.exports = async function({ appPath }) {
+module.exports = async function ({ appPath }) {
   const extensionsDir = path.resolve(appPath, 'extensions');
 
   if (!existsSync(extensionsDir)) {
@@ -35,13 +35,13 @@ module.exports = async function({ appPath }) {
 
 const OVERWRITABLE_FOLDERS_GLOB = 'models';
 // returns a list of path and module to overwrite
-const loadOverwrites = async extensionsDir => {
+const loadOverwrites = async (extensionsDir) => {
   const files = await glob(`*/${OVERWRITABLE_FOLDERS_GLOB}/*.*(js|json)`, {
     cwd: extensionsDir,
   });
 
   const overwrites = {};
-  files.forEach(file => {
+  files.forEach((file) => {
     const absolutePath = path.resolve(extensionsDir, file);
 
     // load module
@@ -64,7 +64,7 @@ const loadOverwrites = async extensionsDir => {
     }
   });
 
-  return Object.keys(overwrites).map(strPath => ({
+  return Object.keys(overwrites).map((strPath) => ({
     path: strPath.split('.'),
     mod: overwrites[strPath],
   }));

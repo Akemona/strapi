@@ -5,7 +5,7 @@ const { createAuthRequest } = require('../../../../test/helpers/request');
 const { createStrapiInstance } = require('../../../../test/helpers/strapi');
 const { createTestBuilder } = require('../../../../test/helpers/builder');
 
-const toIds = arr => uniq(map(prop('id'))(arr));
+const toIds = (arr) => uniq(map(prop('id'))(arr));
 
 let strapi;
 let rq;
@@ -98,8 +98,8 @@ const fixtures = {
   ],
 };
 
-const getUID = modelName => `application::${modelName}.${modelName}`;
-const getCMPrefixUrl = modelName => `/content-manager/collection-types/${getUID(modelName)}`;
+const getUID = (modelName) => `application::${modelName}.${modelName}`;
+const getCMPrefixUrl = (modelName) => `/content-manager/collection-types/${getUID(modelName)}`;
 
 describe('x-to-many RF Preview', () => {
   const cmProductUrl = getCMPrefixUrl(productModel.name);
@@ -124,7 +124,7 @@ describe('x-to-many RF Preview', () => {
   });
 
   describe('Entity Misc', () => {
-    test.each(['foobar', 'name'])(`Throws if the targeted field is invalid (%s)`, async field => {
+    test.each(['foobar', 'name'])(`Throws if the targeted field is invalid (%s)`, async (field) => {
       const product = data.product[0];
       const { body, statusCode } = await rq.get(`${cmProductUrl}/${product.id}/${field}`);
 
@@ -155,17 +155,20 @@ describe('x-to-many RF Preview', () => {
   });
 
   describe('Default Behavior', () => {
-    test.each(['shops', 'categories'])('Should return a preview for the %s field', async field => {
-      const product = data.product[0];
+    test.each(['shops', 'categories'])(
+      'Should return a preview for the %s field',
+      async (field) => {
+        const product = data.product[0];
 
-      const { body, statusCode } = await rq.get(`${cmProductUrl}/${product.id}/${field}`);
+        const { body, statusCode } = await rq.get(`${cmProductUrl}/${product.id}/${field}`);
 
-      const expected = product[field].slice(0, 10);
+        const expected = product[field].slice(0, 10);
 
-      expect(statusCode).toBe(200);
-      expect(body.results).toHaveLength(expected.length);
-      expect(difference(toIds(body.results), toIds(product[field]))).toHaveLength(0);
-    });
+        expect(statusCode).toBe(200);
+        expect(body.results).toHaveLength(expected.length);
+        expect(difference(toIds(body.results), toIds(product[field]))).toHaveLength(0);
+      }
+    );
   });
 
   describe('Pagination', () => {

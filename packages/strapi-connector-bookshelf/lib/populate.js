@@ -32,8 +32,8 @@ const populateFetch = (definition, options) => {
 
 const populateAssociations = (definition, options = {}) => {
   return definition.associations
-    .filter(ast => ast.autoPopulate !== false)
-    .map(assoc => {
+    .filter((ast) => ast.autoPopulate !== false)
+    .map((assoc) => {
       if (isPolymorphic({ assoc })) {
         return formatPolymorphicPopulate({ assoc }, options);
       }
@@ -47,8 +47,8 @@ const populateBareAssociations = (definition, options = {}) => {
   const { prefix = '', ...queryOptions } = options;
 
   return (definition.associations || [])
-    .filter(ast => ast.autoPopulate !== false)
-    .map(assoc => {
+    .filter((ast) => ast.autoPopulate !== false)
+    .map((assoc) => {
       if (isPolymorphic({ assoc })) {
         return formatPolymorphicPopulate({ assoc }, options);
       }
@@ -62,8 +62,8 @@ const populateBareAssociations = (definition, options = {}) => {
       );
 
       const polyAssocs = assocModel.associations
-        .filter(assoc => isPolymorphic({ assoc }))
-        .map(assoc => {
+        .filter((assoc) => isPolymorphic({ assoc }))
+        .map((assoc) => {
           return formatPolymorphicPopulate({ assoc }, { prefix: `${path}.`, ...queryOptions });
         });
 
@@ -79,8 +79,8 @@ const formatAssociationPopulate = ({ assoc }, options = {}) => {
   const assocModel = strapi.db.getModelByAssoc(assoc);
 
   const polyAssocs = assocModel.associations
-    .filter(polyAssoc => isPolymorphic({ assoc: polyAssoc }))
-    .map(polyAssoc => {
+    .filter((polyAssoc) => isPolymorphic({ assoc: polyAssoc }))
+    .map((polyAssoc) => {
       return formatPolymorphicPopulate(
         { assoc: polyAssoc },
         { prefix: `${path}.`, ...queryOptions }
@@ -99,7 +99,7 @@ const formatAssociationPopulate = ({ assoc }, options = {}) => {
 
 const populateComponents = (definition, options = {}) => {
   return getComponentAttributes(definition)
-    .map(key => {
+    .map((key) => {
       const attribute = definition.attributes[key];
       const autoPopulate = _.get(attribute, ['autoPopulate'], true);
 
@@ -178,7 +178,7 @@ const formatPopulateOptions = (definition, { withRelated, ...queryOptions } = {}
         continue;
       }
 
-      const assoc = tmpModel.associations.find(association => association.alias === part);
+      const assoc = tmpModel.associations.find((association) => association.alias === part);
 
       if (!assoc) return acc;
 
@@ -207,7 +207,7 @@ const formatPopulateOptions = (definition, { withRelated, ...queryOptions } = {}
   return [finalObj];
 };
 
-const defaultOrderBy = qb => qb.orderBy('created_at', 'desc');
+const defaultOrderBy = (qb) => qb.orderBy('created_at', 'desc');
 
 const formatPolymorphicPopulate = ({ assoc }, options = {}) => {
   const { prefix = '', ...queryOptions } = options;

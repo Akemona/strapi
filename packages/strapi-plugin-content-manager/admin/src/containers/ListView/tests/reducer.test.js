@@ -48,7 +48,7 @@ describe('CONTENT MANAGER | CONTAINERS | ListView | reducer', () => {
       state.displayedHeaders = ['test'];
       state.isLoading = false;
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.data = [];
         draft.didDeleteData = false;
         draft.entriesToDelete = [];
@@ -66,7 +66,7 @@ describe('CONTENT MANAGER | CONTAINERS | ListView | reducer', () => {
   });
 
   it('should handle the getDataSucceeded action correctly', () => {
-    const expected = produce(state, draft => {
+    const expected = produce(state, (draft) => {
       draft.pagination = { count: 1 };
       draft.data = ['test'];
       draft.isLoading = false;
@@ -82,7 +82,7 @@ describe('CONTENT MANAGER | CONTAINERS | ListView | reducer', () => {
       };
       state.entriesToDelete = ['1'];
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.entriesToDelete = ['1', '13'];
       });
 
@@ -95,7 +95,7 @@ describe('CONTENT MANAGER | CONTAINERS | ListView | reducer', () => {
       };
       state.entriesToDelete = ['1', '13', '14'];
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.entriesToDelete = ['1', '14'];
       });
 
@@ -107,7 +107,7 @@ describe('CONTENT MANAGER | CONTAINERS | ListView | reducer', () => {
     it('should remove all the selected elements if the entriesToDelete array is not empty', () => {
       state.entriesToDelete = ['1', '13', '14'];
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.entriesToDelete = [];
       });
 
@@ -118,7 +118,7 @@ describe('CONTENT MANAGER | CONTAINERS | ListView | reducer', () => {
       state.entriesToDelete = [];
       state.data = [{ id: 1 }, { id: '2' }, { id: '3' }];
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.entriesToDelete = ['1', '2', '3'];
       });
 
@@ -130,7 +130,7 @@ describe('CONTENT MANAGER | CONTAINERS | ListView | reducer', () => {
     it('should toggle the modal and set the didDeleteData to true', () => {
       state.showWarningDelete = true;
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.showWarningDelete = false;
         draft.didDeleteData = true;
       });
@@ -143,7 +143,7 @@ describe('CONTENT MANAGER | CONTAINERS | ListView | reducer', () => {
     it('should toggle the modal and set the didDeleteData to true', () => {
       state.showWarningDeleteAll = true;
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.showWarningDeleteAll = false;
         draft.didDeleteData = true;
       });
@@ -156,7 +156,7 @@ describe('CONTENT MANAGER | CONTAINERS | ListView | reducer', () => {
     it('should set the showModalConfirmButtonLoading to true', () => {
       state.showModalConfirmButtonLoading = false;
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.showModalConfirmButtonLoading = true;
       });
 
@@ -168,7 +168,7 @@ describe('CONTENT MANAGER | CONTAINERS | ListView | reducer', () => {
     it('should set the showModalConfirmButtonLoading to false', () => {
       state.showModalConfirmButtonLoading = true;
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.showModalConfirmButtonLoading = false;
         draft.showWarningDelete = true;
       });
@@ -180,7 +180,7 @@ describe('CONTENT MANAGER | CONTAINERS | ListView | reducer', () => {
       state.showWarningDelete = false;
       state.didDeleteData = true;
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.didDeleteData = false;
         draft.showWarningDelete = true;
       });
@@ -192,7 +192,7 @@ describe('CONTENT MANAGER | CONTAINERS | ListView | reducer', () => {
       state.showWarningDelete = true;
       state.didDeleteData = true;
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.didDeleteData = true;
         draft.showWarningDelete = false;
       });
@@ -204,7 +204,7 @@ describe('CONTENT MANAGER | CONTAINERS | ListView | reducer', () => {
       state.showWarningDelete = false;
       state.entriesToDelete = ['1'];
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.showWarningDelete = true;
         draft.entriesToDelete = [];
       });
@@ -217,7 +217,7 @@ describe('CONTENT MANAGER | CONTAINERS | ListView | reducer', () => {
     it('should set the showModalConfirmButtonLoading to false', () => {
       state.showModalConfirmButtonLoading = true;
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.showModalConfirmButtonLoading = false;
         draft.showWarningDeleteAll = true;
       });
@@ -229,7 +229,7 @@ describe('CONTENT MANAGER | CONTAINERS | ListView | reducer', () => {
       state.showWarningDeleteAll = false;
       state.didDeleteData = true;
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.didDeleteData = false;
         draft.showWarningDeleteAll = true;
       });
@@ -241,7 +241,7 @@ describe('CONTENT MANAGER | CONTAINERS | ListView | reducer', () => {
       state.showWarningDeleteAll = true;
       state.didDeleteData = true;
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.didDeleteData = true;
         draft.showWarningDeleteAll = false;
       });

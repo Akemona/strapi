@@ -91,7 +91,7 @@ const baseForm = {
 
               return (
                 <FormattedMessage id={tradId} key={id}>
-                  {msg => (
+                  {(msg) => (
                     <option disabled={disabled} hidden={disabled} value={value}>
                       {msg}
                     </option>
@@ -192,7 +192,7 @@ const baseForm = {
 
               return (
                 <FormattedMessage id={tradId} key={id}>
-                  {msg => (
+                  {(msg) => (
                     <option disabled={disabled} hidden={disabled} value={value}>
                       {msg}
                     </option>
@@ -279,8 +279,8 @@ const baseForm = {
   },
   uid: (data, step, attributes) => {
     const options = Object.keys(attributes)
-      .filter(key => ['string', 'text'].includes(attributes[key].type))
-      .map(key => ({ id: key, value: key }));
+      .filter((key) => ['string', 'text'].includes(attributes[key].type))
+      .map((key) => ({ id: key, value: key }));
 
     return {
       items: [
@@ -302,7 +302,7 @@ const baseForm = {
               <Fragment key={index}>
                 {index === 0 ? (
                   <FormattedMessage id={option.id}>
-                    {msg => <option value={option.value}>{msg}</option>}
+                    {(msg) => <option value={option.value}>{msg}</option>}
                   </FormattedMessage>
                 ) : (
                   <option value={option.value}>{option.value}</option>

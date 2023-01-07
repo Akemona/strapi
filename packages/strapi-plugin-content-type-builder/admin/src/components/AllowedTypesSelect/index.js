@@ -21,7 +21,7 @@ const AllowedTypesSelect = ({ name, changeMediaAllowedTypes, styles, value }) =>
       ? formatMessage({ id: getTrad('form.attribute.media.allowed-types.none') })
       : value
           .sort()
-          .map(v => upperFirst(v))
+          .map((v) => upperFirst(v))
           .join(', ');
 
   /* eslint-enable indent */

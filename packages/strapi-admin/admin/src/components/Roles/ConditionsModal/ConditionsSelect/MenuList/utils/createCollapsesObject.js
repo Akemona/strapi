@@ -4,7 +4,7 @@
  * @param {array<array>} arrayOfCategories
  * @returns {object}
  */
-const createCollapsesObject = arrayOfCategories =>
+const createCollapsesObject = (arrayOfCategories) =>
   arrayOfCategories.reduce((acc, current, index) => {
     acc[current[0]] = index === 0;
 

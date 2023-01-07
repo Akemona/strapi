@@ -2,9 +2,9 @@
 
 const _ = require('lodash');
 
-const getKeyForDefinition = definition => `model_def_${definition.uid}`;
+const getKeyForDefinition = (definition) => `model_def_${definition.uid}`;
 
-const formatDefinitionToStore = definition =>
+const formatDefinitionToStore = (definition) =>
   JSON.stringify(
     _.pick(definition, [
       'uid',
@@ -54,7 +54,7 @@ const storeDefinition = async (definition, ORM) => {
 const getColumnsWhereDefinitionChanged = async (columnsName, definition, ORM) => {
   const previousDefinition = await getDefinitionFromStore(definition, ORM);
 
-  return columnsName.filter(columnName => {
+  return columnsName.filter((columnName) => {
     const previousAttribute = _.get(previousDefinition, ['attributes', columnName], null);
     const actualAttribute = _.get(definition, ['attributes', columnName], null);
 

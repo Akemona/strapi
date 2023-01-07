@@ -42,7 +42,7 @@ const boomMethods = [
   'gatewayTimeout',
 ];
 
-const formatBoomPayload = boomError => {
+const formatBoomPayload = (boomError) => {
   if (!Boom.isBoom(boomError)) {
     boomError = Boom.boomify(boomError, {
       statusCode: boomError.status || 500,
@@ -58,7 +58,7 @@ const formatBoomPayload = boomError => {
   return { status: output.statusCode, body: output.payload };
 };
 
-module.exports = strapi => {
+module.exports = (strapi) => {
   return {
     /**
      * Initialize the hook
@@ -103,8 +103,8 @@ module.exports = strapi => {
 
     // Custom function to avoid ctx.body repeat
     createResponses() {
-      boomMethods.forEach(method => {
-        strapi.app.response[method] = function(msg, ...rest) {
+      boomMethods.forEach((method) => {
+        strapi.app.response[method] = function (msg, ...rest) {
           const boomError = Boom[method](msg, ...rest) || {};
 
           const { status, body } = formatBoomPayload(boomError);
@@ -119,17 +119,17 @@ module.exports = strapi => {
         this.delegator.method(method);
       });
 
-      strapi.app.response.send = function(data, status = 200) {
+      strapi.app.response.send = function (data, status = 200) {
         this.status = status;
         this.body = data;
       };
 
-      strapi.app.response.created = function(data) {
+      strapi.app.response.created = function (data) {
         this.status = 201;
         this.body = data;
       };
 
-      strapi.app.response.deleted = function(data) {
+      strapi.app.response.deleted = function (data) {
         if (_.isNil(data)) {
           this.status = 204;
         } else {
@@ -138,10 +138,7 @@ module.exports = strapi => {
         }
       };
 
-      this.delegator
-        .method('send')
-        .method('created')
-        .method('deleted');
+      this.delegator.method('send').method('created').method('deleted');
     },
   };
 };

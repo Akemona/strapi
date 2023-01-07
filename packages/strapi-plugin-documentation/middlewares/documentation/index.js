@@ -13,7 +13,7 @@ const koaStatic = require('koa-static');
 // Variables.
 const initialRoutes = [];
 
-module.exports = strapi => {
+module.exports = (strapi) => {
   return {
     beforeInitialize() {
       strapi.config.middleware.load.before.push('documentation');
@@ -36,10 +36,11 @@ module.exports = strapi => {
           // Set prefix to empty to be able to customise it.
           if (_.get(strapi.plugins, ['documentation', 'config', 'x-strapi-config', 'path'])) {
             route.config.prefix = '';
-            route.path = `/${strapi.plugins.documentation.config['x-strapi-config'].path}${route.path}`.replace(
-              '//',
-              '/'
-            );
+            route.path =
+              `/${strapi.plugins.documentation.config['x-strapi-config'].path}${route.path}`.replace(
+                '//',
+                '/'
+              );
           }
 
           return route;

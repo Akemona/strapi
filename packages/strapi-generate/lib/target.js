@@ -42,7 +42,7 @@ function generateTarget(options, cb) {
     () => {
       return isValidTarget(target) || ++_resolves > maxResolves;
     },
-    asyncCb => {
+    (asyncCb) => {
       parseTarget(target, scope, (err, resolvedTarget) => {
         if (err) {
           return asyncCb(err);
@@ -51,7 +51,7 @@ function generateTarget(options, cb) {
         return asyncCb();
       });
     },
-    err => {
+    (err) => {
       if (err) {
         return sb(err);
       }

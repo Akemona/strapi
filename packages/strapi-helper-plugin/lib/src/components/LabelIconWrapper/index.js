@@ -11,7 +11,7 @@ const LabelIconWrapper = ({ children, title }) => {
   const [isOver, setIsOver] = useState(false);
 
   const handleMouseEvent = () => {
-    setIsOver(prev => !prev);
+    setIsOver((prev) => !prev);
   };
 
   return (

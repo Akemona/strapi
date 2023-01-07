@@ -66,7 +66,7 @@ const DraggableCard = ({
   const [{ isDragging }, drag, preview] = useDrag({
     item: { type: ItemTypes.MEDIA_CARD, id, index, checked, url, fileType },
     canDrag: () => isDraggable,
-    collect: monitor => ({
+    collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
   });

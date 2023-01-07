@@ -22,7 +22,7 @@ const LIMITED_EVENTS = [
   'didEnableResponsiveDimensions',
 ];
 
-const createTelemetryInstance = strapi => {
+const createTelemetryInstance = (strapi) => {
   const { uuid } = strapi.config;
   const isDisabled = !uuid || isTruthy(process.env.STRAPI_TELEMETRY_DISABLED);
 
@@ -68,7 +68,7 @@ const createTelemetryInstance = strapi => {
   return {
     destroy() {
       // clear open handles
-      crons.forEach(cron => cron.cancel());
+      crons.forEach((cron) => cron.cancel());
     },
     async send(event, payload) {
       if (isDisabled) return true;
@@ -77,15 +77,11 @@ const createTelemetryInstance = strapi => {
   };
 };
 
-const hash = str =>
-  crypto
-    .createHash('sha256')
-    .update(str)
-    .digest('hex');
+const hash = (str) => crypto.createHash('sha256').update(str).digest('hex');
 
-const hashProject = strapi => hash(`${strapi.config.info.name}${strapi.config.info.description}`);
+const hashProject = (strapi) => hash(`${strapi.config.info.name}${strapi.config.info.description}`);
 
-const hashDep = strapi => {
+const hashDep = (strapi) => {
   const depStr = JSON.stringify(strapi.config.info.dependencies);
   const readmePath = path.join(strapi.dir, 'README.md');
 

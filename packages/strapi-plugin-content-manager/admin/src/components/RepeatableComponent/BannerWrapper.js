@@ -105,7 +105,6 @@ const BannerWrapper = styled.button`
     outline: 0;
   }
 
-
   .img-wrapper {
     width: 19px;
     height: 19px;
@@ -136,7 +135,7 @@ const BannerWrapper = styled.button`
       svg {
         font-size: 10px;
         path {
-          fill: #4B515A;
+          fill: #4b515a;
         }
       }
     }

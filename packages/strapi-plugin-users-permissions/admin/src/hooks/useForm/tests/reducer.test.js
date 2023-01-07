@@ -31,7 +31,7 @@ describe('USERS PERMISSIONS | HOOKS | useForm | reducer', () => {
       state.initialData = true;
       state.modifiedData = true;
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.isLoading = true;
         draft.initialData = {};
         draft.modifiedData = {};
@@ -59,7 +59,7 @@ describe('USERS PERMISSIONS | HOOKS | useForm | reducer', () => {
         data,
       };
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.isLoading = false;
         draft.initialData = data;
         draft.modifiedData = data;
@@ -77,7 +77,7 @@ describe('USERS PERMISSIONS | HOOKS | useForm | reducer', () => {
 
       state.isLoading = false;
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.isLoading = true;
       });
 
@@ -95,7 +95,7 @@ describe('USERS PERMISSIONS | HOOKS | useForm | reducer', () => {
         value: 'test@test.io',
       };
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.modifiedData = {
           from: { name: 'test@test.io' },
           test: 'test',
@@ -114,7 +114,7 @@ describe('USERS PERMISSIONS | HOOKS | useForm | reducer', () => {
 
       const action = { type: 'ON_SUBMIT_SUCCEEDED' };
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.initialData = { test: false };
         draft.formErrors = {};
       });
@@ -131,7 +131,7 @@ describe('USERS PERMISSIONS | HOOKS | useForm | reducer', () => {
 
       const action = { type: 'RESET_FORM' };
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.modifiedData = { test: true };
         draft.formErrors = {};
       });
@@ -144,7 +144,7 @@ describe('USERS PERMISSIONS | HOOKS | useForm | reducer', () => {
     it('should set the formErrors correctly', () => {
       const action = { type: 'SET_ERRORS', errors: { test: true } };
 
-      const expected = produce(state, draft => {
+      const expected = produce(state, (draft) => {
         draft.formErrors = { test: true };
       });
 

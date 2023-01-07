@@ -46,22 +46,22 @@ class DatabaseManager {
   }
 
   async destroy() {
-    await Promise.all(this.connectors.getAll().map(connector => connector.destroy()));
+    await Promise.all(this.connectors.getAll().map((connector) => connector.destroy()));
   }
 
   initializeModelsMap() {
-    Object.keys(this.strapi.models).forEach(modelKey => {
+    Object.keys(this.strapi.models).forEach((modelKey) => {
       const model = this.strapi.models[modelKey];
       this.models.set(model.uid, model);
     });
 
-    Object.keys(this.strapi.admin.models).forEach(modelKey => {
+    Object.keys(this.strapi.admin.models).forEach((modelKey) => {
       const model = this.strapi.admin.models[modelKey];
       this.models.set(model.uid, model);
     });
 
-    Object.keys(this.strapi.plugins).forEach(pluginKey => {
-      Object.keys(this.strapi.plugins[pluginKey].models).forEach(modelKey => {
+    Object.keys(this.strapi.plugins).forEach((pluginKey) => {
+      Object.keys(this.strapi.plugins[pluginKey].models).forEach((modelKey) => {
         const model = this.strapi.plugins[pluginKey].models[modelKey];
         this.models.set(model.uid, model);
       });
@@ -125,13 +125,13 @@ class DatabaseManager {
   }
 
   getModelByCollectionName(collectionName) {
-    return Array.from(this.models.values()).find(model => {
+    return Array.from(this.models.values()).find((model) => {
       return model.collectionName === collectionName;
     });
   }
 
   getModelByGlobalId(globalId) {
-    return Array.from(this.models.values()).find(model => {
+    return Array.from(this.models.values()).find((model) => {
       return model.globalId === globalId;
     });
   }
@@ -141,7 +141,7 @@ class DatabaseManager {
       return [this.getModel(attr.component)];
     }
     if (attr.type === 'dynamiczone') {
-      return attr.components.map(compoName => this.getModel(compoName));
+      return attr.components.map((compoName) => this.getModel(compoName));
     }
     if (attr.model || attr.collection) {
       return [this.getModelByAssoc(attr)];

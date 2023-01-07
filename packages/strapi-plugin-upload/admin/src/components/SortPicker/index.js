@@ -21,17 +21,17 @@ const SortPicker = ({ onChange, value }) => {
 
   return (
     <Picker
-      renderButtonContent={isOpen => (
+      renderButtonContent={(isOpen) => (
         <>
           <FormattedMessage id={getTrad('sort.label')} />
           <Carret isUp={isOpen} fill={isOpen ? '#007EFF' : '#292b2c'} />
         </>
       )}
-      renderSectionContent={onToggle => (
+      renderSectionContent={(onToggle) => (
         <SortList
           list={orders}
           selectedItem={value}
-          onClick={e => {
+          onClick={(e) => {
             onChange(e);
             onToggle();
           }}

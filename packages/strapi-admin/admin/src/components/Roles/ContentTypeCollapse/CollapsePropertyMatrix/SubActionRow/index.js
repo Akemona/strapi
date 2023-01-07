@@ -29,15 +29,12 @@ const SubActionRow = ({
   parentName,
   propertyName,
 }) => {
-  const {
-    modifiedData,
-    onChangeParentCheckbox,
-    onChangeSimpleCheckbox,
-  } = usePermissionsDataManager();
+  const { modifiedData, onChangeParentCheckbox, onChangeSimpleCheckbox } =
+    usePermissionsDataManager();
   const [rowToOpen, setRowToOpen] = useState(null);
 
-  const handleClickToggleSubLevel = name => {
-    setRowToOpen(prev => {
+  const handleClickToggleSubLevel = (name) => {
+    setRowToOpen((prev) => {
       if (prev === name) {
         return null;
       }
@@ -125,9 +122,8 @@ const SubActionRow = ({
                       );
                     }
 
-                    const { hasAllActionsSelected, hasSomeActionsSelected } = getCheckboxState(
-                      checkboxValue
-                    );
+                    const { hasAllActionsSelected, hasSomeActionsSelected } =
+                      getCheckboxState(checkboxValue);
 
                     return (
                       <CheckboxWithCondition

@@ -69,7 +69,7 @@ function FilterPicker({
   ];
 
   const allowedAttributes = Object.keys(get(contentType, ['attributes']), {})
-    .filter(attr => {
+    .filter((attr) => {
       const current = get(contentType, ['attributes', attr], {});
 
       if (!readActionAllowedFields.includes(attr) && attr !== 'id' && !timestamps.includes(attr)) {
@@ -79,7 +79,7 @@ function FilterPicker({
       return !NOT_ALLOWED_FILTERS.includes(current.type) && current.type !== undefined;
     })
     .sort()
-    .map(attr => {
+    .map((attr) => {
       const current = get(contentType, ['attributes', attr], {});
 
       return { name: attr, type: current.type, options: current.enum || null };
@@ -100,7 +100,7 @@ function FilterPicker({
 
   const renderTitle = () => (
     <FormattedMessage id={`${pluginId}.components.FiltersPickWrapper.PluginHeader.title.filter`}>
-      {message => (
+      {(message) => (
         <span>
           {capitalize(name)}&nbsp;-&nbsp;
           <span>{message}</span>
@@ -162,10 +162,10 @@ function FilterPicker({
   };
 
   const handleSubmit = useCallback(
-    e => {
+    (e) => {
       e.preventDefault();
       const nextFilters = formatFiltersToQuery(modifiedData, metadatas);
-      const useRelation = nextFilters._where.some(obj => Object.keys(obj)[0].includes('.'));
+      const useRelation = nextFilters._where.some((obj) => Object.keys(obj)[0].includes('.'));
 
       emitEventRef.current('didFilterEntries', { useRelation });
       setQuery({ ...nextFilters, page: 1 });
@@ -174,7 +174,7 @@ function FilterPicker({
     [modifiedData, setQuery, toggleFilterPickerState, metadatas]
   );
 
-  const handleRemoveFilter = index => {
+  const handleRemoveFilter = (index) => {
     if (index === 0 && modifiedData.length === 1) {
       toggleFilterPickerState();
 
@@ -188,7 +188,7 @@ function FilterPicker({
   };
 
   const getAttributeType = useCallback(
-    filter => {
+    (filter) => {
       const attributeType = get(contentType, ['attributes', filter.name, 'type'], '');
 
       if (attributeType === 'relation') {

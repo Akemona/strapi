@@ -9,7 +9,7 @@ import { isEmpty } from 'lodash';
 import Wrapper from './Wrapper';
 
 class InputToggle extends React.Component {
-  handleClick = e => {
+  handleClick = (e) => {
     const target = {
       name: this.props.name,
       type: 'toggle',

@@ -34,10 +34,8 @@ const AdvancedSettingsPage = () => {
     isLoading: isLoadingForPermissions,
     allowedActions: { canUpdate },
   } = useUserPermissions(updatePermissions);
-  const [
-    { initialData, isConfirmButtonLoading, isLoading, modifiedData, roles },
-    dispatch,
-  ] = useReducer(reducer, initialState);
+  const [{ initialData, isConfirmButtonLoading, isLoading, modifiedData, roles }, dispatch] =
+    useReducer(reducer, initialState);
   const isMounted = useRef(true);
   const abortController = new AbortController();
   const { signal } = abortController;
@@ -90,7 +88,7 @@ const AdvancedSettingsPage = () => {
   }, []);
 
   const handleSubmit = useCallback(
-    async e => {
+    async (e) => {
       e.preventDefault();
 
       try {
@@ -134,7 +132,7 @@ const AdvancedSettingsPage = () => {
   }, []);
 
   const handleToggleModal = useCallback(() => {
-    setShowModalWarning(prev => !prev);
+    setShowModalWarning((prev) => !prev);
   }, []);
 
   const headerActions = useMemo(() => {
@@ -184,7 +182,7 @@ const AdvancedSettingsPage = () => {
           <Header actions={headerActions} title={{ label: pageTitle }} isLoading={showLoader} />
           <ListBaselineAlignment />
           <FormBloc title={formTitle} isLoading={showLoader}>
-            {form.map(input => {
+            {form.map((input) => {
               return (
                 <SizedInput
                   key={input.name}

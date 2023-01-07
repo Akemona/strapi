@@ -16,7 +16,7 @@ export default function configureStore(initialState = {}, reducers, strapi) {
   // 2. routerMiddleware: Syncs the location/URL path to the state
   const middlewares = [sagaMiddleware];
 
-  strapi.middlewares.middlewares.forEach(middleware => {
+  strapi.middlewares.middlewares.forEach((middleware) => {
     middlewares.push(middleware());
   });
 

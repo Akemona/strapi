@@ -12,11 +12,11 @@ class Strapi {
 
   plugins = {};
 
-  getPlugin = pluginId => {
+  getPlugin = (pluginId) => {
     return this.plugins[pluginId];
   };
 
-  registerPlugin = pluginConf => {
+  registerPlugin = (pluginConf) => {
     if (pluginConf.id) {
       this.plugins[pluginConf.id] = PluginHandler(pluginConf);
     }

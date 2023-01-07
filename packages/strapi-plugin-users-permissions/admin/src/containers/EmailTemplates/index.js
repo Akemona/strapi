@@ -78,11 +78,11 @@ const EmailTemplatesPage = () => {
   }, [dispatchResetForm]);
 
   const handleToggle = useCallback(() => {
-    setIsOpen(prev => !prev);
+    setIsOpen((prev) => !prev);
   }, []);
 
   const handleClickEdit = useCallback(
-    template => {
+    (template) => {
       setTemplateToEdit(template);
       handleToggle();
     },
@@ -90,7 +90,7 @@ const EmailTemplatesPage = () => {
   );
 
   const handleSubmit = useCallback(
-    async e => {
+    async (e) => {
       e.preventDefault();
 
       let errors = {};
@@ -157,7 +157,7 @@ const EmailTemplatesPage = () => {
           title={listTitle}
           items={emailTemplates}
           isLoading={isLoadingForPermissions || isLoading}
-          customRowComponent={template => (
+          customRowComponent={(template) => (
             <ListRow
               {...template}
               onClick={() => {
@@ -168,7 +168,7 @@ const EmailTemplatesPage = () => {
               links={[
                 {
                   icon: canUpdate ? <Pencil fill="#0e1622" /> : null,
-                  onClick: e => {
+                  onClick: (e) => {
                     e.stopPropagation();
                     handleClickEdit(template);
                   },
@@ -194,7 +194,7 @@ const EmailTemplatesPage = () => {
         {showForm && (
           <form onSubmit={handleSubmit}>
             <Row>
-              {forms.map(input => {
+              {forms.map((input) => {
                 const id = get(templateToEdit, 'id');
 
                 return (

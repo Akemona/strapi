@@ -1,6 +1,6 @@
 import useStrapi from '../../hooks/useStrapi';
 
-const useInjectionZone = area => {
+const useInjectionZone = (area) => {
   const { strapi: globalStrapi } = useStrapi();
 
   const [pluginName, page, position] = area.split('.');

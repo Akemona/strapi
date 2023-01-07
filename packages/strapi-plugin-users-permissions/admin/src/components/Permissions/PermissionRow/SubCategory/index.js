@@ -20,25 +20,20 @@ const Border = styled.div`
 
 const SubCategory = ({ subCategory }) => {
   const { formatMessage } = useIntl();
-  const {
-    onChange,
-    onChangeSelectAll,
-    onSelectedAction,
-    selectedAction,
-    modifiedData,
-  } = useUsersPermissions();
+  const { onChange, onChangeSelectAll, onSelectedAction, selectedAction, modifiedData } =
+    useUsersPermissions();
 
   const currentScopedModifiedData = useMemo(() => {
     return get(modifiedData, subCategory.name, {});
   }, [modifiedData, subCategory]);
 
   const hasAllActionsSelected = useMemo(() => {
-    return Object.values(currentScopedModifiedData).every(action => action.enabled === true);
+    return Object.values(currentScopedModifiedData).every((action) => action.enabled === true);
   }, [currentScopedModifiedData]);
 
   const hasSomeActionsSelected = useMemo(() => {
     return (
-      Object.values(currentScopedModifiedData).some(action => action.enabled === true) &&
+      Object.values(currentScopedModifiedData).some((action) => action.enabled === true) &&
       !hasAllActionsSelected
     );
   }, [currentScopedModifiedData, hasAllActionsSelected]);
@@ -51,7 +46,7 @@ const SubCategory = ({ subCategory }) => {
   );
 
   const isActionSelected = useCallback(
-    actionName => {
+    (actionName) => {
       return selectedAction === actionName;
     },
     [selectedAction]
@@ -86,7 +81,7 @@ const SubCategory = ({ subCategory }) => {
       <BaselineAlignment />
       <Padded top size="xs">
         <Flex flexWrap="wrap">
-          {subCategory.actions.map(action => {
+          {subCategory.actions.map((action) => {
             const name = `${action.name}.enabled`;
 
             return (

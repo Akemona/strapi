@@ -37,7 +37,7 @@ function LeftMenu({ wait }) {
   const { emitEvent, formatMessage } = useGlobalContext();
   const { push } = useHistory();
   const componentsData = sortBy(
-    Object.keys(componentsGroupedByCategory).map(category => ({
+    Object.keys(componentsGroupedByCategory).map((category) => ({
       name: category,
       title: category,
       isEditable: isInDevelopmentMode,
@@ -67,21 +67,21 @@ function LeftMenu({ wait }) {
         push({ search });
       },
       links: sortBy(
-        componentsGroupedByCategory[category].map(compo => ({
+        componentsGroupedByCategory[category].map((compo) => ({
           name: compo.uid,
           to: `/plugins/${pluginId}/component-categories/${category}/${compo.uid}`,
           title: compo.schema.name,
         })),
-        obj => obj.title
+        (obj) => obj.title
       ),
     })),
-    obj => obj.title
+    (obj) => obj.title
   );
 
   const canOpenModalCreateCTorComponent = () => {
     return (
-      !Object.keys(contentTypes).some(ct => contentTypes[ct].isTemporary === true) &&
-      !Object.keys(components).some(component => components[component].isTemporary === true)
+      !Object.keys(contentTypes).some((ct) => contentTypes[ct].isTemporary === true) &&
+      !Object.keys(components).some((component) => components[component].isTemporary === true)
     );
   };
 
@@ -113,8 +113,8 @@ function LeftMenu({ wait }) {
 
   const displayedContentTypes = useMemo(() => {
     return sortedContentTypesList
-      .filter(obj => obj.visible)
-      .map(obj => {
+      .filter((obj) => obj.visible)
+      .map((obj) => {
         if (obj.plugin) {
           return {
             ...obj,
@@ -158,7 +158,7 @@ function LeftMenu({ wait }) {
             },
           }
         : null,
-      links: displayedContentTypes.filter(contentType => contentType.kind === 'collectionType'),
+      links: displayedContentTypes.filter((contentType) => contentType.kind === 'collectionType'),
     },
     {
       name: 'singleTypes',
@@ -177,7 +177,7 @@ function LeftMenu({ wait }) {
             },
           }
         : null,
-      links: displayedContentTypes.filter(singleType => singleType.kind === 'singleType'),
+      links: displayedContentTypes.filter((singleType) => singleType.kind === 'singleType'),
     },
     {
       name: 'components',
@@ -202,7 +202,7 @@ function LeftMenu({ wait }) {
 
   return (
     <Wrapper className="col-md-3">
-      {data.map(list => {
+      {data.map((list) => {
         return <LeftMenuList {...list} key={list.name} />;
       })}
     </Wrapper>

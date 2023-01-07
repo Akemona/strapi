@@ -20,9 +20,9 @@ const FiltersPicker = ({ onChange }) => {
           <FormattedMessage id="app.utils.filters" />
         </>
       )}
-      renderSectionContent={onToggle => (
+      renderSectionContent={(onToggle) => (
         <FiltersCard
-          onChange={e => {
+          onChange={(e) => {
             handleChange(e);
             onToggle();
           }}

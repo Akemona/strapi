@@ -4,7 +4,7 @@ const _ = require('lodash');
 const compose = require('koa-compose');
 const createRouteChecker = require('./routerChecker');
 
-module.exports = strapi => {
+module.exports = (strapi) => {
   const routerChecker = createRouteChecker(strapi);
 
   return (value, { plugin, router }) => {

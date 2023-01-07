@@ -50,10 +50,7 @@ const productWithCompo = {
 
 describe('CM API - Basic + compo', () => {
   beforeAll(async () => {
-    await builder
-      .addComponent(compo)
-      .addContentType(productWithCompo)
-      .build();
+    await builder.addComponent(compo).addContentType(productWithCompo).build();
 
     strapi = await createStrapiInstance();
     rq = await createAuthRequest({ strapi });
@@ -95,7 +92,7 @@ describe('CM API - Basic + compo', () => {
     expect(Array.isArray(res.body.results)).toBe(true);
     expect(res.body.results).toHaveLength(1);
     expect(res.body.results[0]).toMatchObject(data.productsWithCompo[0]);
-    res.body.results.forEach(p => expect(p.published_at).toBeUndefined());
+    res.body.results.forEach((p) => expect(p.published_at).toBeUndefined());
   });
 
   test('Update product with compo', async () => {

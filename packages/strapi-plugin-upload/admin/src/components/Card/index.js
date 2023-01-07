@@ -53,7 +53,7 @@ const Card = ({
   };
 
   const handleTooltipToggle = () => {
-    setDisplayTooltip(prev => !prev);
+    setDisplayTooltip((prev) => !prev);
   };
 
   return (

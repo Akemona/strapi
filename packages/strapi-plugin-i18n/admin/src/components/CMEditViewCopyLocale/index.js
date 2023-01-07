@@ -17,7 +17,7 @@ import {
 import { getTrad } from '../../utils';
 import { cleanData, generateOptions } from './utils';
 
-const CMEditViewCopyLocale = props => {
+const CMEditViewCopyLocale = (props) => {
   if (!props.localizations.length) {
     return null;
   }
@@ -75,12 +75,12 @@ const Content = ({ appLocales, currentLocale, localizations, readPermissions }) 
     }
   };
 
-  const handleChange = value => {
+  const handleChange = (value) => {
     setValue(value);
   };
 
   const handleToggle = () => {
-    setIsOpen(prev => !prev);
+    setIsOpen((prev) => !prev);
   };
 
   const styles = selectStyles(theme);
@@ -149,7 +149,7 @@ const Content = ({ appLocales, currentLocale, localizations, readPermissions }) 
                   ...styles.indicatorsContainer(base, state),
                   height: '32px',
                 }),
-                valueContainer: base => ({
+                valueContainer: (base) => ({
                   ...base,
                   padding: '2px 0px 4px 10px',
                   lineHeight: '18px',

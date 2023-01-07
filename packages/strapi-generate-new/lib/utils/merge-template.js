@@ -118,7 +118,7 @@ async function checkTemplateContentsStructure(templateContentsPath) {
   // Recursively check if each item in a directory is allowed
   const checkPathContents = (pathToCheck, parents) => {
     const contents = fse.readdirSync(pathToCheck);
-    contents.forEach(item => {
+    contents.forEach((item) => {
       const nextParents = [...parents, item];
       const matchingTreeValue = _.get(allowedTemplateContents, nextParents);
 

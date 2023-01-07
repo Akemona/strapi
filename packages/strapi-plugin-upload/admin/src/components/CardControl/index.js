@@ -14,7 +14,7 @@ const CardControl = ({ title, color, onClick, small, type, iconStyle }) => {
   const [tooltipIsDisplayed, setTooltipIsDisplayed] = useState(false);
 
   const handleToggleTooltip = () => {
-    setTooltipIsDisplayed(prev => !prev);
+    setTooltipIsDisplayed((prev) => !prev);
   };
 
   return (

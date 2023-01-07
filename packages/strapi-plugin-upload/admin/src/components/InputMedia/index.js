@@ -55,7 +55,7 @@ const InputMedia = ({
 
   const handleClickToggleModal = () => {
     if (!disabled) {
-      setModal(prev => ({
+      setModal((prev) => ({
         isDisplayed: true,
         step: 'list',
         isOpen: !prev.isOpen,
@@ -64,13 +64,13 @@ const InputMedia = ({
     }
   };
 
-  const handleClosed = () => setModal(prev => ({ ...prev, isDisplayed: false }));
+  const handleClosed = () => setModal((prev) => ({ ...prev, isDisplayed: false }));
 
-  const handleChange = v => {
+  const handleChange = (v) => {
     onChange({ target: { name, type, value: v } });
   };
 
-  const handleFilesNavigation = displayNext => {
+  const handleFilesNavigation = (displayNext) => {
     if (attribute.multiple) {
       if (displayNext && fileToDisplay === value.length - 1) {
         setFileToDisplay(0);
@@ -81,7 +81,7 @@ const InputMedia = ({
       if (!displayNext && fileToDisplay === 0) {
         setFileToDisplay(value.length - 1);
       } else {
-        setFileToDisplay(prev => (displayNext ? prev + 1 : prev - 1));
+        setFileToDisplay((prev) => (displayNext ? prev + 1 : prev - 1));
       }
     }
   };
@@ -114,9 +114,9 @@ const InputMedia = ({
     });
   };
 
-  const handleAllowDrop = e => e.preventDefault();
+  const handleAllowDrop = (e) => e.preventDefault();
 
-  const handleDrop = e => {
+  const handleDrop = (e) => {
     e.preventDefault();
     e.persist();
 

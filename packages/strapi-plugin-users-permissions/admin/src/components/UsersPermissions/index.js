@@ -13,7 +13,7 @@ import init from './init';
 
 const UsersPermissions = forwardRef(({ permissions, routes, policies }, ref) => {
   const { formatMessage } = useIntl();
-  const [state, dispatch] = useReducer(reducer, initialState, state =>
+  const [state, dispatch] = useReducer(reducer, initialState, (state) =>
     init(state, permissions, routes, policies)
   );
 
@@ -47,7 +47,7 @@ const UsersPermissions = forwardRef(({ permissions, routes, policies }, ref) => 
     });
   }, []);
 
-  const handleSelectedAction = useCallback(actionToSelect => {
+  const handleSelectedAction = useCallback((actionToSelect) => {
     dispatch({
       type: 'SELECT_ACTION',
       actionToSelect,

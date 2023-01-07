@@ -13,10 +13,10 @@ const reducer = (state, action) => {
 
   switch (action.type) {
     case 'ADD_FIELD':
-      return state.updateIn(layoutPath, list => list.push(action.item));
+      return state.updateIn(layoutPath, (list) => list.push(action.item));
 
     case 'MOVE_FIELD':
-      return state.updateIn(['modifiedData', 'layouts', 'list'], list => {
+      return state.updateIn(['modifiedData', 'layouts', 'list'], (list) => {
         return list
           .delete(action.originalIndex)
           .insert(action.atIndex, list.get(action.originalIndex));

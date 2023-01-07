@@ -46,15 +46,12 @@ const postFixtures = [
 
 describe('Test Graphql Connection', () => {
   beforeAll(async () => {
-    await builder
-      .addContentType(postModel)
-      .addFixtures(postModel.name, postFixtures)
-      .build();
+    await builder.addContentType(postModel).addFixtures(postModel.name, postFixtures).build();
 
     strapi = await createStrapiInstance();
     rq = await createAuthRequest({ strapi });
 
-    graphqlQuery = body => {
+    graphqlQuery = (body) => {
       return rq({
         url: '/graphql',
         method: 'POST',

@@ -5,13 +5,13 @@ const _ = require('lodash');
 
 const MixedSchemaType = yup.mixed;
 
-const isNotNilTest = value => !_.isNil(value);
+const isNotNilTest = (value) => !_.isNil(value);
 
 function isNotNill(msg = '${path} must be defined.') {
   return this.test('defined', msg, isNotNilTest);
 }
 
-const isNotNullTest = value => !_.isNull(value);
+const isNotNullTest = (value) => !_.isNull(value);
 function isNotNull(msg = '${path} cannot be null.') {
   return this.test('defined', msg, isNotNullTest);
 }
@@ -35,7 +35,7 @@ yup.strapiID = () => new StrapiIDSchema();
  * Returns a formatted error for http responses
  * @param {Object} validationError - a Yup ValidationError
  */
-const formatYupErrors = validationError => {
+const formatYupErrors = (validationError) => {
   if (!validationError.inner) {
     throw new Error('invalid.input');
   }

@@ -28,7 +28,7 @@ const Logout = ({ history: { push } }) => {
     push('/auth/login');
   };
 
-  const toggle = () => setIsOpen(prev => !prev);
+  const toggle = () => setIsOpen((prev) => !prev);
 
   const userInfo = auth.getUserInfo();
   const displayName =

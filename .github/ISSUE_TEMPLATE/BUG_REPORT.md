@@ -43,11 +43,11 @@ If applicable, add code samples to help explain your problem.
 
 ### System
 
-- Node.js version: 
-- NPM version: 
-- Strapi version: 
-- Database: 
-- Operating system: 
+- Node.js version:
+- NPM version:
+- Strapi version:
+- Database:
+- Operating system:
 
 ### Additional context
 

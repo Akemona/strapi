@@ -12,7 +12,7 @@ const Tabs = ({ children, isLoading, tabsLabel }) => {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
   const selectedChild = React.Children.toArray(children)[selectedTabIndex];
 
-  const handleSelectedTab = index => {
+  const handleSelectedTab = (index) => {
     if (index !== selectedTabIndex) {
       setSelectedTabIndex(index);
     }

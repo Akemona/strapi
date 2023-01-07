@@ -13,7 +13,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NotFound } from 'strapi-helper-plugin';
 
-const NotFoundPage = props => <NotFound {...props} />;
+const NotFoundPage = (props) => <NotFound {...props} />;
 
 NotFoundPage.propTypes = {
   history: PropTypes.shape({

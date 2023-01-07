@@ -20,17 +20,17 @@ const LocaleName = styled.div`
 
 const LocaleListCell = ({ locales, localizations, locale: currentLocaleCode, id }) => {
   const allLocalizations = [{ locale: currentLocaleCode }, ...localizations];
-  const localizationNames = allLocalizations.map(locale => locale.locale);
-  const defaultLocale = locales.find(locale => locale.isDefault);
+  const localizationNames = allLocalizations.map((locale) => locale.locale);
+  const defaultLocale = locales.find((locale) => locale.isDefault);
   const hasDefaultLocale = localizationNames.includes(defaultLocale.code);
 
   let localesArray = [];
 
   if (hasDefaultLocale) {
     const ctLocalesWithoutDefault = localizationNames.filter(
-      locale => locale !== defaultLocale.code
+      (locale) => locale !== defaultLocale.code
     );
-    const ctLocalesNamesWithoutDefault = ctLocalesWithoutDefault.map(locale =>
+    const ctLocalesNamesWithoutDefault = ctLocalesWithoutDefault.map((locale) =>
       mapToLocaleName(locales, locale)
     );
 
@@ -43,7 +43,7 @@ const LocaleListCell = ({ locales, localizations, locale: currentLocaleCode, id 
 
     localesArray = ctLocalesNamesWithDefault;
   } else {
-    const ctLocales = localizationNames.map(locale => mapToLocaleName(locales, locale));
+    const ctLocales = localizationNames.map((locale) => mapToLocaleName(locales, locale));
     ctLocales.sort();
 
     localesArray = ctLocales;
@@ -58,7 +58,7 @@ const LocaleListCell = ({ locales, localizations, locale: currentLocaleCode, id 
         {localesNames}
       </LocaleName>
       <Tooltip id={elId} place="bottom" delay={0}>
-        {localesArray.map(name => (
+        {localesArray.map((name) => (
           <Padded key={name} top bottom size="xs">
             <Text ellipsis color="white">
               {name}

@@ -30,7 +30,7 @@ describe('User', () => {
     const sendDidInviteUser = jest.fn();
 
     test('Creates a user by merging given and default attributes', async () => {
-      const create = jest.fn(user => Promise.resolve(user));
+      const create = jest.fn((user) => Promise.resolve(user));
       const createToken = jest.fn(() => 'token');
       const hashPassword = jest.fn(() => Promise.resolve('123456789'));
 
@@ -59,7 +59,7 @@ describe('User', () => {
     });
 
     test('Creates a user and hash password if provided', async () => {
-      const create = jest.fn(user => Promise.resolve(user));
+      const create = jest.fn((user) => Promise.resolve(user));
       const createToken = jest.fn(() => 'token');
       const hashPassword = jest.fn(() => Promise.resolve('123456789'));
 
@@ -101,7 +101,7 @@ describe('User', () => {
     });
 
     test('Creates a user by using given attributes', async () => {
-      const create = jest.fn(user => Promise.resolve(user));
+      const create = jest.fn((user) => Promise.resolve(user));
       const createToken = jest.fn(() => 'token');
       const hashPassword = jest.fn(() => Promise.resolve('123456789'));
 
@@ -493,7 +493,7 @@ describe('User', () => {
 
     test('Calls udpate service', async () => {
       const findOne = jest.fn(() => Promise.resolve({ id: 1 }));
-      const updateById = jest.fn(user => Promise.resolve(user));
+      const updateById = jest.fn((user) => Promise.resolve(user));
 
       global.strapi = {
         query() {
@@ -527,7 +527,7 @@ describe('User', () => {
 
     test('Set user to active', async () => {
       const findOne = jest.fn(() => Promise.resolve({ id: 1 }));
-      const updateById = jest.fn(user => Promise.resolve(user));
+      const updateById = jest.fn((user) => Promise.resolve(user));
 
       global.strapi = {
         query() {
@@ -558,7 +558,7 @@ describe('User', () => {
 
     test('Reset registrationToken', async () => {
       const findOne = jest.fn(() => Promise.resolve({ id: 1 }));
-      const updateById = jest.fn(user => Promise.resolve(user));
+      const updateById = jest.fn((user) => Promise.resolve(user));
 
       global.strapi = {
         query() {
@@ -771,7 +771,7 @@ describe('User', () => {
 
     test.each(['abc', 'Abcd', 'Abcdefgh', 'Abcd123'])(
       'Throws on invalid password',
-      async password => {
+      async (password) => {
         const email = 'email@email.fr';
 
         const findOne = jest.fn(() => ({ id: 1 }));

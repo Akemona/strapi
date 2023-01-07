@@ -48,7 +48,7 @@ const CustomTable = ({
             searchable: false,
             sortable: true,
           },
-          cellFormatter: cellData => {
+          cellFormatter: (cellData) => {
             const isPublished = !isEmpty(cellData.published_at);
 
             return <State isPublished={isPublished} />;
@@ -62,7 +62,7 @@ const CustomTable = ({
 
   const colSpanLength = isBulkable && canDelete ? headers.length + 2 : headers.length + 1;
 
-  const handleRowGoTo = id => {
+  const handleRowGoTo = (id) => {
     emitEvent('willEditEntryFromList');
     push({
       pathname: `${pathname}/${id}`,
@@ -70,7 +70,7 @@ const CustomTable = ({
       search: searchToPersist,
     });
   };
-  const handleEditGoTo = id => {
+  const handleEditGoTo = (id) => {
     emitEvent('willEditEntryFromButton');
     push({
       pathname: `${pathname}/${id}`,
@@ -97,11 +97,11 @@ const CustomTable = ({
         </td>
       </TableEmpty>
     ) : (
-      data.map(row => {
+      data.map((row) => {
         return (
           <TableRow
             key={row.id}
-            onClick={e => {
+            onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
 

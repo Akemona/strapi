@@ -65,13 +65,13 @@ const fixtures = {
       age: 25,
       cards: [card[0].id, card[1].id],
     },
-    self => ({
+    (self) => ({
       name: 'Isabelle',
       age: 55,
       cards: [card[0].id],
       collector_friends: [self[0].id],
     }),
-    self => ({
+    (self) => ({
       name: 'Kenza',
       age: 25,
       cards: [],

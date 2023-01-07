@@ -7,7 +7,7 @@ const NotificationWrapper = styled.div`
   border-bottom-right-radius: ${({ theme }) => theme.main.sizes.borderRadius};
   margin-bottom: ${({ theme }) => theme.main.sizes.paddings.sm};
   box-shadow: 0 2px 4px 0 ${({ theme }) => theme.main.colors.darkGrey};
-  background-color: ${props => props.theme.main.colors.white};
+  background-color: ${(props) => props.theme.main.colors.white};
   border-left: 2px solid ${({ theme, color }) => theme.main.colors[color]};
   overflow: hidden;
   z-index: 10;

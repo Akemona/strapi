@@ -34,7 +34,7 @@ module.exports = async ({ connection }) => {
     () => {
       Mongoose.connection.close();
     },
-    error => {
+    (error) => {
       Mongoose.connection.close();
       throw error;
     }

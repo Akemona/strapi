@@ -8,11 +8,11 @@ import { initialState, reducer } from './reducer';
 
 const Permissions = () => {
   const { modifiedData } = useUsersPermissions();
-  const [{ collapses }, dispatch] = useReducer(reducer, initialState, state =>
+  const [{ collapses }, dispatch] = useReducer(reducer, initialState, (state) =>
     init(state, modifiedData)
   );
 
-  const handleOpenPlugin = useCallback(index => {
+  const handleOpenPlugin = useCallback((index) => {
     dispatch({
       type: 'TOGGLE_COLLAPSE',
       index,

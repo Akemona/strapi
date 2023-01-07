@@ -1,6 +1,6 @@
 'use strict';
 
-const isDuplicateEntryError = error => {
+const isDuplicateEntryError = (error) => {
   // postgres
   if (error.code === '23505') {
     return true;
@@ -19,7 +19,7 @@ const isDuplicateEntryError = error => {
   return false;
 };
 
-const handleDatabaseError = error => {
+const handleDatabaseError = (error) => {
   if (isDuplicateEntryError(error)) {
     strapi.log.warn('Duplicate entry', error.toString());
     throw new Error('Duplicate entry');

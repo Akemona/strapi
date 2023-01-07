@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = strapi => ({
+module.exports = (strapi) => ({
   initialize() {
     const passportMiddleware = strapi.admin.services.passport.init();
 

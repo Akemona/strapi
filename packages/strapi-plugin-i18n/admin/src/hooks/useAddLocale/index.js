@@ -27,7 +27,7 @@ const useAddLocale = () => {
   const [isLoading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
-  const persistLocale = async locale => {
+  const persistLocale = async (locale) => {
     setLoading(true);
 
     try {

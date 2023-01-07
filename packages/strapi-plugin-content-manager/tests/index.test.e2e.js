@@ -6,7 +6,7 @@ const { createStrapiInstance } = require('../../../test/helpers/strapi');
 const form = require('../../../test/helpers/generators');
 const { createAuthRequest } = require('../../../test/helpers/request');
 
-const cleanDate = entry => {
+const cleanDate = (entry) => {
   delete entry.updatedAt;
   delete entry.createdAt;
   delete entry.created_at;
@@ -359,7 +359,7 @@ describe('Content Manager End to End', () => {
         url: '/content-manager/collection-types/application::article.article/actions/bulkDelete',
         method: 'POST',
         body: {
-          ids: articles.map(article => article.id),
+          ids: articles.map((article) => article.id),
         },
       });
 

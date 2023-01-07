@@ -41,7 +41,7 @@ const createContentTypes = async (models, { strapi } = {}) => {
   const { contentTypeService, cleanup } = await createHelpers({ strapi });
 
   const contentTypes = await contentTypeService.createContentTypes(
-    models.map(model => ({
+    models.map((model) => ({
       contentType: {
         connection: 'default',
         ...model,
@@ -114,7 +114,7 @@ const deleteContentType = async (modelName, { strapi } = {}) => {
 
 const deleteContentTypes = async (modelsName, { strapi } = {}) => {
   const { contentTypeService, cleanup } = await createHelpers({ strapi });
-  const toUID = name => `application::${name}.${name}`;
+  const toUID = (name) => `application::${name}.${name}`;
 
   const contentTypes = await contentTypeService.deleteContentTypes(modelsName.map(toUID));
 

@@ -13,7 +13,7 @@ const FieldPicker = ({ displayedHeaders, items, onChange, onClickReset, slug }) 
     <Wrapper>
       <Picker
         position="right"
-        renderButtonContent={isOpen => (
+        renderButtonContent={(isOpen) => (
           <Flex>
             <div>
               <FontAwesomeIcon icon="cog" style={{ marginRight: 5 }} />
@@ -23,7 +23,7 @@ const FieldPicker = ({ displayedHeaders, items, onChange, onClickReset, slug }) 
             </Padded>
           </Flex>
         )}
-        renderSectionContent={onToggle => (
+        renderSectionContent={(onToggle) => (
           <>
             <ConfigureLink slug={slug} />
             <Header onClick={onClickReset} onToggle={onToggle} />

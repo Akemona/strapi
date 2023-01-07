@@ -27,7 +27,7 @@ function PopUpWarning({
   children,
   ...rest
 }) {
-  const handleToggle = e => {
+  const handleToggle = (e) => {
     // Prevent user interactions while requests are being submitted
     if (isConfirmButtonLoading) {
       return;
@@ -81,7 +81,7 @@ function PopUpWarning({
         {children}
       </Body>
       <StyledFooter>
-        {map(footerButtons, button => {
+        {map(footerButtons, (button) => {
           const { message, onClick, ...rest } = button;
           return (
             <Button key={message} onClick={onClick} {...rest}>

@@ -32,7 +32,7 @@ const EditSettingsView = ({ components, mainLayout, isContentTypeView, slug, upd
   const [isDraggingSibling, setIsDraggingSibling] = useState(false);
 
   const schemasSelector = useMemo(makeSelectModelAndComponentSchemas, []);
-  const { schemas } = useSelector(state => schemasSelector(state), shallowEqual);
+  const { schemas } = useSelector((state) => schemasSelector(state), shallowEqual);
 
   const { componentLayouts, initialData, metaToEdit, modifiedData, metaForm } = reducerState.toJS();
 
@@ -47,8 +47,8 @@ const EditSettingsView = ({ components, mainLayout, isContentTypeView, slug, upd
   const relationsLayout = modifiedData.layouts.editRelations;
   const editRelationsLayoutRemainingFields = useMemo(() => {
     return Object.keys(attributes)
-      .filter(attr => attributes[attr].type === 'relation')
-      .filter(attr => relationsLayout.indexOf(attr) === -1);
+      .filter((attr) => attributes[attr].type === 'relation')
+      .filter((attr) => relationsLayout.indexOf(attr) === -1);
   }, [attributes, relationsLayout]);
 
   const formToDisplay = useMemo(() => {
@@ -58,29 +58,29 @@ const EditSettingsView = ({ components, mainLayout, isContentTypeView, slug, upd
 
     const associatedMetas = get(modifiedData, ['metadatas', metaToEdit, 'edit'], {});
 
-    return Object.keys(associatedMetas).filter(meta => meta !== 'visible');
+    return Object.keys(associatedMetas).filter((meta) => meta !== 'visible');
   }, [metaToEdit, modifiedData]);
 
   const editLayoutRemainingFields = useMemo(() => {
     const displayedFields = flatMap(modifiedData.layouts.edit, 'rowContent');
 
     return Object.keys(modifiedData.attributes)
-      .filter(attr => {
+      .filter((attr) => {
         if (!isContentTypeView) {
           return true;
         }
 
         return get(modifiedData, ['attributes', attr, 'type'], '') !== 'relation';
       })
-      .filter(attr => get(modifiedData, ['metadatas', attr, 'edit', 'visible'], false) === true)
-      .filter(attr => {
-        return displayedFields.findIndex(el => el.name === attr) === -1;
+      .filter((attr) => get(modifiedData, ['metadatas', attr, 'edit', 'visible'], false) === true)
+      .filter((attr) => {
+        return displayedFields.findIndex((el) => el.name === attr) === -1;
       })
       .sort();
   }, [isContentTypeView, modifiedData]);
 
   const getSelectedItemSelectOptions = useCallback(
-    formType => {
+    (formType) => {
       if (formType !== 'relation' && formType !== 'component') {
         return [];
       }
@@ -137,7 +137,7 @@ const EditSettingsView = ({ components, mainLayout, isContentTypeView, slug, upd
     }
   };
 
-  const handleSubmitMetaForm = e => {
+  const handleSubmitMetaForm = (e) => {
     e.preventDefault();
     dispatch({
       type: 'SUBMIT_META_FORM',
@@ -174,7 +174,7 @@ const EditSettingsView = ({ components, mainLayout, isContentTypeView, slug, upd
   };
 
   const toggleModalForm = () => {
-    setIsModalFormOpen(prevState => !prevState);
+    setIsModalFormOpen((prevState) => !prevState);
   };
 
   const renderForm = () =>
@@ -202,11 +202,11 @@ const EditSettingsView = ({ components, mainLayout, isContentTypeView, slug, upd
           <FormattedMessage
             id={`${pluginId}.containers.SettingPage.editSettings.relation-field.description`}
           >
-            {description => (
+            {(description) => (
               <FormattedMessage
                 id={get(getInputProps(meta), 'label.id', 'app.utils.defaultMessage')}
               >
-                {label => (
+                {(label) => (
                   <Input
                     autoFocus={index === 0}
                     description={meta === 'mainField' ? description : ''}
@@ -236,7 +236,7 @@ const EditSettingsView = ({ components, mainLayout, isContentTypeView, slug, upd
       metadatas={get(modifiedData, ['metadatas'], {})}
       moveItem={moveItem}
       moveRow={moveRow}
-      onAddData={name => {
+      onAddData={(name) => {
         dispatch({
           type: 'ON_ADD_DATA',
           name,
@@ -250,7 +250,7 @@ const EditSettingsView = ({ components, mainLayout, isContentTypeView, slug, upd
           fieldIndex,
         });
       }}
-      setEditFieldToSelect={name => {
+      setEditFieldToSelect={(name) => {
         dispatch({
           type: 'SET_FIELD_TO_EDIT',
           name,
@@ -338,7 +338,7 @@ const EditSettingsView = ({ components, mainLayout, isContentTypeView, slug, upd
           <FieldsReorder className={fieldsReorderClassName} />
           {isContentTypeView && (
             <SortableList
-              addItem={name => {
+              addItem={(name) => {
                 dispatch({
                   type: 'ADD_RELATION',
                   name,
@@ -352,7 +352,7 @@ const EditSettingsView = ({ components, mainLayout, isContentTypeView, slug, upd
                   hoverIndex,
                 });
               }}
-              removeItem={index => {
+              removeItem={(index) => {
                 dispatch({
                   type: 'REMOVE_RELATION',
                   index,

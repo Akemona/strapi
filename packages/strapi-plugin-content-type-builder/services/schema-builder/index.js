@@ -11,7 +11,7 @@ const MODEL_RELATIONS = ['oneWay', 'oneToOne', 'manyToOne'];
 const COLLECTION_RELATIONS = ['manyWay', 'manyToMany', 'oneToMany'];
 
 module.exports = function createBuilder() {
-  const components = Object.keys(strapi.components).map(key => {
+  const components = Object.keys(strapi.components).map((key) => {
     const compo = strapi.components[key];
 
     return {
@@ -25,7 +25,7 @@ module.exports = function createBuilder() {
     };
   });
 
-  const contentTypes = Object.keys(strapi.contentTypes).map(key => {
+  const contentTypes = Object.keys(strapi.contentTypes).map((key) => {
     const contentType = strapi.contentTypes[key];
 
     let dir;
@@ -59,12 +59,12 @@ function createSchemaBuilder({ components, contentTypes }) {
   const tmpContentTypes = new Map();
 
   // init temporary ContentTypes
-  Object.keys(contentTypes).forEach(key => {
+  Object.keys(contentTypes).forEach((key) => {
     tmpContentTypes.set(contentTypes[key].uid, createSchemaHandler(contentTypes[key]));
   });
 
   // init temporary components
-  Object.keys(components).forEach(key => {
+  Object.keys(components).forEach((key) => {
     tmpComponents.set(components[key].uid, createSchemaHandler(components[key]));
   });
 
@@ -161,17 +161,16 @@ function createSchemaBuilder({ components, contentTypes }) {
      */
     writeFiles() {
       return Promise.all(
-        [
-          ...Array.from(tmpComponents.values()),
-          ...Array.from(tmpContentTypes.values()),
-        ].map(schema => schema.flush())
+        [...Array.from(tmpComponents.values()), ...Array.from(tmpContentTypes.values())].map(
+          (schema) => schema.flush()
+        )
       )
-        .catch(error => {
+        .catch((error) => {
           strapi.log.error('Error writing schema files');
           strapi.log.error(error);
           return this.rollback();
         })
-        .catch(error => {
+        .catch((error) => {
           strapi.log.error(
             'Error rolling back schema files. You might need to fix your files manually'
           );
@@ -186,10 +185,9 @@ function createSchemaBuilder({ components, contentTypes }) {
      */
     rollback() {
       return Promise.all(
-        [
-          ...Array.from(tmpComponents.values()),
-          ...Array.from(tmpContentTypes.values()),
-        ].map(schema => schema.rollback())
+        [...Array.from(tmpComponents.values()), ...Array.from(tmpContentTypes.values())].map(
+          (schema) => schema.rollback()
+        )
       );
     },
   };

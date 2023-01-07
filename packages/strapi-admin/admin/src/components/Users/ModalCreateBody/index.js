@@ -38,7 +38,7 @@ const ModalCreateBody = forwardRef(
       });
     };
 
-    const handleSubmit = async e => {
+    const handleSubmit = async (e) => {
       e.persist();
       e.preventDefault();
       const errors = await checkFormValidity(modifiedData, schema);
@@ -51,7 +51,7 @@ const ModalCreateBody = forwardRef(
           setIsSubmiting(true);
 
           const requestURL = '/admin/users';
-          const cleanedRoles = modifiedData.roles.map(role => role.id);
+          const cleanedRoles = modifiedData.roles.map((role) => role.id);
 
           const { data } = await request(requestURL, {
             method: 'POST',
@@ -136,7 +136,7 @@ const ModalCreateBody = forwardRef(
 
 ModalCreateBody.defaultProps = {
   isDisabled: false,
-  onSubmit: e => e.preventDefault(),
+  onSubmit: (e) => e.preventDefault(),
   registrationToken: '',
   setIsSubmiting: () => {},
   showMagicLink: false,

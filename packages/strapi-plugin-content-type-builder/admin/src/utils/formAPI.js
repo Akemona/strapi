@@ -53,7 +53,7 @@ const formsAPI = {
   extendFields(fields, { validator, form: { advanced, base } }) {
     const formType = this.types.attribute;
 
-    fields.forEach(field => {
+    fields.forEach((field) => {
       if (!formType[field]) {
         formType[field] = {
           validators: [],
@@ -101,7 +101,7 @@ const formsAPI = {
 
     const refData = cloneDeep(initialData);
 
-    this.contentTypeSchemaMutations.forEach(cb => {
+    this.contentTypeSchemaMutations.forEach((cb) => {
       enhancedData = cb(enhancedData, refData);
     });
 

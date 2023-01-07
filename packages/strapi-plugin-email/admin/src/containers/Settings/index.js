@@ -34,7 +34,7 @@ const SettingsPage = () => {
 
   const title = formatMessage({ id: getTrad('Settings.title') });
 
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     let errors = {};
 
@@ -77,7 +77,7 @@ const SettingsPage = () => {
       request('/email/settings', {
         method: 'GET',
       })
-        .then(data => {
+        .then((data) => {
           setConfig(data.config);
           setProviders([data.config.provider]);
           setTestAddress(get(data, 'config.settings.testAddress'));
@@ -169,7 +169,7 @@ const SettingsPage = () => {
                 label={getTrad('Settings.form.label.testAddress')}
                 name="test-address"
                 placeholder={getTrad('Settings.form.placeholder.testAddress')}
-                onChange={event => setTestAddress(event.target.value)}
+                onChange={(event) => setTestAddress(event.target.value)}
                 size={{ xs: 6 }}
                 type="email"
                 value={testAddress}

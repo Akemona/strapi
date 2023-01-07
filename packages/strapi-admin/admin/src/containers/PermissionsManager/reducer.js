@@ -23,7 +23,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) =>
   // eslint-disable-next-line consistent-return
-  produce(state, draftState => {
+  produce(state, (draftState) => {
     switch (action.type) {
       case GET_USER_PERMISSIONS: {
         draftState.isLoading = true;
@@ -41,7 +41,7 @@ const reducer = (state = initialState, action) =>
         draftState.isLoading = false;
         draftState.userPermissions = action.data;
         draftState.collectionTypesRelatedPermissions = action.data
-          .filter(perm => perm.subject)
+          .filter((perm) => perm.subject)
           .reduce((acc, current) => {
             const { subject, action } = current;
 

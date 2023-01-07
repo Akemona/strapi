@@ -33,16 +33,11 @@ const SingleTypeFormWrapper = ({ allLayoutData, children, slug }) => {
   const searchToSend = buildQueryString(query);
 
   const dispatch = useDispatch();
-  const {
-    componentsDataStructure,
-    contentTypeDataStructure,
-    data,
-    isLoading,
-    status,
-  } = useSelector(selectCrudReducer);
+  const { componentsDataStructure, contentTypeDataStructure, data, isLoading, status } =
+    useSelector(selectCrudReducer);
 
   const cleanReceivedData = useCallback(
-    data => {
+    (data) => {
       const cleaned = removePasswordFieldsFromData(
         data,
         allLayoutData.contentType,
@@ -95,7 +90,7 @@ const SingleTypeFormWrapper = ({ allLayoutData, children, slug }) => {
     const abortController = new AbortController();
     const { signal } = abortController;
 
-    const fetchData = async signal => {
+    const fetchData = async (signal) => {
       dispatch(getData());
 
       setIsCreatingEntry(true);
@@ -134,7 +129,7 @@ const SingleTypeFormWrapper = ({ allLayoutData, children, slug }) => {
     return () => abortController.abort();
   }, [cleanReceivedData, push, slug, dispatch, searchToSend, rawQuery]);
 
-  const displayErrors = useCallback(err => {
+  const displayErrors = useCallback((err) => {
     const errorPayload = err.response.payload;
     console.error(errorPayload);
 
@@ -151,7 +146,7 @@ const SingleTypeFormWrapper = ({ allLayoutData, children, slug }) => {
   }, []);
 
   const onDelete = useCallback(
-    async trackerProperty => {
+    async (trackerProperty) => {
       try {
         emitEventRef.current('willDeleteEntry', trackerProperty);
 

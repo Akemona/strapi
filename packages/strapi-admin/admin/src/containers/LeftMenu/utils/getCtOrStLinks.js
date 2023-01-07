@@ -2,13 +2,14 @@ import { request } from 'strapi-helper-plugin';
 import generateModelsLinks from './generateModelsLinks';
 import checkPermissions from './checkPermissions';
 
-const getCtOrStLinks = async userPermissions => {
+const getCtOrStLinks = async (userPermissions) => {
   const requestURL = '/content-manager/content-types';
 
   try {
-    const {
-      data: contentTypeConfigurations,
-    } = await request('/content-manager/content-types-settings', { method: 'GET' });
+    const { data: contentTypeConfigurations } = await request(
+      '/content-manager/content-types-settings',
+      { method: 'GET' }
+    );
 
     const { data } = await request(requestURL, { method: 'GET' });
     const { collectionTypesSectionLinks, singleTypesSectionLinks } = generateModelsLinks(

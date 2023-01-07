@@ -22,15 +22,8 @@ const EmptyPreview = styled.div`
 const VideoPreview = ({ hasIcon, previewUrl, src }) => {
   const { formatMessage } = useIntl();
   const [reducerState, dispatch] = useReducer(reducer, initialState);
-  const {
-    duration,
-    dataLoaded,
-    isHover,
-    metadataLoaded,
-    snapshot,
-    seeked,
-    isError,
-  } = reducerState.toJS();
+  const { duration, dataLoaded, isHover, metadataLoaded, snapshot, seeked, isError } =
+    reducerState.toJS();
 
   // Adapted from https://github.com/brothatru/react-video-thumbnail/blob/master/src/components/VideoThumbnail.js
   // And from https://github.com/soupette/poc-video-preview

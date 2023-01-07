@@ -1,4 +1,4 @@
-const createPluginsFilter = obj =>
+const createPluginsFilter = (obj) =>
   Object.values(obj || {}).reduce((acc, current) => {
     return {
       ...acc,

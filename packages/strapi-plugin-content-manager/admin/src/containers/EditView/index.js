@@ -40,13 +40,10 @@ const EditView = ({
 }) => {
   const { currentEnvironment, plugins } = useGlobalContext();
 
-  const {
-    createActionAllowedFields,
-    readActionAllowedFields,
-    updateActionAllowedFields,
-  } = useMemo(() => {
-    return getFieldsActionMatchingPermissions(userPermissions, slug);
-  }, [userPermissions, slug]);
+  const { createActionAllowedFields, readActionAllowedFields, updateActionAllowedFields } =
+    useMemo(() => {
+      return getFieldsActionMatchingPermissions(userPermissions, slug);
+    }, [userPermissions, slug]);
   const configurationPermissions = useMemo(() => {
     return isSingleType
       ? pluginPermissions.singleTypesConfigurations
@@ -64,9 +61,9 @@ const EditView = ({
   );
 
   // Check if a block is a dynamic zone
-  const isDynamicZone = useCallback(block => {
-    return block.every(subBlock => {
-      return subBlock.every(obj => obj.fieldSchema.type === 'dynamiczone');
+  const isDynamicZone = useCallback((block) => {
+    return block.every((subBlock) => {
+      return subBlock.every((obj) => obj.fieldSchema.type === 'dynamiczone');
     });
   }, []);
 

@@ -19,20 +19,20 @@ const CheckControl = ({ title, onSubmitEdit }) => {
 
   useClickAwayListener(dropdownRef, () => setIsOpen(false));
 
-  const handleClick = e => {
+  const handleClick = (e) => {
     e.persist();
     setIsOpen(false);
     onSubmitEdit(e);
   };
 
-  const handleClickDuplicate = e => {
+  const handleClickDuplicate = (e) => {
     e.persist();
     setIsOpen(false);
     onSubmitEdit(e, true);
   };
 
   const handleToggle = () => {
-    setIsOpen(v => !v);
+    setIsOpen((v) => !v);
   };
 
   return (

@@ -2,7 +2,7 @@ import moment from 'moment';
 import { dateFormats, dateToUtcTime } from 'strapi-helper-plugin';
 import { formatBytes } from '../../../utils';
 
-const formatFilter = filterToFormat => {
+const formatFilter = (filterToFormat) => {
   const { name, filter, value } = filterToFormat;
 
   // Size filter - Convert bites to human-readable format

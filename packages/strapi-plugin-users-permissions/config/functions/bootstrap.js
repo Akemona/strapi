@@ -146,7 +146,7 @@ module.exports = async () => {
   // or we have added/deleted provider here.
   if (!prevGrantConfig || !_.isEqual(_.keys(prevGrantConfig), _.keys(grantConfig))) {
     // merge with the previous provider config.
-    _.keys(grantConfig).forEach(key => {
+    _.keys(grantConfig).forEach((key) => {
       if (key in prevGrantConfig) {
         grantConfig[key] = _.merge(grantConfig[key], prevGrantConfig[key]);
       }

@@ -23,13 +23,13 @@ const HomePageContent = ({
   const { search } = useLocation();
   const filters = generateFiltersFromSearch(search);
 
-  const hasSomeCheckboxSelected = data.some(item =>
-    dataToDelete.find(itemToDelete => item.id.toString() === itemToDelete.id.toString())
+  const hasSomeCheckboxSelected = data.some((item) =>
+    dataToDelete.find((itemToDelete) => item.id.toString() === itemToDelete.id.toString())
   );
 
   const areAllCheckboxesSelected =
-    data.every(item =>
-      dataToDelete.find(itemToDelete => item.id.toString() === itemToDelete.id.toString())
+    data.every((item) =>
+      dataToDelete.find((itemToDelete) => item.id.toString() === itemToDelete.id.toString())
     ) && hasSomeCheckboxSelected;
 
   const hasFilters = !isEmpty(filters);

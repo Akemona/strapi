@@ -18,7 +18,7 @@ const RelationPreviewTooltip = ({
   const tooltipRef = useRef();
 
   const fetchRelationData = useCallback(
-    async signal => {
+    async (signal) => {
       const requestURL = getRequestUrl(`${endPoint}/${rowId}/${name}`);
       try {
         const { results } = await request(requestURL, {
@@ -51,7 +51,7 @@ const RelationPreviewTooltip = ({
   }, [fetchRelationData]);
 
   const getValueToDisplay = useCallback(
-    item => {
+    (item) => {
       return getDisplayedValue(mainField.schema.type, item[mainField.name], mainField.name);
     },
     [mainField]
@@ -79,7 +79,7 @@ const RelationPreviewTooltip = ({
           </Padded>
         ) : (
           <>
-            {relationData.map(item => (
+            {relationData.map((item) => (
               <Padded key={item.id} top bottom size="xs">
                 <Text ellipsis color="white">
                   {getValueToDisplay(item)}

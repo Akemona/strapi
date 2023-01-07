@@ -17,7 +17,7 @@ const serveStatic = require('./serve-static');
  * Public assets hook
  */
 
-module.exports = strapi => {
+module.exports = (strapi) => {
   return {
     /**
      * Initialize the hook
@@ -81,7 +81,7 @@ module.exports = strapi => {
       if (!strapi.config.serveAdminPanel) return;
 
       const buildDir = path.resolve(strapi.dir, 'build');
-      const serveAdmin = ctx => {
+      const serveAdmin = (ctx) => {
         ctx.type = 'html';
         ctx.body = fs.createReadStream(path.join(buildDir + '/index.html'));
       };

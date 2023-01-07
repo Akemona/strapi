@@ -10,10 +10,10 @@ import FieldComponent from '../FieldComponent';
 
 const NonRepeatableComponent = ({ componentUid, isFromDynamicZone, name }) => {
   const { getComponentLayout } = useContentTypeLayout();
-  const componentLayoutData = useMemo(() => getComponentLayout(componentUid), [
-    componentUid,
-    getComponentLayout,
-  ]);
+  const componentLayoutData = useMemo(
+    () => getComponentLayout(componentUid),
+    [componentUid, getComponentLayout]
+  );
   const fields = componentLayoutData.layouts.edit;
 
   return (

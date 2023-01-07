@@ -47,21 +47,11 @@ const types = {
     const shape = {
       name: validators.name(usedAttributeNames, reservedNames),
       type: validators.type(),
-      default: yup
-        .string()
-        .nullable()
-        .matches(/^\d*$/),
+      default: yup.string().nullable().matches(/^\d*$/),
       unique: validators.unique(),
       required: validators.required(),
-      max: yup
-        .string()
-        .nullable()
-        .matches(/^\d*$/, errorsTrads.regex),
-      min: yup
-        .string()
-        .nullable()
-        .test(isMinSuperiorThanMax)
-        .matches(/^\d*$/, errorsTrads.regex),
+      max: yup.string().nullable().matches(/^\d*$/, errorsTrads.regex),
+      min: yup.string().nullable().test(isMinSuperiorThanMax).matches(/^\d*$/, errorsTrads.regex),
     };
 
     return yup.object(shape);
@@ -115,10 +105,7 @@ const types = {
     const shape = {
       name: validators.name(usedAttributeNames, reservedNames),
       type: validators.type(),
-      default: yup
-        .string()
-        .email()
-        .nullable(),
+      default: yup.string().email().nullable(),
       unique: validators.unique(),
       required: validators.required(),
       maxLength: validators.maxLength(),
@@ -148,7 +135,7 @@ const types = {
         .test({
           name: 'areEnumValuesUnique',
           message: getTrad('error.validation.enum-duplicate'),
-          test: values => {
+          test: (values) => {
             const filtered = [...new Set(values)];
 
             return filtered.length === values.length;
@@ -157,14 +144,14 @@ const types = {
         .test({
           name: 'valuesMatchesRegex',
           message: errorsTrads.regex,
-          test: values => {
-            return values.every(val => val === '' || ENUM_REGEX.test(val));
+          test: (values) => {
+            return values.every((val) => val === '' || ENUM_REGEX.test(val));
           },
         })
         .test({
           name: 'doesNotHaveEmptyValues',
           message: getTrad('error.validation.enum-empty-string'),
-          test: values => !values.some(val => val === ''),
+          test: (values) => !values.some((val) => val === ''),
         }),
       enumName: yup.string().nullable(),
     };
@@ -251,7 +238,7 @@ const types = {
         const initialForbiddenName = [...alreadyTakenTargetAttributes, modifiedData.name];
 
         let forbiddenTargetAttributeName = initialForbiddenName.filter(
-          val => val !== initialData.targetAttribute
+          (val) => val !== initialData.targetAttribute
         );
 
         if (!['oneWay', 'manyWay'].includes(modifiedData.nature)) {
@@ -262,7 +249,7 @@ const types = {
           .test({
             name: 'forbiddenTargetAttributeName',
             message: getTrad('error.validation.relation.targetAttribute-taken'),
-            test: value => {
+            test: (value) => {
               if (!value) {
                 return false;
               }

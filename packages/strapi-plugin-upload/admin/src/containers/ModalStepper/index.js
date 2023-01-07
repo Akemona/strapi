@@ -30,9 +30,8 @@ const ModalStepper = ({
   const [displayNextButton, setDisplayNextButton] = useState(false);
   const [reducerState, dispatch] = useReducer(reducer, initialState, init);
   const { currentStep, fileToEdit, filesToDownload, filesToUpload } = reducerState.toJS();
-  const { Component, components, headerBreadcrumbs, next, prev, withBackButton } = stepper[
-    currentStep
-  ];
+  const { Component, components, headerBreadcrumbs, next, prev, withBackButton } =
+    stepper[currentStep];
   const filesToUploadLength = filesToUpload.length;
   const toggleRef = useRef(onToggle);
   const editModalRef = useRef();
@@ -89,7 +88,7 @@ const ModalStepper = ({
 
     try {
       await Promise.all(
-        files.map(file => {
+        files.map((file) => {
           const { source } = file;
 
           return axios
@@ -111,7 +110,7 @@ const ModalStepper = ({
                 fileTempId: file.tempId,
               });
             })
-            .catch(err => {
+            .catch((err) => {
               console.error('fetch file error', err);
 
               dispatch({
@@ -137,8 +136,8 @@ const ModalStepper = ({
     });
   };
 
-  const handleCancelFileToUpload = fileOriginalIndex => {
-    const fileToCancel = filesToUpload.find(file => file.originalIndex === fileOriginalIndex);
+  const handleCancelFileToUpload = (fileOriginalIndex) => {
+    const fileToCancel = filesToUpload.find((file) => file.originalIndex === fileOriginalIndex);
     const { source } = fileToCancel;
 
     // Cancel
@@ -206,7 +205,7 @@ const ModalStepper = ({
   const handleClickNextButton = async () => {
     try {
       await urlSchema.validate(
-        { filesToDownload: filesToDownload.filter(url => !isEmpty(url)) },
+        { filesToDownload: filesToDownload.filter((url) => !isEmpty(url)) },
         { abortEarly: false }
       );
 
@@ -227,7 +226,7 @@ const ModalStepper = ({
     toggleModalWarning();
   };
 
-  const handleClickDeleteFileToUpload = fileIndex => {
+  const handleClickDeleteFileToUpload = (fileIndex) => {
     dispatch({
       type: 'REMOVE_FILE_TO_UPLOAD',
       fileIndex,
@@ -260,7 +259,7 @@ const ModalStepper = ({
     onToggle(shouldRefetch);
   };
 
-  const handleGoToEditNewFile = fileIndex => {
+  const handleGoToEditNewFile = (fileIndex) => {
     dispatch({
       type: 'SET_FILE_TO_EDIT',
       fileIndex,
@@ -277,7 +276,7 @@ const ModalStepper = ({
     goBack();
   };
 
-  const handleSetCropResult = blob => {
+  const handleSetCropResult = (blob) => {
     // Emit event : the user cropped a file that is not uploaded
     emitEvent('didCropFile', { duplicatedFile: null, location: 'upload' });
 
@@ -287,7 +286,7 @@ const ModalStepper = ({
     });
   };
 
-  const handleSubmitEditNewFile = e => {
+  const handleSubmitEditNewFile = (e) => {
     e.preventDefault();
 
     dispatch({
@@ -476,7 +475,7 @@ const ModalStepper = ({
     goTo(next);
   };
 
-  const goTo = to => {
+  const goTo = (to) => {
     dispatch({
       type: 'GO_TO',
       to,
@@ -484,11 +483,13 @@ const ModalStepper = ({
   };
 
   const toggleModalWarning = () => {
-    setIsWarningDeleteOpen(prev => !prev);
+    setIsWarningDeleteOpen((prev) => !prev);
   };
 
   const shouldDisplayNextButton = currentStep === 'browse' && displayNextButton;
-  const isFinishButtonDisabled = filesToUpload.some(file => file.isDownloading || file.isUploading);
+  const isFinishButtonDisabled = filesToUpload.some(
+    (file) => file.isDownloading || file.isUploading
+  );
   const areButtonsDisabledOnEditExistingFile =
     currentStep === 'edit' && fileToEdit.isUploading === true;
 

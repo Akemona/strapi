@@ -65,7 +65,7 @@ const generateSchema = () => {
   Object.assign(resolvers, scalars);
 
   const scalarDef = Object.keys(scalars)
-    .map(key => `scalar ${key}`)
+    .map((key) => `scalar ${key}`)
     .join('\n');
 
   // Concatenate.
@@ -134,12 +134,12 @@ const filterDisabledResolvers = (schema, extraResolvers) =>
  *
  * @return void
  */
-const writeGenerateSchema = schema => {
+const writeGenerateSchema = (schema) => {
   const printSchema = graphql.printSchema(schema);
   return strapi.fs.writeAppFile('exports/graphql/schema.graphql', printSchema);
 };
 
-const buildResolvers = resolvers => {
+const buildResolvers = (resolvers) => {
   // Transform object to only contain function.
   return Object.keys(resolvers).reduce((acc, type) => {
     if (graphql.isScalarType(resolvers[type])) {

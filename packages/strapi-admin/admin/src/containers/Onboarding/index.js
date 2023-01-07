@@ -56,7 +56,7 @@ const OnboardingVideos = () => {
     dispatch({ type: 'SET_IS_OPEN' });
     emitEvent(eventName);
   };
-  const handleClickOpenVideo = videoIndexToOpen => {
+  const handleClickOpenVideo = (videoIndexToOpen) => {
     dispatch({
       type: 'TOGGLE_VIDEO_MODAL',
       videoIndexToOpen,
@@ -88,7 +88,7 @@ const OnboardingVideos = () => {
             <FormattedMessage id="app.components.Onboarding.title" />
           </p>
           <p>
-            {Math.floor((videos.filter(v => v.end).length * 100) / videos.length)}
+            {Math.floor((videos.filter((v) => v.end).length * 100) / videos.length)}
             <FormattedMessage id="app.components.Onboarding.label.completed" />
           </p>
         </div>

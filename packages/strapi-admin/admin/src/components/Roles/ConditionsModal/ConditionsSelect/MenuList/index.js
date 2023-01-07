@@ -19,13 +19,14 @@ const MenuList = ({ selectProps, ...rest }) => {
   const Component = components.MenuList;
   const { arrayOfOptionsGroupedByCategory } = selectProps;
 
-  const initCollapses = useMemo(() => createCollapsesObject(arrayOfOptionsGroupedByCategory), [
-    arrayOfOptionsGroupedByCategory,
-  ]);
+  const initCollapses = useMemo(
+    () => createCollapsesObject(arrayOfOptionsGroupedByCategory),
+    [arrayOfOptionsGroupedByCategory]
+  );
   const [collapses, setCollapses] = useState(initCollapses);
 
-  const toggleCollapse = collapseName => {
-    setCollapses(prevState => ({ ...prevState, [collapseName]: !collapses[collapseName] }));
+  const toggleCollapse = (collapseName) => {
+    setCollapses((prevState) => ({ ...prevState, [collapseName]: !collapses[collapseName] }));
   };
 
   return (
@@ -83,7 +84,7 @@ const MenuList = ({ selectProps, ...rest }) => {
                 </Flex>
               </div>
               <SubUl tag="ul" isOpen={collapses[categoryName]}>
-                {conditions.map(condition => {
+                {conditions.map((condition) => {
                   const checkboxValue = get(selectProps.value, [categoryName, condition.id], false);
 
                   return (

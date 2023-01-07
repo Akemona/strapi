@@ -21,10 +21,10 @@ function ActionCollapse({ colSpan }) {
           id={`${pluginId}.components.TableDelete.entries.${suffix}`}
           values={{ number }}
         >
-          {message => <Delete>{message}</Delete>}
+          {(message) => <Delete>{message}</Delete>}
         </FormattedMessage>
         <FormattedMessage id={`${pluginId}.components.TableDelete.${deleteMessageId}`}>
-          {message => <DeleteAll onClick={toggleModalDeleteAll}>{message}</DeleteAll>}
+          {(message) => <DeleteAll onClick={toggleModalDeleteAll}>{message}</DeleteAll>}
         </FormattedMessage>
       </td>
     </Wrapper>

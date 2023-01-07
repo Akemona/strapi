@@ -61,6 +61,6 @@ class MigrationManager {
   }
 }
 
-module.exports = strapi => {
+module.exports = (strapi) => {
   return new MigrationManager(strapi);
 };

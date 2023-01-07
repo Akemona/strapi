@@ -5,7 +5,7 @@ import reducer, { initialState } from './reducer';
 
 import pluginId from '../../pluginId';
 
-const useFetchRole = id => {
+const useFetchRole = (id) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const useFetchRole = id => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
-  const fetchRole = async roleId => {
+  const fetchRole = async (roleId) => {
     try {
       const { role } = await request(`/${pluginId}/roles/${roleId}`, { method: 'GET' });
 
@@ -42,7 +42,7 @@ const useFetchRole = id => {
     }
   };
 
-  const handleSubmitSucceeded = useCallback(data => {
+  const handleSubmitSucceeded = useCallback((data) => {
     dispatch({
       type: 'ON_SUBMIT_SUCCEEDED',
       ...data,

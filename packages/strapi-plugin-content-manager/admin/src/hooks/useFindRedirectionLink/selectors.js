@@ -1,4 +1,4 @@
-const selectMenuLinks = state => {
+const selectMenuLinks = (state) => {
   const menuState = state.get('menu');
 
   return menuState.collectionTypesSectionLinks;

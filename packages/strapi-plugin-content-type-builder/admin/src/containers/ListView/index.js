@@ -87,7 +87,7 @@ const ListView = () => {
     push({ search: makeSearch(searchObj) });
   };
 
-  const handleClickAddComponentToDZ = async dzName => {
+  const handleClickAddComponentToDZ = async (dzName) => {
     const firstHeaderObject = {
       header_label_1: currentDataName,
       header_icon_name_1: 'dynamiczone',
@@ -163,7 +163,7 @@ const ListView = () => {
   const wait = async () => {
     togglePrompt(false);
 
-    return new Promise(resolve => setTimeout(resolve, 100));
+    return new Promise((resolve) => setTimeout(resolve, 100));
   };
   const label = get(modifiedData, [firstMainDataPath, 'schema', 'name'], '');
   const kind = get(modifiedData, [firstMainDataPath, 'schema', 'kind'], '');
@@ -269,7 +269,7 @@ const ListView = () => {
     ? [...listInjectedComponents, <ListButton {...addButtonProps} key="add-button" />]
     : listInjectedComponents;
 
-  const CustomRow = props => {
+  const CustomRow = (props) => {
     const { name } = props;
 
     return <ListRow {...props} attributeName={name} name={name} onClick={handleClickEditField} />;
@@ -301,7 +301,7 @@ const ListView = () => {
                 <ListHeader actions={listActions} title={listTitle} />
                 <List
                   items={convertAttrObjToArray(attributes)}
-                  customRowComponent={props => <CustomRow {...props} />}
+                  customRowComponent={(props) => <CustomRow {...props} />}
                   addComponentToDZ={handleClickAddComponentToDZ}
                   targetUid={targetUid}
                   dataType={forTarget}

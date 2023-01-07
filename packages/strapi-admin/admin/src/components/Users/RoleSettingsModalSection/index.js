@@ -17,7 +17,7 @@ const RoleSettingsModalSection = ({ isDisabled, modifiedData, onChange, formErro
       <Wrapper>
         <Padded top size="smd">
           <Row>
-            {Object.keys(roleSettingsForm).map(inputName => {
+            {Object.keys(roleSettingsForm).map((inputName) => {
               const value = modifiedData[inputName];
               const { description, type, Component } = roleSettingsForm[inputName];
               const error = formErrors[inputName];

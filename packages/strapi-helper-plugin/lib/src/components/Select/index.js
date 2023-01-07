@@ -10,7 +10,7 @@ export const Select = ({ children, onChange, selectedValue, ...props }) => {
   const selectStyles = getStyles(theme);
   const childrenArray = React.Children.toArray(children);
 
-  const options = childrenArray.map(child => ({
+  const options = childrenArray.map((child) => ({
     value: child.props.value,
     label: child.props.children,
   }));

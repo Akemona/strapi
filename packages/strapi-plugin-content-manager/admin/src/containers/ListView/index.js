@@ -114,9 +114,10 @@ function ListView({
 
   const label = contentType.info.label;
 
-  const firstSortableHeader = useMemo(() => getFirstSortableHeader(displayedHeaders), [
-    displayedHeaders,
-  ]);
+  const firstSortableHeader = useMemo(
+    () => getFirstSortableHeader(displayedHeaders),
+    [displayedHeaders]
+  );
 
   useEffect(() => {
     setFilterPickerState(false);
@@ -197,7 +198,7 @@ function ListView({
       let trackerProperty = {};
 
       if (hasDraftAndPublish) {
-        const dataToDelete = data.find(obj => obj.id.toString() === idToDelete.toString());
+        const dataToDelete = data.find((obj) => obj.id.toString() === idToDelete.toString());
         const isDraftEntry = isEmpty(dataToDelete.published_at);
         const status = isDraftEntry ? 'draft' : 'published';
 
@@ -261,7 +262,7 @@ function ListView({
     };
   }, [canRead, getData, slug, params, getDataSucceeded, fetchData]);
 
-  const handleClickDelete = id => {
+  const handleClickDelete = (id) => {
     setIdToDelete(id);
     toggleModalDelete();
   };
@@ -275,7 +276,7 @@ function ListView({
   }, [fetchData, didDeleteData, slug, params]);
 
   const toggleFilterPickerState = useCallback(() => {
-    setFilterPickerState(prevState => {
+    setFilterPickerState((prevState) => {
       if (!prevState) {
         emitEventRef.current('willFilterEntries');
       }
@@ -341,7 +342,7 @@ function ListView({
     };
   }, [total, headerAction, label, canRead, formatMessage]);
 
-  const handleToggleModalDeleteAll = e => {
+  const handleToggleModalDeleteAll = (e) => {
     emitEventRef.current('willBulkDeleteEntries');
     toggleModalDeleteAll(e);
   };

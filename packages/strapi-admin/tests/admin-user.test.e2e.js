@@ -7,7 +7,7 @@ const { createUtils } = require('../../../test/helpers/utils');
 
 const edition = process.env.STRAPI_DISABLE_EE === 'true' ? 'CE' : 'EE';
 
-const omitTimestamps = obj => _.omit(obj, ['updatedAt', 'createdAt', 'updated_at', 'created_at']);
+const omitTimestamps = (obj) => _.omit(obj, ['updatedAt', 'createdAt', 'updated_at', 'created_at']);
 
 /**
  * == Test Suite Overview ==
@@ -122,7 +122,7 @@ describe('Admin User CRUD (e2e)', () => {
   });
 
   test('3. Creates users with superAdmin role (success)', async () => {
-    const getBody = index => {
+    const getBody = (index) => {
       return {
         email: `user-tests${index}@strapi-e2e.com`,
         firstname: 'user_tests-firstname',
@@ -260,7 +260,7 @@ describe('Admin User CRUD (e2e)', () => {
       url: `/admin/users/batch-delete`,
       method: 'POST',
       body: {
-        ids: users.map(u => u.id),
+        ids: users.map((u) => u.id),
       },
     });
 

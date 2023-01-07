@@ -188,7 +188,7 @@ function List({
       <Wrapper className={className} isFromDynamicZone={isFromDynamicZone}>
         <table>
           <tbody>
-            {items.map(item => {
+            {items.map((item) => {
               const { type } = item;
               const CustomRow = customRowComponent;
 

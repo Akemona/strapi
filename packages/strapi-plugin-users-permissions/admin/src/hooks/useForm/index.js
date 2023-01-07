@@ -68,7 +68,7 @@ const useUserForm = (endPoint, permissions) => {
     });
   }, []);
 
-  const dispatchSetFormErrors = useCallback(errors => {
+  const dispatchSetFormErrors = useCallback((errors) => {
     dispatch({ type: 'SET_ERRORS', errors });
   }, []);
 

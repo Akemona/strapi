@@ -19,7 +19,7 @@ const Row = ({ logo, name, description, isRequired, id, icon, onConfirm }) => {
   };
 
   const handleToggle = () => {
-    setIsOpen(prev => !prev);
+    setIsOpen((prev) => !prev);
   };
 
   if (!isRequired) {

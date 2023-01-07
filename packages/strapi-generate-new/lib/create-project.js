@@ -9,11 +9,11 @@ const _ = require('lodash');
 
 const stopProcess = require('./utils/stop-process');
 const { trackUsage, captureStderr } = require('./utils/usage');
-const mergeTemplate = require('./utils/merge-template.js');
+const mergeTemplate = require('./utils/merge-template');
 
 const packageJSON = require('./resources/json/package.json');
-const createDatabaseConfig = require('./resources/templates/database.js');
-const createServerConfig = require('./resources/templates/server.js');
+const createDatabaseConfig = require('./resources/templates/database');
+const createServerConfig = require('./resources/templates/server');
 
 module.exports = async function createProject(scope, { client, connection, dependencies }) {
   console.log(`Creating a new Strapi application at ${chalk.green(scope.rootPath)}.`);
@@ -29,7 +29,7 @@ module.exports = async function createProject(scope, { client, connection, depen
     // copy dot files
     const dotFiles = await fse.readdir(join(resources, 'dot-files'));
     await Promise.all(
-      dotFiles.map(name => {
+      dotFiles.map((name) => {
         return fse.copy(join(resources, 'dot-files', name), join(rootPath, `.${name}`));
       })
     );
@@ -90,10 +90,7 @@ module.exports = async function createProject(scope, { client, connection, depen
   const loader = ora(installPrefix).start();
 
   const logInstall = (chunk = '') => {
-    loader.text = `${installPrefix} ${chunk
-      .toString()
-      .split('\n')
-      .join(' ')}`;
+    loader.text = `${installPrefix} ${chunk.toString().split('\n').join(' ')}`;
   };
 
   try {

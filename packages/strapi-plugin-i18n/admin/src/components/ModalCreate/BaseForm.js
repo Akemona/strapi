@@ -41,7 +41,7 @@ const BaseForm = ({ options, defaultOption }) => {
           options={options}
           defaultValue={defaultOption}
           filterOption={reactSelectLocaleFilter}
-          onChange={selection => {
+          onChange={(selection) => {
             setFieldValue('displayName', selection.value);
             setFieldValue('code', selection.label);
           }}

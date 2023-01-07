@@ -96,7 +96,7 @@ function generateCollectionTypeRoutes({ route, name }) {
  * Expose main routes of the generated API
  */
 
-module.exports = scope => {
+module.exports = (scope) => {
   let routes = [];
   if (!scope.args.plugin) {
     routes =

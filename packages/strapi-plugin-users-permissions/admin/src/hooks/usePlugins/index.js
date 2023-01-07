@@ -22,8 +22,8 @@ const usePlugins = (shouldFetchData = true) => {
       });
 
       const [{ permissions }, { routes }, { policies }] = await Promise.all(
-        [`/${pluginId}/permissions`, `/${pluginId}/routes`, `/${pluginId}/policies`].map(endpoint =>
-          request(endpoint, { method: 'GET' })
+        [`/${pluginId}/permissions`, `/${pluginId}/routes`, `/${pluginId}/policies`].map(
+          (endpoint) => request(endpoint, { method: 'GET' })
         )
       );
 

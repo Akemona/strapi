@@ -42,13 +42,13 @@ const FiltersCard = ({ onChange }) => {
   const renderFiltersOptions = () => {
     return filtersOptions.map(({ id, value }) => (
       <FormattedMessage id={id} key={id}>
-        {msg => <option value={value}>{msg}</option>}
+        {(msg) => <option value={value}>{msg}</option>}
       </FormattedMessage>
     ));
   };
 
   const renderNamesOptions = () => {
-    return Object.keys(filtersForm).map(key => {
+    return Object.keys(filtersForm).map((key) => {
       return (
         <option key={key} value={key}>
           {key === 'mime' ? 'type' : key}

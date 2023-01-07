@@ -32,7 +32,7 @@ function ComponentCard({ component, dzName, index, isActive, isInDevelopmentMode
       <p>{name}</p>
       <div
         className="close-btn"
-        onClick={e => {
+        onClick={(e) => {
           e.stopPropagation();
           removeComponentFromDynamicZone(dzName, index);
         }}

@@ -3,7 +3,7 @@ import { createSelector } from 'reselect';
 /**
  * Direct selector to the notificationProvider state domain
  */
-const selectNotificationProviderDomain = () => state => state.get('notification');
+const selectNotificationProviderDomain = () => (state) => state.get('notification');
 
 /**
  * Other specific selectors
@@ -14,12 +14,12 @@ const selectNotificationProviderDomain = () => state => state.get('notification'
  */
 
 const selectNotificationProvider = () =>
-  createSelector(selectNotificationProviderDomain(), notificationProviderState =>
+  createSelector(selectNotificationProviderDomain(), (notificationProviderState) =>
     notificationProviderState.toJS()
   );
 
 const selectNotifications = () =>
-  createSelector(selectNotificationProviderDomain(), notificationProviderState =>
+  createSelector(selectNotificationProviderDomain(), (notificationProviderState) =>
     notificationProviderState.get('notifications')
   );
 

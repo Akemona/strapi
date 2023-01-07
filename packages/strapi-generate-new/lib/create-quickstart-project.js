@@ -3,8 +3,8 @@
 const execa = require('execa');
 
 const { trackUsage, captureStderr } = require('./utils/usage');
-const defaultConfigs = require('./utils/db-configs.js');
-const clientDependencies = require('./utils/db-client-dependencies.js');
+const defaultConfigs = require('./utils/db-configs');
+const clientDependencies = require('./utils/db-client-dependencies');
 const createProject = require('./create-project');
 
 module.exports = async function createQuickStartProject(scope) {

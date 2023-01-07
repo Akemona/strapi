@@ -32,13 +32,8 @@ const CollectionTypeFormWrapper = ({ allLayoutData, children, slug, id, origin }
   const { push, replace } = useHistory();
   const [{ rawQuery }] = useQueryParams();
   const dispatch = useDispatch();
-  const {
-    componentsDataStructure,
-    contentTypeDataStructure,
-    data,
-    isLoading,
-    status,
-  } = useSelector(selectCrudReducer);
+  const { componentsDataStructure, contentTypeDataStructure, data, isLoading, status } =
+    useSelector(selectCrudReducer);
   const redirectionLink = useFindRedirectionLink(slug);
 
   const isMounted = useRef(true);
@@ -57,7 +52,7 @@ const CollectionTypeFormWrapper = ({ allLayoutData, children, slug, id, origin }
   }, [slug, id, isCreatingEntry, origin]);
 
   const cleanClonedData = useCallback(
-    data => {
+    (data) => {
       if (!origin) {
         return data;
       }
@@ -73,7 +68,7 @@ const CollectionTypeFormWrapper = ({ allLayoutData, children, slug, id, origin }
     [origin]
   );
 
-  const cleanReceivedData = useCallback(data => {
+  const cleanReceivedData = useCallback((data) => {
     const cleaned = removePasswordFieldsFromData(
       data,
       allLayoutDataRef.current.contentType,
@@ -128,7 +123,7 @@ const CollectionTypeFormWrapper = ({ allLayoutData, children, slug, id, origin }
     const abortController = new AbortController();
     const { signal } = abortController;
 
-    const fetchData = async signal => {
+    const fetchData = async (signal) => {
       dispatch(getData());
 
       try {
@@ -180,7 +175,7 @@ const CollectionTypeFormWrapper = ({ allLayoutData, children, slug, id, origin }
     };
   }, [cleanClonedData, cleanReceivedData, push, requestURL, dispatch, rawQuery, redirectionLink]);
 
-  const displayErrors = useCallback(err => {
+  const displayErrors = useCallback((err) => {
     const errorPayload = err.response.payload;
     console.error(errorPayload);
 
@@ -197,7 +192,7 @@ const CollectionTypeFormWrapper = ({ allLayoutData, children, slug, id, origin }
   }, []);
 
   const onDelete = useCallback(
-    async trackerProperty => {
+    async (trackerProperty) => {
       try {
         emitEventRef.current('willDeleteEntry', trackerProperty);
 

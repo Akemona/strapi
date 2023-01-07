@@ -13,7 +13,7 @@ const Picker = ({ components, isOpen, onClickAddComponent }) => {
   const [categoryToOpen, setCategoryToOpen] = useState('');
 
   const dynamicComponentCategories = useMemo(() => {
-    const componentsWithInfo = components.map(componentUid => {
+    const componentsWithInfo = components.map((componentUid) => {
       const { category, info } = getComponentLayout(componentUid);
 
       return { componentUid, category, info };
@@ -35,7 +35,7 @@ const Picker = ({ components, isOpen, onClickAddComponent }) => {
   }, [isOpen, dynamicComponentCategories]);
 
   const handleAddComponentToDz = useCallback(
-    componentUid => {
+    (componentUid) => {
       onClickAddComponent(componentUid);
       setCategoryToOpen('');
     },
@@ -43,7 +43,7 @@ const Picker = ({ components, isOpen, onClickAddComponent }) => {
   );
 
   const handleClickToggle = useCallback(
-    categoryName => {
+    (categoryName) => {
       const nextCategoryToOpen = categoryToOpen === categoryName ? '' : categoryName;
 
       setCategoryToOpen(nextCategoryToOpen);

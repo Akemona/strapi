@@ -18,11 +18,11 @@ const statusToTitleMap = {
   'did-not-create-locale': getTrad('components.Select.locales.not-available'),
 };
 
-const Option = props => {
+const Option = (props) => {
   const { formatMessage } = useIntl();
   const Component = components.Option;
   const options = get(props, ['selectProps', 'options'], {});
-  const currentOption = options.find(option => option.value === props.value);
+  const currentOption = options.find((option) => option.value === props.value);
   const titleLabelID = statusToTitleMap[currentOption.status];
   const title = formatMessage({ id: titleLabelID });
   const fontWeight = props.isFocused ? 'bold' : 'regular';

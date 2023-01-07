@@ -84,10 +84,7 @@ const productFixtures = [
 
 describe('Filtering API', () => {
   beforeAll(async () => {
-    await builder
-      .addContentType(product)
-      .addFixtures(product.name, productFixtures)
-      .build();
+    await builder.addContentType(product).addFixtures(product.name, productFixtures).build();
 
     strapi = await createStrapiInstance();
     rq = await createAuthRequest({ strapi });
@@ -154,7 +151,7 @@ describe('Filtering API', () => {
         });
 
         expect(res.body).toEqual(
-          expect.arrayContaining(data.product.map(o => expect.objectContaining(o)))
+          expect.arrayContaining(data.product.map((o) => expect.objectContaining(o)))
         );
       });
 
@@ -181,7 +178,7 @@ describe('Filtering API', () => {
           },
         });
 
-        const matching = data.product.filter(x => x.price === null);
+        const matching = data.product.filter((x) => x.price === null);
         res.body.sort((a, b) => (a.id > b.id ? 1 : -1));
         expect(Array.isArray(res.body)).toBe(true);
         expect(res.body.length).toBe(matching.length);
@@ -213,7 +210,7 @@ describe('Filtering API', () => {
         });
 
         expect(res1.body).toEqual(
-          expect.arrayContaining(data.product.map(o => expect.objectContaining(o)))
+          expect.arrayContaining(data.product.map((o) => expect.objectContaining(o)))
         );
 
         const res2 = await rq({
@@ -261,7 +258,7 @@ describe('Filtering API', () => {
         });
 
         expect(res.body).toEqual(
-          expect.arrayContaining(data.product.map(o => expect.objectContaining(o)))
+          expect.arrayContaining(data.product.map((o) => expect.objectContaining(o)))
         );
 
         const res2 = await rq({
@@ -1077,9 +1074,11 @@ describe('Filtering API', () => {
         },
       });
 
-      [data.product[3], data.product[0], data.product[2], data.product[1]].forEach(expectedPost => {
-        expect(res.body).toEqual(expect.arrayContaining([expectedPost]));
-      });
+      [data.product[3], data.product[0], data.product[2], data.product[1]].forEach(
+        (expectedPost) => {
+          expect(res.body).toEqual(expect.arrayContaining([expectedPost]));
+        }
+      );
     });
   });
 

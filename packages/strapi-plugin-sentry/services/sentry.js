@@ -1,6 +1,7 @@
 'use strict';
 
 const Sentry = require('@sentry/node');
+// eslint-disable-next-line import/extensions
 const defaultSettings = require('../config/settings.json');
 
 const createSentryService = () => {
@@ -72,7 +73,7 @@ const createSentryService = () => {
         return;
       }
 
-      instance.withScope(scope => {
+      instance.withScope((scope) => {
         // Configure the Sentry scope using the provided callback
         if (configureScope && settings.sendMetadata) {
           configureScope(scope, instance);

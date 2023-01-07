@@ -19,6 +19,7 @@ jest.mock('@sentry/node', () => {
 });
 
 let sentryService = require('../sentry');
+// eslint-disable-next-line import/extensions
 const defaultConfig = require('../../config/settings.json');
 
 describe('strapi-plugin-sentry service', () => {

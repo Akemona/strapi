@@ -53,10 +53,7 @@ const productWithCompoAndDP = {
 
 describe('CM API - Basic + compo + draftAndPublish', () => {
   beforeAll(async () => {
-    await builder
-      .addComponent(compo)
-      .addContentType(productWithCompoAndDP)
-      .build();
+    await builder.addComponent(compo).addContentType(productWithCompoAndDP).build();
 
     strapi = await createStrapiInstance();
     rq = await createAuthRequest({ strapi });
@@ -78,8 +75,7 @@ describe('CM API - Basic + compo + draftAndPublish', () => {
     };
     const res = await rq({
       method: 'POST',
-      url:
-        '/content-manager/collection-types/application::product-with-compo-and-dp.product-with-compo-and-dp',
+      url: '/content-manager/collection-types/application::product-with-compo-and-dp.product-with-compo-and-dp',
       body: product,
     });
 
@@ -92,15 +88,14 @@ describe('CM API - Basic + compo + draftAndPublish', () => {
   test('Read product with compo', async () => {
     const res = await rq({
       method: 'GET',
-      url:
-        '/content-manager/collection-types/application::product-with-compo-and-dp.product-with-compo-and-dp',
+      url: '/content-manager/collection-types/application::product-with-compo-and-dp.product-with-compo-and-dp',
     });
 
     expect(res.statusCode).toBe(200);
     expect(Array.isArray(res.body.results)).toBe(true);
     expect(res.body.results).toHaveLength(1);
     expect(res.body.results[0]).toMatchObject(data.productsWithCompoAndDP[0]);
-    res.body.results.forEach(p => {
+    res.body.results.forEach((p) => {
       expect(p.published_at).toBeNull();
     });
   });
@@ -149,8 +144,7 @@ describe('CM API - Basic + compo + draftAndPublish', () => {
       };
       const res = await rq({
         method: 'POST',
-        url:
-          '/content-manager/collection-types/application::product-with-compo-and-dp.product-with-compo-and-dp',
+        url: '/content-manager/collection-types/application::product-with-compo-and-dp.product-with-compo-and-dp',
         body: product,
       });
 
@@ -170,8 +164,7 @@ describe('CM API - Basic + compo + draftAndPublish', () => {
       };
       const res = await rq({
         method: 'POST',
-        url:
-          '/content-manager/collection-types/application::product-with-compo-and-dp.product-with-compo-and-dp',
+        url: '/content-manager/collection-types/application::product-with-compo-and-dp.product-with-compo-and-dp',
         body: product,
       });
 
@@ -191,8 +184,7 @@ describe('CM API - Basic + compo + draftAndPublish', () => {
       };
       const res = await rq({
         method: 'POST',
-        url:
-          '/content-manager/collection-types/application::product-with-compo-and-dp.product-with-compo-and-dp',
+        url: '/content-manager/collection-types/application::product-with-compo-and-dp.product-with-compo-and-dp',
         body: product,
       });
 
@@ -212,8 +204,7 @@ describe('CM API - Basic + compo + draftAndPublish', () => {
       };
       const res = await rq({
         method: 'POST',
-        url:
-          '/content-manager/collection-types/application::product-with-compo-and-dp.product-with-compo-and-dp',
+        url: '/content-manager/collection-types/application::product-with-compo-and-dp.product-with-compo-and-dp',
         body: product,
       });
 

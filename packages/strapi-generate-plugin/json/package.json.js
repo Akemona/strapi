@@ -12,7 +12,7 @@ const _ = require('lodash');
  * with basic info, dependencies, etc.
  */
 
-module.exports = scope => {
+module.exports = (scope) => {
   // Finally, return the JSON.
   return _.merge(scope.appPackageJSON || {}, {
     name: `strapi-plugin-${scope.id}`,

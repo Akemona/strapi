@@ -4,7 +4,7 @@ import { Globe, GlobeCrossed } from '@buffetjs/icons';
 import { getTrad } from '../utils';
 
 const enhanceRelationLayout = (layout, locale) =>
-  layout.map(current => {
+  layout.map((current) => {
     const labelIcon = {
       title: {
         id: getTrad('Field.localized'),
@@ -25,8 +25,8 @@ const enhanceRelationLayout = (layout, locale) =>
     return { ...current, labelIcon, queryInfos };
   });
 
-const enhanceEditLayout = layout =>
-  layout.map(row => {
+const enhanceEditLayout = (layout) =>
+  layout.map((row) => {
     const enhancedRow = row.reduce((acc, field) => {
       const type = get(field, ['fieldSchema', 'type'], null);
       const hasI18nEnabled = get(
@@ -72,7 +72,7 @@ const enhanceComponentsLayout = (components, locale) => {
 };
 
 const enhanceComponentLayoutForRelations = (layout, locale) =>
-  layout.map(row => {
+  layout.map((row) => {
     const enhancedRow = row.reduce((acc, field) => {
       if (
         get(field, ['fieldSchema', 'type']) === 'relation' &&
@@ -97,7 +97,7 @@ const enhanceComponentLayoutForRelations = (layout, locale) =>
     return enhancedRow;
   });
 
-const extendCMEditViewLayoutMiddleware = () => () => next => action => {
+const extendCMEditViewLayoutMiddleware = () => () => (next) => (action) => {
   if (action.type !== 'ContentManager/EditViewLayoutManager/SET_LAYOUT') {
     return next(action);
   }
@@ -148,7 +148,7 @@ const extendCMEditViewLayoutMiddleware = () => () => next => action => {
   return next(enhancedAction);
 };
 
-const getPathToContentType = pathArray => ['layout', 'contentType', ...pathArray];
+const getPathToContentType = (pathArray) => ['layout', 'contentType', ...pathArray];
 
 export default extendCMEditViewLayoutMiddleware;
 export {

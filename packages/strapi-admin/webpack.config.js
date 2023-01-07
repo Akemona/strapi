@@ -11,7 +11,7 @@ const DuplicatePckgChecker = require('duplicate-package-checker-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin');
 const WebpackBar = require('webpackbar');
 const isWsl = require('is-wsl');
-const alias = require('./webpack.alias.js');
+const alias = require('./webpack.alias');
 
 // TODO: parametrize
 const URLs = {
@@ -191,7 +191,7 @@ module.exports = ({
         PROJECT_TYPE: JSON.stringify(useEE ? 'Enterprise' : 'Community'),
         ENABLED_EE_FEATURES: JSON.stringify(options.features),
       }),
-      new webpack.NormalModuleReplacementPlugin(/ee_else_ce(\.*)/, function(resource) {
+      new webpack.NormalModuleReplacementPlugin(/ee_else_ce(\.*)/, function (resource) {
         let wantedPath = path.join(
           resource.context.substr(0, resource.context.lastIndexOf(`${path.sep}src${path.sep}`)),
           'src'

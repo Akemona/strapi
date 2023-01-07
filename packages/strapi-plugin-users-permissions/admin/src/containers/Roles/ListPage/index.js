@@ -38,7 +38,7 @@ const RoleListPage = () => {
 
   const { roles, getData, isLoading } = useRolesList(shouldFetchData);
 
-  const handleGoTo = id => {
+  const handleGoTo = (id) => {
     if (canUpdate) {
       push(`/settings/${pluginId}/roles/${id}`);
     }
@@ -61,7 +61,7 @@ const RoleListPage = () => {
           message: { id: getTrad('Settings.roles.deleted') },
         });
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
         strapi.notification.toggle({
           type: 'warning',
@@ -105,13 +105,13 @@ const RoleListPage = () => {
   /* eslint-enable indent */
 
   const checkCanDeleteRole = useCallback(
-    role => {
+    (role) => {
       return canDelete && !['public', 'authenticated'].includes(role.type);
     },
     [canDelete]
   );
 
-  const getLinks = role => {
+  const getLinks = (role) => {
     const links = [];
 
     if (canUpdate) {
@@ -123,7 +123,7 @@ const RoleListPage = () => {
     if (checkCanDeleteRole(role)) {
       links.push({
         icon: <FontAwesomeIcon icon="trash-alt" />,
-        onClick: e => {
+        onClick: (e) => {
           e.preventDefault();
           setModalDelete(role.id);
           e.stopPropagation();
@@ -167,7 +167,7 @@ const RoleListPage = () => {
             )}
             items={roles}
             isLoading={isLoading || isLoadingForPermissions}
-            customRowComponent={role => (
+            customRowComponent={(role) => (
               <RoleRow onClick={() => handleGoTo(role.id)} links={getLinks(role)} role={role} />
             )}
           />

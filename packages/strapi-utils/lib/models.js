@@ -16,7 +16,7 @@ module.exports = {
    * Initialize to prevent some mistakes
    */
 
-  initialize: cb => {
+  initialize: (cb) => {
     cb();
   },
 
@@ -57,8 +57,8 @@ module.exports = {
       }
 
       // We have to find if they are a model linked to this key
-      _.forEach(allModels, model => {
-        _.forIn(model.attributes, attribute => {
+      _.forEach(allModels, (model) => {
+        _.forIn(model.attributes, (attribute) => {
           if (_.has(attribute, 'via') && attribute.via === attributeName) {
             if (_.has(attribute, 'collection') && attribute.collection === modelName) {
               types.other = 'collection';
@@ -172,8 +172,8 @@ module.exports = {
       types.current = 'model';
 
       // We have to find if they are a model linked to this attributeName
-      _.forIn(models, model => {
-        _.forIn(model.attributes, attribute => {
+      _.forIn(models, (model) => {
+        _.forIn(model.attributes, (attribute) => {
           if (_.has(attribute, 'via') && attribute.via === attributeName) {
             if (_.has(attribute, 'collection') && attribute.collection === modelName) {
               types.other = 'collection';
@@ -193,8 +193,8 @@ module.exports = {
       types.current = 'collectionD';
 
       // We have to find if they are a model linked to this attributeName
-      _.forIn(models, model => {
-        _.forIn(model.attributes, attribute => {
+      _.forIn(models, (model) => {
+        _.forIn(model.attributes, (attribute) => {
           if (_.has(attribute, 'via') && attribute.via === attributeName) {
             if (_.has(attribute, 'collection') && attribute.collection === modelName) {
               types.other = 'collection';
@@ -340,7 +340,7 @@ module.exports = {
         }
         return a.collection < b.collection ? -1 : 1;
       })
-      .map(table =>
+      .map((table) =>
         _.snakeCase(`${pluralize.plural(table.collection)} ${pluralize.plural(table.via)}`)
       )
       .join('__');
@@ -350,7 +350,7 @@ module.exports = {
    * Define associations key to models
    */
 
-  defineAssociations: function(model, definition, association, key) {
+  defineAssociations: function (model, definition, association, key) {
     try {
       // Initialize associations object
       if (definition.associations === undefined) {
@@ -428,8 +428,8 @@ module.exports = {
       }
 
       const pluginsModels = Object.keys(strapi.plugins).reduce((acc, current) => {
-        Object.keys(strapi.plugins[current].models).forEach(entity => {
-          Object.keys(strapi.plugins[current].models[entity].attributes).forEach(attribute => {
+        Object.keys(strapi.plugins[current].models).forEach((entity) => {
+          Object.keys(strapi.plugins[current].models[entity].attributes).forEach((attribute) => {
             const attr = strapi.plugins[current].models[entity].attributes[attribute];
 
             if ((attr.collection || attr.model || '').toLowerCase() === model.toLowerCase()) {
@@ -442,7 +442,7 @@ module.exports = {
       }, []);
 
       const appModels = Object.keys(strapi.models).reduce((acc, entity) => {
-        Object.keys(strapi.models[entity].attributes).forEach(attribute => {
+        Object.keys(strapi.models[entity].attributes).forEach((attribute) => {
           const attr = strapi.models[entity].attributes[attribute];
 
           if ((attr.collection || attr.model || '').toLowerCase() === model.toLowerCase()) {
@@ -454,7 +454,7 @@ module.exports = {
       }, []);
 
       const componentModels = Object.keys(strapi.components).reduce((acc, entity) => {
-        Object.keys(strapi.components[entity].attributes).forEach(attribute => {
+        Object.keys(strapi.components[entity].attributes).forEach((attribute) => {
           const attr = strapi.components[entity].attributes[attribute];
 
           if ((attr.collection || attr.model || '').toLowerCase() === model.toLowerCase()) {

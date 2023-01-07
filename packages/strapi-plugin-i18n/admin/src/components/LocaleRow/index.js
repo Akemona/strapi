@@ -30,7 +30,7 @@ const LocaleSettingsPage = ({ locale, onDelete, onEdit }) => {
           <FontAwesomeIcon icon="trash-alt" />
         </span>
       ) : null,
-      onClick: e => {
+      onClick: (e) => {
         e.stopPropagation();
         onDelete(locale);
       },

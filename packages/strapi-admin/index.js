@@ -9,9 +9,9 @@ const chalk = require('chalk');
 const chokidar = require('chokidar');
 // eslint-disable-next-line node/no-extraneous-require
 const hasEE = require('strapi/lib/utils/ee');
-const getWebpackConfig = require('./webpack.config.js');
+const getWebpackConfig = require('./webpack.config');
 
-const getPkgPath = name => path.dirname(require.resolve(`${name}/package.json`));
+const getPkgPath = (name) => path.dirname(require.resolve(`${name}/package.json`));
 
 function getCustomWebpackConfig(dir, config) {
   const adminConfigPath = path.join(dir, 'admin', 'admin.config.js');
@@ -104,14 +104,14 @@ window.strapi = Object.assign(window.strapi || {}, {
 
 module.exports = {
   ${plugins
-    .map(name => {
+    .map((name) => {
       const shortName = name.replace(/^strapi-plugin-/i, '');
       const req = `require('../../plugins/${name}/admin/src').default`;
       return `'${shortName}': ${req},`;
     })
     .join('\n')}
   ${localPlugins
-    .map(name => {
+    .map((name) => {
       const shortName = name.replace(/^strapi-plugin-/i, '');
       const req = `require('../../../plugins/${name}/admin/src').default`;
       return `'${shortName}': ${req}`;
@@ -180,7 +180,7 @@ async function createCacheDir(dir) {
   const pkgJSON = require(path.join(dir, 'package.json'));
 
   const pluginsToCopy = Object.keys(pkgJSON.dependencies).filter(
-    dep =>
+    (dep) =>
       dep.startsWith('strapi-plugin') &&
       fs.existsSync(path.resolve(getPkgPath(dep), 'admin', 'src', 'index.js'))
   );
@@ -189,7 +189,7 @@ async function createCacheDir(dir) {
   if (fs.existsSync(path.join(dir, 'plugins'))) {
     localPluginsToCopy = fs
       .readdirSync(path.join(dir, 'plugins'))
-      .filter(plugin =>
+      .filter((plugin) =>
         fs.existsSync(path.resolve(dir, 'plugins', plugin, 'admin', 'src', 'index.js'))
       );
   }
@@ -203,7 +203,7 @@ async function createCacheDir(dir) {
   await copyAdmin(cacheDir);
 
   // copy plugins code
-  await Promise.all(pluginsToCopy.map(name => copyPlugin(name, cacheDir)));
+  await Promise.all(pluginsToCopy.map((name) => copyPlugin(name, cacheDir)));
 
   // override admin code with user customizations
   if (fs.pathExistsSync(path.join(dir, 'admin'))) {
@@ -225,7 +225,7 @@ async function createCacheDir(dir) {
   }, []);
 
   await Promise.all(
-    pluginsToOverride.map(plugin =>
+    pluginsToOverride.map((plugin) =>
       copyCustomAdmin(
         path.join(dir, 'extensions', plugin, 'admin'),
         path.join(cacheDir, 'plugins', `strapi-plugin-${plugin}`)
@@ -265,7 +265,7 @@ async function watchAdmin({ dir, host, port, browser, options }) {
 
   const server = new WebpackDevServer(webpack(webpackConfig), opts);
 
-  server.listen(port, host, function(err) {
+  server.listen(port, host, function (err) {
     if (err) {
       console.log(err);
     }
@@ -285,11 +285,11 @@ async function watchFiles(dir, ignoreFiles = []) {
   const extensionsPath = path.join(dir, 'extensions');
 
   const appPlugins = Object.keys(pkgJSON.dependencies).filter(
-    dep =>
+    (dep) =>
       dep.startsWith('strapi-plugin') &&
       fs.existsSync(path.resolve(getPkgPath(dep), 'admin', 'src', 'index.js'))
   );
-  const pluginsToWatch = appPlugins.map(plugin =>
+  const pluginsToWatch = appPlugins.map((plugin) =>
     path.join(extensionsPath, plugin.replace(/^strapi-plugin-/i, ''), 'admin')
   );
   const filesToWatch = [admin, ...pluginsToWatch];
@@ -344,7 +344,7 @@ async function watchFiles(dir, ignoreFiles = []) {
           // or the plugins.js file
           // since the path are different when developing inside the monorepository or inside an app
           const shouldCopyPluginsJSFile =
-            filePath.split('/admin/src').filter(p => !!p).length === 1;
+            filePath.split('/admin/src').filter((p) => !!p).length === 1;
 
           if (
             (event === 'unlinkDir' && !isExtension && shouldCopyPluginsJSFile) ||

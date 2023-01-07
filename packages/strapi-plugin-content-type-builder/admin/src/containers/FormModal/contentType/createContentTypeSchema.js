@@ -11,7 +11,7 @@ const createContentTypeSchema = (usedContentTypeNames, reservedNames) => {
       .test({
         name: 'nameAlreadyUsed',
         message: errorsTrads.unique,
-        test: value => {
+        test: (value) => {
           if (!value) {
             return false;
           }
@@ -24,7 +24,7 @@ const createContentTypeSchema = (usedContentTypeNames, reservedNames) => {
       .test({
         name: 'nameNotAllowed',
         message: getTrad('error.contentTypeName.reserved-name'),
-        test: value => {
+        test: (value) => {
           if (!value) {
             return false;
           }

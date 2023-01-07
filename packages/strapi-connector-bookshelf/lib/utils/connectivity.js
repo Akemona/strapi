@@ -3,18 +3,14 @@
 // Public node modules
 const inquirer = require('inquirer');
 
-const hasResults = rows => {
+const hasResults = (rows) => {
   if (!rows || rows.length === 0) return true;
   return false;
 };
 
 const checkDatabaseIsEmpty = {
-  postgres: client =>
-    client
-      .select('tablename')
-      .from('pg_tables')
-      .where('schemaname', 'public')
-      .then(hasResults),
+  postgres: (client) =>
+    client.select('tablename').from('pg_tables').where('schemaname', 'public').then(hasResults),
 
   mysql: (client, { database }) =>
     client
@@ -23,11 +19,7 @@ const checkDatabaseIsEmpty = {
       .where('table_schema', database)
       .then(hasResults),
 
-  sqlite: client =>
-    client
-      .select()
-      .from('sqlite_master')
-      .then(hasResults),
+  sqlite: (client) => client.select().from('sqlite_master').then(hasResults),
 };
 
 module.exports = async ({ scope, connection }) => {
@@ -42,7 +34,7 @@ module.exports = async ({ scope, connection }) => {
     useNullAsDefault: true,
   });
 
-  const destroyClientAndThrow = err => {
+  const destroyClientAndThrow = (err) => {
     return client.destroy().then(
       () => {
         throw err;
@@ -56,7 +48,7 @@ module.exports = async ({ scope, connection }) => {
   await client.raw('select 1+1 as result').catch(destroyClientAndThrow);
 
   return checkDatabaseIsEmpty[settings.client](client, settings)
-    .then(isEmpty => {
+    .then((isEmpty) => {
       if (isEmpty) return;
       if (scope.dbforce) return;
 
@@ -78,6 +70,6 @@ module.exports = async ({ scope, connection }) => {
           if (!confirm) return { shouldRetry: true };
         });
     })
-    .then(res => client.destroy().then(() => res))
+    .then((res) => client.destroy().then(() => res))
     .catch(destroyClientAndThrow);
 };

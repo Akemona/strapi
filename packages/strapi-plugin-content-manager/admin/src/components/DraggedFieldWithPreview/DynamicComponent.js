@@ -32,8 +32,8 @@ const DynamicComponent = ({ componentUid, friendlyName, icon, setIsOverDynamicZo
   }, []);
 
   const handleMouseEvent = () => {
-    setIsOverDynamicZone(v => !v);
-    setIsOver(v => !v);
+    setIsOverDynamicZone((v) => !v);
+    setIsOver((v) => !v);
   };
 
   return (

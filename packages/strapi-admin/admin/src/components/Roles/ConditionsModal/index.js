@@ -41,7 +41,7 @@ const ConditionsModal = ({
   const [state, setState] = useState(initState);
 
   const handleCategoryChange = ({ keys, value }) => {
-    setState(prevState => {
+    setState((prevState) => {
       const updatedState = cloneDeep(prevState);
       const objToUpdate = get(prevState, keys, {});
       const updatedValues = updateValues(objToUpdate, value);
@@ -53,7 +53,7 @@ const ConditionsModal = ({
   };
 
   const handleChange = ({ keys, value }) => {
-    setState(prevState => {
+    setState((prevState) => {
       const updatedState = cloneDeep(prevState);
 
       set(updatedState, keys, value);

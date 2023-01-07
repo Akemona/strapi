@@ -27,7 +27,7 @@ describe('permissionsManagerReducer', () => {
     state.userPermissions = ['test'];
     state.collectionTypesRelatedPermissions = null;
 
-    const expected = produce(state, draft => {
+    const expected = produce(state, (draft) => {
       draft.isLoading = true;
       draft.userPermissions = [];
       draft.collectionTypesRelatedPermissions = {};
@@ -38,7 +38,7 @@ describe('permissionsManagerReducer', () => {
 
   it('should handle the getUserPermissionsError action correctly', () => {
     const error = 'Error';
-    const expected = produce(state, draft => {
+    const expected = produce(state, (draft) => {
       draft.isLoading = false;
       draft.error = error;
     });
@@ -71,7 +71,7 @@ describe('permissionsManagerReducer', () => {
         conditions: [],
       },
     ];
-    const expected = produce(state, draft => {
+    const expected = produce(state, (draft) => {
       draft.isLoading = false;
       draft.userPermissions = data;
       draft.collectionTypesRelatedPermissions = {

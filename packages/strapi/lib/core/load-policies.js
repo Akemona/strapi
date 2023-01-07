@@ -5,11 +5,11 @@ const path = require('path');
 const _ = require('lodash');
 const fse = require('fs-extra');
 
-module.exports = dir => {
+module.exports = (dir) => {
   if (!fse.existsSync(dir)) return {};
 
   const root = {};
-  const paths = fse.readdirSync(dir, { withFileTypes: true }).filter(fd => fd.isFile());
+  const paths = fse.readdirSync(dir, { withFileTypes: true }).filter((fd) => fd.isFile());
 
   for (let fd of paths) {
     const { name } = fd;
@@ -23,7 +23,7 @@ module.exports = dir => {
   return root;
 };
 
-const loadPolicy = file => {
+const loadPolicy = (file) => {
   try {
     const policy = require(file);
 

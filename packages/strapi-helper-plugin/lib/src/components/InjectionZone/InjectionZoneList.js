@@ -10,16 +10,16 @@ const List = styled.ul`
 `;
 
 const ListItem = styled.li`
-  font-size: ${p => p.theme.main.sizes.fonts.md};
+  font-size: ${(p) => p.theme.main.sizes.fonts.md};
 
   &:before {
-    background: ${p => p.theme.main.colors.grey};
+    background: ${(p) => p.theme.main.colors.grey};
     width: 4px;
     height: 4px;
     content: '';
     position: absolute;
     border-radius: 50%;
-    margin-left: -${p => p.theme.main.sizes.margins.sm};
+    margin-left: -${(p) => p.theme.main.sizes.margins.sm};
     margin-top: 8px;
   }
 `;
@@ -33,7 +33,7 @@ const InjectionZoneList = ({ area, ...props }) => {
 
   return (
     <List>
-      {compos.map(compo => {
+      {compos.map((compo) => {
         const component = compo.Component(props);
 
         if (component) {

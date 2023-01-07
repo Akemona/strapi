@@ -70,7 +70,7 @@ jest.mock('strapi-helper-plugin', () => ({
 }));
 
 jest.mock('../../../utils', () => ({
-  getTrad: x => x,
+  getTrad: (x) => x,
 }));
 
 jest.mock('react-intl', () => ({
@@ -562,7 +562,7 @@ describe('i18n settings page', () => {
 
   describe('create', () => {
     beforeEach(() => {
-      request.mockImplementation(url =>
+      request.mockImplementation((url) =>
         url.includes('/i18n/locales')
           ? Promise.resolve([])
           : Promise.resolve([

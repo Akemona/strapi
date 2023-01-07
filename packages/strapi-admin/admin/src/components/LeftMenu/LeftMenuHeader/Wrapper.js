@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import Logo from '../../../assets/images/logo-strapi.png';
 
 const Wrapper = styled.div`
-  background-color: ${props => props.theme.main.colors.leftMenu['background-header-link']};
+  background-color: ${(props) => props.theme.main.colors.leftMenu['background-header-link']};
   padding-left: 2rem;
-  height: ${props => props.theme.main.sizes.leftMenu.height};
+  height: ${(props) => props.theme.main.sizes.leftMenu.height};
 
   .leftMenuHeaderLink {
     &:hover {
@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   .projectName {
     display: block;
     width: 100%;
-    height: ${props => props.theme.main.sizes.leftMenu.height};
+    height: ${(props) => props.theme.main.sizes.leftMenu.height};
     font-size: 2rem;
     letter-spacing: 0.2rem;
     color: $white;

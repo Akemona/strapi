@@ -103,7 +103,7 @@ const AttributeOption = forwardRef(({ tabIndex, type }, ref) => {
         <Card>
           <AttributeIcon type={type} style={{ marginRight: 10 }} className="attributeIcon" />
           <FormattedMessage id={getTrad(`attribute.${type}`)}>
-            {message => <span className="attributeType">{message}</span>}
+            {(message) => <span className="attributeType">{message}</span>}
           </FormattedMessage>
           <FormattedMessage id={getTrad(`attribute.${type}.description`)} />
         </Card>

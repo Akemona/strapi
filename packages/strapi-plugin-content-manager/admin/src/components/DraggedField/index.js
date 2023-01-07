@@ -84,7 +84,7 @@ const DraggedField = forwardRef(
               isOverEditBlock={showEditBlockOverState}
               isOverRemove={isOverRemove}
               ref={ref}
-              onClick={e => {
+              onClick={(e) => {
                 e.stopPropagation();
                 e.preventDefault();
               }}
@@ -134,9 +134,9 @@ const DraggedField = forwardRef(
         {type === 'component' && (
           <CheckPermissions permissions={pluginPermissions.componentsConfigurations}>
             <FormattedMessage id={`${pluginId}.components.FieldItem.linkToComponentLayout`}>
-              {msg => (
+              {(msg) => (
                 <Link
-                  onClick={e => {
+                  onClick={(e) => {
                     e.stopPropagation();
 
                     goTo(`/plugins/${pluginId}/components/${componentUid}/configurations/edit`);

@@ -14,11 +14,11 @@ import * as yup from 'yup';
 import { translatedErrors as errorsTrads } from 'strapi-helper-plugin';
 
 yup.addMethod(yup.mixed, 'defined', function() {
-  return this.test('defined', errorsTrads.required, value => value !== undefined);
+  return this.test('defined', errorsTrads.required, (value) => value !== undefined);
 });
 
 yup.addMethod(yup.array, 'notEmptyMin', function(min) {
-  return this.test('notEmptyMin', errorsTrads.min, value => {
+  return this.test('notEmptyMin', errorsTrads.min, (value) => {
     if (isEmpty(value)) {
       return true;
     }
@@ -55,7 +55,7 @@ yup.addMethod(yup.string, 'isSuperior', function(message, min) {
   });
 });
 
-const getAttributes = data => get(data, ['attributes'], {});
+const getAttributes = (data) => get(data, ['attributes'], {});
 
 const createYupSchema = (
   model,
@@ -100,7 +100,7 @@ const createYupSchema = (
 
         if (attribute.repeatable === true) {
           const { min, max, required } = attribute;
-          let componentSchema = yup.lazy(value => {
+          let componentSchema = yup.lazy((value) => {
             let baseSchema = yup.array().of(componentFieldSchema);
 
             if (min && !options.isDraft) {
@@ -124,7 +124,7 @@ const createYupSchema = (
 
           return acc;
         }
-        const componentSchema = yup.lazy(obj => {
+        const componentSchema = yup.lazy((obj) => {
           if (obj !== undefined) {
             return attribute.required === true && !options.isDraft
               ? componentFieldSchema.defined()
@@ -153,7 +153,7 @@ const createYupSchema = (
         const { max, min } = attribute;
 
         if (attribute.required && !options.isDraft) {
-          dynamicZoneSchema = dynamicZoneSchema.test('required', errorsTrads.required, value => {
+          dynamicZoneSchema = dynamicZoneSchema.test('required', errorsTrads.required, (value) => {
             if (options.isCreatingEntry) {
               return value !== null || value !== undefined;
             }
@@ -167,7 +167,7 @@ const createYupSchema = (
 
           if (min) {
             dynamicZoneSchema = dynamicZoneSchema
-              .test('min', errorsTrads.min, value => {
+              .test('min', errorsTrads.min, (value) => {
                 if (options.isCreatingEntry) {
                   return value && value.length > 0;
                 }
@@ -178,7 +178,7 @@ const createYupSchema = (
 
                 return value !== null && value.length > 0;
               })
-              .test('required', errorsTrads.required, value => {
+              .test('required', errorsTrads.required, (value) => {
                 if (options.isCreatingEntry) {
                   return value !== null || value !== undefined;
                 }
@@ -219,7 +219,7 @@ const createYupSchemaAttribute = (type, validations, options) => {
   if (type === 'json') {
     schema = yup
       .mixed(errorsTrads.json)
-      .test('isJSON', errorsTrads.json, value => {
+      .test('isJSON', errorsTrads.json, (value) => {
         if (value === undefined) {
           return true;
         }
@@ -246,7 +246,7 @@ const createYupSchemaAttribute = (type, validations, options) => {
   if (['number', 'integer', 'biginteger', 'float', 'decimal'].includes(type)) {
     schema = yup
       .number()
-      .transform(cv => (isNaN(cv) ? undefined : cv))
+      .transform((cv) => (isNaN(cv) ? undefined : cv))
       .typeError();
   }
 
@@ -258,7 +258,7 @@ const createYupSchemaAttribute = (type, validations, options) => {
     schema = yup.string().matches(/^\d*$/);
   }
 
-  Object.keys(validations).forEach(validation => {
+  Object.keys(validations).forEach((validation) => {
     const validationValue = validations[validation];
 
     if (
@@ -277,7 +277,7 @@ const createYupSchemaAttribute = (type, validations, options) => {
               if (options.isCreatingEntry) {
                 schema = schema.required(errorsTrads.required);
               } else {
-                schema = schema.test('required', errorsTrads.required, value => {
+                schema = schema.test('required', errorsTrads.required, (value) => {
                   // Field is not touched and the user is editing the entry
                   if (value === undefined && !options.isFromComponent) {
                     return true;

@@ -72,7 +72,7 @@ const PermissionRow = ({ isOpen, isWhite, name, onOpenPlugin, permissions }) => 
       </RowStyle>
       {isOpen && (
         <PermissionsWrapper isWhite={isWhite}>
-          {subCategories.map(subCategory => (
+          {subCategories.map((subCategory) => (
             <SubCategory key={subCategory.name} subCategory={subCategory} />
           ))}
         </PermissionsWrapper>

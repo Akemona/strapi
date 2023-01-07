@@ -2,7 +2,7 @@
 
 const { Strategy: LocalStrategy } = require('passport-local');
 
-const createLocalStrategy = strapi => {
+const createLocalStrategy = (strapi) => {
   return new LocalStrategy(
     {
       usernameField: 'email',
@@ -13,7 +13,7 @@ const createLocalStrategy = strapi => {
       return strapi.admin.services.auth
         .checkCredentials({ email, password })
         .then(([error, user, message]) => done(error, user, message))
-        .catch(error => done(error));
+        .catch((error) => done(error));
     }
   );
 };

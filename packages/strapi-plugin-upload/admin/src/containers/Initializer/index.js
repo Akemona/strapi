@@ -19,7 +19,7 @@ const Initializer = ({ updatePlugin }) => {
 
       try {
         const { data } = await request(requestURL, { method: 'GET' });
-        const fileModel = data.find(model => model.uid === 'plugins::upload.file');
+        const fileModel = data.find((model) => model.uid === 'plugins::upload.file');
 
         ref.current(pluginId, 'fileModel', fileModel);
         ref.current(pluginId, 'isReady', true);

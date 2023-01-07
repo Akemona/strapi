@@ -31,7 +31,7 @@ const addQsParser = (app, settings) => {
   return app;
 };
 
-module.exports = strapi => {
+module.exports = (strapi) => {
   return {
     /**
      * Initialize the hook

@@ -3,9 +3,10 @@
 const convert = require('koa-convert');
 const { xssProtection } = require('koa-lusca');
 
-module.exports = strapi => {
+module.exports = (strapi) => {
   return {
     initialize() {
+      // eslint-disable-next-line import/extensions
       const defaults = require('./defaults.json');
 
       strapi.app.use(async (ctx, next) => {

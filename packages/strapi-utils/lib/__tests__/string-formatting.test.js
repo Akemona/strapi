@@ -1,6 +1,12 @@
 'use strict';
 
-const { escapeQuery, stringIncludes, stringEquals, getCommonBeginning, getCommonPath } = require('../string-formatting');
+const {
+  escapeQuery,
+  stringIncludes,
+  stringEquals,
+  getCommonBeginning,
+  getCommonPath,
+} = require('../string-formatting');
 
 describe('string-formatting', () => {
   describe('Escape Query', () => {
@@ -91,5 +97,4 @@ describe('string-formatting', () => {
       expect(result).toBe(expectedResult);
     });
   });
-
 });

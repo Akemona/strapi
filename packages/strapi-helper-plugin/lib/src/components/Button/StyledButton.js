@@ -177,7 +177,7 @@ const StyledButton = styled.button`
     `;
   }}
 
-  ${props => {
+  ${(props) => {
     if (props.primary) {
       return primary;
     }
@@ -242,11 +242,11 @@ const StyledButton = styled.button`
   }
 
   .saving span:nth-child(2) {
-    animation-delay: .2s;
+    animation-delay: 0.2s;
   }
 
   .saving span:nth-child(3) {
-    animation-delay: .4s;
+    animation-delay: 0.4s;
   }
 `;
 

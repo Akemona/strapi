@@ -18,7 +18,7 @@ const forms = {
     ) {
       const attributes = get(currentSchema, ['schema', 'attributes'], {});
 
-      const usedAttributeNames = Object.keys(attributes).filter(attr => {
+      const usedAttributeNames = Object.keys(attributes).filter((attr) => {
         return attr !== options.initialData.name;
       });
 
@@ -73,7 +73,7 @@ const forms = {
   contentType: {
     schema(alreadyTakenNames, isEditing, ctUid, reservedNames, extensions) {
       const takenNames = isEditing
-        ? alreadyTakenNames.filter(uid => uid !== ctUid)
+        ? alreadyTakenNames.filter((uid) => uid !== ctUid)
         : alreadyTakenNames;
 
       const contentTypeShape = createContentTypeSchema(takenNames, reservedNames.models);
@@ -111,7 +111,7 @@ const forms = {
       compoUid = null
     ) {
       const takenNames = isEditing
-        ? alreadyTakenAttributes.filter(uid => uid !== compoUid)
+        ? alreadyTakenAttributes.filter((uid) => uid !== compoUid)
         : alreadyTakenAttributes;
 
       return createComponentSchema(takenNames, reservedNames.models, componentCategory);
@@ -148,8 +148,8 @@ const forms = {
   editCategory: {
     schema(allCategories, initialData) {
       const allowedCategories = allCategories
-        .filter(cat => cat !== initialData.name)
-        .map(cat => toLower(cat));
+        .filter((cat) => cat !== initialData.name)
+        .map((cat) => toLower(cat));
 
       return createCategorySchema(allowedCategories);
     },

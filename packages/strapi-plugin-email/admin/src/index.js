@@ -15,7 +15,7 @@ import trads from './translations';
 import getTrad from './utils/getTrad';
 import SettingsPage from './containers/Settings';
 
-export default strapi => {
+export default (strapi) => {
   const pluginDescription = pluginPkg.strapi.description || pluginPkg.description;
 
   const plugin = {

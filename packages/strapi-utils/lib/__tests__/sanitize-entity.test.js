@@ -282,7 +282,7 @@ describe('Sanitize Entity', () => {
 
       const expected = {
         ..._.pick(inputWithDz, ['id', 'firstname', 'lastname']),
-        dz: inputWithDz.dz.map(comp => _.pick(comp, ['__component', 'name', 'content'])),
+        dz: inputWithDz.dz.map((comp) => _.pick(comp, ['__component', 'name', 'content'])),
       };
 
       expect(sanitizeEntity(inputWithDz, { model })).toStrictEqual(expected);

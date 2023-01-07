@@ -43,10 +43,7 @@ const compo = {
 
 describe('Core API - Basic', () => {
   beforeAll(async () => {
-    await builder
-      .addComponent(compo)
-      .addContentType(product)
-      .build();
+    await builder.addComponent(compo).addContentType(product).build();
 
     strapi = await createStrapiInstance();
     rq = await createAuthRequest({ strapi });
@@ -91,7 +88,7 @@ describe('Core API - Basic', () => {
         }),
       ])
     );
-    res.body.forEach(p => expect(p.published_at).toBeUndefined());
+    res.body.forEach((p) => expect(p.published_at).toBeUndefined());
   });
 
   test('Update product', async () => {

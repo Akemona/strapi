@@ -59,7 +59,7 @@ const EditPage = () => {
     ];
   };
 
-  const handleCreateRoleSubmit = data => {
+  const handleCreateRoleSubmit = (data) => {
     strapi.lockAppWithOverlay();
     setIsSubmiting(true);
 
@@ -79,7 +79,7 @@ const EditPage = () => {
           message: { id: getTrad('Settings.roles.edited') },
         });
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
         strapi.notification.toggle({
           type: 'warning',
