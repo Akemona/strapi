@@ -8,7 +8,7 @@ const hasEditMainField = has('edit.mainField');
 const getEditMainField = prop('edit.mainField');
 const assocListMainField = assoc('list.mainField');
 
-const assocMainField = metadata =>
+const assocMainField = (metadata) =>
   hasEditMainField(metadata) ? assocListMainField(getEditMainField(metadata), metadata) : metadata;
 
 module.exports = {
@@ -32,7 +32,7 @@ module.exports = {
 
     const contentTypes = await findAllContentTypes();
     const configurations = await Promise.all(
-      contentTypes.map(async contentType => {
+      contentTypes.map(async (contentType) => {
         const { uid, settings } = await findConfiguration(contentType);
         return { uid, settings };
       })
@@ -77,7 +77,7 @@ module.exports = {
     const { body } = ctx.request;
 
     const contentTypeService = getService('content-types');
-    const metricsService = getService('metrics');
+    // const metricsService = getService('metrics');
 
     const contentType = await contentTypeService.findContentType(uid);
 
@@ -105,7 +105,7 @@ module.exports = {
 
     const newConfiguration = await contentTypeService.updateConfiguration(contentType, input);
 
-    await metricsService.sendDidConfigureListView(contentType, newConfiguration);
+    // await metricsService.sendDidConfigureListView(contentType, newConfiguration);
 
     ctx.body = { data: newConfiguration };
   },

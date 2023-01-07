@@ -7,11 +7,11 @@
 // Public node modules.
 const fs = require('fs');
 const path = require('path');
-const { errors } = require('strapi-plugin-upload');
+const { errors } = require('@akemona-org/strapi-plugin-upload');
 
 module.exports = {
   init({ sizeLimit = 1000000 } = {}) {
-    const verifySize = file => {
+    const verifySize = (file) => {
       if (file.size > sizeLimit) {
         throw errors.entityTooLarge();
       }
@@ -32,7 +32,7 @@ module.exports = {
           fs.writeFile(
             path.join(uploadDir, `/uploads/${file.hash}${file.ext}`),
             file.buffer,
-            err => {
+            (err) => {
               if (err) {
                 return reject(err);
               }
@@ -53,7 +53,7 @@ module.exports = {
           }
 
           // remove file from public/assets folder
-          fs.unlink(filePath, err => {
+          fs.unlink(filePath, (err) => {
             if (err) {
               return reject(err);
             }
