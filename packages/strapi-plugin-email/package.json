@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.7.0",
+  "version": "3.7.1",
   "description": "Easily configure your Strapi application to send emails.",
   "strapi": {
     "name": "Email",
@@ -15,12 +15,12 @@
     "test": "echo \"no tests yet\""
   },
   "dependencies": {
-    "@akemona-org/strapi-provider-email-sendmail": "3.7.0",
-    "@akemona-org/strapi-utils": "3.7.0",
+    "@akemona-org/strapi-provider-email-sendmail": "3.7.1",
+    "@akemona-org/strapi-utils": "3.7.1",
     "lodash": "4.17.21"
   },
   "devDependencies": {
-    "@akemona-org/strapi-helper-plugin": "3.7.0",
+    "@akemona-org/strapi-helper-plugin": "3.7.1",
     "rimraf": "3.0.2"
   },
   "author": {
