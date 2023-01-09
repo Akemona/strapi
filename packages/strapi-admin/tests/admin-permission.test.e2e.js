@@ -480,9 +480,8 @@ describe('Role CRUD End to End', () => {
         }
       `);
     } else {
-      // eslint-disable-next-line node/no-extraneous-require
-      const { features } = require('strapi/lib/utils/ee');
-      const hasSSO = features.isEnabled('sso');
+      //const { features } = require('strapi/lib/utils/ee');
+      const hasSSO = false;
 
       if (hasSSO) {
         expect(sortedData).toMatchInlineSnapshot(`

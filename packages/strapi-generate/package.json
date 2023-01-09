@@ -48,5 +48,6 @@
     "node": ">=10.16.0 <=14.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "SEE LICENSE IN LICENSE"
+  "license": "SEE LICENSE IN LICENSE",
+  "gitHead": "56521c15c8e31f5d14bb4db6b45af2f7e291f54b"
 }

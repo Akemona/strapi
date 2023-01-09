@@ -1,8 +1,7 @@
 'use strict';
 
-// eslint-disable-next-line node/no-extraneous-require
-const strapiAdmin = require('@akemona-org/strapi-admin');
-const { getConfigUrls, getAbsoluteServerUrl } = require('@akemona-org/strapi-utils');
+const strapiAdmin = require('../../../strapi-admin');
+const { getConfigUrls, getAbsoluteServerUrl } = require('../../../strapi-utils');
 const loadConfiguration = require('../core/app-configuration');
 const ee = require('../utils/ee');
 const addSlash = require('../utils/addSlash');

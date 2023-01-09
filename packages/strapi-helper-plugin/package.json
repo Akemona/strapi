@@ -84,5 +84,6 @@
     "reactstrap": "8.4.1",
     "styled-components": "^5.2.3",
     "whatwg-fetch": "^3.6.2"
-  }
+  },
+  "gitHead": "56521c15c8e31f5d14bb4db6b45af2f7e291f54b"
 }

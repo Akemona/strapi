@@ -36,5 +36,6 @@
     "lodash": "4.17.21",
     "p-map": "4.0.0",
     "verror": "^1.10.0"
-  }
+  },
+  "gitHead": "56521c15c8e31f5d14bb4db6b45af2f7e291f54b"
 }
