@@ -24,7 +24,7 @@
 
 <p align="center">
   <a href="https://strapi.akemona.com">
-    <img src="https://raw.githubusercontent.com/strapi/strapi/master/public/assets/administration_panel.png" alt="Administration panel" />
+    <img src="https://raw.githubusercontent.com/akemona/strapi/master/public/assets/administration_panel.png" alt="Administration panel" />
   </a>
 </p>
 
@@ -40,7 +40,7 @@ We’ve decided it’ll soon be time to end the support for `strapi`.
 
 After years of iterations, Strapi is going to V4 and we won’t maintain V3 packages when it’ll reach its end-of-support milestone (~end of Q3 2022).
 
-If you’ve been using `strapi` and have migrated to V4 (or if you want to), you can find the equivalent and updated version of this package at this [URL](https://github.com/strapi/strapi/tree/master/packages/core/strapi) and with the following name on NPM: `@strapi/strapi`.
+If you’ve been using `strapi` and have migrated to V4 (or if you want to), you can find the equivalent and updated version of this package at this [URL](https://github.com/akemona/strapi/tree/master/packages/core/strapi) and with the following name on NPM: `@strapi/strapi`.
 
 If you’ve contributed to the development of this package, thank you again for that! We hope to see you on the V4 soon.
 

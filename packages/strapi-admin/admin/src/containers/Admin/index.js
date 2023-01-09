@@ -128,7 +128,7 @@ export class Admin extends React.Component {
     try {
       const {
         data: { tag_name },
-      } = await axios.get('https://api.github.com/repos/strapi/strapi/releases/latest');
+      } = await axios.get('https://api.github.com/repos/akemona/strapi/releases/latest');
       const shouldUpdateStrapi = checkLatestStrapiVersion(strapiVersion, tag_name);
 
       getStrapiLatestReleaseSucceeded(tag_name, shouldUpdateStrapi);
@@ -144,7 +144,7 @@ export class Admin extends React.Component {
           type: 'info',
           message: { id: 'notification.version.update.message' },
           link: {
-            url: `https://github.com/strapi/strapi/releases/tag/${tag_name}`,
+            url: `https://github.com/akemona/strapi/releases/tag/${tag_name}`,
             label: {
               id: 'notification.version.update.link',
             },

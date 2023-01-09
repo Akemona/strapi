@@ -1005,7 +1005,7 @@ module.exports = {
     const mainComponent = this.generateMainComponent(attributes, modelAssociations, upperFirstTag);
 
     // Get Component that doesn't display the privates attributes since a mask is applied
-    // Please refer https://github.com/strapi/strapi/blob/585800b7b98093f596759b296a43f89c491d4f4f/packages/strapi/lib/middlewares/mask/index.js#L92-L100
+    // Please refer https://github.com/akemona/strapi/blob/585800b7b98093f596759b296a43f89c491d4f4f/packages/strapi/lib/middlewares/mask/index.js#L92-L100
     const getComponent = Object.keys(mainComponent.properties).reduce(
       (acc, current) => {
         if (privateAttributes.indexOf(current) === -1) {

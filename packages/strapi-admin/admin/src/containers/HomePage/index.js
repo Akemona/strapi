@@ -32,7 +32,7 @@ const FIRST_BLOCK_LINKS = [
 const SOCIAL_LINKS = [
   {
     name: 'GitHub',
-    link: 'https://github.com/strapi/strapi/',
+    link: 'https://github.com/akemona/strapi/',
   },
   {
     name: 'Discord',

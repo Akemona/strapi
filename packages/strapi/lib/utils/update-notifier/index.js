@@ -23,7 +23,7 @@ const boxenOptions = {
 const geUpdatetMessage = (newVersion, currentVersion) => {
   const currentVersionLog = chalk.dim(currentVersion);
   const newVersionLog = chalk.green(newVersion);
-  const releaseLink = chalk.bold('https://github.com/strapi/strapi/releases');
+  const releaseLink = chalk.bold('https://github.com/akemona/strapi/releases');
 
   return `
 A new version of Strapi is available ${currentVersionLog} → ${newVersionLog}

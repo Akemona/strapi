@@ -26,7 +26,7 @@ function LeftMenuFooter({ version }) {
         </A>
         &nbsp;
         <A
-          href={`https://github.com/strapi/strapi/releases/tag/v${version}`}
+          href={`https://github.com/akemona/strapi/releases/tag/v${version}`}
           key="github"
           target="_blank"
           rel="noopener noreferrer"

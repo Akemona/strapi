@@ -47,7 +47,7 @@ const ApplicationInfosPage = () => {
   const upgradeLink = shouldUpdateStrapi
     ? {
         label: upgradeLabel,
-        href: `https://github.com/strapi/strapi/releases/tag/${latestStrapiReleaseTag}`,
+        href: `https://github.com/akemona/strapi/releases/tag/${latestStrapiReleaseTag}`,
       }
     : null;
   /* eslint-enable indent */
