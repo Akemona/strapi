@@ -43,14 +43,14 @@ const loadLocalHooks = (appPath, hooks) => loadHooksInDir(path.resolve(appPath, 
 
 const loadPluginsHooks = async (plugins, hooks) => {
   for (let pluginName of plugins) {
-    const dir = path.resolve(findPackagePath(`strapi-plugin-${pluginName}`), 'hooks');
+    const dir = path.resolve(findPackagePath(`@akemona-org/strapi-plugin-${pluginName}`), 'hooks');
     await loadHooksInDir(dir, hooks);
   }
 };
 
 const loadAdminHooks = async (hooks) => {
   const hooksDir = 'hooks';
-  const dir = path.resolve(findPackagePath('strapi-admin'), hooksDir);
+  const dir = path.resolve(findPackagePath('@akemona-org/strapi-admin'), hooksDir);
   await loadHooksInDir(dir, hooks);
 
   // load ee admin hooks if they exist

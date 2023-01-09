@@ -29,7 +29,7 @@ module.exports = async (plugins) => {
     // check if rebuild is necessary
     let shouldRebuild = false;
     for (let name of plugins) {
-      let pkgPath = findPackagePath(`strapi-plugin-${name}`);
+      let pkgPath = findPackagePath(`@akemona-org/strapi-plugin-${name}`);
       if (existsSync(join(pkgPath, 'admin', 'src', 'index.js'))) {
         shouldRebuild = true;
       }
