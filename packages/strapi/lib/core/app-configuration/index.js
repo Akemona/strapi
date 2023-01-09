@@ -80,10 +80,10 @@ module.exports = (dir, initialConfig = {}) => {
       ...pkgJSON,
       strapi: strapiVersion,
     },
-    installedPlugins: getPrefixedDeps('strapi-plugin', pkgJSON),
-    installedMiddlewares: getPrefixedDeps('strapi-middleware', pkgJSON),
-    installedHooks: getPrefixedDeps('strapi-hook', pkgJSON),
-    installedProviders: getPrefixedDeps('strapi-provider', pkgJSON),
+    installedPlugins: getPrefixedDeps('@akemona-org/strapi-plugin', pkgJSON),
+    installedMiddlewares: getPrefixedDeps('@akemona-org/strapi-middleware', pkgJSON),
+    installedHooks: getPrefixedDeps('@akemona-org/strapi-hook', pkgJSON),
+    installedProviders: getPrefixedDeps('@akemona-org/strapi-provider', pkgJSON),
   };
 
   const baseConfig = {

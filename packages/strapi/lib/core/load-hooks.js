@@ -77,7 +77,7 @@ const loadLocalPluginsHooks = async (appPath, hooks) => {
 
 const loadHookDependencies = async (installedHooks, hooks) => {
   for (let hook of installedHooks) {
-    const hookDir = path.dirname(require.resolve(`strapi-hook-${hook}`));
+    const hookDir = path.dirname(require.resolve(`@akemona-org/strapi-hook-${hook}`));
 
     const files = await glob('*(index|defaults).*(js|json)', {
       cwd: hookDir,
@@ -94,7 +94,11 @@ const mountHooks = (name, files, hooks) => {
 
     let dependencies = [];
     try {
-      dependencies = _.get(require(`strapi-hook-${name}/package.json`), 'strapi.dependencies', []);
+      dependencies = _.get(
+        require(`@akemona-org/strapi-hook-${name}/package.json`),
+        'strapi.dependencies',
+        []
+      );
     } catch (err) {
       // Silent
     }

@@ -93,7 +93,9 @@ const createLoaders = (strapi) => {
 
   const loadMiddlewareDependencies = async (packages, middlewares) => {
     for (let packageName of packages) {
-      const baseDir = path.dirname(require.resolve(`strapi-middleware-${packageName}`));
+      const baseDir = path.dirname(
+        require.resolve(`@akemona-org/strapi-middleware-${packageName}`)
+      );
       const files = await glob('*(index|defaults).*(js|json)', {
         cwd: baseDir,
         absolute: true,
