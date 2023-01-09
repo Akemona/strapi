@@ -10,16 +10,16 @@ const moduleNameMapper = {
   ],
 };
 
-if (IS_EE) {
-  const rootDirEE = [
-    '<rootDir>/packages/strapi-admin/ee/admin$1',
-    '<rootDir>/packages/strapi-plugin-*/ee/admin$1',
-  ];
+// if (IS_EE) {
+//   const rootDirEE = [
+//     '<rootDir>/packages/strapi-admin/ee/admin$1',
+//     '<rootDir>/packages/strapi-plugin-*/ee/admin$1',
+//   ];
 
-  Object.assign(moduleNameMapper, {
-    '^ee_else_ce(/.*)$': rootDirEE,
-  });
-}
+//   Object.assign(moduleNameMapper, {
+//     '^ee_else_ce(/.*)$': rootDirEE,
+//   });
+// }
 
 module.exports = {
   collectCoverageFrom: [

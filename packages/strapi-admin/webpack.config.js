@@ -189,7 +189,7 @@ module.exports = ({
         MODE: JSON.stringify(URLs.mode), // Allow us to define the public path for the plugins assets.
         PUBLIC_PATH: JSON.stringify(options.publicPath),
         PROJECT_TYPE: JSON.stringify(useEE ? 'Enterprise' : 'Community'),
-        ENABLED_EE_FEATURES: JSON.stringify(options.features),
+        ENABLED_EE_FEATURES: JSON.stringify(/* options.features */ []),
       }),
       new webpack.NormalModuleReplacementPlugin(/ee_else_ce(\.*)/, function (resource) {
         let wantedPath = path.join(
@@ -197,14 +197,14 @@ module.exports = ({
           'src'
         );
 
-        if (useEE) {
+        /*   if (useEE) {
           resource.request = resource.request.replace(
             /ee_else_ce/,
             path.join(wantedPath, '../..', 'ee/admin')
           );
-        } else {
-          resource.request = resource.request.replace(/ee_else_ce/, path.join(wantedPath));
-        }
+        } else { */
+        resource.request = resource.request.replace(/ee_else_ce/, path.join(wantedPath));
+        /* } */
       }),
       ...webpackPlugins,
     ],
