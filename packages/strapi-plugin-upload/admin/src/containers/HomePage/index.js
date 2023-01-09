@@ -10,7 +10,7 @@ import {
   generateSearchFromFilters,
   request,
   useQuery,
-} from 'strapi-helper-plugin';
+} from '@akemona-org/strapi-helper-plugin';
 import { formatFileForEditing, getRequestUrl, getTrad, getFileModelTimestamps } from '../../utils';
 import Container from '../../components/Container';
 import HomePageContent from './HomePageContent';

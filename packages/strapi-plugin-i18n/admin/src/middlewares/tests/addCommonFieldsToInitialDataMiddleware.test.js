@@ -1,6 +1,6 @@
 import addCommonFieldsToInitialDataMiddleware from '../addCommonFieldsToInitialDataMiddleware';
 
-jest.mock('strapi-helper-plugin', () => ({
+jest.mock('@akemona-org/strapi-helper-plugin', () => ({
   request: () => ({
     nonLocalizedFields: { common: 'test' },
     localizations: ['test'],

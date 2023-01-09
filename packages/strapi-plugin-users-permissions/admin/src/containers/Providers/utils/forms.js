@@ -1,5 +1,5 @@
 import * as yup from 'yup';
-import { translatedErrors } from 'strapi-helper-plugin';
+import { translatedErrors } from '@akemona-org/strapi-helper-plugin';
 
 import { getTrad } from '../../../utils';
 

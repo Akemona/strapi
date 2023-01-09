@@ -3,7 +3,7 @@ import { Header, Inputs } from '@buffetjs/custom';
 import { Helmet } from 'react-helmet';
 import { Text } from '@buffetjs/core';
 import { isEqual } from 'lodash';
-import { LoadingIndicatorPage, useGlobalContext, request } from 'strapi-helper-plugin';
+import { LoadingIndicatorPage, useGlobalContext, request } from '@akemona-org/strapi-helper-plugin';
 
 import { getRequestUrl, getTrad } from '../../utils';
 import SectionTitleWrapper from './SectionTitleWrapper';

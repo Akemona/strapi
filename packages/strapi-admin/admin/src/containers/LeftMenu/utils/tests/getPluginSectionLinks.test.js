@@ -1,7 +1,7 @@
-import { hasPermissions } from 'strapi-helper-plugin';
+import { hasPermissions } from '@akemona-org/strapi-helper-plugin';
 import getPluginSectionLinks from '../getPluginSectionLinks';
 
-jest.mock('strapi-helper-plugin');
+jest.mock('@akemona-org/strapi-helper-plugin');
 
 describe('getPluginSectionLinks', () => {
   beforeEach(() => {

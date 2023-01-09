@@ -1,5 +1,5 @@
 import { isEmpty } from 'lodash';
-import { useContentManagerEditViewDataManager } from 'strapi-helper-plugin';
+import { useContentManagerEditViewDataManager } from '@akemona-org/strapi-helper-plugin';
 
 function useSelect() {
   const { hasDraftAndPublish, modifiedData } = useContentManagerEditViewDataManager();

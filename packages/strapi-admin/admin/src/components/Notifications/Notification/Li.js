@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { themePropTypes } from 'strapi-helper-plugin';
+import { themePropTypes } from '@akemona-org/strapi-helper-plugin';
 
 const GlobalNotification = createGlobalStyle`
   .notificationIcon {

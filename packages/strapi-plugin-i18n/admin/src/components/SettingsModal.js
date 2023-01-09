@@ -9,7 +9,7 @@ import {
   TabsNav,
   Tab,
   TabsPanel,
-} from 'strapi-helper-plugin';
+} from '@akemona-org/strapi-helper-plugin';
 import { useIntl } from 'react-intl';
 import { getTrad } from '../utils';
 

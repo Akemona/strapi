@@ -1,6 +1,10 @@
 import React, { useReducer, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { request, generateSearchFromFilters, useGlobalContext } from 'strapi-helper-plugin';
+import {
+  request,
+  generateSearchFromFilters,
+  useGlobalContext,
+} from '@akemona-org/strapi-helper-plugin';
 import { clone, get, isEmpty, set } from 'lodash';
 import { useIntl } from 'react-intl';
 import axios from 'axios';

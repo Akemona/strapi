@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { themePropTypes } from 'strapi-helper-plugin';
+import { themePropTypes } from '@akemona-org/strapi-helper-plugin';
 
 const Table = styled.table`
   border-radius: 3px;

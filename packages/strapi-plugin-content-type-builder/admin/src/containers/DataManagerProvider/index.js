@@ -8,7 +8,7 @@ import {
   PopUpWarning,
   useStrapi,
   useUser,
-} from 'strapi-helper-plugin';
+} from '@akemona-org/strapi-helper-plugin';
 import { useHistory, useLocation, useRouteMatch, Redirect } from 'react-router-dom';
 import { connect, useDispatch } from 'react-redux';
 import { compose } from 'redux';

@@ -2,7 +2,10 @@ import React, { useMemo } from 'react';
 import get from 'lodash/get';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { useContentManagerEditViewDataManager, useQueryParams } from 'strapi-helper-plugin';
+import {
+  useContentManagerEditViewDataManager,
+  useQueryParams,
+} from '@akemona-org/strapi-helper-plugin';
 import selectI18NLocales from '../../selectors/selectI18nLocales';
 import useContentTypePermissions from '../../hooks/useContentTypePermissions';
 import CMEditViewLocalePicker from '../CMEditViewLocalePicker';

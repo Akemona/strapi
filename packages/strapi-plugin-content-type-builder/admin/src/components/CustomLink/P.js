@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from 'strapi-helper-plugin';
+import { colors } from '@akemona-org/strapi-helper-plugin';
 
 const P = styled.p`
   color: ${colors.blue};

@@ -7,7 +7,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import { Button, PopUpWarning, CheckPermissions } from 'strapi-helper-plugin';
+import { Button, PopUpWarning, CheckPermissions } from '@akemona-org/strapi-helper-plugin';
 import adminPermissions from '../../../permissions';
 import Wrapper from './Wrapper';
 

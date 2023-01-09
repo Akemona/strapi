@@ -1,6 +1,6 @@
 import checkPermissions from '../checkPermissions';
 
-jest.mock('strapi-helper-plugin', () => ({
+jest.mock('@akemona-org/strapi-helper-plugin', () => ({
   hasPermissions: () => Promise.resolve(true),
 }));
 

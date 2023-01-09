@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import defaultThemes from '../../../../../../strapi-admin/admin/src/themes';
 import BooleanBox from '..';
 
-jest.mock('strapi-helper-plugin', () => ({
+jest.mock('@akemona-org/strapi-helper-plugin', () => ({
   useGlobalContext: () => ({ formatMessage: ({ id }) => id }),
 }));
 

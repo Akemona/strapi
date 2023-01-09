@@ -8,7 +8,7 @@
 
 import styled from 'styled-components';
 
-import { themePropTypes } from 'strapi-helper-plugin';
+import { themePropTypes } from '@akemona-org/strapi-helper-plugin';
 
 const Wrapper = styled.div`
   height: 59px;

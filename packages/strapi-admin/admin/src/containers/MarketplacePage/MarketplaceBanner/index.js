@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { useGlobalContext } from 'strapi-helper-plugin';
+import { useGlobalContext } from '@akemona-org/strapi-helper-plugin';
 import Wrapper from './Wrapper';
 import LogoStrapi from '../../../assets/images/banner_strapi-rocket.png';
 

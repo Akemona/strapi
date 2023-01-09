@@ -2,7 +2,12 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDebounce } from '@buffetjs/hooks';
 import { Padded } from '@buffetjs/core';
-import { HeaderSearch, useGlobalContext, useQuery, LoadingIndicator } from 'strapi-helper-plugin';
+import {
+  HeaderSearch,
+  useGlobalContext,
+  useQuery,
+  LoadingIndicator,
+} from '@akemona-org/strapi-helper-plugin';
 
 import { useAppContext } from '../../../hooks';
 import { getTrad, getFileModelTimestamps } from '../../../utils';

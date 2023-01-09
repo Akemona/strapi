@@ -1,7 +1,7 @@
 import {
   contentManagementUtilRemoveFieldsFromData,
   formatComponentData,
-} from 'strapi-helper-plugin';
+} from '@akemona-org/strapi-helper-plugin';
 import removePasswordAndRelationsFieldFromData from './removePasswordAndRelationsFieldFromData';
 
 const cleanData = (data, { contentType, components }, initialLocalizations) => {

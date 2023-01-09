@@ -4,7 +4,12 @@ import { Helmet } from 'react-helmet';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useUserPermissions, PopUpWarning, request, useGlobalContext } from 'strapi-helper-plugin';
+import {
+  useUserPermissions,
+  PopUpWarning,
+  request,
+  useGlobalContext,
+} from '@akemona-org/strapi-helper-plugin';
 
 import permissions from '../../../permissions';
 import { EmptyRole, RoleListWrapper, RoleRow } from '../../../components/Roles';

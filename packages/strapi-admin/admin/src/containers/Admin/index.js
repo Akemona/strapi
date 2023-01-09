@@ -21,7 +21,7 @@ import {
   OverlayBlocker,
   CheckPagePermissions,
   request,
-} from 'strapi-helper-plugin';
+} from '@akemona-org/strapi-helper-plugin';
 import { SETTINGS_BASE_URL, SHOW_TUTORIALS, STRAPI_UPDATE_NOTIF } from '../../config';
 import { checkLatestStrapiVersion } from '../../utils';
 

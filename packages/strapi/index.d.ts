@@ -1,4 +1,4 @@
-import { DatabaseManager, Repository } from 'strapi-database';
+import { DatabaseManager, Repository } from '@akemona-org/strapi-database';
 
 interface Strapi {
   db: DatabaseManager;

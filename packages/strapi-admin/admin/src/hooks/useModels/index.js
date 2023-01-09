@@ -1,5 +1,5 @@
 import { useReducer, useEffect } from 'react';
-import { request } from 'strapi-helper-plugin';
+import { request } from '@akemona-org/strapi-helper-plugin';
 
 import reducer, { initialState } from './reducer';
 

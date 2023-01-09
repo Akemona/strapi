@@ -1,4 +1,4 @@
-import { dateToUtcTime } from 'strapi-helper-plugin';
+import { dateToUtcTime } from '@akemona-org/strapi-helper-plugin';
 import moment from 'moment';
 
 const filtersForm = {

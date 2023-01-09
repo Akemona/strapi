@@ -1,6 +1,10 @@
 import React, { memo, useEffect, useMemo, useReducer } from 'react';
 import { useParams } from 'react-router-dom';
-import { CheckPagePermissions, LoadingIndicatorPage, request } from 'strapi-helper-plugin';
+import {
+  CheckPagePermissions,
+  LoadingIndicatorPage,
+  request,
+} from '@akemona-org/strapi-helper-plugin';
 import { useSelector, shallowEqual } from 'react-redux';
 import { getRequestUrl, mergeMetasWithSchema } from '../../utils';
 import { makeSelectModelAndComponentSchemas } from '../Main/selectors';

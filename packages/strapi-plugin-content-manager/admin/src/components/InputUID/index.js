@@ -11,7 +11,7 @@ import {
   LoadingIndicator,
   useGlobalContext,
   useContentManagerEditViewDataManager,
-} from 'strapi-helper-plugin';
+} from '@akemona-org/strapi-helper-plugin';
 import { FormattedMessage } from 'react-intl';
 import { get } from 'lodash';
 import getTrad from '../../utils/getTrad';

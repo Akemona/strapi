@@ -12,7 +12,7 @@ import {
   getYupInnerErrors,
   BaselineAlignment,
   CheckPagePermissions,
-} from 'strapi-helper-plugin';
+} from '@akemona-org/strapi-helper-plugin';
 import getTrad from '../../utils/getTrad';
 import { AlignedButton, Text } from './components';
 import schema from '../../utils/schema';
