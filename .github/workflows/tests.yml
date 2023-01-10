@@ -184,7 +184,7 @@ jobs:
       - run: yarn install --frozen-lockfile
       - uses: ./.github/actions/run-e2e-tests
         with:
-          dbOptions: '--dbclient=sqlite-legacy --dbfile=./tmp/data.db'
+          dbOptions: '--dbclient=sqlite --dbfile=./tmp/data.db'
 
   # TEMP
   # e2e_ce_mongo:
