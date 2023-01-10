@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.8.0",
+  "version": "3.8.1",
   "description": "Redis hook for the Strapi framework",
   "homepage": "https://strapi.akemona.com",
   "keywords": [
@@ -18,7 +18,7 @@
   },
   "main": "./lib",
   "dependencies": {
-    "@akemona-org/strapi-utils": "3.8.0",
+    "@akemona-org/strapi-utils": "3.8.1",
     "ioredis": "^4.27.1",
     "lodash": "4.17.21",
     "rimraf": "3.0.2",
