@@ -59,6 +59,7 @@ module.exports = ({
     devtool: isProduction ? false : 'cheap-module-source-map',
     entry,
     output: {
+      hashFunction: 'sha256',
       path: dest,
       publicPath: options.publicPath,
       // Utilize long-term caching by adding content hashes (not compilation hashes)

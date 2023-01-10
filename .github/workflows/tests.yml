@@ -187,25 +187,29 @@ jobs:
           dbOptions: '--dbclient=sqlite --dbfile=./tmp/data.db'
 
   # TEMP
-  # e2e_ce_mongo:
-  #   runs-on: ubuntu-latest
-  #   needs: [lint, unit_back, unit_front]
-  #   name: '[CE] E2E (mongo, node: ${{ matrix.node }})'
-  #   strategy:
-  #     matrix:
-  #       node: [18]
-  #     max-parallel: 2
-  #   services:
-  #     mongo:
-  #       image: mongo
-  #       ports:
-  #         - 27017:27017
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version: ${{ matrix.node }}
-  #     - uses: ./.github/actions/install-modules
-  #     - uses: ./.github/actions/run-e2e-tests
-  #       with:
-  #         dbOptions: '--dbclient=mongo --dbhost=localhost --dbport=27017 --dbname=strapi_test'
+  e2e_ce_mongo:
+    runs-on: ubuntu-latest
+    needs: [lint, unit_back, unit_front]
+    name: '[CE] E2E (mongo, node: ${{ matrix.node }})'
+    strategy:
+      matrix:
+        node: [18]
+      max-parallel: 2
+    services:
+      mongo:
+        image: mongo
+        ports:
+          - 27017:27017
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+      - uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('**/yarn.lock') }}
+      - run: yarn install --frozen-lockfile
+      - uses: ./.github/actions/run-e2e-tests
+        with:
+          dbOptions: '--dbclient=mongo --dbhost=localhost --dbport=27017 --dbname=strapi_test'
