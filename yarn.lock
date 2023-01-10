@@ -7,6 +7,598 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
+"@akemona-org/strapi-admin@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-admin/-/strapi-admin-3.7.7-next.1.tgz#045c5631dfd67f890678ea041b921083f9d5af78"
+  integrity sha512-I+kePEgKFg0aryes/JwMi4BTvLwnjhNFvuLCUbGEXpf/NgvjUx9sPvzqKKj6I0yAktCV2yebytfJp7SqV1IVcw==
+  dependencies:
+    "@akemona-org/strapi-helper-plugin" "3.7.7-next.1"
+    "@akemona-org/strapi-utils" "3.7.7-next.1"
+    "@babel/core" "^7.14.0"
+    "@babel/plugin-proposal-async-generator-functions" "^7.13.15"
+    "@babel/plugin-proposal-class-properties" "^7.12.1"
+    "@babel/plugin-syntax-dynamic-import" "^7.2.0"
+    "@babel/plugin-transform-modules-commonjs" "^7.12.1"
+    "@babel/plugin-transform-runtime" "^7.13.15"
+    "@babel/polyfill" "^7.12.1"
+    "@babel/preset-env" "^7.13.15"
+    "@babel/preset-react" "^7.13.13"
+    "@babel/runtime" "^7.13.17"
+    "@buffetjs/core" "3.3.8"
+    "@buffetjs/custom" "3.3.8"
+    "@buffetjs/hooks" "3.3.8"
+    "@buffetjs/icons" "3.3.8"
+    "@buffetjs/styles" "3.3.8"
+    "@buffetjs/utils" "3.3.8"
+    "@casl/ability" "^4.1.5"
+    "@fingerprintjs/fingerprintjs" "3.1.1"
+    "@fortawesome/fontawesome-free" "^5.15.3"
+    "@fortawesome/fontawesome-svg-core" "^1.2.35"
+    "@fortawesome/free-brands-svg-icons" "^5.15.3"
+    "@fortawesome/free-solid-svg-icons" "^5.15.3"
+    "@fortawesome/react-fontawesome" "^0.1.14"
+    autoprefixer "^9.8.6"
+    axios "^0.21.1"
+    babel-loader "^8.1.0"
+    bcryptjs "^2.4.3"
+    bootstrap "^4.6.0"
+    chalk "^4.1.1"
+    chokidar "^3.5.1"
+    classnames "^2.3.1"
+    cross-env "^7.0.3"
+    css-loader "^2.1.1"
+    duplicate-package-checker-webpack-plugin "^3.0.0"
+    execa "^1.0.0"
+    file-loader "^6.2.0"
+    font-awesome "^4.7.0"
+    formik "^2.2.6"
+    friendly-errors-webpack-plugin "^1.7.0"
+    fs-extra "^9.1.0"
+    history "^4.9.0"
+    hoist-non-react-statics "^3.3.0"
+    html-loader "^0.5.5"
+    html-webpack-plugin "^3.2.0"
+    immer "9.0.16"
+    immutable "^3.8.2"
+    invariant "^2.2.4"
+    is-wsl "^2.0.0"
+    js-cookie "2.2.1"
+    jsonwebtoken "8.5.1"
+    koa-compose "4.1.0"
+    koa-passport "5.0.0"
+    lodash "4.17.21"
+    match-sorter "^4.0.2"
+    mini-css-extract-plugin "^1.4.0"
+    moment "^2.29.4"
+    p-map "4.0.0"
+    passport-local "1.0.0"
+    prop-types "^15.7.2"
+    qs "6.10.1"
+    react "^16.14.0"
+    react-copy-to-clipboard "^5.0.3"
+    react-dnd "^10.0.2"
+    react-dnd-html5-backend "^10.0.2"
+    react-dom "^16.9.0"
+    react-error-boundary "3.1.1"
+    react-fast-compare "^3.2.0"
+    react-helmet "^6.1.0"
+    react-intl "4.5.0"
+    react-is "^16.12.0"
+    react-loadable "^5.5.0"
+    react-query "3.13.12"
+    react-redux "7.2.3"
+    react-router "^5.2.0"
+    react-router-dom "^5.0.0"
+    react-select "^4.0.2"
+    react-tooltip "4.2.18"
+    react-transition-group "4.4.1"
+    react-virtualized "^9.22.3"
+    reactstrap "8.4.1"
+    redux "^4.0.1"
+    redux-immutable "^4.0.0"
+    redux-saga "^0.16.0"
+    reselect "^4.0.0"
+    sanitize.css "^4.1.0"
+    semver "7.3.5"
+    sift "13.5.0"
+    style-loader "^0.23.1"
+    styled-components "^5.2.3"
+    terser-webpack-plugin "^1.2.3"
+    url-loader "^1.1.2"
+    video-react "^0.13.2"
+    webpack "^4.46.0"
+    webpack-cli "^3.3.12"
+    webpack-dev-server "^3.11.2"
+    webpackbar "^4.0.0"
+    yup "^0.32.9"
+
+"@akemona-org/strapi-connector-bookshelf@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-connector-bookshelf/-/strapi-connector-bookshelf-3.7.7-next.1.tgz#03226f48762eda2ab1b59fc45db7e4cc1e39e0d3"
+  integrity sha512-wlwEzGNPbWoTT9I99hT1W2UY0/MzrKLFDHLMswzmytl6c8q9n+n3RJwS10JPPnxS3QNKIO77nFNxeL6oK0DshQ==
+  dependencies:
+    "@akemona-org/strapi-utils" "3.7.7-next.1"
+    bookshelf "^1.0.1"
+    date-fns "^2.19.0"
+    inquirer "^6.3.1"
+    lodash "4.17.21"
+    p-map "4.0.0"
+    pluralize "^8.0.0"
+    rimraf "3.0.2"
+
+"@akemona-org/strapi-connector-mongoose@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-connector-mongoose/-/strapi-connector-mongoose-3.7.7-next.1.tgz#b2bcd8318daed452e815fdf86c4eb5e03a74c2e4"
+  integrity sha512-aGynd74geiq2cgqOjZZ/btuf2KBaUZYF6wO7WKZe92hl/oX2887wQ99WYFg+iUYww/PVZ0TQgMfo+3cTboibSw==
+  dependencies:
+    "@akemona-org/strapi-utils" "3.7.7-next.1"
+    lodash "4.17.21"
+    mongoose "5.10.8"
+    mongoose-float "^1.0.4"
+    mongoose-long "^0.3.2"
+    p-map "4.0.0"
+    pluralize "^8.0.0"
+    semver "^7.3.5"
+
+"@akemona-org/strapi-database@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-database/-/strapi-database-3.7.7-next.1.tgz#7d66cddf8dcb383534e2da94bfdb73fc3f916389"
+  integrity sha512-h2FxbE5iXqJ2yU0XaxtxzWUWWpe/S/IKOLlfNNxFFDvK+31zKYOCbjJlTfWLQ1rpkv6HO9tyayi5b1eInIG9Xw==
+  dependencies:
+    "@akemona-org/strapi-utils" "3.7.7-next.1"
+    debug "4.3.1"
+    lodash "4.17.21"
+    p-map "4.0.0"
+    verror "^1.10.0"
+
+"@akemona-org/strapi-generate-api@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-generate-api/-/strapi-generate-api-3.7.7-next.1.tgz#4ac9fec7d6d4290cd8fa2727676f1c73280deb7c"
+  integrity sha512-Xwy9hDgPODaxSgr+ZdT4ebDiTQ/sGnOPMmS1sHzcpNprc0cDVpocXPZvFm0NSe6Ck+cCZ5ypIkZ0XrG39W7vJQ==
+  dependencies:
+    "@akemona-org/strapi-utils" "3.7.7-next.1"
+    lodash "4.17.21"
+    pluralize "^8.0.0"
+
+"@akemona-org/strapi-generate-controller@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-generate-controller/-/strapi-generate-controller-3.7.7-next.1.tgz#68bc5206996f84098643cd188bfbe30f3d0f37ed"
+  integrity sha512-mejiVUuHix7KgZtSeH1JjGcvWPHQdqS4Xe1Kfqgzq73inkPRMhe3KfvUy4LqKTVibdVnantr6UX9ikXOGjT0bQ==
+  dependencies:
+    "@akemona-org/strapi-utils" "3.7.7-next.1"
+    lodash "4.17.21"
+
+"@akemona-org/strapi-generate-model@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-generate-model/-/strapi-generate-model-3.7.7-next.1.tgz#93298e3db2ebc16b495903074dfb4c40f0d25a5e"
+  integrity sha512-oilll+leG2LhAGI3HVlgJiYG8+x50icIEBK9StmH+I6AulsF3hgw9fPIRAi6k2PzEFsp+0qjE6YjRvSKbEqdew==
+  dependencies:
+    "@akemona-org/strapi-utils" "3.7.7-next.1"
+    lodash "4.17.21"
+    pluralize "^8.0.0"
+
+"@akemona-org/strapi-generate-new@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-generate-new/-/strapi-generate-new-3.7.7-next.1.tgz#cdea50375dedb9ca259aeddfec30448c838161b9"
+  integrity sha512-eYL+Jh8wchZKJjtxmP5DOPes8VVQ7rL6oHcWmvrpOtjbT2F802e5WDOyzgPx+NjXepsX6rVKH3iqVQClBYiO8g==
+  dependencies:
+    "@sentry/node" "6.3.0"
+    chalk "^4.1.1"
+    execa "^1.0.0"
+    fs-extra "^9.1.0"
+    git-url-parse "13.1.0"
+    inquirer "^6.3.1"
+    lodash "4.17.21"
+    node-fetch "^2.6.1"
+    node-machine-id "^1.1.10"
+    ora "^5.4.0"
+    tar "6.1.9"
+    uuid "^3.3.2"
+
+"@akemona-org/strapi-generate-plugin@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-generate-plugin/-/strapi-generate-plugin-3.7.7-next.1.tgz#753b694bfda491979e13b14f4a5e7246d8e8119d"
+  integrity sha512-zl6wHXWjggDOzg4KeUQKvW5PJAWA+itYiuzQYLlhB67QkYIHwFqhwGXsmONfEIqhupVKhaRo47F9RZ6gc2QJwg==
+  dependencies:
+    "@akemona-org/strapi-utils" "3.7.7-next.1"
+    fs-extra "^9.1.0"
+    lodash "4.17.21"
+
+"@akemona-org/strapi-generate-policy@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-generate-policy/-/strapi-generate-policy-3.7.7-next.1.tgz#0eb7370836ff1aaed01879def2e8549b5930fae7"
+  integrity sha512-FeY4rvVd7wXAKEoqmdpQXuqf15e7pSg+q22O+jyuBHWGUOqn4QraLAKTnU1DHbNLktDQw0S5QDOgTEXmJyj2Cg==
+  dependencies:
+    "@akemona-org/strapi-utils" "3.7.7-next.1"
+    lodash "4.17.21"
+
+"@akemona-org/strapi-generate-service@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-generate-service/-/strapi-generate-service-3.7.7-next.1.tgz#f769b0995a5855d30f8da26075a1f34f21278cba"
+  integrity sha512-haD92Izz/dSa6Tj7fxQmisy4aKPfrKdRTlbfQn1UTs3UNeg6rsONtkEp3J/LbIoiRXBgkVoT3bQQEYTO6BtkhQ==
+  dependencies:
+    "@akemona-org/strapi-utils" "3.7.7-next.1"
+    lodash "4.17.21"
+
+"@akemona-org/strapi-generate@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-generate/-/strapi-generate-3.7.7-next.1.tgz#000642c8ad854138a80ea6859f95aff7ee2d9ade"
+  integrity sha512-t1JUwFnTMuNU5paOQyguHFU2YqFXRAvsL0xQlwNStMj4ifbw8RP86Z7yLaFeaxcMw9kNvR/nwX4qWadB6aa/pA==
+  dependencies:
+    "@akemona-org/strapi-utils" "3.7.7-next.1"
+    async "^2.6.2"
+    fs-extra "^9.1.0"
+    lodash "4.17.21"
+    reportback "^2.0.2"
+
+"@akemona-org/strapi-helper-plugin@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-helper-plugin/-/strapi-helper-plugin-3.7.7-next.1.tgz#656d0865c4de2019ab9e8cf1af6ceaf6aa9f7fab"
+  integrity sha512-AT0TSaRQEfa93x3gp2YO3RG2wWdcRUAS5f8wBfpQ4ZghsMC/waQ4MhUrWPoCG7G6mn9RigF4aJdzk1GT413+pQ==
+  dependencies:
+    "@buffetjs/core" "3.3.8"
+    "@buffetjs/custom" "3.3.8"
+    "@buffetjs/hooks" "3.3.8"
+    "@buffetjs/icons" "3.3.8"
+    "@buffetjs/styles" "3.3.8"
+    "@buffetjs/utils" "3.3.8"
+    "@fortawesome/fontawesome-free" "^5.15.2"
+    "@fortawesome/fontawesome-svg-core" "^1.2.35"
+    "@fortawesome/free-brands-svg-icons" "^5.15.2"
+    "@fortawesome/free-solid-svg-icons" "^5.15.3"
+    "@fortawesome/react-fontawesome" "^0.1.14"
+    bootstrap "^4.6.0"
+    classnames "^2.3.1"
+    immutable "^3.8.2"
+    invariant "^2.2.1"
+    lodash "4.17.21"
+    moment "^2.29.4"
+    react "^16.14.0"
+    react-dom "^16.9.0"
+    react-helmet "^6.1.0"
+    react-intl "4.5.0"
+    react-router "^5.2.0"
+    react-router-dom "^5.0.0"
+    reactstrap "8.4.1"
+    styled-components "^5.2.3"
+    whatwg-fetch "^3.6.2"
+
+"@akemona-org/strapi-middleware-views@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-middleware-views/-/strapi-middleware-views-3.7.7-next.1.tgz#ad71cfa9c678ff4ec8b78974e4a9d9ee533ea5a9"
+  integrity sha512-yNNatuKvRFZkkDvANhkC+wIMGtRK7Tg7h8hkAA8cuI043eoZMlpFYPFB7hRLYicplBK1kS8xVZY1X9IIUSylfw==
+  dependencies:
+    consolidate "^0.16.0"
+    koa-views "^6.3.0"
+    lodash "4.17.21"
+
+"@akemona-org/strapi-plugin-content-manager@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-plugin-content-manager/-/strapi-plugin-content-manager-3.7.7-next.1.tgz#f03a9e7ca69f000eafdc2c64e9b206998f8298e2"
+  integrity sha512-LZjTSp1Vrx9sq+BMz1/CZI0XvdpHdixTpxpojn6no17RJU2DIbzZQ2VsRgtx4VzWFMVUjFpqj6ED6exN7QEjrg==
+  dependencies:
+    "@akemona-org/strapi-helper-plugin" "3.7.7-next.1"
+    "@akemona-org/strapi-utils" "3.7.7-next.1"
+    "@buffetjs/core" "3.3.8"
+    "@buffetjs/custom" "3.3.8"
+    "@buffetjs/hooks" "3.3.8"
+    "@buffetjs/icons" "3.3.8"
+    "@buffetjs/styles" "3.3.8"
+    "@buffetjs/utils" "3.3.8"
+    "@sindresorhus/slugify" "1.1.0"
+    classnames "^2.3.1"
+    codemirror "^5.61.0"
+    draft-js "^0.11.5"
+    highlight.js "^10.4.1"
+    immutable "^3.8.2"
+    lodash "4.17.21"
+    markdown-it "^12.0.6"
+    markdown-it-abbr "^1.0.4"
+    markdown-it-container "^3.0.0"
+    markdown-it-deflist "^2.0.3"
+    markdown-it-emoji "^2.0.0"
+    markdown-it-footnote "^3.0.2"
+    markdown-it-ins "^3.0.1"
+    markdown-it-mark "^3.0.1"
+    markdown-it-sub "^1.0.0"
+    markdown-it-sup "^1.0.0"
+    pluralize "^8.0.0"
+    react "^16.14.0"
+    react-dom "^16.9.0"
+    react-fast-compare "^3.2.0"
+    react-intl "4.5.0"
+    react-redux "7.2.3"
+    react-router "^5.2.0"
+    react-router-dom "^5.0.0"
+    reactstrap "8.4.1"
+    redux "^4.0.1"
+    redux-immutable "^4.0.0"
+    reselect "^4.0.0"
+    sanitize-html "2.7.2"
+    yup "^0.32.9"
+
+"@akemona-org/strapi-plugin-content-type-builder@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-plugin-content-type-builder/-/strapi-plugin-content-type-builder-3.7.7-next.1.tgz#69d32b1cc69598553dc761d5ce7053d8e901e5c3"
+  integrity sha512-hKXjIfwZ+h8AUqgCYk/SWRUkHT/q/EdzD/LdBAmLkLgxrbNcwBYqWF2XEDBrBw7S+7p6niSGu2uIqxEYD+ucxg==
+  dependencies:
+    "@akemona-org/strapi-generate" "3.7.7-next.1"
+    "@akemona-org/strapi-generate-api" "3.7.7-next.1"
+    "@akemona-org/strapi-helper-plugin" "3.7.7-next.1"
+    "@akemona-org/strapi-utils" "3.7.7-next.1"
+    "@buffetjs/core" "3.3.8"
+    "@buffetjs/custom" "3.3.8"
+    "@buffetjs/hooks" "3.3.8"
+    "@buffetjs/icons" "3.3.8"
+    "@buffetjs/styles" "3.3.8"
+    "@buffetjs/utils" "3.3.8"
+    "@sindresorhus/slugify" "1.1.0"
+    fs-extra "^9.1.0"
+    immutable "^3.8.2"
+    lodash "4.17.21"
+    pluralize "^8.0.0"
+    react "^16.14.0"
+    react-dom "^16.9.0"
+    react-intl "4.5.0"
+    react-redux "7.2.3"
+    react-router "^5.2.0"
+    react-router-dom "^5.0.0"
+    reactstrap "8.4.1"
+    redux "^4.0.1"
+    redux-immutable "^4.0.0"
+    reselect "^4.0.0"
+    yup "^0.32.9"
+
+"@akemona-org/strapi-plugin-documentation@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-plugin-documentation/-/strapi-plugin-documentation-3.7.7-next.1.tgz#d475e7dc6ba6295766f69a42c0d9c63c8bd14721"
+  integrity sha512-rQKYFgooCz09pWqBmiQLI3+Un9HCOsreg10+8f5rNsEKr6FDEjatoFt0yCoGhF/G14X3zs53A0tbyqlsN1s1lw==
+  dependencies:
+    "@akemona-org/strapi-helper-plugin" "3.7.7-next.1"
+    "@buffetjs/core" "3.3.8"
+    "@buffetjs/custom" "3.3.8"
+    "@buffetjs/hooks" "3.3.8"
+    "@buffetjs/icons" "3.3.8"
+    "@buffetjs/styles" "3.3.8"
+    "@buffetjs/utils" "3.3.8"
+    cheerio "^1.0.0-rc.5"
+    fs-extra "^9.1.0"
+    immutable "^3.8.2"
+    jsonwebtoken "^8.1.0"
+    koa-static "^5.0.0"
+    lodash "4.17.21"
+    moment "^2.29.4"
+    path-to-regexp "^3.1.0"
+    react "^16.14.0"
+    react-copy-to-clipboard "^5.0.3"
+    react-dom "^16.9.0"
+    react-intl "4.5.0"
+    react-redux "7.2.3"
+    react-router "^5.2.0"
+    react-router-dom "^5.0.0"
+    reactstrap "8.4.1"
+    redux "^4.0.1"
+    redux-immutable "^4.0.0"
+    reselect "^4.0.0"
+    swagger-ui-dist "3.47.1"
+
+"@akemona-org/strapi-plugin-email@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-plugin-email/-/strapi-plugin-email-3.7.7-next.1.tgz#427ebe4afb173631026d64db67ef2aa038cd6c1d"
+  integrity sha512-h5CFUictuLpSEuxrIcGv6YK1lhmE1CuDz+x7HJman3WmEeYfm7Yq7/ahqAqBnbH9DgHWwAtrm7EXmelPPAjffg==
+  dependencies:
+    "@akemona-org/strapi-provider-email-sendmail" "3.7.7-next.1"
+    "@akemona-org/strapi-utils" "3.7.7-next.1"
+    lodash "4.17.21"
+
+"@akemona-org/strapi-plugin-graphql@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-plugin-graphql/-/strapi-plugin-graphql-3.7.7-next.1.tgz#09b3f543b82214bf69e5bb2777c5efc81193caab"
+  integrity sha512-Zq+ALSbCkQip0D+SqVOtPH3145oIHDoKUCMvJAvfGa3x71IaKq066m66oscr2oRN3nv6xCkP3aHiY9pGxIky1Q==
+  dependencies:
+    "@akemona-org/strapi-utils" "3.7.7-next.1"
+    "@apollo/federation" "^0.20.7"
+    "@graphql-tools/utils" "7.2.4"
+    apollo-server-koa "2.24.0"
+    dataloader "^1.4.0"
+    glob "^7.1.6"
+    graphql "15.5.0"
+    graphql-depth-limit "^1.1.0"
+    graphql-iso-date "^3.6.1"
+    graphql-playground-middleware-koa "^1.6.21"
+    graphql-tools "4.0.8"
+    graphql-type-json "0.3.2"
+    graphql-type-long "^0.1.1"
+    graphql-upload "11.0.0"
+    koa-compose "^4.1.0"
+    lodash "4.17.21"
+    pluralize "^8.0.0"
+
+"@akemona-org/strapi-plugin-i18n@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-plugin-i18n/-/strapi-plugin-i18n-3.7.7-next.1.tgz#082b628caaece6a36508c851c1f8fe700f907e05"
+  integrity sha512-pc4/YjvOp4Pt4p8oEv2CuwxN2HDfKYEv5PRa/r6ClMNKFqf1hGLXVU8tVgb55BRS9KDAPw0H/BGYGclN7yCAFw==
+  dependencies:
+    "@akemona-org/strapi-utils" "3.7.7-next.1"
+    lodash "4.17.21"
+    p-map "4.0.0"
+    pluralize "8.0.0"
+
+"@akemona-org/strapi-plugin-upload@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-plugin-upload/-/strapi-plugin-upload-3.7.7-next.1.tgz#17bd312d35169216852b0e3263237cbe4558c4ab"
+  integrity sha512-5I9KLFrIa8P1/HG+UtdwUh0hp606b9nt4p0sRxPMypBb+M/FI5ShSauTu5JhWeFi8WX8TdUAYWCo1QMPWORBwg==
+  dependencies:
+    "@akemona-org/strapi-helper-plugin" "3.7.7-next.1"
+    "@akemona-org/strapi-provider-upload-local" "3.7.7-next.1"
+    "@akemona-org/strapi-utils" "3.7.7-next.1"
+    "@buffetjs/core" "3.3.8"
+    "@buffetjs/custom" "3.3.8"
+    "@buffetjs/hooks" "3.3.8"
+    "@buffetjs/icons" "3.3.8"
+    "@buffetjs/styles" "3.3.8"
+    "@buffetjs/utils" "3.3.8"
+    byte-size "^7.0.1"
+    cropperjs "^1.5.11"
+    immer "9.0.16"
+    immutable "^3.8.2"
+    is-valid-domain "0.0.17"
+    koa-range "0.3.0"
+    koa-static "^5.0.0"
+    lodash "4.17.21"
+    node-fetch "2.6.1"
+    react "^16.14.0"
+    react-copy-to-clipboard "^5.0.3"
+    react-dom "^16.9.0"
+    react-intl "4.5.0"
+    react-redux "7.2.3"
+    react-router "^5.2.0"
+    react-router-dom "^5.0.0"
+    reactstrap "8.4.1"
+    sharp "0.31.1"
+    stream-to-array "^2.3.0"
+    uuid "^3.2.1"
+
+"@akemona-org/strapi-plugin-users-permissions@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-plugin-users-permissions/-/strapi-plugin-users-permissions-3.7.7-next.1.tgz#1ac8ffab6b28f75c8bb66bad1844e32e7bfea427"
+  integrity sha512-kf4F3z33mGcJnn7SFa8rlOBaMm7fCuMe+lAiSzGspymf2qekrGc/bCQVZ0ZMsS0/zzBHEzAYaNUCXmPqEO1AXQ==
+  dependencies:
+    "@akemona-org/strapi-helper-plugin" "3.7.7-next.1"
+    "@akemona-org/strapi-utils" "3.7.7-next.1"
+    "@buffetjs/core" "3.3.8"
+    "@buffetjs/custom" "3.3.8"
+    "@buffetjs/hooks" "3.3.8"
+    "@buffetjs/icons" "3.3.8"
+    "@buffetjs/styles" "3.3.8"
+    "@buffetjs/utils" "3.3.8"
+    "@purest/providers" "^1.0.2"
+    bcryptjs "^2.4.3"
+    grant-koa "5.4.8"
+    immutable "^3.8.2"
+    jsonwebtoken "^8.1.0"
+    koa2-ratelimit "1.1.2"
+    lodash "4.17.21"
+    purest "3.1.0"
+    react "^16.14.0"
+    react-dom "^16.9.0"
+    react-intl "4.5.0"
+    react-redux "7.2.3"
+    react-router "^5.2.0"
+    react-router-dom "^5.0.0"
+    reactstrap "8.4.1"
+    redux-saga "^0.16.0"
+    request "^2.83.0"
+    uuid "^3.1.0"
+
+"@akemona-org/strapi-provider-email-mailgun@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-provider-email-mailgun/-/strapi-provider-email-mailgun-3.7.7-next.1.tgz#d37d413ef47986a8d1e19c23b0acda3c2ad7b7e3"
+  integrity sha512-tVwPU+5HwSAwDoJTtT855mfI7DpQMHd1hxoQ5Uv7bpuTxBaGTsFo5YfxSQ6DdRlWMZ3MM/3DPTPZ7h2aS4wb+w==
+  dependencies:
+    "@akemona-org/strapi-utils" "3.7.7-next.1"
+    mailgun-js "0.22.0"
+
+"@akemona-org/strapi-provider-email-sendmail@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-provider-email-sendmail/-/strapi-provider-email-sendmail-3.7.7-next.1.tgz#0c7107fc125664c1a3f744681c7865de3c3fad63"
+  integrity sha512-lOCEFfK/4OCemvuiVSAN1xilx9E1EpTQGjEd396/isNL+GLTJfkHO4/yu5wp3LEW1XUz4P2noSR35HUzfelj+g==
+  dependencies:
+    "@akemona-org/strapi-utils" "3.7.7-next.1"
+    sendmail "^1.6.1"
+
+"@akemona-org/strapi-provider-upload-aws-s3@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-provider-upload-aws-s3/-/strapi-provider-upload-aws-s3-3.7.7-next.1.tgz#2eda67bf849997c50f020ab66050e834a0686eff"
+  integrity sha512-35wWzG6psxE6DkfWN+RgbNlWSpRXj6OqPOYNL6akdhmAXlOFVvniyyMUY4XH3JL8GC2rbTMwlRuwvf26xjFKXA==
+  dependencies:
+    aws-sdk "2.892.0"
+    lodash "4.17.21"
+
+"@akemona-org/strapi-provider-upload-cloudinary@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-provider-upload-cloudinary/-/strapi-provider-upload-cloudinary-3.7.7-next.1.tgz#c5e115025c4bc5d9ea11022be82778b22df00dab"
+  integrity sha512-Py9K6jMsXFAd7yOvj8X/5TazrocXwjR8c2yCGUWO0l2XjZVmyqpFHWG0Be8mcu6lLiQBs58jH9pGCosAwyQnOQ==
+  dependencies:
+    cloudinary "^1.25.1"
+    into-stream "^5.1.0"
+
+"@akemona-org/strapi-provider-upload-local@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-provider-upload-local/-/strapi-provider-upload-local-3.7.7-next.1.tgz#4563d0290e1597966b297301a4272372491fa006"
+  integrity sha512-jM/2RQnT/pj+J5uBFV9502omhAOLWpbBghxHc3i6uLLR/nwKUsQZBWCYvBFonRH7NwkUDw87m2aN7MaMW2eOwA==
+
+"@akemona-org/strapi-utils@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi-utils/-/strapi-utils-3.7.7-next.1.tgz#ab4dad5c64bebe614d32834d284f6bf2a61d6fed"
+  integrity sha512-IG3Gw2LnyMmmdMLnFI3Ma70o2RzdnVs3GDk4PbGzqJOvYm5edH4BmtOP+SNvt03i6uPZFI0q/2RuK56khWiyRg==
+  dependencies:
+    "@sindresorhus/slugify" "1.1.0"
+    date-fns "^2.19.0"
+    lodash "4.17.21"
+    pino "^4.7.1"
+    pluralize "^8.0.0"
+    yup "^0.32.9"
+
+"@akemona-org/strapi@3.7.7-next.1":
+  version "3.7.7-next.1"
+  resolved "https://registry.yarnpkg.com/@akemona-org/strapi/-/strapi-3.7.7-next.1.tgz#dab52ea905d0a9f1f2aa39c71210fdd117ded287"
+  integrity sha512-hxpo5tJeLUxkyDdzbcAgYiwMGgF3gKep1KS19SjlX6HsYS0o/yOPzXN6vefOPuKDx1E1N2eia5eehzolJeEVig==
+  dependencies:
+    "@akemona-org/strapi-database" "3.7.7-next.1"
+    "@akemona-org/strapi-generate" "3.7.7-next.1"
+    "@akemona-org/strapi-generate-api" "3.7.7-next.1"
+    "@akemona-org/strapi-generate-controller" "3.7.7-next.1"
+    "@akemona-org/strapi-generate-model" "3.7.7-next.1"
+    "@akemona-org/strapi-generate-new" "3.7.7-next.1"
+    "@akemona-org/strapi-generate-plugin" "3.7.7-next.1"
+    "@akemona-org/strapi-generate-policy" "3.7.7-next.1"
+    "@akemona-org/strapi-generate-service" "3.7.7-next.1"
+    "@akemona-org/strapi-utils" "3.7.7-next.1"
+    "@koa/cors" "^3.0.0"
+    async "^2.1.2"
+    boom "^7.3.0"
+    boxen "4.2.0"
+    chalk "^4.1.1"
+    chokidar "3.5.1"
+    ci-info "3.1.1"
+    cli-table3 "^0.6.0"
+    commander "6.1.0"
+    configstore "5.0.1"
+    cross-spawn "^7.0.3"
+    debug "^4.1.1"
+    delegates "^1.0.0"
+    dotenv "8.2.0"
+    execa "^1.0.0"
+    fs-extra "^9.1.0"
+    glob "^7.1.2"
+    inquirer "^6.2.1"
+    is-docker "2.2.1"
+    koa "^2.13.1"
+    koa-body "^4.2.0"
+    koa-compose "^4.1.0"
+    koa-compress "^5.0.1"
+    koa-convert "^2.0.0"
+    koa-favicon "^2.0.0"
+    koa-i18n "^2.1.0"
+    koa-ip "^2.0.0"
+    koa-locale "~1.3.0"
+    koa-lusca "~2.2.0"
+    koa-router "^7.4.0"
+    koa-session "^6.2.0"
+    koa-static "^5.0.0"
+    lodash "4.17.21"
+    node-fetch "2.6.1"
+    node-machine-id "1.1.12"
+    node-schedule "1.3.2"
+    opn "^5.3.0"
+    ora "^5.4.0"
+    package-json "7.0.0"
+    qs "^6.10.1"
+    resolve-cwd "^3.0.0"
+    rimraf "^3.0.2"
+    semver "7.3.5"
+
 "@ampproject/remapping@^2.1.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.2.0.tgz#56c133824780de3174aed5ab6834f3026790154d"

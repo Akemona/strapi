@@ -42,7 +42,7 @@
     "url": "https://github.com/akemona/strapi/issues"
   },
   "engines": {
-    "node": ">=10.16.0 <=14.x.x",
+    "node": ">=14.19.1 <=18.x.x",
     "npm": ">=6.0.0"
   },
   "gitHead": "56521c15c8e31f5d14bb4db6b45af2f7e291f54b"
