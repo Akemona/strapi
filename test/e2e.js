@@ -68,6 +68,9 @@ const main = async (database, args) => {
 };
 
 yargs
+  .parserConfiguration({
+    'unknown-options-as-args': true,
+  })
   .command(
     '$0',
     'run end to end tests',
@@ -85,4 +88,5 @@ yargs
       main(databases[database], args);
     }
   )
-  .help().argv;
+  .help()
+  .parse();

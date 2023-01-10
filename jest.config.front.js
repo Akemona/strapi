@@ -65,6 +65,7 @@ module.exports = {
     '<rootDir>/test/config/front/enzyme-setup.js',
     '<rootDir>/test/config/front/strapi.js',
   ],
+  testEnvironment: 'jsdom',
   testRegex: 'tests/.*\\.test\\.js$',
   transform: {
     '^.+\\.js$': ['@swc/jest', { jsc: { parser: { jsx: true, dynamicImport: true } } }],
@@ -72,5 +73,7 @@ module.exports = {
       '<rootDir>/fileTransformer.js',
   },
   transformIgnorePatterns: ['node_modules/(?!(react-dnd|dnd-core|react-dnd-html5-backend)/)'],
-  testURL: 'http://localhost:4000/admin',
+  testEnvironmentOptions: {
+    url: 'http://localhost:4000/admin',
+  },
 };
