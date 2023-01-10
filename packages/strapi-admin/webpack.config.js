@@ -1,6 +1,11 @@
 'use strict';
 
 const path = require('path');
+const crypto = require('crypto');
+// * patch for md4 ssl error (ERR_OSSL_EVP_UNSUPPORTED) in Node 18 (https://github.com/webpack/webpack/issues/13572#issuecomment-923736472)
+const crypto_orig_createHash = crypto.createHash;
+crypto.createHash = (algorithm) =>
+  crypto_orig_createHash(algorithm == 'md4' ? 'sha256' : algorithm);
 const webpack = require('webpack');
 
 // Webpack plugins
