@@ -104,8 +104,8 @@ describe('<App /> reducer', () => {
         autoReload: true,
         communityEdition: false,
         currentEnvironment: 'test',
-        nodeVersion: 'v12.14.1',
-        strapiVersion: '3.7.0',
+        nodeVersion: 'v18.12.1',
+        strapiVersion: '3.8.0',
       };
       const expected = state
         .set('appInfos', data)
