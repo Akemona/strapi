@@ -90,9 +90,7 @@ module.exports = function (strapi) {
       }
 
       connectOptions.ssl = ssl === true || ssl === 'true';
-      connectOptions.useNewUrlParser = true;
       connectOptions.dbName = database;
-      connectOptions.useCreateIndex = true;
       connectOptions.useUnifiedTopology = useUnifiedTopology || true;
 
       try {

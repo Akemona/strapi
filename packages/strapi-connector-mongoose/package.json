@@ -20,12 +20,12 @@
   "dependencies": {
     "@akemona-org/strapi-utils": "3.8.2",
     "lodash": "4.17.21",
-    "mongoose": "5.10.8",
-    "mongoose-float": "^1.0.4",
-    "mongoose-long": "^0.3.2",
+    "mongoose": "6.8.3",
+    "mongoose-float": "1.0.4",
+    "mongoose-long": "0.6.0",
     "p-map": "4.0.0",
-    "pluralize": "^8.0.0",
-    "semver": "^7.3.5"
+    "pluralize": "8.0.0",
+    "semver": "~7.3.8"
   },
   "author": {
     "email": "strapi@akemona.com",
