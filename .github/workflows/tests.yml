@@ -27,7 +27,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-      - uses: ./.github/actions/install-modules
+      - uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('**/yarn.lock') }}
+      - run: yarn install --frozen-lockfile
       - name: Run lint
         run: yarn run -s lint
 
@@ -35,8 +39,6 @@ jobs:
     name: 'unit_back (node: ${{ matrix.node }})'
     needs: [lint]
     runs-on: ubuntu-latest
-    env:
-      CODECOV_TOKEN: ${{ secrets.codecov }}
     strategy:
       matrix:
         node: [18]
@@ -45,18 +47,25 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-      - uses: ./.github/actions/install-modules
+      - uses: actions/cache@v3
         with:
-          globalPackages: codecov
+          path: '**/node_modules'
+          key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('**/yarn.lock') }}
+
+      - run: yarn install --frozen-lockfile
       - name: Run tests
-        run: yarn run -s test:unit --coverage && codecov -C -F unit
+        run: yarn run -s test:unit --coverage
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          directory: ./coverage
+          flags: back,unit_back
 
   unit_front:
     name: 'unit_front (node: ${{ matrix.node }})'
     needs: [lint]
     runs-on: ubuntu-latest
-    env:
-      CODECOV_TOKEN: ${{ secrets.codecov }}
     strategy:
       matrix:
         node: [18]
@@ -65,13 +74,22 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-      - uses: ./.github/actions/install-modules
+      - uses: actions/cache@v3
         with:
-          globalPackages: codecov
+          path: '**/node_modules'
+          key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('**/yarn.lock') }}
+
+      - run: yarn install --frozen-lockfile
       - name: Build
         run: yarn build
       - name: Run test
-        run: yarn run -s test:front:ce && codecov -C -F front
+        run: yarn run -s test:front:ce --coverage
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          directory: ./coverage
+          flags: front,unit_front
 
   # TEMP: disable to save time
   # e2e_ce_pg:
@@ -153,16 +171,20 @@ jobs:
     strategy:
       matrix:
         node: [18]
-      max-parallel: 2
+        sqlite_pkg: ['better-sqlite3', 'sqlite3', '@vscode/sqlite3']
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-      - uses: ./.github/actions/install-modules
+      - uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('**/yarn.lock') }}
+      - run: yarn install --frozen-lockfile
       - uses: ./.github/actions/run-e2e-tests
         with:
-          dbOptions: '--dbclient=sqlite --dbfile=./tmp/data.db'
+          dbOptions: '--dbclient=sqlite-legacy --dbfile=./tmp/data.db'
 
   # TEMP
   # e2e_ce_mongo:
