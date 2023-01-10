@@ -129,7 +129,6 @@ module.exports = function (strapi) {
       }
 
       instance.set('debug', debug === true || debug === 'true');
-      instance.set('useFindAndModify', false);
 
       const ctx = {
         instance,
