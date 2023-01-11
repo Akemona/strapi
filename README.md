@@ -1,6 +1,4 @@
-## WORK IN PROGRESS
-
-### This is Strapi v3 maintenance release with focus on current LTS Node & MongoDB Support
+### This is Strapi v3 maintenance release with focus on current LTS Node (18.x) & Latest Mongoose/MongoDB Support
 
 ## Motivation
 
