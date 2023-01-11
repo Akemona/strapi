@@ -102,7 +102,7 @@ module.exports = function (strapi) {
         });
 
         const connectionString = uri || connectionURL.toString();
-
+        instance.set('strictQuery', true);
         await instance.connect(connectionString, connectOptions);
       } catch (error) {
         const err = new Error(`Error connecting to the Mongo database. ${error.message}`);

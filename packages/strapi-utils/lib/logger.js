@@ -39,24 +39,37 @@ function getBool(envVar, defaultValue) {
 
 const loggerConfig = {
   level: getLogLevel(),
-  timestamp: getBool(process.env.STRAPI_LOG_TIMESTAMP, false),
+  timestamp: () => `,"timestamp": "${new Date().toISOString()}"`,
+  // timestamp: getBool(process.env.STRAPI_LOG_TIMESTAMP, false),
   // prettyPrint: getBool(process.env.STRAPI_LOG_PRETTY_PRINT, true),
   forceColor: getBool(process.env.STRAPI_LOG_FORCE_COLOR, true),
 };
 
-const pretty = pino.pretty({
-  formatter: (logs, options) => {
-    return `${options.asColoredText(
-      { level: 10 },
-      `[${new Date().toISOString()}]`
-    )} ${options.prefix.toLowerCase()} ${logs.stack ? logs.stack : logs.msg}`;
-  },
-});
+// const pretty = pino.pretty({
+//   formatter: (logs, options) => {
+//     return `${options.asColoredText(
+//       { level: 10 },
+//       `[${new Date().toISOString()}]`
+//     )} ${options.prefix.toLowerCase()} ${logs.stack ? logs.stack : logs.msg}`;
+//   },
+// });
 
-pretty.pipe(process.stdout);
+// pretty.pipe(process.stdout);
 
 const logger = getBool(process.env.STRAPI_LOG_PRETTY_PRINT, true)
-  ? pino(loggerConfig, pretty)
+  ? pino({
+      ...loggerConfig,
+      transport: {
+        target: 'pino-pretty',
+        options: {
+          colorize: true,
+        },
+      },
+    })
   : pino(loggerConfig);
+
+// const logger = getBool(process.env.STRAPI_LOG_PRETTY_PRINT, true)
+//   ? pino(loggerConfig, pretty)
+//   : pino(loggerConfig);
 
 module.exports = logger;
