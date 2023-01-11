@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 const os = require('os');
 const _ = require('lodash');
 const isDocker = require('is-docker');
@@ -14,24 +14,24 @@ const defaultQueryOpts = {
   headers: { 'Content-Type': 'application/json' },
 };
 
-const ANALYTICS_URI = 'https://analytics.strapi.io';
+const ANALYTICS_URI = 'https://analytics.strapi.io'; */
 
 /**
  * Add properties from the package.json strapi key in the metadata
  * @param {object} metadata
  */
-const addPackageJsonStrapiMetadata = (metadata, strapi) => {
+/* const addPackageJsonStrapiMetadata = (metadata, strapi) => {
   const { packageJsonStrapi = {} } = strapi.config;
 
   _.defaults(metadata, packageJsonStrapi);
-};
+}; */
 
 /**
  * Create a send function for event with all the necessary metadatas
  * @param {Object} strapi strapi app
  * @returns {Function} (event, payload) -> Promise{boolean}
  */
-module.exports = (strapi) => {
+/* module.exports = (strapi) => {
   const { uuid } = strapi.config;
   const deviceId = machineIdSync();
   const isEE = strapi.EE === true && ee.isEE === true;
@@ -73,4 +73,4 @@ module.exports = (strapi) => {
       return false;
     }
   };
-};
+}; */

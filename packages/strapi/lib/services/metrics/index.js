@@ -4,25 +4,25 @@
  * You can learn more at https://strapi.akemona.com/documentation/developer-docs/latest/getting-started/usage-information.html
  */
 
-const crypto = require('crypto');
-const fs = require('fs');
-const path = require('path');
-const { scheduleJob } = require('node-schedule');
+// const crypto = require('crypto');
+// const fs = require('fs');
+// const path = require('path');
+// const { scheduleJob } = require('node-schedule');
 
-const ee = require('../../utils/ee');
-const wrapWithRateLimit = require('./rate-limiter');
-const createSender = require('./sender');
-const createMiddleware = require('./middleware');
-const isTruthy = require('./is-truthy');
+// const ee = require('../../utils/ee');
+// const wrapWithRateLimit = require('./rate-limiter');
+// const createSender = require('./sender');
+// const createMiddleware = require('./middleware');
+// const isTruthy = require('./is-truthy');
 
-const LIMITED_EVENTS = [
-  'didSaveMediaWithAlternativeText',
-  'didSaveMediaWithCaption',
-  'didDisableResponsiveDimensions',
-  'didEnableResponsiveDimensions',
-];
+// const LIMITED_EVENTS = [
+//   'didSaveMediaWithAlternativeText',
+//   'didSaveMediaWithCaption',
+//   'didDisableResponsiveDimensions',
+//   'didEnableResponsiveDimensions',
+// ];
 
-const createTelemetryInstance = (strapi) => {
+/* const createTelemetryInstance = (strapi) => {
   const { uuid } = strapi.config;
   const isDisabled = !uuid || isTruthy(process.env.STRAPI_TELEMETRY_DISABLED);
 
@@ -75,9 +75,9 @@ const createTelemetryInstance = (strapi) => {
       return sendEvent(event, payload);
     },
   };
-};
+}; */
 
-const hash = (str) => crypto.createHash('sha256').update(str).digest('hex');
+/* const hash = (str) => crypto.createHash('sha256').update(str).digest('hex');
 
 const hashProject = (strapi) => hash(`${strapi.config.info.name}${strapi.config.info.description}`);
 
@@ -94,6 +94,6 @@ const hashDep = (strapi) => {
   }
 
   return hash(`${depStr}`);
-};
+}; */
 
-module.exports = createTelemetryInstance;
+// module.exports = createTelemetryInstance;
