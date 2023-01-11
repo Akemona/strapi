@@ -39,22 +39,10 @@ function getBool(envVar, defaultValue) {
 
 const loggerConfig = {
   level: getLogLevel(),
-  timestamp: () => `,"timestamp": "${new Date().toISOString()}"`,
-  // timestamp: getBool(process.env.STRAPI_LOG_TIMESTAMP, false),
+  // timestamp: pino.stdTimeFunctions.isoTime,
   // prettyPrint: getBool(process.env.STRAPI_LOG_PRETTY_PRINT, true),
   forceColor: getBool(process.env.STRAPI_LOG_FORCE_COLOR, true),
 };
-
-// const pretty = pino.pretty({
-//   formatter: (logs, options) => {
-//     return `${options.asColoredText(
-//       { level: 10 },
-//       `[${new Date().toISOString()}]`
-//     )} ${options.prefix.toLowerCase()} ${logs.stack ? logs.stack : logs.msg}`;
-//   },
-// });
-
-// pretty.pipe(process.stdout);
 
 const logger = getBool(process.env.STRAPI_LOG_PRETTY_PRINT, true)
   ? pino({
@@ -63,13 +51,11 @@ const logger = getBool(process.env.STRAPI_LOG_PRETTY_PRINT, true)
         target: 'pino-pretty',
         options: {
           colorize: true,
+          translateTime: 'SYS:standard',
+          ignore: 'pid,hostname',
         },
       },
     })
   : pino(loggerConfig);
-
-// const logger = getBool(process.env.STRAPI_LOG_PRETTY_PRINT, true)
-//   ? pino(loggerConfig, pretty)
-//   : pino(loggerConfig);
 
 module.exports = logger;
