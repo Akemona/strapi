@@ -103,14 +103,18 @@ window.strapi = Object.assign(window.strapi || {}, {
 module.exports = {
   ${plugins
     .map((name) => {
-      const shortName = name.replace(/^@akemona-org\/strapi-plugin-/i, '');
+      const shortName = name.startsWith('@akemona-org')
+        ? name.replace(/^@akemona-org\/strapi-plugin-/i, '')
+        : name.replace(/^strapi-plugin-/i, '');
       const req = `require('../../plugins/${name}/admin/src').default`;
       return `'${shortName}': ${req},`;
     })
     .join('\n')}
   ${localPlugins
     .map((name) => {
-      const shortName = name.replace(/^@akemona-org\/strapi-plugin-/i, '');
+      const shortName = name.startsWith('@akemona-org')
+        ? name.replace(/^@akemona-org\/strapi-plugin-/i, '')
+        : name.replace(/^strapi-plugin-/i, '');
       const req = `require('../../../plugins/${name}/admin/src').default`;
       return `'${shortName}': ${req}`;
     })
@@ -214,7 +218,9 @@ async function createCacheDir(dir) {
 
   // override plugins' admin code with user customizations
   const pluginsToOverride = pluginsToCopy.reduce((acc, current) => {
-    const pluginName = current.replace(/^@akemona-org\/strapi-plugin-/i, '');
+    const pluginName = current.startsWith('@akemona-org')
+      ? current.replace(/^@akemona-org\/strapi-plugin-/i, '')
+      : current.replace(/^strapi-plugin-/i, '');
 
     if (fs.pathExistsSync(path.join(dir, 'extensions', pluginName, 'admin'))) {
       acc.push(pluginName);
@@ -289,7 +295,13 @@ async function watchFiles(dir, ignoreFiles = []) {
       fs.existsSync(path.resolve(getPkgPath(dep), 'admin', 'src', 'index.js'))
   );
   const pluginsToWatch = appPlugins.map((plugin) =>
-    path.join(extensionsPath, plugin.replace(/^@akemona-org\/strapi-plugin-/i, ''), 'admin')
+    path.join(
+      extensionsPath,
+      plugin.startsWith('@akemona-org')
+        ? plugin.replace(/^@akemona-org\/strapi-plugin-/i, '')
+        : plugin.replace(/^strapi-plugin-/i, ''),
+      'admin'
+    )
   );
   const filesToWatch = [admin, ...pluginsToWatch];
 
