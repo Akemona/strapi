@@ -50,6 +50,7 @@ const logger = getBool(process.env.STRAPI_LOG_PRETTY_PRINT, true)
       transport: {
         target: 'pino-pretty',
         options: {
+          destination: 1,
           colorize: true,
           translateTime: 'SYS:standard',
           ignore: 'pid,hostname',
