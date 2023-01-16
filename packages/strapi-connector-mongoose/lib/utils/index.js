@@ -21,6 +21,14 @@ module.exports = (mongoose = Mongoose) => {
     return this.toString();
   };
 
+  /**
+   * Covert to string as it can be greater than js max safe int (type: Int64)
+   *
+   */
+  mongoose.Types.Long.prototype.valueOf = function () {
+    return this.toString();
+  };
+
   const convertType = (name, attr) => {
     if (_.has(attr, 'columnType')) {
       return { type: attr.columnType };
