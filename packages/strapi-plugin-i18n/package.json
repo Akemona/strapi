@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.9.4",
+  "version": "3.10.0",
   "description": "This plugin enables to create, to read and to update content in different languages, both from the Admin Panel and from the API",
   "strapi": {
     "name": "Internationalization",
@@ -12,7 +12,7 @@
     "required": false
   },
   "dependencies": {
-    "@akemona-org/strapi-utils": "3.9.4",
+    "@akemona-org/strapi-utils": "3.10.0",
     "lodash": "4.17.21",
     "p-map": "4.0.0",
     "pluralize": "8.0.0"
