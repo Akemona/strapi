@@ -8,6 +8,9 @@ const Router = require('koa-router');
 const _ = require('lodash');
 const chalk = require('chalk');
 const CLITable = require('cli-table3');
+// eslint-disable-next-line import/order
+const loadConfiguration = require('./core/app-configuration'); // loads dotenv
+
 const {
   logger,
   models,
@@ -15,7 +18,6 @@ const {
   getAbsoluteServerUrl,
 } = require('@akemona-org/strapi-utils');
 const { createDatabaseManager } = require('@akemona-org/strapi-database');
-const loadConfiguration = require('./core/app-configuration');
 
 const utils = require('./utils');
 const loadModules = require('./core/load-modules');
