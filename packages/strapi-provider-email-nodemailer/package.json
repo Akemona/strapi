@@ -1,6 +1,6 @@
 {
   "name": "@akemona-org/strapi-provider-email-nodemailer",
-  "version": "3.10.0",
+  "version": "3.10.1",
   "publishConfig": {
     "access": "public"
   },
@@ -62,5 +62,5 @@
     "node": ">=14.19.1 <=18.x.x",
     "npm": ">=6.0.0"
   },
-  "gitHead": "56521c15c8e31f5d14bb4db6b45af2f7e291f54b"
+  "gitHead": "b663a2f33f441789c19223a91f8bec06e1be50d4"
 }
