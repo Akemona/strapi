@@ -21,7 +21,7 @@
     "@akemona-org/strapi-utils": "3.9.4",
     "ioredis": "^4.27.1",
     "lodash": "4.17.21",
-    "rimraf": "3.0.2",
+    "rimraf": "4.1.0",
     "stack-trace": "0.0.10"
   },
   "author": {

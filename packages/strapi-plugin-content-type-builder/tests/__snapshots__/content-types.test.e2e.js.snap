@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Content Type Builder - Content types Collection Types Get collection type returns full schema and information 1`] = `
-Object {
-  "data": Object {
+{
+  "data": {
     "apiID": "test-collection-type",
-    "schema": Object {
-      "attributes": Object {
-        "title": Object {
-          "pluginOptions": Object {
-            "i18n": Object {
+    "schema": {
+      "attributes": {
+        "title": {
+          "pluginOptions": {
+            "i18n": {
               "localized": true,
             },
           },
@@ -21,8 +21,8 @@ Object {
       "draftAndPublish": false,
       "kind": "collectionType",
       "name": "Test Collection Type",
-      "pluginOptions": Object {
-        "i18n": Object {
+      "pluginOptions": {
+        "i18n": {
           "localized": true,
         },
       },
@@ -35,12 +35,12 @@ Object {
 `;
 
 exports[`Content Type Builder - Content types Collection Types Get collection type returns full schema and informations with draftAndPublish 1`] = `
-Object {
-  "data": Object {
+{
+  "data": {
     "apiID": "ct-with-dp",
-    "schema": Object {
-      "attributes": Object {
-        "title": Object {
+    "schema": {
+      "attributes": {
+        "title": {
           "type": "string",
         },
       },
@@ -59,14 +59,14 @@ Object {
 `;
 
 exports[`Content Type Builder - Content types Single Types Get single type returns full schema and information 1`] = `
-Object {
-  "data": Object {
+{
+  "data": {
     "apiID": "test-single-type",
-    "schema": Object {
-      "attributes": Object {
-        "title": Object {
-          "pluginOptions": Object {
-            "i18n": Object {
+    "schema": {
+      "attributes": {
+        "title": {
+          "pluginOptions": {
+            "i18n": {
               "localized": true,
             },
           },
@@ -79,8 +79,8 @@ Object {
       "draftAndPublish": false,
       "kind": "singleType",
       "name": "Test Single Type",
-      "pluginOptions": Object {
-        "i18n": Object {
+      "pluginOptions": {
+        "i18n": {
           "localized": true,
         },
       },

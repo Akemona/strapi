@@ -111,7 +111,7 @@
         ]
       }
     },
-    "/connect/*": {
+    "/connect/(.*)": {
       "get": {
         "summary": "Authenticate your user with a custom provider",
         "tags": ["Authentication"],

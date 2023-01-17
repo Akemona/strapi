@@ -4,62 +4,64 @@
  * Module dependencies
  */
 
-/* eslint-disable no-unused-vars */
 // Public node modules.
-const _ = require('lodash');
-const AWS = require('aws-sdk');
+const { S3Client, PutObjectCommand, DeleteObjectCommand } = require('@aws-sdk/client-s3');
 
 module.exports = {
   init(config) {
-    const S3 = new AWS.S3({
-      apiVersion: '2006-03-01',
-      ...config,
+    if (!config.params.Bucket || !config.region) {
+      throw new Error('Invalid config.');
+    }
+    const client = new S3Client({
+      region: config.region,
+      ...(config.accessKeyId && {
+        credentials: {
+          accessKeyId: config.accessKeyId,
+          secretAccessKey: config.secretAccessKey,
+        },
+      }),
     });
 
     return {
-      upload(file, customParams = {}) {
-        return new Promise((resolve, reject) => {
-          // upload file on S3 bucket
-          const path = file.path ? `${file.path}/` : '';
-          S3.upload(
-            {
-              Key: `${path}${file.hash}${file.ext}`,
-              Body: Buffer.from(file.buffer, 'binary'),
-              ACL: 'public-read',
-              ContentType: file.mime,
-              ...customParams,
-            },
-            (err, data) => {
-              if (err) {
-                return reject(err);
-              }
+      async upload(file, customParams = {}) {
+        // upload file on S3 bucket
+        const path = file.path ? `${file.path}/` : '';
 
-              // set the bucket file url
-              file.url = data.Location;
-
-              resolve();
-            }
-          );
-        });
+        try {
+          const command = new PutObjectCommand({
+            Bucket: config.params.Bucket,
+            Key: `${path}${file.hash}${file.ext}`,
+            Body: Buffer.from(file.buffer, 'binary'),
+            ACL: 'public-read',
+            ContentType: file.mime,
+            ...customParams,
+          });
+          client.config.Bu;
+          const data = await client.send(command);
+          const location = `https://${command.input.Bucket}.s3.${config.region}.amazonaws.com/${command.input.Key}`;
+          file.url = config.baseUrl ? `${config.baseUrl}/${command.input.Key}` : location;
+          // console.log('s3 upload Success:', data);
+          return data;
+        } catch (err) {
+          console.log('s3 upload failed: ' + err);
+          throw err;
+        }
       },
-      delete(file, customParams = {}) {
-        return new Promise((resolve, reject) => {
-          // delete file on S3 bucket
-          const path = file.path ? `${file.path}/` : '';
-          S3.deleteObject(
-            {
+      async delete(file, customParams = {}) {
+        // delete file on S3 bucket
+        const path = file.path ? `${file.path}/` : '';
+        try {
+          const data = await client.send(
+            new DeleteObjectCommand({
               Key: `${path}${file.hash}${file.ext}`,
               ...customParams,
-            },
-            (err, data) => {
-              if (err) {
-                return reject(err);
-              }
-
-              resolve();
-            }
+            })
           );
-        });
+          return data;
+        } catch (err) {
+          console.log('delete from S3 failed: ' + err);
+          throw err;
+        }
       },
     };
   },

@@ -10,7 +10,7 @@
 var execSync = require('child_process').execSync;
 var chalk = require('chalk');
 var spawn = require('cross-spawn');
-var opn = require('opn');
+var opn = require('open');
 const fetch = require('node-fetch');
 const { getAbsoluteAdminUrl } = require('@akemona-org/strapi-utils');
 
@@ -82,19 +82,9 @@ function startBrowserProcess(browser, url) {
     }
   }
 
-  // Another special case: on OS X, check if BROWSER has been set to "open".
-  // In this case, instead of passing `open` to `opn` (which won't work),
-  // just ignore it (thus ensuring the intended behavior, i.e. opening the system browser):
-  // https://github.com/facebook/create-react-app/pull/1690#issuecomment-283518768
-  if (process.platform === 'darwin' && browser === 'open') {
-    browser = undefined;
-  }
-
-  // Fallback to opn
-  // (It will always open new tab)
   try {
-    var options = { app: browser };
-    opn(url, options).catch(() => {}); // Prevent `unhandledRejection` error.
+    // open in default browser (opn v)
+    opn(url).catch(() => {}); // Prevent `unhandledRejection` error.
     return true;
   } catch (err) {
     return false;

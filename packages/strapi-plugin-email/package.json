@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@akemona-org/strapi-helper-plugin": "3.9.4",
-    "rimraf": "3.0.2"
+    "rimraf": "4.1.0"
   },
   "author": {
     "name": "Akemona team",

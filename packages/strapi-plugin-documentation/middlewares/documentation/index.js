@@ -47,7 +47,7 @@ module.exports = (strapi) => {
         }
       );
 
-      strapi.router.get('/plugins/documentation/*', async (ctx, next) => {
+      strapi.router.get('/plugins/documentation/(.*)', async (ctx, next) => {
         ctx.url = path.basename(ctx.url);
 
         return await koaStatic(swaggerUi.getAbsoluteFSPath(), {

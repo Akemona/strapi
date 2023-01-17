@@ -87,12 +87,12 @@ module.exports = (strapi) => {
       };
 
       strapi.router.get(
-        `${strapi.config.admin.path}/*`,
+        `${strapi.config.admin.path}/(.*)`,
         serveStatic(buildDir, { maxage: maxAge, defer: false, index: 'index.html' })
       );
 
       strapi.router.get(`${strapi.config.admin.path}`, serveAdmin);
-      strapi.router.get(`${strapi.config.admin.path}/*`, serveAdmin);
+      strapi.router.get(`${strapi.config.admin.path}/(.*)`, serveAdmin);
     },
   };
 };

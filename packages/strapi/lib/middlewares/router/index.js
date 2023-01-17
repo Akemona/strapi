@@ -6,7 +6,7 @@
 
 // Public node modules.
 const _ = require('lodash');
-const Router = require('koa-router');
+const Router = require('@koa/router');
 const createEndpointComposer = require('./utils/composeEndpoint');
 /**
  * Router hook

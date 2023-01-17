@@ -35,9 +35,7 @@
       "path": "/roles/:id",
       "handler": "UsersPermissions.getRole",
       "config": {
-        "policies": [
-          ["admin::hasPermissions", ["plugins::users-permissions.roles.read"]]
-        ],
+        "policies": [["admin::hasPermissions", ["plugins::users-permissions.roles.read"]]],
         "description": "Retrieve a role depending on its id",
         "tag": {
           "plugin": "users-permissions",
@@ -51,9 +49,7 @@
       "path": "/roles",
       "handler": "UsersPermissions.getRoles",
       "config": {
-        "policies": [
-          ["admin::hasPermissions", ["plugins::users-permissions.roles.read"]]
-        ],
+        "policies": [["admin::hasPermissions", ["plugins::users-permissions.roles.read"]]],
         "description": "Retrieve all role documents",
         "tag": {
           "plugin": "users-permissions",
@@ -75,9 +71,7 @@
       "path": "/email-templates",
       "handler": "UsersPermissions.getEmailTemplate",
       "config": {
-        "policies": [
-          ["admin::hasPermissions", ["plugins::users-permissions.email-templates.read"]]
-        ]
+        "policies": [["admin::hasPermissions", ["plugins::users-permissions.email-templates.read"]]]
       }
     },
     {
@@ -123,9 +117,7 @@
       "path": "/providers",
       "handler": "UsersPermissions.getProviders",
       "config": {
-        "policies": [
-          ["admin::hasPermissions", ["plugins::users-permissions.providers.read"]]
-        ]
+        "policies": [["admin::hasPermissions", ["plugins::users-permissions.providers.read"]]]
       }
     },
 
@@ -134,9 +126,7 @@
       "path": "/providers",
       "handler": "UsersPermissions.updateProviders",
       "config": {
-        "policies": [
-          ["admin::hasPermissions", ["plugins::users-permissions.providers.update"]]
-        ]
+        "policies": [["admin::hasPermissions", ["plugins::users-permissions.providers.update"]]]
       }
     },
     {
@@ -144,9 +134,7 @@
       "path": "/roles",
       "handler": "UsersPermissions.createRole",
       "config": {
-        "policies": [
-          ["admin::hasPermissions", ["plugins::users-permissions.roles.create"]]
-        ],
+        "policies": [["admin::hasPermissions", ["plugins::users-permissions.roles.create"]]],
         "description": "Create a new role",
         "tag": {
           "plugin": "users-permissions",
@@ -160,9 +148,7 @@
       "path": "/roles/:role",
       "handler": "UsersPermissions.updateRole",
       "config": {
-        "policies": [
-          ["admin::hasPermissions", ["plugins::users-permissions.roles.update"]]
-        ],
+        "policies": [["admin::hasPermissions", ["plugins::users-permissions.roles.update"]]],
         "description": "Update a role",
         "tag": {
           "plugin": "users-permissions",
@@ -176,9 +162,7 @@
       "path": "/roles/:role",
       "handler": "UsersPermissions.deleteRole",
       "config": {
-        "policies": [
-          ["admin::hasPermissions", ["plugins::users-permissions.roles.delete"]]
-        ],
+        "policies": [["admin::hasPermissions", ["plugins::users-permissions.roles.delete"]]],
         "description": "Delete a role",
         "tag": {
           "plugin": "users-permissions",
@@ -189,7 +173,7 @@
     },
     {
       "method": "GET",
-      "path": "/connect/*",
+      "path": "/connect/(.*)",
       "handler": "Auth.connect",
       "config": {
         "policies": ["plugins::users-permissions.ratelimit"],
