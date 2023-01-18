@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.10.2",
+  "version": "3.10.3",
   "description": "Mailgun provider for strapi email plugin",
   "homepage": "https://strapi.akemona.com",
   "keywords": [
@@ -16,7 +16,7 @@
   },
   "main": "./lib",
   "dependencies": {
-    "@akemona-org/strapi-utils": "3.10.2",
+    "@akemona-org/strapi-utils": "3.10.3",
     "mailgun-js": "0.22.0"
   },
   "strapi": {
