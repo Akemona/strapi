@@ -4,13 +4,6 @@
 
 After strapi decided to drop MongoDB support on v4, we have decided to maintain v3 for our internal use, but anyone can use this at their own risk.
 
-### Features
-
-- **Keep control over your data**. With Strapi, you know where your data is stored, and you keep full control at all times.
-- **Self-hosted**. You can host and scale Strapi projects the way you want. You can choose any hosting platform you want: AWS, Render, Heroku, a VPS, or a dedicated server. You can scale as you grow, 100% independent.
-- **Database agnostic**. You can choose the database you prefer. Strapi works with SQL & NoSQL databases: MongoDB, PostgreSQL, MySQL, MariaDB, and SQLite. **(This custom version is only focused on MongoDB)**
-- **Customizable**. You can quickly build your logic by fully customizing APIs, routes, or plugins to fit your needs perfectly.
-
 ## Getting Started
 
 <a href="https://strapi.akemona.com/documentation/developer-docs/latest/getting-started/quick-start.html" target="_blank">Read the Getting Started tutorial</a> or follow the steps below:
@@ -22,7 +15,7 @@ Install Strapi with this **Quickstart** command to create a Strapi project insta
 - (Use **yarn** to install the Strapi project (recommended). [Install yarn with these docs](https://yarnpkg.com/lang/en/docs/install/).)
 
 ```bash
-yarn create strapi-app my-project --quickstart
+yarn create @akemona-org/strapi-app my-project --quickstart
 ```
 
 **or**
@@ -30,12 +23,19 @@ yarn create strapi-app my-project --quickstart
 - (Use npm/npx to install the Strapi project.)
 
 ```bash
-npx create-strapi-app my-project --quickstart
+npx @akemona-org/create-strapi-app my-project --quickstart
 ```
 
 This command generates a brand new project with the default features (authentication, permissions, content management, content type builder & file upload). The **Quickstart** command installs Strapi using a **SQLite** database which is used for prototyping in development.
 
 Enjoy 🎉
+
+### Features
+
+- **Keep control over your data**. With Strapi, you know where your data is stored, and you keep full control at all times.
+- **Self-hosted**. You can host and scale Strapi projects the way you want. You can choose any hosting platform you want: AWS, Render, Heroku, a VPS, or a dedicated server. You can scale as you grow, 100% independent.
+- **Database agnostic**. You can choose the database you prefer. Strapi works with SQL & NoSQL databases: MongoDB, PostgreSQL, MySQL, MariaDB, and SQLite. **(This custom version is only focused on MongoDB)**
+- **Customizable**. You can quickly build your logic by fully customizing APIs, routes, or plugins to fit your needs perfectly.
 
 ### 🖐 Requirements
 
@@ -58,11 +58,11 @@ Complete installation requirements can be found in the documentation under <a hr
 
 **Database:**
 
+- MongoDB >= 4.4
 - MySQL >= 5.6
 - MariaDB >= 10.1
 - PostgreSQL >= 10
 - SQLite >= 3
-- MongoDB >= 3.6 ([please read this thread before using MongoDB](https://forum.strapi.io/t/mongodb-compatibility-delayed-on-v4/4549/108))
 
 **We recommend always using the latest version of Strapi to start your new projects**.
 
@@ -74,7 +74,7 @@ Complete installation requirements can be found in the documentation under <a hr
 - **Blazing Fast:** Built on top of Node.js, Strapi delivers amazing performance.
 - **Front-end Agnostic:** Use any front-end framework (React, Vue, Angular, etc.), mobile apps or even IoT.
 - **Powerful CLI:** Scaffold projects and APIs on the fly.
-- **SQL & NoSQL databases:** Works with MongoDB ([please read this thread before using MongoDB](https://forum.strapi.io/t/mongodb-compatibility-delayed-on-v4/4549/108)), PostgreSQL, MySQL, MariaDB, and SQLite.
+- **SQL & NoSQL databases:** Works with MongoDB, PostgreSQL, MySQL, MariaDB, and SQLite.
 
 **[See more on our website](https://strapi.akemona.com/overview)**.
 
