@@ -6,7 +6,7 @@ const { createAuthRequest } = require('../../../test/helpers/request');
 const { createUtils } = require('../../../test/helpers/utils');
 
 // disable EE
-const edition = 'CE';
+// const edition = 'CE';
 
 const omitTimestamps = (obj) => _.omit(obj, ['updatedAt', 'createdAt', 'updated_at', 'created_at']);
 
@@ -47,11 +47,11 @@ describe('Admin User CRUD (e2e)', () => {
     superAdminRole: undefined,
   };
 
-  const createUserRole = async () =>
+  /*  const createUserRole = async () =>
     utils.createRole({
       name: 'user_test_role',
       description: 'Only used for user crud test (e2e)',
-    });
+    }); */
 
   // Initialization Actions
   beforeAll(async () => {
@@ -59,11 +59,11 @@ describe('Admin User CRUD (e2e)', () => {
     rq = await createAuthRequest({ strapi });
     utils = createUtils(strapi);
 
-    if (edition === 'EE') {
-      testData.role = await createUserRole();
-    } else {
-      testData.role = await utils.getSuperAdminRole();
-    }
+    // if (edition === 'EE') {
+    //   testData.role = await createUserRole();
+    // } else {
+    testData.role = await utils.getSuperAdminRole();
+    // }
 
     testData.firstSuperAdminUser = rq.getLoggedUser();
     testData.superAdminRole = await utils.getSuperAdminRole();
@@ -71,9 +71,9 @@ describe('Admin User CRUD (e2e)', () => {
 
   // Cleanup actions
   afterAll(async () => {
-    if (edition === 'EE') {
+    /*  if (edition === 'EE') {
       await utils.deleteRolesById([testData.role.id]);
-    }
+    } */
     await strapi.destroy();
   });
 

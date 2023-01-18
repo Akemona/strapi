@@ -5,7 +5,7 @@
 const { createStrapiInstance } = require('../../../test/helpers/strapi');
 const { createAuthRequest } = require('../../../test/helpers/request');
 
-const edition = process.env.STRAPI_DISABLE_EE === 'true' ? 'CE' : 'EE';
+// const edition = process.env.STRAPI_DISABLE_EE === 'true' ? 'CE' : 'EE';
 
 const data = {
   rolesWithUsers: [],
@@ -724,22 +724,22 @@ describe('Role CRUD End to End', () => {
     });
   }
  */
-  if (edition === 'CE') {
-    describe('Cannot create a new role', () => {
-      test('Cannot create a role successfully', async () => {
-        const role = {
-          name: 'new role',
-          description: 'Description of new role',
-        };
+  // if (edition === 'CE') {
+  describe('Cannot create a new role', () => {
+    test('Cannot create a role successfully', async () => {
+      const role = {
+        name: 'new role',
+        description: 'Description of new role',
+      };
 
-        const res = await rq({
-          url: '/admin/roles',
-          method: 'POST',
-          body: role,
-        });
-
-        expect(res.statusCode).toBe(405);
+      const res = await rq({
+        url: '/admin/roles',
+        method: 'POST',
+        body: role,
       });
+
+      expect(res.statusCode).toBe(405);
     });
-  }
+  });
+  // }
 });
