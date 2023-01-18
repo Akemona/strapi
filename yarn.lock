@@ -7566,13 +7566,12 @@ create-hmac@^1.1.0, create-hmac@^1.1.4, create-hmac@^1.1.7:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-cron-parser@^2.7.3:
-  version "2.18.0"
-  resolved "https://registry.yarnpkg.com/cron-parser/-/cron-parser-2.18.0.tgz#de1bb0ad528c815548371993f81a54e5a089edcf"
-  integrity sha512-s4odpheTyydAbTBQepsqd2rNWGa2iV3cyo8g7zbI2QQYGLVsfbhmwukayS1XHppe02Oy1fg7mg6xoaraVJeEcg==
+cron-parser@^4.2.0:
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/cron-parser/-/cron-parser-4.7.1.tgz#1e325a6a18e797a634ada1e2599ece0b6b5ed177"
+  integrity sha512-WguFaoQ0hQ61SgsCZLHUcNbAvlK0lypKXu62ARguefYmjzaOXIVRNrAmyXzabTwUn4sQvQLkk6bjH+ipGfw8bA==
   dependencies:
-    is-nan "^1.3.0"
-    moment-timezone "^0.5.31"
+    luxon "^3.2.1"
 
 cropperjs@^1.5.11:
   version "1.5.13"
@@ -11763,14 +11762,6 @@ is-module@^1.0.0:
   resolved "https://registry.yarnpkg.com/is-module/-/is-module-1.0.0.tgz#3258fb69f78c14d5b815d664336b4cffb6441591"
   integrity sha512-51ypPSPCoTEIN9dy5Oy+h4pShgJmPCygKfyRCISBI+JoWT/2oJvK8QPxmwv7b/p239jXrm9M1mlQbyKJ5A152g==
 
-is-nan@^1.3.0:
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/is-nan/-/is-nan-1.3.2.tgz#043a54adea31748b55b6cd4e09aadafa69bd9e1d"
-  integrity sha512-E+zBKpQ2t6MEo1VsonYmluk9NxGrbzpeeLC2xIViuO2EjU2xsXsBPwTr3Ykv9l08UYEVEdWeRZNouaZqF6RN0w==
-  dependencies:
-    call-bind "^1.0.0"
-    define-properties "^1.1.3"
-
 is-negative-zero@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/is-negative-zero/-/is-negative-zero-2.0.2.tgz#7bf6f03a28003b8b3965de3ac26f664d765f3150"
@@ -13617,6 +13608,11 @@ lru_map@^0.3.3:
   resolved "https://registry.yarnpkg.com/lru_map/-/lru_map-0.3.3.tgz#b5c8351b9464cbd750335a79650a0ec0e56118dd"
   integrity sha512-Pn9cox5CsMYngeDbmChANltQl+5pi6XmTrraMSzhPmMBbmgcxmqWry0U3PGapCU1yB4/LqCcom7qhHZiF/jGfQ==
 
+luxon@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-3.2.1.tgz#14f1af209188ad61212578ea7e3d518d18cee45f"
+  integrity sha512-QrwPArQCNLAKGO/C+ZIilgIuDnEnKx5QYODdDtbFaxzsbZcc/a7WFq7MhsVYgRlwawLtvOUESTlfJ+hc/USqPg==
+
 lz-string@^1.4.4:
   version "1.4.4"
   resolved "https://registry.yarnpkg.com/lz-string/-/lz-string-1.4.4.tgz#c0d8eaf36059f705796e1e344811cf4c498d3a26"
@@ -14238,14 +14234,7 @@ modify-values@^1.0.0:
   resolved "https://registry.yarnpkg.com/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
   integrity sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==
 
-moment-timezone@^0.5.31:
-  version "0.5.40"
-  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.40.tgz#c148f5149fd91dd3e29bf481abc8830ecba16b89"
-  integrity sha512-tWfmNkRYmBkPJz5mr9GVDn9vRlVZOTe6yqY92rFxiOdWXbjaR0+9LwQnZGGuNR63X456NqmEkbskte8tWL5ePg==
-  dependencies:
-    moment ">= 2.9.0"
-
-"moment@>= 2.9.0", moment@>=1.6.0, moment@^2.24.0, moment@^2.29.4:
+moment@>=1.6.0, moment@^2.24.0, moment@^2.29.4:
   version "2.29.4"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
   integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
@@ -14641,14 +14630,14 @@ node-releases@^2.0.6:
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.8.tgz#0f349cdc8fcfa39a92ac0be9bc48b7706292b9ae"
   integrity sha512-dFSmB8fFHEH/s81Xi+Y/15DQY6VHW81nXRj86EMSL3lmuTmK1e+aT4wrFCkTbm+gSwkw4KpX+rT/pMM2c1mF+A==
 
-node-schedule@1.3.2:
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/node-schedule/-/node-schedule-1.3.2.tgz#d774b383e2a6f6ade59eecc62254aea07cd758cb"
-  integrity sha512-GIND2pHMHiReSZSvS6dpZcDH7pGPGFfWBIEud6S00Q8zEIzAs9ommdyRK1ZbQt8y1LyZsJYZgPnyi7gpU2lcdw==
+node-schedule@2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/node-schedule/-/node-schedule-2.1.1.tgz#6958b2c5af8834954f69bb0a7a97c62b97185de3"
+  integrity sha512-OXdegQq03OmXEjt2hZP33W2YPs/E5BcFQks46+G2gAxs4gHOIVD1u7EqlYLYSKsaIpyKCK9Gbk0ta1/gjRSMRQ==
   dependencies:
-    cron-parser "^2.7.3"
+    cron-parser "^4.2.0"
     long-timeout "0.1.1"
-    sorted-array-functions "^1.0.0"
+    sorted-array-functions "^1.3.0"
 
 node-ses@^3.0.3:
   version "3.0.3"
@@ -18634,7 +18623,7 @@ sort-keys@^4.0.0:
   dependencies:
     is-plain-obj "^2.0.0"
 
-sorted-array-functions@^1.0.0:
+sorted-array-functions@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/sorted-array-functions/-/sorted-array-functions-1.3.0.tgz#8605695563294dffb2c9796d602bd8459f7a0dd5"
   integrity sha512-2sqgzeFlid6N4Z2fUQ1cvFmTOLRi/sEDzSQ0OKYchqgoPmQBVyM3959qYx3fpS6Esef80KjmpgPeEr028dP3OA==
