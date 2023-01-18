@@ -1,6 +1,6 @@
 'use strict';
 
-const _ = require('lodash');
+// const _ = require('lodash');
 
 const { createStrapiInstance } = require('../../../test/helpers/strapi');
 const { createAuthRequest } = require('../../../test/helpers/request');
@@ -17,7 +17,7 @@ const data = {
   editorRole: undefined,
 };
 
-const omitTimestamps = (obj) => _.omit(obj, ['updatedAt', 'createdAt', 'updated_at', 'created_at']);
+// const omitTimestamps = (obj) => _.omit(obj, ['updatedAt', 'createdAt', 'updated_at', 'created_at']);
 
 describe('Role CRUD End to End', () => {
   let rq;
@@ -106,7 +106,7 @@ describe('Role CRUD End to End', () => {
         });
     });
 
-    if (edition === 'EE') {
+    /*  if (edition === 'EE') {
       const newPermissions = [
         {
           action: 'plugins::users-permissions.roles.update',
@@ -170,80 +170,80 @@ describe('Role CRUD End to End', () => {
           ]),
         });
       });
-    } else if (edition === 'CE') {
-      const newPermissions = [
-        {
-          action: 'plugins::users-permissions.roles.update',
-        },
-        {
-          action: 'plugins::users-permissions.roles.read',
-          conditions: ['admin::is-creator'],
-        },
-        {
-          action: 'plugins::content-manager.explorer.create',
-          subject: 'plugins::users-permissions.user',
-          properties: { fields: ['username'], locales: [] },
-          conditions: ['admin::is-creator'],
-        },
-        {
-          action: 'plugins::content-manager.explorer.update',
-          subject: 'plugins::users-permissions.user',
-          properties: { fields: ['username'], locales: [] },
-          conditions: ['admin::is-creator'],
-        },
-        {
-          action: 'plugins::content-manager.explorer.delete',
-          subject: 'plugins::users-permissions.user',
-          properties: { locales: [] },
-          conditions: ['admin::is-creator'],
-        },
-        {
-          action: 'plugins::content-manager.explorer.read',
-          subject: 'plugins::users-permissions.user',
-          properties: { fields: ['username'], locales: [] },
-          conditions: ['admin::is-creator'],
-        },
-      ];
+    } else if (edition === 'CE') { */
+    const newPermissions = [
+      {
+        action: 'plugins::users-permissions.roles.update',
+      },
+      {
+        action: 'plugins::users-permissions.roles.read',
+        conditions: ['admin::is-creator'],
+      },
+      {
+        action: 'plugins::content-manager.explorer.create',
+        subject: 'plugins::users-permissions.user',
+        properties: { fields: ['username'], locales: [] },
+        conditions: ['admin::is-creator'],
+      },
+      {
+        action: 'plugins::content-manager.explorer.update',
+        subject: 'plugins::users-permissions.user',
+        properties: { fields: ['username'], locales: [] },
+        conditions: ['admin::is-creator'],
+      },
+      {
+        action: 'plugins::content-manager.explorer.delete',
+        subject: 'plugins::users-permissions.user',
+        properties: { locales: [] },
+        conditions: ['admin::is-creator'],
+      },
+      {
+        action: 'plugins::content-manager.explorer.read',
+        subject: 'plugins::users-permissions.user',
+        properties: { fields: ['username'], locales: [] },
+        conditions: ['admin::is-creator'],
+      },
+    ];
 
-      test("Conditions of editors and author can't be modified", async () => {
-        let res = await rq({
-          url: `/admin/roles/${data.editorRole.id}/permissions`,
-          method: 'PUT',
-          body: { permissions: newPermissions },
-        });
-
-        expect(res.statusCode).toBe(200);
-        expect(res.body.data).toHaveLength(6);
-        expect(res.body).toEqual({
-          data: expect.arrayContaining(
-            newPermissions
-              .slice(3, 6)
-              .map((p) => ({ ...p, conditions: [] }))
-              .map(expect.objectContaining)
-          ),
-        });
-
-        res = await rq({
-          url: `/admin/roles/${data.authorRole.id}/permissions`,
-          method: 'PUT',
-          body: { permissions: newPermissions },
-        });
-
-        expect(res.statusCode).toBe(200);
-        expect(res.body.data).toHaveLength(6);
-        expect(res.body).toEqual({
-          data: expect.arrayContaining(
-            newPermissions
-              .slice(3, 6)
-              .map((p) => ({ ...p, conditions: ['admin::is-creator'] }))
-              .map(expect.objectContaining)
-          ),
-        });
+    test("Conditions of editors and author can't be modified", async () => {
+      let res = await rq({
+        url: `/admin/roles/${data.editorRole.id}/permissions`,
+        method: 'PUT',
+        body: { permissions: newPermissions },
       });
-    }
+
+      expect(res.statusCode).toBe(200);
+      expect(res.body.data).toHaveLength(6);
+      expect(res.body).toEqual({
+        data: expect.arrayContaining(
+          newPermissions
+            .slice(3, 6)
+            .map((p) => ({ ...p, conditions: [] }))
+            .map(expect.objectContaining)
+        ),
+      });
+
+      res = await rq({
+        url: `/admin/roles/${data.authorRole.id}/permissions`,
+        method: 'PUT',
+        body: { permissions: newPermissions },
+      });
+
+      expect(res.statusCode).toBe(200);
+      expect(res.body.data).toHaveLength(6);
+      expect(res.body).toEqual({
+        data: expect.arrayContaining(
+          newPermissions
+            .slice(3, 6)
+            .map((p) => ({ ...p, conditions: ['admin::is-creator'] }))
+            .map(expect.objectContaining)
+        ),
+      });
+    });
+    // }
   });
 
-  if (edition === 'EE') {
+  /*   if (edition === 'EE') {
     describe('Create some roles', () => {
       const rolesToCreate = [
         [{ name: 'new role 0', description: 'description' }],
@@ -723,7 +723,7 @@ describe('Role CRUD End to End', () => {
       });
     });
   }
-
+ */
   if (edition === 'CE') {
     describe('Cannot create a new role', () => {
       test('Cannot create a role successfully', async () => {

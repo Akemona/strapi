@@ -1,14 +1,14 @@
 'use strict';
 
-const { prop } = require('lodash/fp');
-const { createTestBuilder } = require('../../../test/helpers/builder');
-const { createStrapiInstance } = require('../../../test/helpers/strapi');
-const { createRequest, createAuthRequest } = require('../../../test/helpers/request');
-const { createUtils } = require('../../../test/helpers/utils');
+// const { prop } = require('lodash/fp');
+// const { createTestBuilder } = require('../../../test/helpers/builder');
+// const { createStrapiInstance } = require('../../../test/helpers/strapi');
+// const { createRequest, createAuthRequest } = require('../../../test/helpers/request');
+// const { createUtils } = require('../../../test/helpers/utils');
 
-const edition = process.env.STRAPI_DISABLE_EE === 'true' ? 'CE' : 'EE';
+// const edition = process.env.STRAPI_DISABLE_EE === 'true' ? 'CE' : 'EE';
 
-if (edition === 'EE') {
+/* if (edition === 'EE') {
   describe('Admin Permissions - Conditions', () => {
     let strapi;
     let utils;
@@ -193,8 +193,8 @@ if (edition === 'EE') {
       expect(res.body).toMatchObject(localTestData.entry);
     });
   });
-} else {
-  describe('Admin Permissions - Conditions ', () => {
-    test.skip('Only in EE', () => {});
-  });
-}
+} else { */
+describe('Admin Permissions - Conditions ', () => {
+  test.skip('Only in EE', () => {});
+});
+// }

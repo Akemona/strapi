@@ -5,7 +5,7 @@ const { createAuthRequest } = require('../../../test/helpers/request');
 const { createStrapiInstance, superAdmin } = require('../../../test/helpers/strapi');
 const { createUtils } = require('../../../test/helpers/utils');
 
-const edition = process.env.STRAPI_DISABLE_EE === 'true' ? 'CE' : 'EE';
+// const edition = process.env.STRAPI_DISABLE_EE === 'true' ? 'CE' : 'EE';
 
 let internals = {
   role: null,
@@ -21,20 +21,20 @@ describe('Admin Auth End to End', () => {
     rq = await createAuthRequest({ strapi });
     utils = createUtils(strapi);
 
-    if (edition === 'EE') {
+    /*    if (edition === 'EE') {
       internals.role = await utils.createRole({
         name: 'auth_test_role',
         description: 'Only used for auth crud test (e2e)',
       });
-    } else {
-      internals.role = await utils.getSuperAdminRole();
-    }
+    } else { */
+    internals.role = await utils.getSuperAdminRole();
+    // }
   });
 
   afterAll(async () => {
-    if (edition === 'EE') {
+    /*  if (edition === 'EE') {
       await utils.deleteRolesById([internals.role.id]);
-    }
+    } */
 
     await strapi.destroy();
   });

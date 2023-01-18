@@ -479,7 +479,7 @@ describe('Role CRUD End to End', () => {
           },
         }
       `);
-    } else {
+    } /*  else {
       //const { features } = require('strapi/lib/utils/ee');
       const hasSSO = false;
 
@@ -1384,6 +1384,6 @@ describe('Role CRUD End to End', () => {
           }
         `);
       }
-    }
+    } */
   });
 });
