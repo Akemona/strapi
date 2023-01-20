@@ -6,7 +6,7 @@ After strapi decided to drop MongoDB support on v4, we have decided to maintain 
 
 ## Getting Started
 
-<a href="https://strapi.akemona.com/documentation/developer-docs/latest/getting-started/quick-start.html" target="_blank">Read the Getting Started tutorial</a> or follow the steps below:
+<a href="https://docs-v3.strapi.io/documentation/developer-docs/latest/getting-started/quick-start.html" target="_blank">Read the Getting Started tutorial</a> or follow the steps below:
 
 ### ⏳ Installation
 
@@ -39,7 +39,7 @@ Enjoy 🎉
 
 ### 🖐 Requirements
 
-Complete installation requirements can be found in the documentation under <a href="https://strapi.akemona.com/documentation/developer-docs/latest/setup-deployment-guides/deployment.html#recommended-requirements">Installation Requirements</a>.
+Complete installation requirements can be found in the documentation under <a href="https://docs-v3.strapi.io/documentation/developer-docs/latest/setup-deployment-guides/deployment.html#recommended-requirements">Installation Requirements</a>.
 
 **Supported operating systems**:
 
@@ -53,7 +53,7 @@ Complete installation requirements can be found in the documentation under <a hr
 
 **Node:**
 
-- NodeJS >= 10.16 <=14
+- LTS versions
 - NPM >= 6.x
 
 **Database:**
@@ -84,7 +84,7 @@ Please read our [Contributing Guide](./CONTRIBUTING.md) before submitting a Pull
 
 ## Community support
 
-For general help using Strapi, please refer to [the official Strapi documentation](https://strapi.akemona.com/documentation/). For additional help, you can use one of these channels to ask a question:
+For general help using Strapi, please refer to [the official Strapi documentation](https://docs-v3.strapi.io/documentation/). For additional help, you can use one of these channels to ask a question:
 
 - [Discord](https://discord.strapi.io) (For live discussion with the Community and Akemona team)
 - [GitHub](https://github.com/strapi/strapi) (Bug reports, Contributions)
@@ -97,7 +97,7 @@ For general help using Strapi, please refer to [the official Strapi documentatio
 
 ## Migration
 
-Follow our [migration guides](https://strapi.akemona.com/documentation/developer-docs/latest/update-migration-guides/migration-guides.html) on the documentation to keep your projects up-to-date.
+Follow our [migration guides](https://docs-v3.strapi.io/documentation/developer-docs/latest/update-migration-guides/migration-guides.html) on the documentation to keep your projects up-to-date.
 
 ## Roadmap
 
@@ -105,14 +105,10 @@ Check out our [roadmap](https://portal.productboard.com/strapi) to get informed 
 
 ## Documentation
 
-See our dedicated [repository](https://github.com/strapi/documentation) for the Strapi documentation, or view our documentation live:
+view our documentation live:
 
-- [Developer docs](https://strapi.akemona.com/documentation/developer-docs/latest/getting-started/introduction.html)
-- [User docs](https://strapi.akemona.com/documentation/user-docs/latest/getting-started/introduction.html)
-
-## Try live demo
-
-See for yourself what's under the hood by getting access to a [hosted Strapi project](https://strapi.akemona.com/demo) with sample data.
+- [Developer docs](https://docs-v3.strapi.io/developer-docs/latest/getting-started/introduction.html)
+- [User docs]https://docs-v3.strapi.io/documentation/user-docs/latest/getting-started/introduction.html)
 
 ## License
 
