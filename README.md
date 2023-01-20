@@ -108,7 +108,7 @@ Check out our [roadmap](https://portal.productboard.com/strapi) to get informed 
 view our documentation live:
 
 - [Developer docs](https://docs-v3.strapi.io/developer-docs/latest/getting-started/introduction.html)
-- [User docs]https://docs-v3.strapi.io/documentation/user-docs/latest/getting-started/introduction.html)
+- [User docs](https://docs-v3.strapi.io/documentation/user-docs/latest/getting-started/introduction.html)
 
 ## License
 
