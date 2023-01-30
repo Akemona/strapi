@@ -6,7 +6,7 @@ After strapi decided to drop MongoDB support on v4, we have decided to maintain 
 
 ## Getting Started
 
-<a href="https://docs-v3.strapi.io/documentation/developer-docs/latest/getting-started/quick-start.html" target="_blank">Read the Getting Started tutorial</a> or follow the steps below:
+Follow the steps below:
 
 ### ⏳ Installation
 
@@ -39,7 +39,7 @@ Enjoy 🎉
 
 ### 🖐 Requirements
 
-Complete installation requirements can be found in the documentation under <a href="https://docs-v3.strapi.io/documentation/developer-docs/latest/setup-deployment-guides/deployment.html#recommended-requirements">Installation Requirements</a>.
+Complete installation requirements can be found in the documentation under <a href="https://docs-v3.strapi.io/developer-docs/latest/setup-deployment-guides/deployment.html#recommended-requirements">Installation Requirements</a>.
 
 **Supported operating systems**:
 
@@ -84,7 +84,7 @@ Please read our [Contributing Guide](./CONTRIBUTING.md) before submitting a Pull
 
 ## Community support
 
-For general help using Strapi, please refer to [the official Strapi documentation](https://docs-v3.strapi.io/documentation/). For additional help, you can use one of these channels to ask a question:
+For general help using Strapi, please refer to [the official Strapi documentation](https://docs-v3.strapi.io/). For additional help, you can use one of these channels to ask a question:
 
 - [Discord](https://discord.strapi.io) (For live discussion with the Community and Akemona team)
 - [GitHub](https://github.com/strapi/strapi) (Bug reports, Contributions)
