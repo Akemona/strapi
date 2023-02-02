@@ -20,7 +20,7 @@
   "main": "./lib",
   "dependencies": {
     "@akemona-org/strapi-utils": "3.10.4",
-    "bookshelf": "^1.0.1",
+    "bookshelf": "1.2.0",
     "date-fns": "^2.19.0",
     "inquirer": "^6.3.1",
     "lodash": "4.17.21",
@@ -29,7 +29,7 @@
     "rimraf": "4.1.0"
   },
   "peerDependencies": {
-    "knex": "0.21.18"
+    "knex": "2.4.0"
   },
   "strapi": {
     "dependencies": [

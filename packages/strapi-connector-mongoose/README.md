@@ -8,21 +8,7 @@
 
 This built-in connector allows you to use the [Mongoose ORM](http://mongoosejs.com/).
 
----
-
-## Deprecation Warning :warning:
-
-Hello, we've some news to share!
-
-We released Strapi V4 in Q4 2021 and Strapi V3 will reach end-of-support around the end of Q3 2022.
-
-Since this package won't be ported in V4, we took the decision to deprecate it.
-
-If you’ve contributed to the development of this package, thank you again for that! We hope to see you on the V4 soon.
-
-The Akemona team
-
----
+### Maintenance release by Akemona
 
 [Mongoose ORM](http://mongoosejs.com/) provides a straight-forward, schema-based solution to model your application data. It includes built-in type casting, validation, query building, business logic connectors and more, out of the box.
 

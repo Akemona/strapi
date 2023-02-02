@@ -1,8 +1,8 @@
 'use strict';
 
 const sqlClientModule = {
-  sqlite: { sqlite3: '5.0.0' },
-  postgres: { pg: '8.5.1' },
+  sqlite: { sqlite3: '5.1.4' },
+  postgres: { pg: '8.9.0' },
   mysql: { mysql: '2.18.1' },
 };
 
@@ -16,7 +16,7 @@ module.exports = ({ scope, client }) => {
     case 'mysql':
       return {
         '@akemona-org/strapi-connector-bookshelf': scope.strapiVersion,
-        knex: '0.21.18',
+        knex: '2.4.0',
         ...sqlClientModule[client],
       };
     case 'mongo':
