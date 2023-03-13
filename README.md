@@ -58,7 +58,7 @@ Complete installation requirements can be found in the documentation under <a hr
 
 **Database:**
 
-- MongoDB >= 4.4
+- MongoDB >= 5.0
 - MySQL >= 5.6
 - MariaDB >= 10.1
 - PostgreSQL >= 10
@@ -98,10 +98,6 @@ For general help using Strapi, please refer to [the official Strapi documentatio
 ## Migration
 
 Follow our [migration guides](https://docs-v3.strapi.io/documentation/developer-docs/latest/update-migration-guides/migration-guides.html) on the documentation to keep your projects up-to-date.
-
-## Roadmap
-
-Check out our [roadmap](https://portal.productboard.com/strapi) to get informed of the latest features released and the upcoming ones. You may also give us insights and vote for a specific feature.
 
 ## Documentation
 
