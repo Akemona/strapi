@@ -597,7 +597,7 @@ module.exports = ({ model, strapi }) => {
         const assocModel = strapi.db.getModelByAssoc(assoc);
         return assocModel
           .aggregate()
-          .match({ [assoc.via]: { $in: entitiesIds.map(mongoose.Types.ObjectId) } })
+          .match({ [assoc.via]: { $in: entitiesIds.map((id) => new mongoose.Types.ObjectId(id)) } })
           .group({
             _id: `$${assoc.via}`,
             count: { $sum: 1 },
@@ -607,14 +607,18 @@ module.exports = ({ model, strapi }) => {
       case 'manyWay': {
         return model
           .aggregate()
-          .match({ [model.primaryKey]: { $in: entitiesIds.map(mongoose.Types.ObjectId) } })
+          .match({
+            [model.primaryKey]: { $in: entitiesIds.map((id) => new mongoose.Types.ObjectId(id)) },
+          })
           .project({ _id: 0, id: '$_id', count: { $size: { $ifNull: [`$${assoc.alias}`, []] } } });
       }
       case 'manyToMany': {
         if (assoc.dominant) {
           return model
             .aggregate()
-            .match({ [model.primaryKey]: { $in: entitiesIds.map(mongoose.Types.ObjectId) } })
+            .match({
+              [model.primaryKey]: { $in: entitiesIds.map((id) => new mongoose.Types.ObjectId(id)) },
+            })
             .project({
               _id: 0,
               id: '$_id',
@@ -624,7 +628,7 @@ module.exports = ({ model, strapi }) => {
         const assocModel = strapi.db.getModelByAssoc(assoc);
         return assocModel
           .aggregate()
-          .match({ [assoc.via]: { $in: entitiesIds.map(mongoose.Types.ObjectId) } })
+          .match({ [assoc.via]: { $in: entitiesIds.map((id) => new mongoose.Types.ObjectId(id)) } })
           .unwind(assoc.via)
           .group({ _id: `$${assoc.via}`, count: { $sum: 1 } })
           .project({ _id: 0, id: '$_id', count: 1 });
