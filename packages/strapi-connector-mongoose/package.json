@@ -20,7 +20,7 @@
   "dependencies": {
     "@akemona-org/strapi-utils": "3.11.0",
     "lodash": "4.17.21",
-    "mongoose": "6.9.0",
+    "mongoose": "6.9.1",
     "mongoose-float": "1.0.4",
     "mongoose-long": "0.6.0",
     "p-map": "4.0.0",

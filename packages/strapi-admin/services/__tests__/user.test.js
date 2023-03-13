@@ -27,7 +27,7 @@ describe('User', () => {
 
   describe('create', () => {
     const count = jest.fn(() => Promise.resolve(1));
-    const sendDidInviteUser = jest.fn();
+    // const sendDidInviteUser = jest.fn();
 
     test('Creates a user by merging given and default attributes', async () => {
       const create = jest.fn((user) => Promise.resolve(user));
@@ -40,7 +40,7 @@ describe('User', () => {
             token: { createToken },
             auth: { hashPassword },
             role: { count },
-            metrics: { sendDidInviteUser },
+            // metrics: { sendDidInviteUser },
           },
         },
         query() {
@@ -69,7 +69,7 @@ describe('User', () => {
             token: { createToken },
             auth: { hashPassword },
             role: { count },
-            metrics: { sendDidInviteUser },
+            // metrics: { sendDidInviteUser },
           },
         },
         query() {
@@ -111,7 +111,7 @@ describe('User', () => {
             token: { createToken },
             auth: { hashPassword },
             role: { count },
-            metrics: { sendDidInviteUser },
+            // metrics: { sendDidInviteUser },
           },
         },
         query() {

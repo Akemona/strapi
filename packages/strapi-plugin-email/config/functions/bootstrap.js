@@ -9,7 +9,7 @@ const createProvider = (emailConfig) => {
     provider = require(`@akemona-org/strapi-provider-email-${providerName}`);
   } catch (err) {
     throw new Error(
-      `The provider package isn't installed. Please run \`npm install strapi-provider-email-${providerName}\` --save`
+      `The provider package isn't installed. Please run \`npm install @akemona-org/strapi-provider-email-${providerName}\` --save`
     );
   }
   return provider.init(emailConfig.providerOptions, emailConfig.settings);
