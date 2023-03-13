@@ -323,7 +323,7 @@ module.exports = async ({ models, target }, ctx) => {
       // Side-effect: Delete all the indexes not present in the model.json
       Model.syncIndexes().then(
         () => {
-          strapi.log.deubg('Mongo sync index call successful.');
+          strapi.log.debug('Mongo sync index call successful.');
         },
         (error) => {
           strapi.log.error('Mongo index sync failed: %o', error);
