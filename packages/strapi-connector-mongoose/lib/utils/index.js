@@ -122,7 +122,7 @@ module.exports = (mongoose = Mongoose) => {
     if (Array.isArray(value)) return value.map(valueToId);
 
     if (isMongoId(value)) {
-      return mongoose.Types.ObjectId(value);
+      return new mongoose.Types.ObjectId(value);
     }
 
     return value;
