@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.12.3",
+  "version": "3.12.4",
   "description": "Generate a new Strapi application.",
   "license": "SEE LICENSE IN LICENSE",
   "homepage": "https://strapi.akemona.com",
@@ -19,7 +19,7 @@
     "create-strapi-starter": "./index.js"
   },
   "dependencies": {
-    "@akemona-org/strapi-generate-new": "3.12.3",
+    "@akemona-org/strapi-generate-new": "3.12.4",
     "chalk": "4.1.1",
     "ci-info": "3.1.1",
     "commander": "7.1.0",

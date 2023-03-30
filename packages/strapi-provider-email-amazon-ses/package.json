@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.12.3",
+  "version": "3.12.4",
   "description": "Amazon SES provider for strapi email",
   "homepage": "https://strapi.akemona.com",
   "keywords": [
@@ -17,7 +17,7 @@
   },
   "main": "./lib",
   "dependencies": {
-    "@akemona-org/strapi-utils": "3.12.3",
+    "@akemona-org/strapi-utils": "3.12.4",
     "node-ses": "^3.0.3"
   },
   "author": {
