@@ -318,7 +318,9 @@ module.exports = async ({ models, target }, ctx) => {
 
     // Only sync indexes when not in production env while it's not possible to create complex indexes directly from models
     // In production it will simply create missing indexes (those defined in the models but not present in db)
-    if (strapi.app.env !== 'production') {
+    // * NOTE removed as compound indexes are not supported & this would remove such index if added directly on dev env
+    // * TODO can be enabled later if compound index support is added in models by chaging mount models
+    /*  if (strapi.app.env !== 'production') {
       // Ensure indexes are synced with the model, prevent duplicate index errors
       // Side-effect: Delete all the indexes not present in the model.json
       Model.syncIndexes().then(
@@ -329,9 +331,9 @@ module.exports = async ({ models, target }, ctx) => {
           strapi.log.error('Mongo index sync failed: %o', error);
         }
       );
-    } else {
-      handleIndexesErrors();
-    }
+    } else { */
+    handleIndexesErrors();
+    // }
 
     // Expose ORM functions through the `target` object.
     target[model] = _.assign(Model, target[model]);
