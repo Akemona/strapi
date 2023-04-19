@@ -23,8 +23,10 @@ const Wrapper = styled.div`
 `;
 
 const A = styled.a`
+  color: ${(props) => props.theme.main.colors.lightBlue};
+
   &:hover {
-    color: #007bff;
+    color: ${(props) => props.theme.main.colors.mediumBlue};
     text-decoration: underline;
   }
 `;

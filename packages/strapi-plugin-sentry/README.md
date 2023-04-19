@@ -5,6 +5,7 @@ The official plugin to track Strapi errors with Sentry.
 ---
 
 ## UNUSED
+
 ---
 
 ## Features
