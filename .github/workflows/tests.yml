@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [18]
+        node: [18, 20]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [18]
+        node: [18, 20]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -67,7 +67,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [18]
+        node: [18, 20]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -168,7 +168,7 @@ jobs:
     name: '[CE] E2E (sqlite, node: ${{ matrix.node }})'
     strategy:
       matrix:
-        node: [18]
+        node: [18, 20]
         sqlite_pkg: ['better-sqlite3']
     steps:
       - uses: actions/checkout@v3
@@ -190,7 +190,7 @@ jobs:
     name: '[CE] E2E (mongo, node: ${{ matrix.node }})'
     strategy:
       matrix:
-        node: [18]
+        node: [18, 20]
       max-parallel: 2
     services:
       mongo:
