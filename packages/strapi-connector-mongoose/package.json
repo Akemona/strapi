@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.13.2",
+  "version": "3.13.3",
   "description": "Mongoose hook for the Strapi framework",
   "homepage": "https://strapi.akemona.com",
   "keywords": [
@@ -18,7 +18,7 @@
   },
   "main": "./lib",
   "dependencies": {
-    "@akemona-org/strapi-utils": "3.13.2",
+    "@akemona-org/strapi-utils": "3.13.3",
     "lodash": "4.17.21",
     "mongoose": "8.1.2",
     "mongoose-float": "1.0.4",
