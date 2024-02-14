@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const OneWay = ({ isSelected, ...rest }) => {
+function OneWay({ isSelected, ...rest }) {
   const stroke = isSelected ? '#1C5DE7' : '#919BAE';
   let rectProps = {
     strokeOpacity: '.1',
@@ -25,7 +25,7 @@ const OneWay = ({ isSelected, ...rest }) => {
       </g>
     </svg>
   );
-};
+}
 
 OneWay.defaultProps = {
   isSelected: false,

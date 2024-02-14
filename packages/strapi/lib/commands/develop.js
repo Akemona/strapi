@@ -58,6 +58,7 @@ module.exports = async function ({ build, watchAdmin, polling, browser }) {
           case 'stop':
             worker.kill();
             process.exit(1);
+          // eslint-disable-next-line no-fallthrough
           default:
             return;
         }

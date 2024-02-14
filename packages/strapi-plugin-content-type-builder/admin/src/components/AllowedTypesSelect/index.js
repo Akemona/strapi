@@ -6,7 +6,7 @@ import { upperFirst } from 'lodash';
 import MenuList from './MenuList';
 import getTrad from '../../utils/getTrad';
 
-const AllowedTypesSelect = ({ name, changeMediaAllowedTypes, styles, value }) => {
+function AllowedTypesSelect({ name, changeMediaAllowedTypes, styles, value }) {
   const { formatMessage } = useGlobalContext();
   // Create a ref in order to access the StateManager
   // So we can close the menu after clicking on a menu item
@@ -39,7 +39,7 @@ const AllowedTypesSelect = ({ name, changeMediaAllowedTypes, styles, value }) =>
       value={{ label: displayedValue, value: value || '' }}
     />
   );
-};
+}
 
 AllowedTypesSelect.defaultProps = {
   value: null,

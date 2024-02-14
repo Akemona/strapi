@@ -3,7 +3,7 @@ import { Flex, Padded, Text } from '@buffetjs/core';
 import { useIntl } from 'react-intl';
 import { BaselineAlignment, useQuery } from '@akemona-org/strapi-helper-plugin';
 
-const EmptyRole = () => {
+function EmptyRole() {
   const { formatMessage } = useIntl();
   const query = useQuery();
   const search = query.get('_q');
@@ -26,6 +26,6 @@ const EmptyRole = () => {
       </Padded>
     </>
   );
-};
+}
 
 export default EmptyRole;

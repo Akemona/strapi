@@ -36,7 +36,6 @@ module.exports = {
             ContentType: file.mime,
             ...customParams,
           });
-          client.config.Bu;
           const data = await client.send(command);
           const location = `https://${command.input.Bucket}.s3.${config.region}.amazonaws.com/${command.input.Key}`;
           file.url = config.baseUrl ? `${config.baseUrl}/${command.input.Key}` : location;
@@ -47,6 +46,7 @@ module.exports = {
           throw err;
         }
       },
+
       async delete(file, customParams = {}) {
         // delete file on S3 bucket
         const path = file.path ? `${file.path}/` : '';

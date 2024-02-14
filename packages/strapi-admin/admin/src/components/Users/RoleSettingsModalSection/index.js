@@ -9,7 +9,7 @@ import roleSettingsForm from 'ee_else_ce/components/Users/ModalCreateBody/utils/
 import Input from '../../SizedInput';
 import Wrapper from '../ModalCreateBody/Wrapper';
 
-const RoleSettingsModalSection = ({ isDisabled, modifiedData, onChange, formErrors }) => {
+function RoleSettingsModalSection({ isDisabled, modifiedData, onChange, formErrors }) {
   const { formatMessage } = useIntl();
 
   return (
@@ -53,7 +53,7 @@ const RoleSettingsModalSection = ({ isDisabled, modifiedData, onChange, formErro
       </Wrapper>
     </ModalSection>
   );
-};
+}
 
 RoleSettingsModalSection.defaultProps = {
   isDisabled: false,

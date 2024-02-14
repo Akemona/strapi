@@ -348,8 +348,7 @@ function ListView({
   };
 
   return (
-    <>
-      <ListViewProvider
+    <ListViewProvider
         _q={_q}
         _sort={_sort}
         data={data}
@@ -487,7 +486,6 @@ function ListView({
           <InjectionZoneList area={`${pluginId}.listView.deleteModalAdditionalInfos`} />
         </PopUpWarning>
       </ListViewProvider>
-    </>
   );
 }
 

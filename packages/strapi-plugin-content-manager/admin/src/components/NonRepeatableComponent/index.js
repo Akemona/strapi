@@ -8,7 +8,7 @@ import NonRepeatableWrapper from '../NonRepeatableWrapper';
 import Inputs from '../Inputs';
 import FieldComponent from '../FieldComponent';
 
-const NonRepeatableComponent = ({ componentUid, isFromDynamicZone, name }) => {
+function NonRepeatableComponent({ componentUid, isFromDynamicZone, name }) {
   const { getComponentLayout } = useContentTypeLayout();
   const componentLayoutData = useMemo(
     () => getComponentLayout(componentUid),
@@ -58,7 +58,7 @@ const NonRepeatableComponent = ({ componentUid, isFromDynamicZone, name }) => {
       })}
     </NonRepeatableWrapper>
   );
-};
+}
 
 NonRepeatableComponent.defaultProps = {
   isFromDynamicZone: false,

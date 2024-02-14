@@ -10,7 +10,7 @@ import Logo from '../Logo';
 import Section from '../Section';
 import Img from './Img';
 
-const Oops = () => {
+function Oops() {
   const { push } = useHistory();
   const { formatMessage } = useIntl();
   const query = useQuery();
@@ -58,6 +58,6 @@ const Oops = () => {
       </Section>
     </>
   );
-};
+}
 
 export default Oops;

@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react';
 
-const Envelope = () => (
-  <svg width="71" height="78" xmlns="http://www.w3.org/2000/svg">
+function Envelope() {
+  return <svg width="71" height="78" xmlns="http://www.w3.org/2000/svg">
     <text
       transform="rotate(-20 34.095 544.73)"
       fill="#9EA7B8"
@@ -15,6 +15,6 @@ const Envelope = () => (
       </tspan>
     </text>
   </svg>
-);
+}
 
 export default Envelope;

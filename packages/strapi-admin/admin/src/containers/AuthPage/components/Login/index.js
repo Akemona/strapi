@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import BaseLogin from './BaseLogin';
 
-const Login = (loginProps) => {
+function Login(loginProps) {
   return <BaseLogin {...loginProps} />;
-};
+}
 
 Login.defaultProps = {
   onSubmit: (e) => e.preventDefault(),

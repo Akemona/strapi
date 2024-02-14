@@ -13,7 +13,7 @@ import {
 import { useIntl } from 'react-intl';
 import { getTrad } from '../utils';
 
-const SettingsModal = ({ children, title, breadCrumb, tabsAriaLabel, tabsId }) => {
+function SettingsModal({ children, title, breadCrumb, tabsAriaLabel, tabsId }) {
   const { formatMessage } = useIntl();
 
   return (
@@ -53,7 +53,7 @@ const SettingsModal = ({ children, title, breadCrumb, tabsAriaLabel, tabsId }) =
       </div>
     </>
   );
-};
+}
 
 SettingsModal.propTypes = {
   children: PropTypes.node.isRequired,

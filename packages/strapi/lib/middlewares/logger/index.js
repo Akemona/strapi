@@ -6,12 +6,12 @@ const codeToColor = (code) => {
   return code >= 500
     ? chalk.red(code)
     : code >= 400
-    ? chalk.yellow(code)
-    : code >= 300
-    ? chalk.cyan(code)
-    : code >= 200
-    ? chalk.green(code)
-    : code;
+      ? chalk.yellow(code)
+      : code >= 300
+        ? chalk.cyan(code)
+        : code >= 200
+          ? chalk.green(code)
+          : code;
 };
 
 /**

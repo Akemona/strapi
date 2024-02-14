@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import STSelected from './icons/STSelected';
 import STUnselected from './icons/STUnselected';
 
-const ST = ({ selected }) =>
-  selected ? (
+function ST({ selected }) {
+  return selected ? (
     <STSelected aria-hidden data-testid="st-selected" />
   ) : (
     <STUnselected aria-hidden data-testid="st-unselected" />
-  );
+  )
+}
 
 ST.defaultProps = {
   selected: false,

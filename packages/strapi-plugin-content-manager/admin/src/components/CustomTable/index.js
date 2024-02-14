@@ -13,7 +13,7 @@ import ActionCollapse from './ActionCollapse';
 import Headers from './Headers';
 import Row from './Row';
 
-const CustomTable = ({
+function CustomTable({
   canCreate,
   canUpdate,
   canDelete,
@@ -22,7 +22,7 @@ const CustomTable = ({
   hasDraftAndPublish,
   isBulkable,
   showLoader,
-}) => {
+}) {
   const { formatMessage } = useIntl();
   const { entriesToDelete, label, filters, _q } = useListView();
   const { emitEvent } = useGlobalContext();
@@ -146,7 +146,7 @@ const CustomTable = ({
       </tbody>
     </Table>
   );
-};
+}
 
 CustomTable.propTypes = {
   canCreate: PropTypes.bool.isRequired,

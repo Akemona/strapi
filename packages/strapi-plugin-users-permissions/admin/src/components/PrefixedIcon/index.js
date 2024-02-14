@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { upperFirst } from 'lodash';
 import PropTypes from 'prop-types';
 
-const PrefixedIcon = ({ icon, name }) => {
+function PrefixedIcon({ icon, name }) {
   return (
     <Flex>
       <div>
@@ -17,7 +17,7 @@ const PrefixedIcon = ({ icon, name }) => {
       </Padded>
     </Flex>
   );
-};
+}
 
 PrefixedIcon.propTypes = {
   icon: PropTypes.array.isRequired,

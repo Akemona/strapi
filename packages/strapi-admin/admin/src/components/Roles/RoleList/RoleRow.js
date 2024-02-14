@@ -6,7 +6,7 @@ import { useIntl } from 'react-intl';
 
 import RoleDescription from './RoleDescription';
 
-const RoleRow = ({ role, onClick, links, prefix }) => {
+function RoleRow({ role, onClick, links, prefix }) {
   const { formatMessage } = useIntl();
   const number = role.usersCount;
   const text = formatMessage(
@@ -31,7 +31,7 @@ const RoleRow = ({ role, onClick, links, prefix }) => {
       </td>
     </CustomRow>
   );
-};
+}
 
 RoleRow.defaultProps = {
   onClick: null,

@@ -8,7 +8,7 @@ import Hr from './Hr';
 import BaselineAlignment from './BaselineAlignment';
 import Wrapper from './Wrapper';
 
-const ModalNavWrapper = ({ children, links, renderRightContent, initialTab }) => {
+function ModalNavWrapper({ children, links, renderRightContent, initialTab }) {
   const [to, setTo] = useState(initialTab || links[0].to);
 
   const handleGoTo = (link) => {
@@ -50,7 +50,7 @@ const ModalNavWrapper = ({ children, links, renderRightContent, initialTab }) =>
       {children(to)}
     </Wrapper>
   );
-};
+}
 
 ModalNavWrapper.defaultProps = {
   initialTab: null,

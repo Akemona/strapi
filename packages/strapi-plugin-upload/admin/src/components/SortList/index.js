@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Wrapper from './Wrapper';
 import SortListItem from '../SortListItem';
 
-const SortList = ({ list, onClick, selectedItem }) => {
+function SortList({ list, onClick, selectedItem }) {
   return (
     <Wrapper>
       {Object.keys(list).map((item) => {
@@ -20,7 +20,7 @@ const SortList = ({ list, onClick, selectedItem }) => {
       })}
     </Wrapper>
   );
-};
+}
 
 SortList.defaultProps = {
   list: {},

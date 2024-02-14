@@ -11,7 +11,7 @@ import Wrapper from './Wrapper';
 import init from './init';
 import reducer, { initialState } from './reducer';
 
-const SettingsPage = () => {
+function SettingsPage() {
   const { formatMessage } = useGlobalContext();
   const [reducerState, dispatch] = useReducer(reducer, initialState, init);
   const { initialData, isLoading, modifiedData } = reducerState.toJS();
@@ -193,6 +193,6 @@ const SettingsPage = () => {
       </Wrapper>
     </>
   );
-};
+}
 
 export default SettingsPage;

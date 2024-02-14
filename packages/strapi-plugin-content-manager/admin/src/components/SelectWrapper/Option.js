@@ -12,7 +12,7 @@ const TextGrow = styled(Text)`
   flex-grow: 2;
 `;
 
-const Option = (props) => {
+function Option(props) {
   const { formatMessage } = useIntl();
   const Component = components.Option;
   const hasDraftAndPublish = has(get(props, 'data.value'), 'published_at');
@@ -53,7 +53,7 @@ const Option = (props) => {
       </Text>
     </Component>
   );
-};
+}
 
 Option.defaultProps = {
   label: '',

@@ -13,7 +13,7 @@ const StyledButton = styled(Base)`
   padding-right: 15px;
 `;
 
-const Button = ({ isTemporary, isInContentTypeView, contentTypeKind, targetUid }) => {
+function Button({ isTemporary, isInContentTypeView, contentTypeKind, targetUid }) {
   const { formatMessage } = useIntl();
   const { push } = useHistory();
   const { collectionTypesConfigurations, componentsConfigurations, singleTypesConfigurations } =
@@ -56,7 +56,7 @@ const Button = ({ isTemporary, isInContentTypeView, contentTypeKind, targetUid }
       />
     </CheckPermissions>
   );
-};
+}
 
 Button.defaultProps = {
   contentTypeKind: 'collectionType',

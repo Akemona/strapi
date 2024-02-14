@@ -10,8 +10,8 @@ import { Wrapper, Sub } from './components';
 
 const renderMsg = (msg) => <p>{msg}</p>;
 
-const Block = ({ children, description, style, title }) => (
-  <div className="col-md-12">
+function Block({ children, description, style, title }) {
+  return <div className="col-md-12">
     <Wrapper style={style}>
       <Sub>
         {!!title && (
@@ -24,7 +24,7 @@ const Block = ({ children, description, style, title }) => (
       {children}
     </Wrapper>
   </div>
-);
+}
 
 Block.defaultProps = {
   children: null,

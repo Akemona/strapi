@@ -37,11 +37,9 @@ module.exports = (strapi) => {
           if (!consolidate.requires[engine]) {
             // Try to require them using `consolidate` or throw an error.
             try {
-              consolidate.requires[engine] = require(path.resolve(
-                strapi.config.appPath,
-                'node_modules',
-                engine
-              ));
+              consolidate.requires[engine] = require(
+                path.resolve(strapi.config.appPath, 'node_modules', engine)
+              );
             } catch (err) {
               strapi.log.error('`' + engine + '` template engine not installed.');
               strapi.log.error('Execute `$ npm install ' + engine + ' --save` to install it.');

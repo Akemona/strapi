@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import IntlInput from '../IntlInput';
 
 // TODO: remove this component
-const SizedInput = ({ size, ...rest }) => {
+function SizedInput({ size, ...rest }) {
   return (
     <Col {...size}>
       <IntlInput {...rest} />
     </Col>
   );
-};
+}
 
 SizedInput.defaultProps = {
   size: {

@@ -10,7 +10,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ModalHeader as HeaderModal, useGlobalContext } from '@akemona-org/strapi-helper-plugin';
 
-const ModalHeader = ({ goBack, headerBreadcrumbs, withBackButton, HeaderComponent }) => {
+function ModalHeader({ goBack, headerBreadcrumbs, withBackButton, HeaderComponent }) {
   const { emitEvent } = useGlobalContext();
 
   const handleClick = () => {
@@ -28,7 +28,7 @@ const ModalHeader = ({ goBack, headerBreadcrumbs, withBackButton, HeaderComponen
       HeaderComponent={HeaderComponent}
     />
   );
-};
+}
 
 ModalHeader.defaultProps = {
   goBack: () => {},

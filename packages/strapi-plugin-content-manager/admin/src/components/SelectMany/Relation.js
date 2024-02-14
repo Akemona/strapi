@@ -11,7 +11,7 @@ import { Span } from './components';
 
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 
-const Relation = ({
+function Relation({
   data,
   displayNavigationLink,
   hasDraftAndPublish,
@@ -21,7 +21,7 @@ const Relation = ({
   onRemove,
   searchToPersist,
   to,
-}) => {
+}) {
   const { formatMessage } = useIntl();
   const cursor = useMemo(() => {
     if (isDisabled) {
@@ -77,7 +77,7 @@ const Relation = ({
       </div>
     </>
   );
-};
+}
 
 Relation.defaultProps = {
   isDragging: false,

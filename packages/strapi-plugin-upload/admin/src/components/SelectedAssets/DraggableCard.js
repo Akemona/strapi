@@ -15,7 +15,7 @@ import Title from '../CardTitle';
 import Tag from '../Tag';
 import Wrapper from '../CardWrapper';
 
-const DraggableCard = ({
+function DraggableCard({
   id,
   checked,
   children,
@@ -32,7 +32,7 @@ const DraggableCard = ({
   type,
   url,
   withFileCaching,
-}) => {
+}) {
   const ref = useRef(null);
   // Adapted from https://react-dnd.github.io/react-dnd/examples/sortable/simple
   const [, drop] = useDrop({
@@ -106,7 +106,7 @@ const DraggableCard = ({
       {hasError && <ErrorMessage>{errorMessage}</ErrorMessage>}
     </Wrapper>
   );
-};
+}
 
 DraggableCard.defaultProps = {
   checked: false,

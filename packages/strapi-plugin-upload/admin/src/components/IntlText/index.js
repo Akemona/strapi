@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 
 import { Text } from '@buffetjs/core';
 
-const IntlText = ({ id, defaultMessage, values, ...textProps }) => (
-  <FormattedMessage id={id} defaultMessage={defaultMessage} values={values}>
+function IntlText({ id, defaultMessage, values, ...textProps }) {
+  return <FormattedMessage id={id} defaultMessage={defaultMessage} values={values}>
     {(msg) => <Text {...textProps}>{msg}</Text>}
   </FormattedMessage>
-);
+}
 
 IntlText.defaultProps = {
   id: 'app.utils.defaultMessage',

@@ -4,8 +4,8 @@ import { BaselineAlignment, LoadingIndicator, Row } from '@akemona-org/strapi-he
 import PropTypes from 'prop-types';
 import Bloc from '../Bloc';
 
-const FormBloc = ({ children, actions, isLoading, title, subtitle }) => (
-  <Bloc>
+function FormBloc({ children, actions, isLoading, title, subtitle }) {
+  return <Bloc>
     <BaselineAlignment top size={title ? '18px' : '22px'} />
     <Padded left right size="sm">
       {isLoading ? (
@@ -40,7 +40,7 @@ const FormBloc = ({ children, actions, isLoading, title, subtitle }) => (
       )}
     </Padded>
   </Bloc>
-);
+}
 
 FormBloc.defaultProps = {
   actions: null,

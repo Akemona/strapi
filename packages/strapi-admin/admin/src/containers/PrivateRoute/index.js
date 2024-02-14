@@ -14,8 +14,8 @@ import { auth } from '@akemona-org/strapi-helper-plugin';
 
 /* eslint-disable react/jsx-curly-newline */
 
-const PrivateRoute = ({ component: Component, path, ...rest }) => (
-  <Route
+function PrivateRoute({ component: Component, path, ...rest }) {
+  return <Route
     path={path}
     render={(props) =>
       auth.getToken() !== null ? (
@@ -29,7 +29,7 @@ const PrivateRoute = ({ component: Component, path, ...rest }) => (
       )
     }
   />
-);
+}
 
 PrivateRoute.propTypes = {
   component: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,

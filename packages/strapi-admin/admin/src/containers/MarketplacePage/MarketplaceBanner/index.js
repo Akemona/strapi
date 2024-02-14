@@ -4,7 +4,7 @@ import { useGlobalContext } from '@akemona-org/strapi-helper-plugin';
 import Wrapper from './Wrapper';
 import LogoStrapi from '../../../assets/images/banner_strapi-rocket.png';
 
-const MarketplaceBanner = () => {
+function MarketplaceBanner() {
   const { formatMessage } = useIntl();
   const { emitEvent } = useGlobalContext();
 
@@ -32,6 +32,6 @@ const MarketplaceBanner = () => {
       </div>
     </Wrapper>
   );
-};
+}
 
 export default MarketplaceBanner;

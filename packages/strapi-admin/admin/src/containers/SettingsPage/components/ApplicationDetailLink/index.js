@@ -7,7 +7,7 @@ import Link from './Link';
 import Notif from './Notif';
 import Wrapper from './Wrapper';
 
-const ApplicationDetailLink = () => {
+function ApplicationDetailLink() {
   const { shouldUpdateStrapi } = useGlobalContext();
 
   return (
@@ -21,6 +21,6 @@ const ApplicationDetailLink = () => {
       </Link>
     </Wrapper>
   );
-};
+}
 
 export default memo(ApplicationDetailLink);

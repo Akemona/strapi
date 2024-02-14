@@ -9,7 +9,7 @@ import IconWrapper from './IconWrapper';
 import Envelope from './Envelope';
 import Wrapper from './Wrapper';
 
-const LinkNotification = ({ target, children }) => {
+function LinkNotification({ target, children }) {
   const handleCopy = () => {
     strapi.notification.toggle({ type: 'info', message: { id: 'notification.link-copied' } });
   };
@@ -32,7 +32,7 @@ const LinkNotification = ({ target, children }) => {
       </Flex>
     </Wrapper>
   );
-};
+}
 
 LinkNotification.defaultProps = {
   target: '',

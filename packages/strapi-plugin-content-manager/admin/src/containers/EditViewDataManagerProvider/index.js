@@ -12,7 +12,7 @@ import { getTrad, removeKeyInObject } from '../../utils';
 import reducer, { initialState } from './reducer';
 import { cleanData, createYupSchema, getYupInnerErrors } from './utils';
 
-const EditViewDataManagerProvider = ({
+function EditViewDataManagerProvider({
   allLayoutData,
   allowedActions: { canRead, canUpdate },
   children,
@@ -34,7 +34,7 @@ const EditViewDataManagerProvider = ({
   slug,
   status,
   updateActionAllowedFields,
-}) => {
+}) {
   const [reducerState, dispatch] = useReducer(reducer, initialState);
   const { formErrors, initialData, modifiedData, modifiedDZName, shouldCheckErrors } =
     reducerState.toJS();
@@ -481,7 +481,7 @@ const EditViewDataManagerProvider = ({
       </>
     </ContentManagerEditViewDataManagerContext.Provider>
   );
-};
+}
 
 EditViewDataManagerProvider.defaultProps = {
   from: '/',

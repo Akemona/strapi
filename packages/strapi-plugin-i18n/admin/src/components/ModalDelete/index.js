@@ -6,7 +6,7 @@ import { useIntl } from 'react-intl';
 import useDeleteLocale from '../../hooks/useDeleteLocale';
 import { getTrad } from '../../utils';
 
-const ModalDelete = ({ localeToDelete, onClose }) => {
+function ModalDelete({ localeToDelete, onClose }) {
   const { isDeleting, deleteLocale } = useDeleteLocale();
   const { formatMessage } = useIntl();
   const isOpened = Boolean(localeToDelete);
@@ -33,7 +33,7 @@ const ModalDelete = ({ localeToDelete, onClose }) => {
       </Text>
     </ModalConfirm>
   );
-};
+}
 
 ModalDelete.defaultProps = {
   localeToDelete: undefined,

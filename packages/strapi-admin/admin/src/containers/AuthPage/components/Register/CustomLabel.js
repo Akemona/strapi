@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Text } from '@buffetjs/core';
 import { useIntl } from 'react-intl';
 
-const CustomLabel = ({ id, onClick, values }) => {
+function CustomLabel({ id, onClick, values }) {
   const { formatMessage } = useIntl();
 
   return (
@@ -17,7 +17,7 @@ const CustomLabel = ({ id, onClick, values }) => {
       {formatMessage({ id }, values)}
     </Text>
   );
-};
+}
 
 CustomLabel.propTypes = {
   id: PropTypes.string.isRequired,

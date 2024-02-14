@@ -11,7 +11,7 @@ import Title from './Title';
 import SearchButton from './SearchButton';
 import SearchWrapper from './SearchWrapper';
 
-const LeftMenuLinkHeader = ({ section, searchable, setSearch, search }) => {
+function LeftMenuLinkHeader({ section, searchable, setSearch, search }) {
   const [showSearch, setShowSearch] = useState(false);
   const ref = createRef();
   const { id, defaultMessage } = messages[camelCase(section)];
@@ -63,7 +63,7 @@ const LeftMenuLinkHeader = ({ section, searchable, setSearch, search }) => {
       )}
     </Title>
   );
-};
+}
 
 LeftMenuLinkHeader.propTypes = {
   section: PropTypes.string.isRequired,

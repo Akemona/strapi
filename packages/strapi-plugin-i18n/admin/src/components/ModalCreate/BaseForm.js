@@ -20,7 +20,7 @@ const reactSelectLocaleFilter = createFilter({
   matchFrom: 'start',
 });
 
-const BaseForm = ({ options, defaultOption }) => {
+function BaseForm({ options, defaultOption }) {
   const theme = useTheme();
   const { formatMessage } = useIntl();
   const { values, handleChange, setFieldValue } = useFormikContext();
@@ -88,7 +88,7 @@ const BaseForm = ({ options, defaultOption }) => {
       </Col>
     </Row>
   );
-};
+}
 
 BaseForm.defaultProps = {
   defaultOption: undefined,

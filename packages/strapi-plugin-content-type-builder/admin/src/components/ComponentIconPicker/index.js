@@ -12,7 +12,7 @@ import Wrapper from './Wrapper';
 
 /* eslint-disable jsx-a11y/control-has-associated-label */
 
-const ComponentIconPicker = ({ error, isCreating, label, name, onChange, value }) => {
+function ComponentIconPicker({ error, isCreating, label, name, onChange, value }) {
   const { allIcons, allComponentsIconAlreadyTaken } = useDataManager();
   const [originalIcon] = useState(value);
   const initialIcons = allIcons.filter((ico) => {
@@ -125,7 +125,7 @@ const ComponentIconPicker = ({ error, isCreating, label, name, onChange, value }
       {error && <ErrorMessage style={{ marginTop: 5, marginBottom: 16 }}>{error}</ErrorMessage>}
     </Wrapper>
   );
-};
+}
 
 ComponentIconPicker.defaultProps = {
   error: null,

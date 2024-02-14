@@ -5,7 +5,7 @@ import { Padded } from '@buffetjs/core';
 import FiltersList from '../FiltersList';
 import FiltersPicker from '../FiltersPicker';
 
-const Filters = ({ onChange, onClick, filters }) => {
+function Filters({ onChange, onClick, filters }) {
   return (
     <>
       <FiltersPicker onChange={onChange} />
@@ -13,7 +13,7 @@ const Filters = ({ onChange, onClick, filters }) => {
       <FiltersList filters={filters} onClick={onClick} />
     </>
   );
-};
+}
 
 Filters.defaultProps = {
   filters: [],

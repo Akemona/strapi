@@ -7,7 +7,7 @@ import pluginPermissions from '../../permissions';
 import DynamicComponentCard from '../DynamicComponentCard';
 import Tooltip from './Tooltip';
 
-const DynamicComponent = ({ componentUid, friendlyName, icon, setIsOverDynamicZone }) => {
+function DynamicComponent({ componentUid, friendlyName, icon, setIsOverDynamicZone }) {
   const [isOver, setIsOver] = useState(false);
   const [{ isLoading, canAccess }, setState] = useState({ isLoading: true, canAccess: false });
   const { push } = useHistory();
@@ -53,7 +53,7 @@ const DynamicComponent = ({ componentUid, friendlyName, icon, setIsOverDynamicZo
       <Tooltip isOver={isOver}>{componentUid}</Tooltip>
     </DynamicComponentCard>
   );
-};
+}
 
 DynamicComponent.defaultProps = {
   friendlyName: '',

@@ -3,8 +3,12 @@ import { shallow } from 'enzyme';
 import { BlockerComponent } from '@akemona-org/strapi-helper-plugin';
 import { PluginDispatcher } from '../index';
 
-const BlockerComponent2 = () => <div>BlockerComponent</div>;
-const Email = () => <div>Email Plugin</div>;
+function BlockerComponent2() {
+  return <div>BlockerComponent</div>
+}
+function Email() {
+  return <div>Email Plugin</div>
+}
 
 describe('<PluginDispatcher />', () => {
   it('Should return null if the params does not match the pluginId', () => {

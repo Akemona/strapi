@@ -4,7 +4,7 @@ import { upperCase } from 'lodash';
 
 import { Text } from '@buffetjs/core';
 
-const FileInfos = ({ extension, height, size, width }) => {
+function FileInfos({ extension, height, size, width }) {
   return (
     <Text color="grey" fontSize="xs" ellipsis>
       {upperCase(extension)}
@@ -13,7 +13,7 @@ const FileInfos = ({ extension, height, size, width }) => {
       {size}
     </Text>
   );
-};
+}
 
 FileInfos.defaultProps = {
   height: null,

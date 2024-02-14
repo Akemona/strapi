@@ -22,7 +22,7 @@ function getItemStyles(initialOffset, currentOffset, mouseOffset) {
   };
 }
 
-const DragLayer = () => {
+function DragLayer() {
   const { itemType, isDragging, item, initialOffset, currentOffset, mouseOffset } = useDragLayer(
     (monitor) => ({
       item: monitor.getItem(),
@@ -63,6 +63,6 @@ const DragLayer = () => {
       </div>
     </Wrapper>
   );
-};
+}
 
 export default DragLayer;

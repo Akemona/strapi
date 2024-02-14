@@ -9,7 +9,7 @@ import init from './init';
 import Input from './Input';
 import Wrapper from './Wrapper';
 
-const Card = ({ onChange }) => {
+function Card({ onChange }) {
   const [
     {
       modifiedData: { name, filter, value },
@@ -78,7 +78,7 @@ const Card = ({ onChange }) => {
       </Button>
     </Wrapper>
   );
-};
+}
 
 Card.defaultProps = {
   onChange: () => {},

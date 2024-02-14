@@ -1,3 +1,5 @@
-const IndicatorSeparator = () => null;
+function IndicatorSeparator() {
+  return null
+}
 
 export default IndicatorSeparator;

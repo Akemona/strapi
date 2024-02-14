@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import adminPermissions from '../../../permissions';
 import EditPage from '../EditPage';
 
-const ProtectedEditPage = () => {
+function ProtectedEditPage() {
   const permissions = useMemo(() => {
     return {
       read: adminPermissions.settings.roles.read,
@@ -26,6 +26,6 @@ const ProtectedEditPage = () => {
   }
 
   return <EditPage />;
-};
+}
 
 export default ProtectedEditPage;

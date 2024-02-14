@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Download = (props) => {
+function Download(props) {
   return (
     <svg width="16" height="17" xmlns="http://www.w3.org/2000/svg" {...props}>
       <defs>
@@ -31,6 +31,6 @@ const Download = (props) => {
       </g>
     </svg>
   );
-};
+}
 
 export default Download;

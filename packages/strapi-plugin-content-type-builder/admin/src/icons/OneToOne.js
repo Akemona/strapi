@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const OneToOne = ({ isSelected, ...rest }) => {
+function OneToOne({ isSelected, ...rest }) {
   const stroke = isSelected ? '#1C5DE7' : '#919BAE';
   let rectProps = {
     strokeOpacity: '.1',
@@ -34,7 +34,7 @@ const OneToOne = ({ isSelected, ...rest }) => {
       </g>
     </svg>
   );
-};
+}
 
 OneToOne.defaultProps = {
   isSelected: false,

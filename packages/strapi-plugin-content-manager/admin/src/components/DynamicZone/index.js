@@ -19,7 +19,7 @@ import Picker from './Picker';
 
 /* eslint-disable react/no-array-index-key */
 
-const DynamicZone = ({
+function DynamicZone({
   name,
   // Passed with the select function
   addComponentToDynamicZone,
@@ -34,7 +34,7 @@ const DynamicZone = ({
   dynamicDisplayedComponents,
   fieldSchema,
   metadatas,
-}) => {
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const { formatMessage } = useIntl();
   // We cannot use the default props here
@@ -191,7 +191,7 @@ const DynamicZone = ({
       )}
     </DynamicZoneWrapper>
   );
-};
+}
 
 DynamicZone.defaultProps = {
   dynamicDisplayedComponents: [],

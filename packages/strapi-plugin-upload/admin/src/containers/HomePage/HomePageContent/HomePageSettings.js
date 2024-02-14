@@ -16,7 +16,7 @@ import Filters from '../../../components/Filters';
 import SelectAll from '../../../components/SelectAll';
 import SortPicker from '../../../components/SortPicker';
 
-const HomePageSettings = ({
+function HomePageSettings({
   areAllCheckboxesSelected,
   filters,
   hasSomeCheckboxSelected,
@@ -24,7 +24,7 @@ const HomePageSettings = ({
   onChange,
   onFilterDelete,
   onSelectAll,
-}) => {
+}) {
   const {
     allowedActions: { canUpdate },
   } = useAppContext();
@@ -84,7 +84,7 @@ const HomePageSettings = ({
       )}
     </>
   );
-};
+}
 
 HomePageSettings.defaultProps = {
   areAllCheckboxesSelected: false,

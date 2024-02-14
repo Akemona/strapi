@@ -15,7 +15,7 @@ const Wrapper = styled(Flex)`
   }
 `;
 
-const DropdownIndicator = ({ selectProps: { menuIsOpen } }) => {
+function DropdownIndicator({ selectProps: { menuIsOpen } }) {
   const icon = menuIsOpen ? 'caret-up' : 'caret-down';
 
   return (
@@ -23,7 +23,7 @@ const DropdownIndicator = ({ selectProps: { menuIsOpen } }) => {
       <FontAwesomeIcon icon={icon} />
     </Wrapper>
   );
-};
+}
 
 DropdownIndicator.propTypes = {
   selectProps: PropTypes.shape({

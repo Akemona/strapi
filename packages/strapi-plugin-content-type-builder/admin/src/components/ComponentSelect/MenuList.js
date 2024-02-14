@@ -11,10 +11,10 @@ import Category from './Category';
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 
-const MenuList = ({
+function MenuList({
   selectProps: { isAddingAComponentToAnotherComponent, name, onClickOption, refState, value },
   ...rest
-}) => {
+}) {
   const { componentsGroupedByCategory, componentsThatHaveOtherComponentInTheirAttributes } =
     useDataManager();
 
@@ -78,7 +78,7 @@ const MenuList = ({
       </Ul>
     </Component>
   );
-};
+}
 
 MenuList.defaultProps = {
   selectProps: {

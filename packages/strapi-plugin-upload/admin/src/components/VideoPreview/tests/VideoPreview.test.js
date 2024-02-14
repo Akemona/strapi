@@ -1,8 +1,8 @@
 import React from 'react';
 import { screen, render, fireEvent } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
+import themes from '@akemona-org/strapi-admin/admin/src/themes';
 import VideoPreview from '..';
-import themes from '../../../../../../strapi-admin/admin/src/themes';
 
 jest.mock('react-intl', () => ({
   // eslint-disable-next-line react/prop-types

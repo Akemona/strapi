@@ -51,7 +51,7 @@ import {
 } from './constants';
 import makeSelectDataManagerProvider from './selectors';
 
-const DataManagerProvider = ({
+function DataManagerProvider({
   allIcons,
   children,
   components,
@@ -61,7 +61,7 @@ const DataManagerProvider = ({
   initialData,
   modifiedData,
   reservedNames,
-}) => {
+}) {
   const dispatch = useDispatch();
   const {
     strapi: { getPlugin },
@@ -584,7 +584,7 @@ const DataManagerProvider = ({
       )}
     </DataManagerContext.Provider>
   );
-};
+}
 
 DataManagerProvider.defaultProps = {
   components: {},

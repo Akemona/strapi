@@ -11,7 +11,7 @@ import BaseForm from './BaseForm';
 import AdvancedForm from './AdvancedForm';
 import SettingsModal from '../SettingsModal';
 
-const ModalEdit = ({ localeToEdit, onClose, locales }) => {
+function ModalEdit({ localeToEdit, onClose, locales }) {
   const { isEditing, editLocale } = useEditLocale();
   const shouldUpdateMenu = useRef(false);
   const { updateMenu } = useGlobalContext();
@@ -95,7 +95,7 @@ const ModalEdit = ({ localeToEdit, onClose, locales }) => {
       </Formik>
     </Modal>
   );
-};
+}
 
 ModalEdit.defaultProps = {
   localeToEdit: undefined,

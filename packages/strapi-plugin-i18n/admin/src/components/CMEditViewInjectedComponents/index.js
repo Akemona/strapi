@@ -10,7 +10,7 @@ import selectI18NLocales from '../../selectors/selectI18nLocales';
 import useContentTypePermissions from '../../hooks/useContentTypePermissions';
 import CMEditViewLocalePicker from '../CMEditViewLocalePicker';
 
-const CMEditViewInjectedComponents = () => {
+function CMEditViewInjectedComponents() {
   const { layout, modifiedData, slug, isSingleType } = useContentManagerEditViewDataManager();
   const { createPermissions, readPermissions } = useContentTypePermissions(slug);
   const locales = useSelector(selectI18NLocales);
@@ -56,6 +56,6 @@ const CMEditViewInjectedComponents = () => {
       slug={slug}
     />
   );
-};
+}
 
 export default CMEditViewInjectedComponents;

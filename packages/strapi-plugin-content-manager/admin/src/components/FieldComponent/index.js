@@ -17,7 +17,7 @@ import Label from './Label';
 import Reset from './ResetComponent';
 import Wrapper from './Wrapper';
 
-const FieldComponent = ({
+function FieldComponent({
   componentFriendlyName,
   componentUid,
   icon,
@@ -36,7 +36,7 @@ const FieldComponent = ({
   isReadOnly,
   componentValue,
   removeComponentFromField,
-}) => {
+}) {
   const { formatMessage } = useIntl();
   const componentValueLength = size(componentValue);
   const isInitialized = componentValue !== null || isFromDynamicZone;
@@ -123,7 +123,7 @@ const FieldComponent = ({
       )}
     </Wrapper>
   );
-};
+}
 
 FieldComponent.defaultProps = {
   componentValue: null,

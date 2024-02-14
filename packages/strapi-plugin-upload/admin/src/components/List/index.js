@@ -11,7 +11,7 @@ import IntlText from '../IntlText';
 import ListCell from './ListCell';
 import ListRow from './ListRow';
 
-const List = ({
+function List({
   allowedTypes,
   data,
   onChange,
@@ -21,7 +21,7 @@ const List = ({
   canSelect,
   renderCardControl,
   showCheckbox,
-}) => {
+}) {
   const selectedAssets = selectedItems.length;
 
   const handleCheckboxClick = (e) => {
@@ -85,7 +85,7 @@ const List = ({
       </ListRow>
     </ListWrapper>
   );
-};
+}
 
 List.defaultProps = {
   allowedTypes: [],

@@ -22,7 +22,7 @@ const Border = styled.div`
   padding: 0px 10px;
 `;
 
-const SubCategory = ({ categoryName, isFormDisabled, subCategoryName, actions, pathToData }) => {
+function SubCategory({ categoryName, isFormDisabled, subCategoryName, actions, pathToData }) {
   const [modalState, setModalState] = useState({ isOpen: false, isMounted: false });
   const { modifiedData, onChangeParentCheckbox, onChangeSimpleCheckbox } =
     usePermissionsDataManager();
@@ -120,7 +120,7 @@ const SubCategory = ({ categoryName, isFormDisabled, subCategoryName, actions, p
       )}
     </>
   );
-};
+}
 
 SubCategory.propTypes = {
   actions: PropTypes.array.isRequired,

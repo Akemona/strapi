@@ -8,8 +8,8 @@ import Option from './Option';
 import OptionsTitle from './OptionsTitle';
 import RightOptionLabel from './RightOptionLabel';
 
-const Options = ({ options, title }) => (
-  <OptionsWrapper>
+function Options({ options, title }) {
+  return <OptionsWrapper>
     {title && <OptionsTitle>{title}</OptionsTitle>}
     {options.map((option) => (
       <Option key={option.id} onClick={option.onClick}>
@@ -20,7 +20,7 @@ const Options = ({ options, title }) => (
       </Option>
     ))}
   </OptionsWrapper>
-);
+}
 
 Options.propTypes = {
   options: PropTypes.array.isRequired,

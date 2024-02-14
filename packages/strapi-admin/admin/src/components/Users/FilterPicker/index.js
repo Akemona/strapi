@@ -5,7 +5,7 @@ import { Picker } from '@buffetjs/core';
 import Button from './Button';
 import Card from './Card';
 
-const FilterPicker = ({ onChange }) => {
+function FilterPicker({ onChange }) {
   return (
     <Picker
       renderButtonContent={Button}
@@ -22,7 +22,7 @@ const FilterPicker = ({ onChange }) => {
       )}
     />
   );
-};
+}
 
 FilterPicker.defaultProps = {
   onChange: () => {},

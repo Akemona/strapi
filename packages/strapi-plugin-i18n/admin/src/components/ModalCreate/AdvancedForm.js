@@ -5,7 +5,7 @@ import { useIntl } from 'react-intl';
 import { BaselineAlignment } from '@akemona-org/strapi-helper-plugin';
 import { getTrad } from '../../utils';
 
-const AdvancedForm = () => {
+function AdvancedForm() {
   const { values, setFieldValue } = useFormikContext();
   const { formatMessage } = useIntl();
 
@@ -40,6 +40,6 @@ const AdvancedForm = () => {
       </Text>
     </div>
   );
-};
+}
 
 export default AdvancedForm;

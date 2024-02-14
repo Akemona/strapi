@@ -5,7 +5,7 @@ import { Text } from '@buffetjs/core';
 import { getTrad } from '../../utils';
 import Wrapper from './Wrapper';
 
-const State = ({ isPublished }) => {
+function State({ isPublished }) {
   const { formatMessage } = useIntl();
 
   return (
@@ -17,7 +17,7 @@ const State = ({ isPublished }) => {
       </Text>
     </Wrapper>
   );
-};
+}
 
 State.propTypes = {
   isPublished: PropTypes.bool.isRequired,

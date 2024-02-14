@@ -12,7 +12,7 @@ import { Permissions, RoleForm } from '../../../components/Roles';
 import { useFetchRole, useFetchPermissionsLayout } from '../../../hooks';
 import schema from './utils/schema';
 
-const EditPage = () => {
+function EditPage() {
   const { formatMessage } = useIntl();
   const { emitEvent, settingsBaseURL } = useGlobalContext();
   const {
@@ -167,6 +167,6 @@ const EditPage = () => {
       </Formik>
     </>
   );
-};
+}
 
 export default EditPage;

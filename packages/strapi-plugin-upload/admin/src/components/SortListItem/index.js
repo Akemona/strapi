@@ -6,7 +6,7 @@ import { getTrad } from '../../utils';
 import Wrapper from './Wrapper';
 import IntlText from '../IntlText';
 
-const SortListItem = ({ onClick, selectedItem, label, value }) => {
+function SortListItem({ onClick, selectedItem, label, value }) {
   const handleClick = () => {
     onClick({ target: { name: '_sort', value } });
   };
@@ -16,7 +16,7 @@ const SortListItem = ({ onClick, selectedItem, label, value }) => {
       <IntlText id={getTrad(`sort.${label}`)} lineHeight="27px" />
     </Wrapper>
   );
-};
+}
 
 SortListItem.defaultProps = {
   selectedItem: null,

@@ -5,14 +5,14 @@ import { LoadingIndicator, Tooltip } from '@buffetjs/styles';
 import PropTypes from 'prop-types';
 import { getDisplayedValue, getRequestUrl } from '../../utils';
 
-const RelationPreviewTooltip = ({
+function RelationPreviewTooltip({
   tooltipId,
   rowId,
   mainField,
   name,
   queryInfos: { endPoint },
   size,
-}) => {
+}) {
   const [isLoading, setIsLoading] = useState(true);
   const [relationData, setRelationData] = useState([]);
   const tooltipRef = useRef();
@@ -96,7 +96,7 @@ const RelationPreviewTooltip = ({
       </div>
     </Tooltip>
   );
-};
+}
 
 RelationPreviewTooltip.propTypes = {
   tooltipId: PropTypes.string.isRequired,

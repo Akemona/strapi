@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import Link from './StyledLink';
 import Wrapper from './Wrapper';
 
-const ConfigureLink = ({ slug }) => {
+function ConfigureLink({ slug }) {
   const { emitEvent } = useGlobalContext();
 
   const handleClick = () => {
@@ -20,7 +20,7 @@ const ConfigureLink = ({ slug }) => {
       </Link>
     </Wrapper>
   );
-};
+}
 
 ConfigureLink.propTypes = {
   slug: PropTypes.string.isRequired,

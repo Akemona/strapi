@@ -11,7 +11,9 @@ const FaIcon = styled(({ small, ...props }) => <FontAwesomeIcon {...props} />)`
   font-size: ${({ small }) => (small ? '.5rem' : '1.3rem')};
 `;
 
-const LeftMenuIcon = ({ icon }) => <FaIcon small={icon === 'circle'} icon={icon} />;
+function LeftMenuIcon({ icon }) {
+  return <FaIcon small={icon === 'circle'} icon={icon} />
+}
 
 LeftMenuIcon.propTypes = {
   icon: PropTypes.string,

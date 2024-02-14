@@ -5,8 +5,8 @@ import { Plus } from '@buffetjs/icons';
 import P from './P';
 import StyledCustomLink from './StyledCustomLink';
 
-const CustomLink = ({ disabled, id, onClick }) => (
-  <StyledCustomLink disabled={disabled}>
+function CustomLink({ disabled, id, onClick }) {
+  return <StyledCustomLink disabled={disabled}>
     <button onClick={onClick} disabled={disabled} type="button">
       <P>
         <Plus fill="#007EFF" width="11px" height="11px" />
@@ -14,7 +14,7 @@ const CustomLink = ({ disabled, id, onClick }) => (
       </P>
     </button>
   </StyledCustomLink>
-);
+}
 
 CustomLink.defaultProps = {
   disabled: false,

@@ -1,5 +1,5 @@
 module.exports = {
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   extends: [
     'airbnb',
     'eslint:recommended',
@@ -119,5 +119,15 @@ module.exports = {
     'react/state-in-constructor': 0,
     'react/static-property-placement': 0,
     'react/display-name': 0,
+    'default-param-last': 'warn',
+    'prefer-regex-literals': 0,
+    'react/jsx-no-useless-fragment': 0,
+    'react/jsx-no-constructed-context-values': 'warn',
+    'react/no-unused-class-component-methods': 0,
+    'react/no-unstable-nested-components': 'warn',
+    'import/no-import-module-exports': 'warn',
+    'no-fallthrough': 'warn',
+    'class-methods-use-this': 'warn',
+    'no-loss-of-precision': 'warn'
   },
 };

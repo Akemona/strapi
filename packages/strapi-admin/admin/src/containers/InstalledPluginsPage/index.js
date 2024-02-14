@@ -7,7 +7,7 @@ import ListWrapper from './ListWrapper';
 import Row from './Row';
 import generateRows from './utils/generateRows';
 
-const InstalledPluginsPage = () => {
+function InstalledPluginsPage() {
   const { formatMessage, plugins } = useGlobalContext();
   const onConfirm = async (id) => {
     try {
@@ -68,6 +68,6 @@ const InstalledPluginsPage = () => {
       </ContainerFluid>
     </div>
   );
-};
+}
 
 export default InstalledPluginsPage;

@@ -10,7 +10,7 @@ import getTrad from '../../../utils/getTrad';
 import SubCategory from './SubCategory';
 import RowStyle from './RowStyle';
 
-const PermissionRow = ({ isOpen, isWhite, name, onOpenPlugin, permissions }) => {
+function PermissionRow({ isOpen, isWhite, name, onOpenPlugin, permissions }) {
   const { formatMessage } = useIntl();
 
   const subCategories = useMemo(() => {
@@ -79,7 +79,7 @@ const PermissionRow = ({ isOpen, isWhite, name, onOpenPlugin, permissions }) => 
       )}
     </RowContainer>
   );
-};
+}
 
 PermissionRow.propTypes = {
   isOpen: PropTypes.bool.isRequired,

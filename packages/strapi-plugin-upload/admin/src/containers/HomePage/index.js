@@ -20,7 +20,7 @@ import { generateStringFromParams, getHeaderLabel } from './utils';
 import init from './init';
 import reducer, { initialState } from './reducer';
 
-const HomePage = () => {
+function HomePage() {
   const { allowedActions } = useAppContext();
   const { canRead } = allowedActions;
   const { formatMessage, plugins } = useGlobalContext();
@@ -368,6 +368,6 @@ const HomePage = () => {
       <Padded bottom size="md" />
     </Container>
   );
-};
+}
 
 export default HomePage;

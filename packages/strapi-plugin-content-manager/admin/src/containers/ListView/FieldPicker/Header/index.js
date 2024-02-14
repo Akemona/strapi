@@ -6,7 +6,7 @@ import { BaselineAlignment, useGlobalContext } from '@akemona-org/strapi-helper-
 import { getTrad } from '../../../../utils';
 import Reset from './Reset';
 
-const Header = ({ onClick, onToggle }) => {
+function Header({ onClick, onToggle }) {
   const { emitEvent } = useGlobalContext();
 
   const handleClick = () => {
@@ -32,7 +32,7 @@ const Header = ({ onClick, onToggle }) => {
       </Padded>
     </BaselineAlignment>
   );
-};
+}
 
 Header.propTypes = {
   onClick: PropTypes.func.isRequired,

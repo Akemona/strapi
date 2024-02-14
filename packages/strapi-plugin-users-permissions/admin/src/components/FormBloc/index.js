@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import BaselineAlignement from '../BaselineAlignement';
 import Bloc from '../Bloc';
 
-const FormBloc = ({ children, actions, isLoading, title, subtitle }) => (
-  <Bloc>
+function FormBloc({ children, actions, isLoading, title, subtitle }) {
+  return <Bloc>
     <BaselineAlignement top size={title ? '18px' : '22px'} />
     <Padded left right size="sm">
       {isLoading ? (
@@ -41,7 +41,7 @@ const FormBloc = ({ children, actions, isLoading, title, subtitle }) => (
       )}
     </Padded>
   </Bloc>
-);
+}
 
 FormBloc.defaultProps = {
   actions: null,

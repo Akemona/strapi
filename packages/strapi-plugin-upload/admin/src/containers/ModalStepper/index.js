@@ -18,14 +18,14 @@ import stepper from './stepper';
 import init from './init';
 import reducer, { initialState } from './reducer';
 
-const ModalStepper = ({
+function ModalStepper({
   initialFileToEdit,
   initialStep,
   isOpen,
   onClosed,
   onRemoveFileFromDataToDelete,
   onToggle,
-}) => {
+}) {
   const { allowedActions } = useAppContext();
   const { emitEvent, formatMessage } = useGlobalContext();
   const [isWarningDeleteOpen, setIsWarningDeleteOpen] = useState(false);
@@ -614,7 +614,7 @@ const ModalStepper = ({
       />
     </>
   );
-};
+}
 
 ModalStepper.defaultProps = {
   initialFileToEdit: null,

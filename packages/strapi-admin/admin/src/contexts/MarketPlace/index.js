@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 const MarketPlaceContext = createContext({});
 
-const MarketPlaceContextProvider = ({ children, ...rest }) => {
+function MarketPlaceContextProvider({ children, ...rest }) {
   return <MarketPlaceContext.Provider value={rest}>{children}</MarketPlaceContext.Provider>;
-};
+}
 
 const useMarketPlaceContext = () => useContext(MarketPlaceContext);
 

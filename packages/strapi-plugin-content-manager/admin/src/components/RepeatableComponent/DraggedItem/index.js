@@ -17,7 +17,7 @@ import { connect, select } from './utils';
 // https://github.com/react-dnd/react-dnd/issues/1368
 // https://github.com/frontend-collective/react-sortable-tree/issues/490
 
-const DraggedItem = ({
+function DraggedItem({
   componentFieldName,
   doesPreviousFieldContainErrorsAndIsOpen,
   hasErrors,
@@ -34,7 +34,7 @@ const DraggedItem = ({
   triggerFormValidation,
   checkFormErrors,
   displayedValue,
-}) => {
+}) {
   const dragRef = useRef(null);
   const dropRef = useRef(null);
   const [showForm, setShowForm] = useState(false);
@@ -203,7 +203,7 @@ const DraggedItem = ({
       </Collapse>
     </>
   );
-};
+}
 
 DraggedItem.defaultProps = {
   doesPreviousFieldContainErrorsAndIsOpen: false,

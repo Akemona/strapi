@@ -9,7 +9,7 @@ import { getTrad } from '../../utils';
 import DownloadIcon from '../../icons/Download';
 import Wrapper from './Wrapper';
 
-const CardControl = ({ title, color, onClick, small, type, iconStyle }) => {
+function CardControl({ title, color, onClick, small, type, iconStyle }) {
   const { formatMessage } = useGlobalContext();
   const [tooltipIsDisplayed, setTooltipIsDisplayed] = useState(false);
 
@@ -39,7 +39,7 @@ const CardControl = ({ title, color, onClick, small, type, iconStyle }) => {
       {tooltipIsDisplayed && <Tooltip id={type} />}
     </>
   );
-};
+}
 
 CardControl.defaultProps = {
   color: '#b3b5b9',

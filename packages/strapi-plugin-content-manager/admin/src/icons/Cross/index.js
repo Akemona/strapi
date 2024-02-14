@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Cross = ({ fill, height, width, ...rest }) => {
+function Cross({ fill, height, width, ...rest }) {
   return (
     <svg {...rest} width={width} height={height} xmlns="http://www.w3.org/2000/svg">
       <path
@@ -11,7 +11,7 @@ const Cross = ({ fill, height, width, ...rest }) => {
       />
     </svg>
   );
-};
+}
 
 Cross.defaultProps = {
   fill: '#b3b5b9',

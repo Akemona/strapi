@@ -18,7 +18,7 @@ const LocaleName = styled.div`
   white-space: nowrap;
 `;
 
-const LocaleListCell = ({ locales, localizations, locale: currentLocaleCode, id }) => {
+function LocaleListCell({ locales, localizations, locale: currentLocaleCode, id }) {
   const allLocalizations = [{ locale: currentLocaleCode }, ...localizations];
   const localizationNames = allLocalizations.map((locale) => locale.locale);
   const defaultLocale = locales.find((locale) => locale.isDefault);
@@ -68,7 +68,7 @@ const LocaleListCell = ({ locales, localizations, locale: currentLocaleCode, id 
       </Tooltip>
     </div>
   );
-};
+}
 
 LocaleListCell.propTypes = {
   id: PropTypes.number.isRequired,

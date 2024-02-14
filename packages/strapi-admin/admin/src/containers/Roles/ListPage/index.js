@@ -19,7 +19,7 @@ import { useRolesList, useSettingsHeaderSearchContext } from '../../../hooks';
 import UpgradePlanModal from '../../../components/UpgradePlanModal';
 import BaselineAlignment from './BaselineAlignment';
 
-const RoleListPage = () => {
+function RoleListPage() {
   const { formatMessage } = useIntl();
   const { push } = useHistory();
   const [isOpen, setIsOpen] = useState(false);
@@ -149,6 +149,6 @@ const RoleListPage = () => {
       <UpgradePlanModal isOpen={isOpen} onToggle={handleToggle} />
     </>
   );
-};
+}
 
 export default RoleListPage;

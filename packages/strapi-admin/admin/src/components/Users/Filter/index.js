@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { Option, Text } from '@buffetjs/core';
 
-const Filter = ({ displayName, filter, name, onClick, value }) => {
+function Filter({ displayName, filter, name, onClick, value }) {
   const { formatMessage } = useIntl();
   const label = (
     <>
@@ -24,7 +24,7 @@ const Filter = ({ displayName, filter, name, onClick, value }) => {
   };
 
   return <Option label={label} margin="0 10px 6px 0" onClick={handleClick} />;
-};
+}
 
 Filter.defaultProps = {
   onClick: () => {},

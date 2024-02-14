@@ -7,7 +7,7 @@ import { CustomRow } from '@buffetjs/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getTrad } from '../../utils';
 
-const LocaleSettingsPage = ({ locale, onDelete, onEdit }) => {
+function LocaleSettingsPage({ locale, onDelete, onEdit }) {
   const { formatMessage } = useIntl();
 
   const links = [];
@@ -57,7 +57,7 @@ const LocaleSettingsPage = ({ locale, onDelete, onEdit }) => {
       </td>
     </CustomRow>
   );
-};
+}
 
 LocaleSettingsPage.defaultProps = {
   onDelete: undefined,

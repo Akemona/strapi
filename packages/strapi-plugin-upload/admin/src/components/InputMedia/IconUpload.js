@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const IconUpload = ({ title, ...props }) => {
+function IconUpload({ title, ...props }) {
   return (
     <svg
       width="105"
@@ -39,7 +39,7 @@ const IconUpload = ({ title, ...props }) => {
       </g>
     </svg>
   );
-};
+}
 
 IconUpload.propTypes = {
   title: PropTypes.string.isRequired,

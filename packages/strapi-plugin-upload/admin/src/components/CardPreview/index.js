@@ -9,7 +9,7 @@ import VideoPreview from '../VideoPreview';
 import Wrapper from './Wrapper';
 import Image from './Image';
 
-const CardPreview = ({ extension, hasError, hasIcon, url, previewUrl, type, withFileCaching }) => {
+function CardPreview({ extension, hasError, hasIcon, url, previewUrl, type, withFileCaching }) {
   const isFile = getType(type) === 'file';
   const isVideo = getType(type) === 'video';
   const cacheRef = useRef(performance.now());
@@ -41,7 +41,7 @@ const CardPreview = ({ extension, hasError, hasIcon, url, previewUrl, type, with
       )}
     </Wrapper>
   );
-};
+}
 
 CardPreview.defaultProps = {
   extension: null,

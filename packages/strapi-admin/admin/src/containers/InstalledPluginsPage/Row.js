@@ -12,7 +12,7 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import adminPermissions from '../../permissions';
 import LogoContainer from './Logo';
 
-const Row = ({ logo, name, description, isRequired, id, icon, onConfirm }) => {
+function Row({ logo, name, description, isRequired, id, icon, onConfirm }) {
   const { formatMessage } = useGlobalContext();
   const [isOpen, setIsOpen] = useState(false);
   const links = [];
@@ -80,7 +80,7 @@ const Row = ({ logo, name, description, isRequired, id, icon, onConfirm }) => {
       </td>
     </CustomRow>
   );
-};
+}
 
 Row.defaultProps = {
   icon: 'plug',

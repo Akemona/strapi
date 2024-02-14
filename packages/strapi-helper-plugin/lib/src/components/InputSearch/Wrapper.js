@@ -68,7 +68,9 @@ const Wrapper = styled.div`
     border-right: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition:
+      border-color ease-in-out 0.15s,
+      box-shadow ease-in-out 0.15s;
   }
 
   .invalidSearch {

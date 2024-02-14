@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Play = ({ fill, ...rest }) => (
-  <svg width="48px" height="52px" viewBox="0 0 48 52" {...rest} xmlns="http://www.w3.org/2000/svg">
+function Play({ fill, ...rest }) {
+  return <svg width="48px" height="52px" viewBox="0 0 48 52" {...rest} xmlns="http://www.w3.org/2000/svg">
     <defs>
       <filter
         x="-1.7%"
@@ -52,7 +52,7 @@ const Play = ({ fill, ...rest }) => (
       </g>
     </g>
   </svg>
-);
+}
 
 Play.defaultProps = {
   fill: '#fff',

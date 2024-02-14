@@ -5,7 +5,7 @@ import LocaleSettingsPage from './LocaleSettingsPage';
 import i18nPermissions from '../../permissions';
 import { getTrad } from '../../utils';
 
-const ProtectedLocaleSettingsPage = () => {
+function ProtectedLocaleSettingsPage() {
   const { formatMessage } = useIntl();
   const {
     isLoading,
@@ -28,6 +28,6 @@ const ProtectedLocaleSettingsPage = () => {
       canDeleteLocale={canDelete}
     />
   );
-};
+}
 
 export default ProtectedLocaleSettingsPage;

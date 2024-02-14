@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Media = () => {
+function Media() {
   return (
     <svg width="12" height="11" xmlns="http://www.w3.org/2000/svg">
       <g fill="#333740" fillRule="evenodd">
@@ -9,6 +9,6 @@ const Media = () => {
       </g>
     </svg>
   );
-};
+}
 
 export default Media;

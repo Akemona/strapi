@@ -8,7 +8,7 @@ import { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import pluginId from '../../pluginId';
 
-const Initializer = ({ updatePlugin }) => {
+function Initializer({ updatePlugin }) {
   const ref = useRef();
   ref.current = updatePlugin;
 
@@ -17,7 +17,7 @@ const Initializer = ({ updatePlugin }) => {
   }, []);
 
   return null;
-};
+}
 
 Initializer.propTypes = {
   updatePlugin: PropTypes.func.isRequired,

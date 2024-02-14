@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 import { Checkbox, Text } from '@buffetjs/core';
 import Wrapper from './Wrapper';
 
-const CheckboxWithDescription = ({ description, error, label, value, ...rest }) => {
+function CheckboxWithDescription({ description, error, label, value, ...rest }) {
   return (
-    <>
-      <Wrapper>
+    <Wrapper>
         <Checkbox {...rest} message={label} label={label} type="checkbox" value={value} />
         {description && (
           <Text color="grey" title={description} fontSize="sm" ellipsis>
@@ -19,9 +18,8 @@ const CheckboxWithDescription = ({ description, error, label, value, ...rest }) 
           </Text>
         )}
       </Wrapper>
-    </>
   );
-};
+}
 
 CheckboxWithDescription.defaultProps = {
   description: null,

@@ -44,7 +44,7 @@ describe('Admin Controller', () => {
               ({
                 autoReload: undefined,
                 'info.strapi': '1.0.0',
-              }[key] || value)
+              })[key] || value
           ),
         },
         EE: true,

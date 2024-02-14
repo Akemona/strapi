@@ -12,7 +12,7 @@ import { Description, ErrorMessage } from '@buffetjs/styles';
 import { getTrad } from '../../utils';
 import Wrapper from './Wrapper';
 
-const CustomTextInput = ({
+function CustomTextInput({
   description,
   error: inputError,
   label,
@@ -21,7 +21,7 @@ const CustomTextInput = ({
   validations,
   value,
   ...rest
-}) => {
+}) {
   const inputId = name;
   const descriptionId = `description-${inputId}`;
   const errorId = `error-${inputId}`;
@@ -76,7 +76,7 @@ const CustomTextInput = ({
       )}
     </Error>
   );
-};
+}
 
 CustomTextInput.defaultProps = {
   description: null,

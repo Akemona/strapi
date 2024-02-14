@@ -9,7 +9,7 @@ import DraggedFieldWithPreview from '../DraggedFieldWithPreview';
 
 import ItemTypes from '../../utils/ItemTypes';
 
-const Item = ({ index, move, name, removeItem }) => {
+function Item({ index, move, name, removeItem }) {
   const { goTo, metadatas, selectedItemName, setEditFieldToSelect, setIsDraggingSibling } =
     useLayoutDnd();
   const dragRef = useRef(null);
@@ -104,7 +104,7 @@ const Item = ({ index, move, name, removeItem }) => {
       i={index === 0}
     />
   );
-};
+}
 
 Item.defaultProps = {
   move: () => {},

@@ -9,12 +9,12 @@ import { formatLayoutToApi } from '../../utils';
 import EditViewLayoutManager from '../EditViewLayoutManager';
 import EditSettingsView from '../EditSettingsView';
 
-const SingleTypeRecursivePath = ({
+function SingleTypeRecursivePath({
   match: {
     params: { slug },
     url,
   },
-}) => {
+}) {
   const { isLoading, layout, updateLayout } = useFetchContentTypeLayout(slug);
 
   const { rawContentTypeLayout, rawComponentsLayouts } = useMemo(() => {
@@ -71,7 +71,7 @@ const SingleTypeRecursivePath = ({
       </Switch>
     </ContentTypeLayoutContext.Provider>
   );
-};
+}
 
 SingleTypeRecursivePath.propTypes = {
   match: PropTypes.shape({

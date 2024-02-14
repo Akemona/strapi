@@ -7,7 +7,7 @@ import { useContentTypeLayout } from '../../../hooks';
 import FieldComponent from '../../FieldComponent';
 import RoundCTA from './RoundCTA';
 
-const Component = ({
+function Component({
   componentUid,
   index,
   isFieldAllowed,
@@ -17,7 +17,7 @@ const Component = ({
   removeComponentFromDynamicZone,
   showDownIcon,
   showUpIcon,
-}) => {
+}) {
   const { getComponentLayout } = useContentTypeLayout();
   const { icon, friendlyName } = useMemo(() => {
     const {
@@ -62,7 +62,7 @@ const Component = ({
       />
     </div>
   );
-};
+}
 
 Component.propTypes = {
   componentUid: PropTypes.string.isRequired,

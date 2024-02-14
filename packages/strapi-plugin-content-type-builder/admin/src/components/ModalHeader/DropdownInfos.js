@@ -9,7 +9,7 @@ import Wrapper from './Wrapper';
 
 /* eslint-disable react/no-array-index-key */
 
-const DropdownInfos = ({ headers, shouldDisplaySecondHeader }) => {
+function DropdownInfos({ headers, shouldDisplaySecondHeader }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
@@ -35,7 +35,7 @@ const DropdownInfos = ({ headers, shouldDisplaySecondHeader }) => {
       </Menu>
     </Wrapper>
   );
-};
+}
 
 DropdownInfos.defaultProps = {
   headers: [],

@@ -7,7 +7,7 @@ import { AppContext } from '../../contexts';
 
 import HomePage from '../HomePage';
 
-const App = () => {
+function App() {
   const state = useUserPermissions(pluginPermissions);
 
   // Show a loader while all permissions are being checked
@@ -26,6 +26,6 @@ const App = () => {
   }
 
   return <Redirect to="/" />;
-};
+}
 
 export default App;

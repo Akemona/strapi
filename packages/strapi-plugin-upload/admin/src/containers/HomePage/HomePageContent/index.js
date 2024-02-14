@@ -7,7 +7,7 @@ import { generateFiltersFromSearch, useQuery } from '@akemona-org/strapi-helper-
 import HomePageSettings from './HomePageSettings';
 import HomePageList from './HomePageList';
 
-const HomePageContent = ({
+function HomePageContent({
   data,
   dataCount,
   dataToDelete,
@@ -18,7 +18,7 @@ const HomePageContent = ({
   onFilterDelete,
   onParamsChange,
   onSelectAll,
-}) => {
+}) {
   const query = useQuery();
   const { search } = useLocation();
   const filters = generateFiltersFromSearch(search);
@@ -59,7 +59,7 @@ const HomePageContent = ({
       />
     </>
   );
-};
+}
 
 HomePageContent.defaultProps = {
   data: [],

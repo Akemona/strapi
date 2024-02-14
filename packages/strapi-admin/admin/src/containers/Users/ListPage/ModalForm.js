@@ -9,7 +9,7 @@ import {
 } from '@akemona-org/strapi-helper-plugin';
 import stepper from './stepper';
 
-const ModalForm = ({ isOpen, onClosed, onToggle }) => {
+function ModalForm({ isOpen, onClosed, onToggle }) {
   const [currentStep, setStep] = useState('create');
   // Little trick to focus the first input
   // Without this the focus is lost
@@ -91,7 +91,7 @@ const ModalForm = ({ isOpen, onClosed, onToggle }) => {
       </ModalFooter>
     </Modal>
   );
-};
+}
 
 ModalForm.defaultProps = {
   onClosed: () => {},

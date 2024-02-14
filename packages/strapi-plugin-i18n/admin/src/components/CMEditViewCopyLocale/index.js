@@ -17,15 +17,15 @@ import {
 import { getTrad } from '../../utils';
 import { cleanData, generateOptions } from './utils';
 
-const CMEditViewCopyLocale = (props) => {
+function CMEditViewCopyLocale(props) {
   if (!props.localizations.length) {
     return null;
   }
 
   return <Content {...props} />;
-};
+}
 
-const Content = ({ appLocales, currentLocale, localizations, readPermissions }) => {
+function Content({ appLocales, currentLocale, localizations, readPermissions }) {
   const options = generateOptions(appLocales, currentLocale, localizations, readPermissions);
 
   const { formatMessage } = useIntl();
@@ -162,7 +162,7 @@ const Content = ({ appLocales, currentLocale, localizations, readPermissions }) 
       </ModalConfirm>
     </>
   );
-};
+}
 
 CMEditViewCopyLocale.propTypes = {
   localizations: PropTypes.array.isRequired,

@@ -13,7 +13,7 @@ import crudReducer, { crudInitialState } from '../../sharedReducers/crudReducer/
 import { getData, getDataSucceeded } from '../../sharedReducers/crudReducer/actions';
 import EditSettingsView from '../EditSettingsView';
 
-const ComponentSettingsView = () => {
+function ComponentSettingsView() {
   const [{ isLoading, data: layout }, dispatch] = useReducer(crudReducer, crudInitialState);
   const schemasSelector = useMemo(makeSelectModelAndComponentSchemas, []);
   const { schemas } = useSelector((state) => schemasSelector(state), shallowEqual);
@@ -54,6 +54,6 @@ const ComponentSettingsView = () => {
       <EditSettingsView components={layout.components} mainLayout={layout.component} slug={uid} />
     </CheckPagePermissions>
   );
-};
+}
 
 export default memo(ComponentSettingsView);

@@ -23,14 +23,14 @@ const LinkLabel = styled.span`
 `;
 
 // TODO: refacto this file
-const LeftMenuLinkContent = ({
+function LeftMenuLinkContent({
   destination,
   iconName,
   label,
   location,
   notificationsCount,
   search,
-}) => {
+}) {
   const isLinkActive = startsWith(
     location.pathname.replace('/admin', '').concat('/'),
     destination.concat('/')
@@ -78,7 +78,7 @@ const LeftMenuLinkContent = ({
       {notificationsCount > 0 && <NotificationCount count={notificationsCount} />}
     </A>
   );
-};
+}
 
 LeftMenuLinkContent.defaultProps = {
   search: null,

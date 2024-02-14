@@ -6,7 +6,7 @@ import { Text } from '@buffetjs/core';
 import { useIntl } from 'react-intl';
 import { createArrayOfValues } from '../../utils';
 
-const Value = ({ children, selectProps, ...props }) => {
+function Value({ children, selectProps, ...props }) {
   const { formatMessage } = useIntl();
   const SingleValue = components.SingleValue;
   const valuesArray = createArrayOfValues(selectProps.value).filter((val) => val);
@@ -27,7 +27,7 @@ const Value = ({ children, selectProps, ...props }) => {
       </Text>
     </SingleValue>
   );
-};
+}
 
 Value.defaultProps = {
   children: null,

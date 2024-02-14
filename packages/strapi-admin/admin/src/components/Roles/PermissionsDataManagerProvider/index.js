@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { PermissionsDataManagerContext } from '../../../contexts';
 
-const PermissionsDataManagerProvider = ({ children, value }) => {
+function PermissionsDataManagerProvider({ children, value }) {
   return (
     <PermissionsDataManagerContext.Provider value={value}>
       {children}
     </PermissionsDataManagerContext.Provider>
   );
-};
+}
 
 PermissionsDataManagerProvider.propTypes = {
   children: PropTypes.node.isRequired,

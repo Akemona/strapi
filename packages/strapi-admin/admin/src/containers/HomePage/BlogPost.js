@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { LoadingBar } from '@akemona-org/strapi-helper-plugin';
 
-const BlogPost = ({ error, isFirst, isLoading, title, content, link }) => {
+function BlogPost({ error, isFirst, isLoading, title, content, link }) {
   if (isLoading) {
     return (
       <>
@@ -27,7 +27,7 @@ const BlogPost = ({ error, isFirst, isLoading, title, content, link }) => {
       <p style={{ marginTop: 17, marginBottom: isFirst ? 32 : 10 }}>{content}</p>
     </a>
   );
-};
+}
 
 BlogPost.defaultProps = {
   content: null,

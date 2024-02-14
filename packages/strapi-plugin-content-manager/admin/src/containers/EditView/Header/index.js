@@ -18,7 +18,7 @@ const primaryButtonObject = {
   },
 };
 
-const Header = ({
+function Header({
   allowedActions: { canUpdate, canCreate, canPublish },
   componentLayouts,
   initialData,
@@ -30,7 +30,7 @@ const Header = ({
   onPublish,
   onUnpublish,
   status,
-}) => {
+}) {
   const [showWarningUnpublish, setWarningUnpublish] = useState(false);
   const { formatMessage } = useIntl();
   const formatMessageRef = useRef(formatMessage);
@@ -234,7 +234,7 @@ const Header = ({
       )}
     </>
   );
-};
+}
 
 Header.propTypes = {
   allowedActions: PropTypes.shape({

@@ -45,7 +45,8 @@ const boomMethods = [
 const formatBoomPayload = (boomError) => {
   if (!Boom.isBoom(boomError)) {
     boomError = Boom.boomify(boomError, {
-      statusCode: boomError.status || 500,
+      // added to handle undefined/null boomError
+      statusCode: boomError?.status || 500,
     });
   }
 

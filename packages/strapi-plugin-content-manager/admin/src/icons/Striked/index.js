@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Striked = () => {
+function Striked() {
   return (
     <svg width="19" height="10" xmlns="http://www.w3.org/2000/svg">
       <g fill="none" fillRule="evenodd">
@@ -19,6 +19,6 @@ const Striked = () => {
       </g>
     </svg>
   );
-};
+}
 
 export default Striked;

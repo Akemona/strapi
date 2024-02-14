@@ -28,7 +28,7 @@ import DeleteLink from './DeleteLink';
 import InformationCard from './InformationCard';
 
 /* eslint-disable  react/no-array-index-key */
-const EditView = ({
+function EditView({
   allowedActions,
   isSingleType,
   goBack,
@@ -37,7 +37,7 @@ const EditView = ({
   id,
   origin,
   userPermissions,
-}) => {
+}) {
   const { currentEnvironment, plugins } = useGlobalContext();
 
   const { createActionAllowedFields, readActionAllowedFields, updateActionAllowedFields } =
@@ -256,7 +256,7 @@ const EditView = ({
       }}
     </DataManagementWrapper>
   );
-};
+}
 
 EditView.defaultProps = {
   id: null,

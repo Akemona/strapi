@@ -12,7 +12,7 @@ import useAddLocale from '../../hooks/useAddLocale';
 import BaseForm from './BaseForm';
 import AdvancedForm from './AdvancedForm';
 
-const ModalCreate = ({ alreadyUsedLocales, onClose, isOpened }) => {
+function ModalCreate({ alreadyUsedLocales, onClose, isOpened }) {
   const { defaultLocales, isLoading } = useDefaultLocales();
   const { isAdding, addLocale } = useAddLocale();
   const { formatMessage } = useIntl();
@@ -74,7 +74,8 @@ const ModalCreate = ({ alreadyUsedLocales, onClose, isOpened }) => {
             })
             .then(() => {
               onClose();
-            })}
+            })
+        }
         validationSchema={localeFormSchema}
       >
         {({ handleSubmit, errors }) => (
@@ -121,7 +122,7 @@ const ModalCreate = ({ alreadyUsedLocales, onClose, isOpened }) => {
       </Formik>
     </Modal>
   );
-};
+}
 
 ModalCreate.defaultProps = {
   alreadyUsedLocales: [],

@@ -6,7 +6,7 @@ import RelationFormBox from '../RelationFormBox';
 import RelationFormNaturePicker from '../RelationFormNaturePicker';
 import Wrapper from './Wrapper';
 
-const RelationForm = ({ errors, mainBoxHeader, modifiedData, naturePickerType, onChange }) => {
+function RelationForm({ errors, mainBoxHeader, modifiedData, naturePickerType, onChange }) {
   const { formatMessage } = useGlobalContext();
   const getError = (name) => {
     const errorId = get(errors, [name, 'id'], null);
@@ -42,7 +42,7 @@ const RelationForm = ({ errors, mainBoxHeader, modifiedData, naturePickerType, o
       />
     </Wrapper>
   );
-};
+}
 
 RelationForm.defaultProps = {
   errors: {},

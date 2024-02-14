@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ManyToOne = ({ isSelected, ...rest }) => {
+function ManyToOne({ isSelected, ...rest }) {
   const stroke = isSelected ? '#1C5DE7' : '#919BAE';
   let rectProps = {
     strokeOpacity: '.1',
@@ -48,7 +48,7 @@ const ManyToOne = ({ isSelected, ...rest }) => {
       </g>
     </svg>
   );
-};
+}
 
 ManyToOne.defaultProps = {
   isSelected: false,

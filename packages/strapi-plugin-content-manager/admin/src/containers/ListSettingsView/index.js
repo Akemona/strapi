@@ -21,7 +21,7 @@ import init from './init';
 import reducer, { initialState } from './reducer';
 import forms from './forms.json';
 
-const ListSettingsView = ({ layout, slug, updateLayout }) => {
+function ListSettingsView({ layout, slug, updateLayout }) {
   const [reducerState, dispatch] = useReducer(reducer, initialState, () =>
     init(initialState, layout)
   );
@@ -281,7 +281,7 @@ const ListSettingsView = ({ layout, slug, updateLayout }) => {
       />
     </LayoutDndProvider>
   );
-};
+}
 
 ListSettingsView.propTypes = {
   layout: PropTypes.shape({

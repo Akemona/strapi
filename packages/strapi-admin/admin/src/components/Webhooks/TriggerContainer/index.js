@@ -5,7 +5,7 @@ import { Fail, Success, Pending, Remove } from '@buffetjs/icons';
 
 import Wrapper from './Wrapper';
 
-const TriggerContainer = ({ isPending, onCancel, response }) => {
+function TriggerContainer({ isPending, onCancel, response }) {
   const { statusCode, message } = response;
 
   return (
@@ -86,7 +86,7 @@ const TriggerContainer = ({ isPending, onCancel, response }) => {
       </table>
     </Wrapper>
   );
-};
+}
 
 TriggerContainer.defaultProps = {
   isPending: false,

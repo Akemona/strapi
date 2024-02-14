@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Checkbox } from '@buffetjs/core';
 
-const EventRow = ({ disabledEvents, name, events, inputValue, handleChange, handleChangeAll }) => {
+function EventRow({ disabledEvents, name, events, inputValue, handleChange, handleChangeAll }) {
   const enabledCheckboxes = events.filter((event) => {
     return !disabledEvents.includes(event);
   });
@@ -44,7 +44,7 @@ const EventRow = ({ disabledEvents, name, events, inputValue, handleChange, hand
       })}
     </tr>
   );
-};
+}
 
 EventRow.defaultProps = {
   disabledEvents: [],

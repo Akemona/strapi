@@ -12,7 +12,7 @@ import Input from '../Input';
 import Logo from '../Logo';
 import Section from '../Section';
 
-const Login = ({ children, formErrors, modifiedData, onChange, onSubmit, requestError }) => {
+function Login({ children, formErrors, modifiedData, onChange, onSubmit, requestError }) {
   const { formatMessage } = useIntl();
 
   return (
@@ -64,7 +64,7 @@ const Login = ({ children, formErrors, modifiedData, onChange, onSubmit, request
       <AuthLink label="Auth.link.forgot-password" to="/auth/forgot-password" />
     </>
   );
-};
+}
 
 Login.defaultProps = {
   children: null,

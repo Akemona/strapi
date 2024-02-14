@@ -29,9 +29,8 @@ const useMenuSections = (plugins, shouldUpdateStrapi) => {
 
   const resolvePermissions = async (permissions = userPermissions) => {
     const pluginsSectionLinks = toPluginLinks(pluginsRef.current);
-    const { authorizedCtLinks, authorizedStLinks, contentTypes } = await getCtOrStLinks(
-      permissions
-    );
+    const { authorizedCtLinks, authorizedStLinks, contentTypes } =
+      await getCtOrStLinks(permissions);
 
     const authorizedPluginSectionLinks = await getPluginSectionLinks(
       permissions,

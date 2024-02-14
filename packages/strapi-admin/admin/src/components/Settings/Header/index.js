@@ -4,7 +4,7 @@ import { isEqual } from 'lodash';
 import { useIntl } from 'react-intl';
 import PropTypes from 'prop-types';
 
-const Header = ({
+function Header({
   content,
   initialData,
   isLoading,
@@ -12,7 +12,7 @@ const Header = ({
   modifiedData,
   onCancel,
   showHeaderButtonLoader,
-}) => {
+}) {
   const { formatMessage } = useIntl();
   const areButtonsDisabled = useMemo(() => {
     return isEqual(modifiedData, initialData);
@@ -52,7 +52,7 @@ const Header = ({
   /* eslint-enable indent */
 
   return <PluginHeader {...headerProps} isLoading={isLoading} />;
-};
+}
 
 Header.defaultProps = {
   content: null,

@@ -24,7 +24,7 @@ const types = {
   },
 };
 
-const Notification = ({ notification }) => {
+function Notification({ notification }) {
   const { formatMessage } = useIntl();
   const dispatch = useDispatch();
   const { title, message, link, type, id, onClose, timeout, blockTransition, centered } =
@@ -114,7 +114,7 @@ const Notification = ({ notification }) => {
       </Padded>
     </NotificationWrapper>
   );
-};
+}
 
 Notification.defaultProps = {
   notification: {

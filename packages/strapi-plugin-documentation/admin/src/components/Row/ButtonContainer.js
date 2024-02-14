@@ -6,7 +6,7 @@ import pluginPermissions from '../../permissions';
 import openWithNewTab from '../../utils/openWithNewTab';
 import { StyledButton } from './components';
 
-const ButtonContainer = ({ currentDocVersion, isHeader, onClick, onClickDelete, version }) => {
+function ButtonContainer({ currentDocVersion, isHeader, onClick, onClickDelete, version }) {
   if (isHeader) {
     return <div />;
   }
@@ -32,7 +32,7 @@ const ButtonContainer = ({ currentDocVersion, isHeader, onClick, onClickDelete, 
       </CheckPermissions>
     </div>
   );
-};
+}
 
 ButtonContainer.defaultProps = {
   currentDocVersion: '1.0.0',

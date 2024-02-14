@@ -5,7 +5,7 @@ import InfoText from '../InfoText';
 import Link from '../Link';
 import Wrapper from '../Wrapper';
 
-const Detail = ({ content, link, title }) => {
+function Detail({ content, link, title }) {
   return (
     <Wrapper>
       <Text fontSize="xs" color="grey" fontWeight="bold">
@@ -15,7 +15,7 @@ const Detail = ({ content, link, title }) => {
       {link && <Link {...link} />}
     </Wrapper>
   );
-};
+}
 
 Detail.defaultProps = {
   link: null,

@@ -5,7 +5,7 @@ import ContentTypeCollapses from '../ContentTypeCollapses';
 import GlobalActions from '../GlobalActions';
 import Wrapper from './Wrapper';
 
-const ContentTypes = ({ isFormDisabled, kind, layout: { actions, subjects } }) => {
+function ContentTypes({ isFormDisabled, kind, layout: { actions, subjects } }) {
   return (
     <Wrapper>
       <Padded left right bottom size="md">
@@ -19,7 +19,7 @@ const ContentTypes = ({ isFormDisabled, kind, layout: { actions, subjects } }) =
       </Padded>
     </Wrapper>
   );
-};
+}
 
 ContentTypes.propTypes = {
   isFormDisabled: PropTypes.bool.isRequired,

@@ -4,7 +4,7 @@ import { LoadingIndicatorPage } from '@akemona-org/strapi-helper-plugin';
 
 const ListView = lazy(() => import('../ListView'));
 
-const RecursivePath = () => {
+function RecursivePath() {
   const { url } = useRouteMatch();
   const { categoryUid } = useParams();
 
@@ -17,6 +17,6 @@ const RecursivePath = () => {
       </Switch>
     </Suspense>
   );
-};
+}
 
 export default RecursivePath;

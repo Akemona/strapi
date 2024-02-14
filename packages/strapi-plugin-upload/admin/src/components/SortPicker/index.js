@@ -7,7 +7,7 @@ import { getTrad, getFileModelTimestamps } from '../../utils';
 
 import SortList from '../SortList';
 
-const SortPicker = ({ onChange, value }) => {
+function SortPicker({ onChange, value }) {
   const { plugins } = useGlobalContext();
   const [created_at, updated_at] = getFileModelTimestamps(plugins);
   const orders = {
@@ -39,7 +39,7 @@ const SortPicker = ({ onChange, value }) => {
       )}
     />
   );
-};
+}
 
 SortPicker.defaultProps = {
   onChange: () => {},

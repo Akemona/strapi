@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import NumberCard from './NumberCard';
 
-const ButtonWithNumber = ({ number, onClick }) => {
+function ButtonWithNumber({ number, onClick }) {
   const { formatMessage } = useIntl();
 
   return (
@@ -29,7 +29,7 @@ const ButtonWithNumber = ({ number, onClick }) => {
       </Flex>
     </Button>
   );
-};
+}
 
 ButtonWithNumber.defaultProps = {
   number: 0,

@@ -4,7 +4,7 @@ import { useIntl } from 'react-intl';
 
 import BaselineAlignment from './BaselineAlignment';
 
-const EmptyRole = () => {
+function EmptyRole() {
   const { formatMessage } = useIntl();
 
   return (
@@ -22,6 +22,6 @@ const EmptyRole = () => {
       </Padded>
     </>
   );
-};
+}
 
 export default EmptyRole;

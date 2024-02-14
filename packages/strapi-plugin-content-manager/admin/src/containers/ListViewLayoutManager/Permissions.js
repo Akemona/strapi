@@ -5,7 +5,7 @@ import isEqual from 'react-fast-compare';
 import ListView from '../ListView';
 import { generatePermissionsObject } from '../../utils';
 
-const Permissions = (props) => {
+function Permissions(props) {
   const viewPermissions = useMemo(() => generatePermissionsObject(props.slug), [props.slug]);
   const { isLoading, allowedActions } = useUserPermissions(viewPermissions, props.permissions);
 
@@ -14,7 +14,7 @@ const Permissions = (props) => {
   }
 
   return <ListView {...props} {...allowedActions} />;
-};
+}
 
 Permissions.defaultProps = {
   permissions: [],

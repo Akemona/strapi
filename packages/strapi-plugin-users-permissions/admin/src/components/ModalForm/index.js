@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import BaselineAlignment from '../ListBaselineAlignment';
 import Wrapper from './Wrapper';
 
-const ModalForm = ({
+function ModalForm({
   children,
   headerBreadcrumbs,
   isLoading,
@@ -16,7 +16,7 @@ const ModalForm = ({
   onClick,
   onOpened,
   onToggle,
-}) => {
+}) {
   const { formatMessage } = useIntl();
 
   return (
@@ -42,7 +42,7 @@ const ModalForm = ({
       </ModalFooter>
     </Modal>
   );
-};
+}
 
 ModalForm.propTypes = {
   children: PropTypes.node.isRequired,

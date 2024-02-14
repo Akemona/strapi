@@ -19,10 +19,10 @@ import hasSomeSubArray from './utils/HasSomeSubArray';
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 
-const MultipleMenuList = ({
+function MultipleMenuList({
   selectProps: { name, addComponentsToDynamicZone, inputValue, value },
   ...rest
-}) => {
+}) {
   const { componentsGroupedByCategory, modifiedData } = useDataManager();
   const query = useQuery();
   const dzName = query.get('dynamicZoneTarget');
@@ -242,7 +242,7 @@ const MultipleMenuList = ({
       </Ul>
     </Component>
   );
-};
+}
 
 MultipleMenuList.defaultProps = {
   selectProps: {

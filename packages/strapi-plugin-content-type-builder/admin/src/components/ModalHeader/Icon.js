@@ -2,7 +2,7 @@ import React from 'react';
 import { AttributeIcon } from '@buffetjs/core';
 import PropTypes from 'prop-types';
 
-const Icon = ({ type, style }) => {
+function Icon({ type, style }) {
   const icoName = type === 'collectionType' ? 'contentType' : type;
 
   return (
@@ -11,7 +11,7 @@ const Icon = ({ type, style }) => {
       style={{ ...style, margin: 'auto 20px auto 0' }}
     />
   );
-};
+}
 
 Icon.defaultProps = {
   style: null,

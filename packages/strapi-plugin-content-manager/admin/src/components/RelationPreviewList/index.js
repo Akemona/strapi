@@ -10,7 +10,7 @@ import Truncated from '../Truncated';
 import CountWrapper from './CountWrapper';
 import RelationPreviewTooltip from './RelationPreviewTooltip';
 
-const RelationPreviewList = ({
+function RelationPreviewList({
   options: {
     metadatas: { mainField },
     relationType,
@@ -20,7 +20,7 @@ const RelationPreviewList = ({
     name,
     queryInfos,
   },
-}) => {
+}) {
   const { formatMessage } = useIntl();
   const [tooltipIsDisplayed, setDisplayTooltip] = useState(false);
   const isSingle = ['oneWay', 'oneToOne', 'manyToOne'].includes(relationType);
@@ -89,7 +89,7 @@ const RelationPreviewList = ({
       )}
     </Truncate>
   );
-};
+}
 
 RelationPreviewList.propTypes = {
   options: PropTypes.shape({

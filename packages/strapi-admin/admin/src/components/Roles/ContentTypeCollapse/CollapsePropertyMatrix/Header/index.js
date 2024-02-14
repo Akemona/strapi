@@ -17,7 +17,7 @@ const PropertyLabelWrapper = styled.div`
   padding-left: 3.5rem;
 `;
 
-const Header = ({ headers, label }) => {
+function Header({ headers, label }) {
   const { formatMessage } = useIntl();
   const translatedLabel = formatMessage(
     {
@@ -50,7 +50,7 @@ const Header = ({ headers, label }) => {
       })}
     </Flex>
   );
-};
+}
 
 Header.propTypes = {
   headers: PropTypes.arrayOf(

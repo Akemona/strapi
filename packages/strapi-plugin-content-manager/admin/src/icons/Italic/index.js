@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Italic = () => {
+function Italic() {
   return (
     <svg width="6" height="9" xmlns="http://www.w3.org/2000/svg">
       <text
@@ -18,6 +18,6 @@ const Italic = () => {
       </text>
     </svg>
   );
-};
+}
 
 export default Italic;

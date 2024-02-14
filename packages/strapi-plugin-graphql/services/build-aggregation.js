@@ -146,8 +146,8 @@ const extractType = function (_type, attributeType) {
   return isPrimitiveType(_type)
     ? _type.replace('!', '')
     : isEnumType(attributeType)
-    ? 'String'
-    : 'ID';
+      ? 'String'
+      : 'ID';
 };
 
 /**

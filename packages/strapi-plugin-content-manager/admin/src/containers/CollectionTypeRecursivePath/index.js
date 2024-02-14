@@ -17,12 +17,12 @@ import EditSettingsView from '../EditSettingsView';
 import ListViewLayout from '../ListViewLayoutManager';
 import ListSettingsView from '../ListSettingsView';
 
-const CollectionTypeRecursivePath = ({
+function CollectionTypeRecursivePath({
   match: {
     params: { slug },
     url,
   },
-}) => {
+}) {
   const { isLoading, layout, updateLayout } = useFetchContentTypeLayout(slug);
 
   const { rawContentTypeLayout, rawComponentsLayouts } = useMemo(() => {
@@ -115,7 +115,7 @@ const CollectionTypeRecursivePath = ({
       </ContentTypeLayoutContext.Provider>
     </ErrorBoundary>
   );
-};
+}
 
 CollectionTypeRecursivePath.propTypes = {
   match: PropTypes.shape({

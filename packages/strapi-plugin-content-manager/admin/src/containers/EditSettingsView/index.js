@@ -21,7 +21,7 @@ import reducer, { initialState } from './reducer';
 import { createPossibleMainFieldsForModelsAndComponents, getInputProps } from './utils';
 import { unformatLayout } from './utils/layout';
 
-const EditSettingsView = ({ components, mainLayout, isContentTypeView, slug, updateLayout }) => {
+function EditSettingsView({ components, mainLayout, isContentTypeView, slug, updateLayout }) {
   const { push } = useHistory();
   const { currentEnvironment, emitEvent, plugins } = useGlobalContext();
 
@@ -379,7 +379,7 @@ const EditSettingsView = ({ components, mainLayout, isContentTypeView, slug, upd
       />
     </LayoutDndProvider>
   );
-};
+}
 
 EditSettingsView.defaultProps = {
   isContentTypeView: false,

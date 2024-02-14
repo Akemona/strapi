@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Cell from './Cell';
 
-const CellRenderer = ({ icon, name, onChange, style, value }) => {
+function CellRenderer({ icon, name, onChange, style, value }) {
   const isSelected = icon === value;
   const handleClick = () => {
     onChange({ target: { name, value: icon } });
@@ -14,7 +14,7 @@ const CellRenderer = ({ icon, name, onChange, style, value }) => {
       <FontAwesomeIcon icon={icon} />
     </Cell>
   );
-};
+}
 
 CellRenderer.defaultProps = {
   value: '',

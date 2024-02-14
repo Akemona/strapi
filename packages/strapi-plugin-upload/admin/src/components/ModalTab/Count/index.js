@@ -4,8 +4,8 @@ import { Text } from '@buffetjs/core';
 
 import Wrapper from './Wrapper';
 
-const Count = ({ count, isActive }) => (
-  <Wrapper isActive={isActive} justifyContent="center" alignItems="center">
+function Count({ count, isActive }) {
+  return <Wrapper isActive={isActive} justifyContent="center" alignItems="center">
     <Text
       lineHeight="none"
       fontWeight="bold"
@@ -15,7 +15,7 @@ const Count = ({ count, isActive }) => (
       {count}
     </Text>
   </Wrapper>
-);
+}
 
 Count.propTypes = {
   count: PropTypes.number,

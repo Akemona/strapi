@@ -4,7 +4,7 @@ import { FilterButton } from '@akemona-org/strapi-helper-plugin';
 
 import formatFilter from './utils/formatFilter';
 
-const FiltersList = ({ filters, onClick }) => {
+function FiltersList({ filters, onClick }) {
   return filters.map((item, index) => {
     const formattedValue = formatFilter(item);
     const { name, filter, value, isDisabled } = formattedValue;
@@ -19,7 +19,7 @@ const FiltersList = ({ filters, onClick }) => {
       )
     );
   });
-};
+}
 
 FiltersList.defaultProps = {
   filters: [],

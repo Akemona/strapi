@@ -24,7 +24,7 @@ const STHackSpan = styled.span`
   margin-top: -0.4rem;
 `;
 
-const BooleanBox = ({ label, name, onChange, onChangeCallback, options, value }) => {
+function BooleanBox({ label, name, onChange, onChangeCallback, options, value }) {
   const { formatMessage } = useGlobalContext();
 
   const handleChange = (e) => {
@@ -83,7 +83,7 @@ const BooleanBox = ({ label, name, onChange, onChangeCallback, options, value })
       </Wrapper>
     </div>
   );
-};
+}
 
 BooleanBox.defaultProps = {
   label: '',

@@ -9,14 +9,14 @@ import PropTypes from 'prop-types';
 import Button from './Button';
 import Wrapper from './Wrapper';
 
-const WysiwygInlineControls = ({
+function WysiwygInlineControls({
   buttons,
   disabled,
   editorState,
   handlers,
   onToggle,
   onToggleBlock,
-}) => {
+}) {
   const selection = editorState.getSelection();
   const blockType = editorState
     .getCurrentContent()
@@ -45,7 +45,7 @@ const WysiwygInlineControls = ({
       ))}
     </Wrapper>
   );
-};
+}
 
 WysiwygInlineControls.defaultProps = {
   buttons: [],

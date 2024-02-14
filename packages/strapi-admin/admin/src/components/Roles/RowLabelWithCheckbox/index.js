@@ -4,7 +4,7 @@ import { Checkbox, Text } from '@buffetjs/core';
 import CollapseLabel from '../CollapseLabel';
 import Wrapper from './Wrapper';
 
-const RowLabelWithCheckbox = ({
+function RowLabelWithCheckbox({
   children,
   isCollapsable,
   isFormDisabled,
@@ -16,7 +16,7 @@ const RowLabelWithCheckbox = ({
   textColor,
   value,
   width,
-}) => {
+}) {
   return (
     <Wrapper width={width} disabled={isFormDisabled}>
       <Checkbox
@@ -46,7 +46,7 @@ const RowLabelWithCheckbox = ({
       </CollapseLabel>
     </Wrapper>
   );
-};
+}
 
 RowLabelWithCheckbox.defaultProps = {
   children: null,

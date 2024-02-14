@@ -4,7 +4,7 @@ import { IconLinks } from '@buffetjs/core';
 import PropTypes from 'prop-types';
 import PrefixedIcon from '../PrefixedIcon';
 
-const ListRow = ({ icon, name, onClick, links, children }) => {
+function ListRow({ icon, name, onClick, links, children }) {
   return (
     <CustomRow onClick={onClick}>
       <td>
@@ -16,7 +16,7 @@ const ListRow = ({ icon, name, onClick, links, children }) => {
       </td>
     </CustomRow>
   );
-};
+}
 
 ListRow.defaultProps = {
   children: null,

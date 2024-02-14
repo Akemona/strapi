@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import { upperFirst } from 'lodash';
 
-const UpperFirst = ({ content }) => upperFirst(content);
+function UpperFirst({ content }) {
+  return upperFirst(content)
+}
 
 UpperFirst.defaultProps = {
   content: null,

@@ -16,14 +16,14 @@ const Wrapper = styled.div`
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'default')};
 `;
 
-const ConditionsSelect = ({
+function ConditionsSelect({
   arrayOfOptionsGroupedByCategory,
   isFormDisabled,
   name,
   onCategoryChange,
   onChange,
   value,
-}) => {
+}) {
   const { formatMessage } = useIntl();
 
   return (
@@ -53,7 +53,7 @@ const ConditionsSelect = ({
       />
     </Wrapper>
   );
-};
+}
 
 ConditionsSelect.propTypes = {
   arrayOfOptionsGroupedByCategory: PropTypes.array.isRequired,

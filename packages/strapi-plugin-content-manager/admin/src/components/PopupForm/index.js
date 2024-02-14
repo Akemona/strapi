@@ -12,7 +12,7 @@ import { FormattedMessage } from 'react-intl';
 import { upperFirst } from 'lodash';
 import { AttributeIcon, Button } from '@buffetjs/core';
 
-const PopupForm = ({
+function PopupForm({
   headerId,
   isOpen,
   onClosed,
@@ -21,7 +21,7 @@ const PopupForm = ({
   renderForm,
   subHeaderContent,
   type,
-}) => {
+}) {
   const getAttrType = () => {
     if (type === 'timestamp') {
       return 'date';
@@ -67,7 +67,7 @@ const PopupForm = ({
       </form>
     </Modal>
   );
-};
+}
 
 PopupForm.defaultProps = {
   isOpen: false,

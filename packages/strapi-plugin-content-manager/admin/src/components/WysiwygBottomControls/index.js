@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { Wrapper } from './components';
 
-const WysiwygBottomControls = ({ onClick }) => {
+function WysiwygBottomControls({ onClick }) {
   return (
     <Wrapper>
       <div />
@@ -20,7 +20,7 @@ const WysiwygBottomControls = ({ onClick }) => {
       </div>
     </Wrapper>
   );
-};
+}
 
 WysiwygBottomControls.defaultProps = {
   onClick: () => {},

@@ -8,7 +8,7 @@ import NonRepeatableWrapper from '../NonRepeatableWrapper';
 import PlusButton from '../PlusButton';
 import P from './P';
 
-const ComponentInitializer = ({ componentUid, isReadOnly, name }) => {
+function ComponentInitializer({ componentUid, isReadOnly, name }) {
   const { addNonRepeatableComponentToField } = useContentManagerEditViewDataManager();
 
   return (
@@ -27,7 +27,7 @@ const ComponentInitializer = ({ componentUid, isReadOnly, name }) => {
       </FormattedMessage>
     </NonRepeatableWrapper>
   );
-};
+}
 
 ComponentInitializer.defaultProps = {
   isReadOnly: false,

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Checkbox } from '@buffetjs/core';
 import Wrapper from './Wrapper';
 
-const Field = ({ name, onChange, value }) => {
+function Field({ name, onChange, value }) {
   const handleChange = ({ target: { name, value } }) => {
     onChange({ name, value: !value });
   };
@@ -13,7 +13,7 @@ const Field = ({ name, onChange, value }) => {
       <Checkbox name={name} message={name} onChange={handleChange} value={value} />
     </Wrapper>
   );
-};
+}
 
 Field.propTypes = {
   name: PropTypes.string.isRequired,

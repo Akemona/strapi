@@ -20,7 +20,7 @@ import { useSettingsForm } from '../../../hooks';
 import { editValidation } from '../../../validations/users';
 import form from './utils/form';
 
-const EditPage = ({ canUpdate }) => {
+function EditPage({ canUpdate }) {
   const { settingsBaseURL } = useGlobalContext();
   const { formatMessage } = useIntl();
   const {
@@ -133,7 +133,7 @@ const EditPage = ({ canUpdate }) => {
       <BaselineAlignment bottom size="80px" />
     </>
   );
-};
+}
 
 EditPage.propTypes = {
   canUpdate: PropTypes.bool.isRequired,

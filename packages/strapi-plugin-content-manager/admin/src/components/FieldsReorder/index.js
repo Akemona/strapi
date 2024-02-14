@@ -9,7 +9,7 @@ import SortWrapper from '../SortWrapper';
 import Wrapper from './components';
 import Item from './Item';
 
-const FieldsReorder = ({ className }) => {
+function FieldsReorder({ className }) {
   const { attributes, buttonData, layout, moveItem, moveRow, onAddData, removeField } =
     useLayoutDnd();
 
@@ -78,7 +78,7 @@ const FieldsReorder = ({ className }) => {
       </SortWrapper>
     </div>
   );
-};
+}
 
 FieldsReorder.defaultProps = {
   className: 'col-8',

@@ -6,7 +6,7 @@ import getTrad from '../../utils/getTrad';
 import useModalContext from '../../hooks/useModalContext';
 import HeaderSearch from './HeaderSearch';
 
-const Search = () => {
+function Search() {
   const [value, setValue] = useState('');
   const {
     allowedActions: { canRead },
@@ -43,6 +43,6 @@ const Search = () => {
       value={value}
     />
   );
-};
+}
 
 export default memo(Search);

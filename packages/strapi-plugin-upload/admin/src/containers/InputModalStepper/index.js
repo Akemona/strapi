@@ -10,7 +10,7 @@ import pluginPermissions from '../../permissions';
 import InputModalStepper from './InputModalStepper';
 import InputModalStepperProvider from '../InputModalStepperProvider';
 
-const InputModal = ({
+function InputModal({
   allowedTypes,
   filesToUpload,
   fileToEdit,
@@ -22,7 +22,7 @@ const InputModal = ({
   onToggle,
   selectedFiles,
   step,
-}) => {
+}) {
   const singularTypes = allowedTypes.map((type) => type.substring(0, type.length - 1));
   const permissions = React.useMemo(() => omit(pluginPermissions, 'main'), []);
   const { allowedActions, isLoading } = useUserPermissions(permissions);
@@ -56,7 +56,7 @@ const InputModal = ({
       </InputModalStepperProvider>
     </DndProvider>
   );
-};
+}
 
 InputModal.defaultProps = {
   allowedTypes: [],

@@ -6,7 +6,7 @@ import { useIntl } from 'react-intl';
 import { useQuery } from '@akemona-org/strapi-helper-plugin';
 import StyledHeaderSearch from './HeaderSearch';
 
-const HeaderSearch = ({ label, queryParameter }) => {
+function HeaderSearch({ label, queryParameter }) {
   const { formatMessage } = useIntl();
   const query = useQuery();
   const searchValue = query.get(queryParameter) || '';
@@ -79,7 +79,7 @@ const HeaderSearch = ({ label, queryParameter }) => {
       onClear={handleClear}
     />
   );
-};
+}
 
 HeaderSearch.defaultProps = {
   queryParameter: '_q',

@@ -25,7 +25,7 @@ const icons = {
   img: Media,
 };
 
-const Button = ({
+function Button({
   active,
   disabled,
   className: type,
@@ -35,7 +35,7 @@ const Button = ({
   label,
   style,
   text,
-}) => {
+}) {
   const handleClick = (e) => {
     e.preventDefault();
 
@@ -50,7 +50,7 @@ const Button = ({
       {!hideLabel && label}
     </StyledButton>
   );
-};
+}
 
 Button.defaultProps = {
   active: false,

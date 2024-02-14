@@ -27,7 +27,7 @@ import selectCrudReducer from '../../sharedReducers/crudReducer/selectors';
 import { getRequestUrl } from './utils';
 
 // This container is used to handle the CRUD
-const CollectionTypeFormWrapper = ({ allLayoutData, children, slug, id, origin }) => {
+function CollectionTypeFormWrapper({ allLayoutData, children, slug, id, origin }) {
   const { emitEvent } = useGlobalContext();
   const { push, replace } = useHistory();
   const [{ rawQuery }] = useQueryParams();
@@ -338,7 +338,7 @@ const CollectionTypeFormWrapper = ({ allLayoutData, children, slug, id, origin }
     status,
     redirectionLink,
   });
-};
+}
 
 CollectionTypeFormWrapper.defaultProps = {
   id: null,

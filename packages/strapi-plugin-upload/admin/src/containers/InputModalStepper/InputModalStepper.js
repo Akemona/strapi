@@ -15,13 +15,13 @@ import pluginId from '../../pluginId';
 import stepper from './stepper';
 import useModalContext from '../../hooks/useModalContext';
 
-const InputModalStepper = ({
+function InputModalStepper({
   allowedActions,
   isOpen,
   onToggle,
   noNavigation,
   onInputMediaChange,
-}) => {
+}) {
   const { emitEvent, formatMessage } = useGlobalContext();
   const [shouldDeleteFile, setShouldDeleteFile] = useState(false);
   const [displayNextButton, setDisplayNextButton] = useState(false);
@@ -453,7 +453,7 @@ const InputModalStepper = ({
       />
     </>
   );
-};
+}
 
 InputModalStepper.defaultProps = {
   allowedActions: {

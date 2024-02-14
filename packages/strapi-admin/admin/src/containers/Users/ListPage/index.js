@@ -20,7 +20,7 @@ import getFilters from './utils/getFilters';
 import init from './init';
 import { initialState, reducer } from './reducer';
 
-const ListPage = () => {
+function ListPage() {
   const {
     isLoading: isLoadingForPermissions,
     allowedActions: { canCreate, canDelete, canRead, canUpdate },
@@ -284,6 +284,6 @@ const ListPage = () => {
       />
     </div>
   );
-};
+}
 
 export default ListPage;

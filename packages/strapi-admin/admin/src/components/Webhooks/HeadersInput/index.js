@@ -13,7 +13,7 @@ import Wrapper from './Wrapper';
 
 /* eslint-disable react/no-array-index-key */
 
-const HeadersInput = ({ errors, name, onClick, onChange, onRemove, value }) => {
+function HeadersInput({ errors, name, onClick, onChange, onRemove, value }) {
   const formatOption = (value) => ({ value, label: value });
   const options = keys.map((key) => formatOption(key));
 
@@ -124,7 +124,7 @@ const HeadersInput = ({ errors, name, onClick, onChange, onRemove, value }) => {
       </button>
     </Wrapper>
   );
-};
+}
 
 HeadersInput.defaultProps = {
   errors: {},

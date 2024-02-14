@@ -32,9 +32,8 @@ module.exports = {
         resolver: async (obj, { file: upload, info, ...fields }) => {
           const file = await formatFile(upload, info, fields);
 
-          const uploadedFiles = await strapi.plugins.upload.services.upload.uploadFileAndPersist(
-            file
-          );
+          const uploadedFiles =
+            await strapi.plugins.upload.services.upload.uploadFileAndPersist(file);
 
           // Return response.
           return uploadedFiles.length === 1 ? uploadedFiles[0] : uploadedFiles;

@@ -10,7 +10,7 @@ import CardEmpty from '../CardEmpty';
 import Wrapper from './Wrapper';
 import IntlText from '../IntlText';
 
-const ListEmpty = ({ canCreate, hasSearchApplied, onClick, numberOfRows }) => {
+function ListEmpty({ canCreate, hasSearchApplied, onClick, numberOfRows }) {
   const rows = generateRows(numberOfRows);
   const titleId = hasSearchApplied
     ? 'list.assets-empty.title-withSearch'
@@ -51,7 +51,7 @@ const ListEmpty = ({ canCreate, hasSearchApplied, onClick, numberOfRows }) => {
       )}
     </Wrapper>
   );
-};
+}
 
 ListEmpty.defaultProps = {
   canCreate: true,

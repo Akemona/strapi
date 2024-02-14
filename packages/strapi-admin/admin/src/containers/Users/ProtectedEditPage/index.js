@@ -5,7 +5,7 @@ import { get } from 'lodash';
 import adminPermissions from '../../../permissions';
 import EditPage from '../EditPage';
 
-const ProtectedEditPage = () => {
+function ProtectedEditPage() {
   const permissions = useMemo(() => {
     return {
       read: adminPermissions.settings.users.read,
@@ -40,6 +40,6 @@ const ProtectedEditPage = () => {
   }
 
   return <EditPage canUpdate={canUpdate} />;
-};
+}
 
 export default ProtectedEditPage;

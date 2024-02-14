@@ -16,7 +16,7 @@ import ListBaselineAlignment from '../../components/ListBaselineAlignment';
 import form from './utils/form';
 import reducer, { initialState } from './reducer';
 
-const AdvancedSettingsPage = () => {
+function AdvancedSettingsPage() {
   const { formatMessage } = useIntl();
   const [showModalWarning, setShowModalWarning] = useState(false);
   const pageTitle = formatMessage({
@@ -211,6 +211,6 @@ const AdvancedSettingsPage = () => {
       />
     </>
   );
-};
+}
 
 export default AdvancedSettingsPage;

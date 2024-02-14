@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useStrapi, prefixFileUrlWithBackendUrl } from '@akemona-org/strapi-helper-plugin';
 import PropTypes from 'prop-types';
 
-const MediaLib = ({ isOpen, onChange, onToggle }) => {
+function MediaLib({ isOpen, onChange, onToggle }) {
   const {
     strapi: {
       componentApi: { getComponent },
@@ -54,7 +54,7 @@ const MediaLib = ({ isOpen, onChange, onToggle }) => {
   }
 
   return null;
-};
+}
 
 MediaLib.defaultProps = {
   isOpen: false,

@@ -6,6 +6,8 @@ const Required = styled.span`
   padding-left: 2px;
 `;
 
-const RequiredSign = () => <Required>*</Required>;
+function RequiredSign() {
+  return <Required>*</Required>
+}
 
 export default RequiredSign;

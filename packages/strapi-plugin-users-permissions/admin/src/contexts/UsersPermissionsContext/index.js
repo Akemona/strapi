@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 const UsersPermissions = createContext({});
 
-const UsersPermissionsProvider = ({ children, value }) => {
+function UsersPermissionsProvider({ children, value }) {
   return <UsersPermissions.Provider value={value}>{children}</UsersPermissions.Provider>;
-};
+}
 
 const useUsersPermissions = () => useContext(UsersPermissions);
 

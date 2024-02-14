@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Na = ({ fill, fontFamily, fontSize, fontWeight, height, textFill, width, ...rest }) => {
+function Na({ fill, fontFamily, fontSize, fontWeight, height, textFill, width, ...rest }) {
   return (
     <svg {...rest} width={width} height={height} xmlns="http://www.w3.org/2000/svg">
       <g fill="none" fillRule="evenodd">
@@ -14,7 +14,7 @@ const Na = ({ fill, fontFamily, fontSize, fontWeight, height, textFill, width, .
       </g>
     </svg>
   );
-};
+}
 
 Na.defaultProps = {
   fill: '#fafafb',

@@ -13,7 +13,7 @@ import DropdownInfos from './DropdownInfos';
 
 /* eslint-disable react/no-array-index-key */
 
-const ModalHeader = ({ headerId, headers }) => {
+function ModalHeader({ headerId, headers }) {
   const shouldDisplayDropDown = headers.length > 3;
 
   return (
@@ -84,7 +84,7 @@ const ModalHeader = ({ headerId, headers }) => {
       </HeaderModalTitle>
     </section>
   );
-};
+}
 
 ModalHeader.defaultProps = {
   headerId: '',

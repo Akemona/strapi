@@ -9,7 +9,7 @@ import CheckboxWithCondition from '../CheckboxWithCondition';
 import { findDisplayedActions, getCheckboxesState } from './utils';
 import Wrapper from './Wrapper';
 
-const GlobalActions = ({ actions, isFormDisabled, kind }) => {
+function GlobalActions({ actions, isFormDisabled, kind }) {
   const { formatMessage } = useIntl();
   const { modifiedData, onChangeCollectionTypeGlobalActionCheckbox } = usePermissionsDataManager();
 
@@ -45,7 +45,7 @@ const GlobalActions = ({ actions, isFormDisabled, kind }) => {
       </Flex>
     </Wrapper>
   );
-};
+}
 
 GlobalActions.defaultProps = {
   actions: [],

@@ -6,7 +6,7 @@ import RelationPreviewList from '../../RelationPreviewList';
 import Truncate from '../../Truncate';
 import Truncated from '../../Truncated';
 
-const Cell = ({ options }) => {
+function Cell({ options }) {
   const [tooltipIsDisplayed, setDisplayTooltip] = useState(false);
 
   const handleTooltipToggle = () => {
@@ -33,7 +33,7 @@ const Cell = ({ options }) => {
       {tooltipIsDisplayed && <Tooltip id={cellId} />}
     </Truncate>
   );
-};
+}
 
 Cell.propTypes = {
   options: PropTypes.shape({

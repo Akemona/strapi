@@ -19,9 +19,8 @@ module.exports = async (ctx, next) => {
       }
 
       // fetch authenticated user
-      ctx.state.user = await strapi.plugins[
-        'users-permissions'
-      ].services.user.fetchAuthenticatedUser(id);
+      ctx.state.user =
+        await strapi.plugins['users-permissions'].services.user.fetchAuthenticatedUser(id);
     } catch (err) {
       return handleErrors(ctx, err, 'unauthorized');
     }

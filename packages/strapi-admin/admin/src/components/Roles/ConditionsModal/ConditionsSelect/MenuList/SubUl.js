@@ -27,13 +27,13 @@ const ToggleUl = styled(Collapse)`
   }
 `;
 
-const SubUl = ({ children, isOpen }) => {
+function SubUl({ children, isOpen }) {
   return (
     <ToggleUl tag="ul" isOpen={isOpen}>
       {children}
     </ToggleUl>
   );
-};
+}
 
 SubUl.defaultProps = {
   children: null,

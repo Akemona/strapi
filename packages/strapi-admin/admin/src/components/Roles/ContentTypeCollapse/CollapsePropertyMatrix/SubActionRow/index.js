@@ -20,7 +20,7 @@ const SubLevelWrapper = styled.div`
   padding-bottom: 8px;
 `;
 
-const SubActionRow = ({
+function SubActionRow({
   childrenForm,
   isFormDisabled,
   recursiveLevel,
@@ -28,7 +28,7 @@ const SubActionRow = ({
   propertyActions,
   parentName,
   propertyName,
-}) => {
+}) {
   const { modifiedData, onChangeParentCheckbox, onChangeSimpleCheckbox } =
     usePermissionsDataManager();
   const [rowToOpen, setRowToOpen] = useState(null);
@@ -157,7 +157,7 @@ const SubActionRow = ({
       })}
     </Wrapper>
   );
-};
+}
 
 SubActionRow.propTypes = {
   childrenForm: PropTypes.array.isRequired,

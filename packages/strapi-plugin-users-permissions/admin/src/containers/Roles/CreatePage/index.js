@@ -15,7 +15,7 @@ import UsersPermissions from '../../../components/UsersPermissions';
 import { usePlugins } from '../../../hooks';
 import schema from './utils/schema';
 
-const CreatePage = () => {
+function CreatePage() {
   const { formatMessage } = useIntl();
   const { emitEvent } = useGlobalContext();
   const { goBack } = useHistory();
@@ -162,6 +162,6 @@ const CreatePage = () => {
       }}
     </Formik>
   );
-};
+}
 
 export default CreatePage;

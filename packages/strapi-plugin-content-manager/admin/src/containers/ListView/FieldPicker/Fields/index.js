@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Field from '../Field';
 import Wrapper from './Wrapper';
 
-const Fields = ({ displayedHeaders, items, onChange }) => {
+function Fields({ displayedHeaders, items, onChange }) {
   const getInputValue = useCallback(
     (headerName) => displayedHeaders.findIndex(({ name }) => name === headerName) !== -1,
     [displayedHeaders]
@@ -16,7 +16,7 @@ const Fields = ({ displayedHeaders, items, onChange }) => {
       ))}
     </Wrapper>
   );
-};
+}
 
 Fields.propTypes = {
   displayedHeaders: PropTypes.array.isRequired,

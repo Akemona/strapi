@@ -8,8 +8,12 @@ describe('Content Type Builder | utils | getComponents', () => {
   });
 
   it('should return the correct components', () => {
-    const TestCompo1 = () => <div>TestCompo1</div>;
-    const TestCompo2 = () => <div>TestCompo2</div>;
+    function TestCompo1() {
+  return <div>TestCompo1</div>
+}
+    function TestCompo2() {
+  return <div>TestCompo2</div>
+}
 
     const plugins = {
       test: {

@@ -16,7 +16,7 @@ import Wrapper from './Wrapper';
 
 const ListView = lazy(() => import('../ListView'));
 
-const App = () => {
+function App() {
   return (
     <CheckPagePermissions permissions={pluginPermissions.main}>
       <Wrapper>
@@ -34,6 +34,6 @@ const App = () => {
       </Wrapper>
     </CheckPagePermissions>
   );
-};
+}
 
 export default App;

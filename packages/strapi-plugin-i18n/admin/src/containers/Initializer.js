@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import pluginId from '../pluginId';
 import useLocales from '../hooks/useLocales';
 
-const Initializer = ({ updatePlugin }) => {
+function Initializer({ updatePlugin }) {
   const { isLoading, locales } = useLocales();
   const ref = useRef();
 
@@ -22,7 +22,7 @@ const Initializer = ({ updatePlugin }) => {
   }, [isLoading, locales]);
 
   return null;
-};
+}
 
 Initializer.propTypes = {
   updatePlugin: PropTypes.func.isRequired,

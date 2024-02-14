@@ -13,7 +13,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NotFound } from '@akemona-org/strapi-helper-plugin';
 
-const NotFoundPage = (props) => <NotFound {...props} />;
+function NotFoundPage(props) {
+  return <NotFound {...props} />
+}
 
 NotFoundPage.propTypes = {
   history: PropTypes.shape({

@@ -7,7 +7,7 @@ import { useIntl } from 'react-intl';
 import SubCategory from '../SubCategory';
 import RowStyle from './Wrapper';
 
-const PermissionRow = ({
+function PermissionRow({
   childrenForm,
   kind,
   name,
@@ -16,7 +16,7 @@ const PermissionRow = ({
   isWhite,
   onOpenCategory,
   pathToData,
-}) => {
+}) {
   const { formatMessage } = useIntl();
 
   const handleClick = () => {
@@ -64,7 +64,7 @@ const PermissionRow = ({
       )}
     </RowContainer>
   );
-};
+}
 
 PermissionRow.defaultProps = {};
 

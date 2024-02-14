@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BrokenFile = (props) => {
+function BrokenFile(props) {
   return (
     <svg
       width="48px"
@@ -86,6 +86,6 @@ const BrokenFile = (props) => {
       </g>
     </svg>
   );
-};
+}
 
 export default BrokenFile;

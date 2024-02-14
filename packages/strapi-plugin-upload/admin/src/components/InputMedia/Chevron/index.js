@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 
 import Wrapper from './Wrapper';
 
-const Chevron = ({ side, onClick }) => (
-  <Wrapper onClick={onClick}>
+function Chevron({ side, onClick }) {
+  return <Wrapper onClick={onClick}>
     <FontAwesomeIcon color="white" icon={`chevron-${side}`} />
   </Wrapper>
-);
+}
 
 Chevron.propTypes = {
   onClick: PropTypes.func.isRequired,

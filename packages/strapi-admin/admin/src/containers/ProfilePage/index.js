@@ -15,7 +15,7 @@ import useChangeLanguage from '../LanguageProvider/hooks/useChangeLanguage';
 import ProfilePageLabel from './components';
 import { form, schema } from './utils';
 
-const ProfilePage = () => {
+function ProfilePage() {
   const changeLanguage = useChangeLanguage();
   const { formatMessage } = useIntl();
 
@@ -165,6 +165,6 @@ const ProfilePage = () => {
       <BaselineAlignment bottom size="80px" />
     </>
   );
-};
+}
 
 export default ProfilePage;

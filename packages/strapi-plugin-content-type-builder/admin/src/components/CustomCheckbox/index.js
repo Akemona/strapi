@@ -11,7 +11,7 @@ import { Inputs } from '@buffetjs/custom';
 import { Checkbox } from '@buffetjs/core';
 import StyledCustomCheckbox from './StyledCustomCheckbox';
 
-const CustomCheckbox = ({ label, modifiedData, name, onChange, value, ...rest }) => {
+function CustomCheckbox({ label, modifiedData, name, onChange, value, ...rest }) {
   const [checked, setChecked] = useState(isNumber(value) || !isEmpty(value));
   const type = modifiedData.type === 'biginteger' ? 'text' : 'number';
   const step = ['decimal', 'float'].includes(modifiedData.type) ? 'any' : '1';
@@ -51,7 +51,7 @@ const CustomCheckbox = ({ label, modifiedData, name, onChange, value, ...rest })
       )}
     </StyledCustomCheckbox>
   );
-};
+}
 
 CustomCheckbox.defaultProps = {
   label: null,

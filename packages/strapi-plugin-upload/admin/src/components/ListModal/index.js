@@ -11,7 +11,7 @@ import SelectedAssets from '../SelectedAssets';
 import IntlText from '../IntlText';
 import BaselineAlignmentWrapper from './BaselineAlignmentWrapper';
 
-const ListModal = () => {
+function ListModal() {
   const { currentTab, goTo, handleModalTabChange, selectedFiles } = useModalContext();
 
   const handleClick = (to) => {
@@ -61,6 +61,6 @@ const ListModal = () => {
       )}
     </ModalNavWrapper>
   );
-};
+}
 
 export default ListModal;

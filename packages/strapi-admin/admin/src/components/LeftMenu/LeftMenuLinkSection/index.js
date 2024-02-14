@@ -10,14 +10,14 @@ import LeftMenuListLink from './LeftMenuListLink';
 import EmptyLinksList from './EmptyLinksList';
 import EmptyLinksListWrapper from './EmptyLinksListWrapper';
 
-const LeftMenuLinksSection = ({
+function LeftMenuLinksSection({
   section,
   searchable,
   location,
   links,
   emptyLinksListMessage,
   shrink,
-}) => {
+}) {
   const [search, setSearch] = useState('');
 
   const filteredList = sortBy(
@@ -60,7 +60,7 @@ const LeftMenuLinksSection = ({
       </LeftMenuListLink>
     </>
   );
-};
+}
 
 LeftMenuLinksSection.defaultProps = {
   shrink: false,

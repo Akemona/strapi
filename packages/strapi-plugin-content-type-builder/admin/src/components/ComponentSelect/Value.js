@@ -7,7 +7,7 @@ import useDataManager from '../../hooks/useDataManager';
 import getTrad from '../../utils/getTrad';
 import UpperFirst from '../UpperFirst';
 
-const Value = ({ children, ...props }) => {
+function Value({ children, ...props }) {
   const SingleValue = components.SingleValue;
   const { components: appComponents } = useDataManager();
   const value = children;
@@ -50,7 +50,7 @@ const Value = ({ children, ...props }) => {
       )}
     </SingleValue>
   );
-};
+}
 
 Value.defaultProps = {
   children: null,

@@ -7,7 +7,7 @@ import { Modal } from '@akemona-org/strapi-helper-plugin';
 import { useIntl } from 'react-intl';
 import { Arrow, Download, Option, Wrapper } from './components';
 
-const UpgradePlanModal = ({ isOpen, onToggle }) => {
+function UpgradePlanModal({ isOpen, onToggle }) {
   const ref = useRef();
   const { formatMessage } = useIntl();
 
@@ -61,7 +61,7 @@ const UpgradePlanModal = ({ isOpen, onToggle }) => {
       />
     </Modal>
   );
-};
+}
 
 UpgradePlanModal.defaultProps = {
   isOpen: false,

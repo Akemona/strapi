@@ -4,14 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import { Text } from '@buffetjs/core';
 
-const Item = ({
+function Item({
   onChange,
   oneThatIsCreatingARelationWithAnother,
   plugin,
   restrictRelationsTo,
   title,
   uid,
-}) => {
+}) {
   const handleChange = () => {
     const selectedContentTypeFriendlyName = plugin ? `${plugin}_${title}` : title;
 
@@ -43,7 +43,7 @@ const Item = ({
       </p>
     </DropdownItem>
   );
-};
+}
 
 Item.defaultProps = {
   plugin: null,

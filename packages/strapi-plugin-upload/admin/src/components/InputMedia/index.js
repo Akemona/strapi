@@ -21,7 +21,7 @@ import Wrapper from './Wrapper';
 import Input from '../Input';
 import ErrorMessage from './ErrorMessage';
 
-const InputMedia = ({
+function InputMedia({
   disabled,
   label,
   onChange,
@@ -32,7 +32,7 @@ const InputMedia = ({
   id,
   error,
   labelIcon,
-}) => {
+}) {
   const [modal, setModal] = useState({
     isOpen: false,
     step: 'list',
@@ -204,7 +204,7 @@ const InputMedia = ({
       {error && <ErrorMessage id={errorId}>{error}</ErrorMessage>}
     </Wrapper>
   );
-};
+}
 
 InputMedia.propTypes = {
   attribute: PropTypes.shape({

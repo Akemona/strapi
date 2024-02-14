@@ -7,7 +7,7 @@ import { resetProps, setLayout } from './actions';
 import selectLayout from './selectors';
 import Permissions from './Permissions';
 
-const EditViewLayoutManager = ({ layout, ...rest }) => {
+function EditViewLayoutManager({ layout, ...rest }) {
   const currentLayout = useSelector(selectLayout);
   const dispatch = useDispatch();
   const [{ query }] = useQueryParams();
@@ -26,7 +26,7 @@ const EditViewLayoutManager = ({ layout, ...rest }) => {
   }
 
   return <Permissions {...rest} layout={currentLayout} userPermissions={permissions} />;
-};
+}
 
 EditViewLayoutManager.propTypes = {
   layout: PropTypes.shape({

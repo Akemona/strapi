@@ -4,7 +4,7 @@ import { Collapse } from 'reactstrap';
 import DynamicComponentCard from '../../../DynamicComponentCard';
 import Banner from './Banner';
 
-const Category = ({ category, components, isFirst, isOpen, onAddComponent, onToggle }) => {
+function Category({ category, components, isFirst, isOpen, onAddComponent, onToggle }) {
   const [showComponents, setShowComponents] = useState(false);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const Category = ({ category, components, isFirst, isOpen, onAddComponent, onTog
       </Collapse>
     </>
   );
-};
+}
 
 Category.propTypes = {
   category: PropTypes.string.isRequired,

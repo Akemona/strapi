@@ -5,13 +5,13 @@ import InputUploadURL from '../InputUploadURL';
 import ModalNavWrapper from '../ModalNavWrapper';
 import ModalSection from '../ModalSection';
 
-const UploadForm = ({
+function UploadForm({
   addFilesToUpload,
   filesToDownload,
   formErrors,
   onChange,
   setShouldDisplayNextButton,
-}) => {
+}) {
   useEffect(() => {
     return () => {
       setShouldDisplayNextButton(false);
@@ -40,7 +40,7 @@ const UploadForm = ({
       )}
     </ModalNavWrapper>
   );
-};
+}
 
 UploadForm.defaultProps = {
   addFilesToUpload: () => {},

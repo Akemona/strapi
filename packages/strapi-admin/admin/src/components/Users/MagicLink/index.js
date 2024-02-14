@@ -4,7 +4,7 @@ import { useIntl } from 'react-intl';
 import LinkNotification from '../LinkNotification';
 import basename from '../../../utils/basename';
 
-const MagicLink = ({ registrationToken }) => {
+function MagicLink({ registrationToken }) {
   const { formatMessage } = useIntl();
 
   const link = `${window.location.origin}${basename}auth/register?registrationToken=${registrationToken}`;
@@ -14,7 +14,7 @@ const MagicLink = ({ registrationToken }) => {
       {formatMessage({ id: 'app.components.Users.MagicLink.connect' })}
     </LinkNotification>
   );
-};
+}
 
 MagicLink.defaultProps = {
   registrationToken: '',

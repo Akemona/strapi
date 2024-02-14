@@ -3,7 +3,7 @@ import { components } from 'react-select';
 import PropTypes from 'prop-types';
 import StyledOption from './StyledOption';
 
-const MultiValueContainer = ({ data, selectProps }) => {
+function MultiValueContainer({ data, selectProps }) {
   const Component = components.MultiValueContainer;
 
   const handleClick = () => {
@@ -23,7 +23,7 @@ const MultiValueContainer = ({ data, selectProps }) => {
       />
     </Component>
   );
-};
+}
 
 MultiValueContainer.defaultProps = {
   data: {},

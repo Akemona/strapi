@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Bold = () => {
+function Bold() {
   return (
     <svg width="9" height="10" xmlns="http://www.w3.org/2000/svg">
       <text
@@ -17,6 +17,6 @@ const Bold = () => {
       </text>
     </svg>
   );
-};
+}
 
 export default Bold;

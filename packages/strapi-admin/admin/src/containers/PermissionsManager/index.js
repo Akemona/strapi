@@ -8,7 +8,7 @@ import {
   getUserPermissionsSucceeded,
 } from './actions';
 
-const PermissionsManager = ({ children }) => {
+function PermissionsManager({ children }) {
   const { isLoading, userPermissions } = useSelector((state) => state.get('permissionsManager'));
 
   const dispatch = useDispatch();
@@ -38,7 +38,7 @@ const PermissionsManager = ({ children }) => {
   }
 
   return <UserProvider value={{ userPermissions, fetchUserPermissions }}>{children}</UserProvider>;
-};
+}
 
 PermissionsManager.defaultProps = {};
 

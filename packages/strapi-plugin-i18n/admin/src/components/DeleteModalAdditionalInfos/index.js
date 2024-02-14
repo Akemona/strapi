@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import { getTrad } from '../../utils';
 import useHasI18n from '../../hooks/useHasI18n';
 
-const DeleteModalAdditionalInfos = () => {
+function DeleteModalAdditionalInfos() {
   const hasI18nEnabled = useHasI18n();
 
   if (!hasI18nEnabled) {
@@ -20,6 +20,6 @@ const DeleteModalAdditionalInfos = () => {
       />
     </span>
   );
-};
+}
 
 export default DeleteModalAdditionalInfos;

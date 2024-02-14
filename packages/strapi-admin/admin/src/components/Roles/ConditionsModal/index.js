@@ -10,14 +10,14 @@ import ActionRow from './ActionRow';
 import Separator from './Separator';
 import updateValues from '../Permissions/utils/updateValues';
 
-const ConditionsModal = ({
+function ConditionsModal({
   actions,
   headerBreadCrumbs,
   isOpen,
   isFormDisabled,
   onClosed,
   onToggle,
-}) => {
+}) {
   const { formatMessage } = useIntl();
   const { availableConditions, modifiedData, onChangeConditions } = usePermissionsDataManager();
 
@@ -127,7 +127,7 @@ const ConditionsModal = ({
       </ModalFooter>
     </Modal>
   );
-};
+}
 
 ConditionsModal.propTypes = {
   actions: PropTypes.arrayOf(

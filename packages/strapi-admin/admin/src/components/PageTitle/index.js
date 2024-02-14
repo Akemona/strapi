@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 
 import favicon from '../../favicon.png';
 
-const PageTitle = ({ title }) => (
-  <Helmet title={title} link={[{ rel: 'icon', type: 'image/png', href: favicon }]} />
-);
+function PageTitle({ title }) {
+  return <Helmet title={title} link={[{ rel: 'icon', type: 'image/png', href: favicon }]} />
+}
 
 PageTitle.propTypes = {
   title: PropTypes.string.isRequired,

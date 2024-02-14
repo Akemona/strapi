@@ -18,7 +18,7 @@ import Container from '../Container';
 import SectionTitle from '../SectionTitle';
 import Separator from '../Separator';
 
-const SettingsViewWrapper = ({
+function SettingsViewWrapper({
   children,
   history: { goBack },
   displayedFields,
@@ -32,7 +32,7 @@ const SettingsViewWrapper = ({
   onConfirmReset,
   onConfirmSubmit,
   onModalConfirmClosed,
-}) => {
+}) {
   const { emitEvent, formatMessage } = useGlobalContext();
   const [showWarningCancel, setWarningCancel] = useState(false);
   const [showWarningSubmit, setWarningSubmit] = useState(false);
@@ -226,7 +226,7 @@ const SettingsViewWrapper = ({
       </Container>
     </>
   );
-};
+}
 
 SettingsViewWrapper.defaultProps = {
   displayedFields: [],

@@ -19,7 +19,7 @@ const EmptyPreview = styled.div`
   color: ${({ theme }) => theme.main.colors.grey};
 `;
 
-const VideoPreview = ({ hasIcon, previewUrl, src }) => {
+function VideoPreview({ hasIcon, previewUrl, src }) {
   const { formatMessage } = useIntl();
   const [reducerState, dispatch] = useReducer(reducer, initialState);
   const { duration, dataLoaded, isHover, metadataLoaded, snapshot, seeked, isError } =
@@ -141,7 +141,7 @@ const VideoPreview = ({ hasIcon, previewUrl, src }) => {
       </CanvasWrapper>
     </Wrapper>
   );
-};
+}
 
 VideoPreview.defaultProps = {
   hasIcon: false,

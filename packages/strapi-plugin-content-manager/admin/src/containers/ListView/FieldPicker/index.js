@@ -8,7 +8,7 @@ import Header from './Header';
 import Wrapper from './Wrapper';
 import ConfigureLink from './ConfigureLink';
 
-const FieldPicker = ({ displayedHeaders, items, onChange, onClickReset, slug }) => {
+function FieldPicker({ displayedHeaders, items, onChange, onClickReset, slug }) {
   return (
     <Wrapper>
       <Picker
@@ -33,7 +33,7 @@ const FieldPicker = ({ displayedHeaders, items, onChange, onClickReset, slug }) 
       />
     </Wrapper>
   );
-};
+}
 
 FieldPicker.propTypes = {
   displayedHeaders: PropTypes.array.isRequired,

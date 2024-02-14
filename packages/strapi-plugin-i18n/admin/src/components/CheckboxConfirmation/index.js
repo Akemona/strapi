@@ -6,7 +6,7 @@ import { ModalConfirm } from '@akemona-org/strapi-helper-plugin';
 import { getTrad } from '../../utils';
 import Wrapper from './Wrapper';
 
-const CheckboxConfirmation = ({ description, isCreating, label, name, onChange, ...rest }) => {
+function CheckboxConfirmation({ description, isCreating, label, name, onChange, ...rest }) {
   const { formatMessage } = useIntl();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -52,7 +52,7 @@ const CheckboxConfirmation = ({ description, isCreating, label, name, onChange, 
       </ModalConfirm>
     </>
   );
-};
+}
 
 CheckboxConfirmation.defaultProps = {
   description: null,

@@ -11,7 +11,7 @@ import { CSSTransition } from 'react-transition-group';
 import Notification from './Notification';
 import NotificationsWrapper from './Wrapper';
 
-const NotificationsContainer = () => {
+function NotificationsContainer() {
   const notifications = useSelector((state) => state.get('newNotification').notifications);
 
   return (
@@ -30,6 +30,6 @@ const NotificationsContainer = () => {
       ))}
     </NotificationsWrapper>
   );
-};
+}
 
 export default memo(NotificationsContainer);

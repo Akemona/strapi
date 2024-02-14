@@ -12,7 +12,7 @@ import md from './utils/mdRenderer';
 import sanitizeHtml from './utils/satinizeHtml';
 import Wrapper from './Wrapper';
 
-const PreviewWysiwyg = ({ data }) => {
+function PreviewWysiwyg({ data }) {
   const { isFullscreen } = useWysiwyg();
   const html = useMemo(() => sanitizeHtml(md.render(data || '')), [data]);
 
@@ -21,7 +21,7 @@ const PreviewWysiwyg = ({ data }) => {
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </Wrapper>
   );
-};
+}
 
 PreviewWysiwyg.defaultProps = {
   data: '',

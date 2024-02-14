@@ -20,7 +20,7 @@ import { getRequestURL, getTrad } from '../../utils';
 import forms from './utils/forms';
 import schema from './utils/schema';
 
-const EmailTemplatesPage = () => {
+function EmailTemplatesPage() {
   const { formatMessage } = useIntl();
   const { emitEvent } = useGlobalContext();
   const emitEventRef = useRef(emitEvent);
@@ -217,6 +217,6 @@ const EmailTemplatesPage = () => {
       </ModalForm>
     </>
   );
-};
+}
 
 export default EmailTemplatesPage;

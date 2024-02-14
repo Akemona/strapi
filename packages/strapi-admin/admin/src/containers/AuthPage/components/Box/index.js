@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Text } from '@buffetjs/core';
 import Wrapper from './Wrapper';
 
-const Box = ({ children, errorMessage, withoutError }) => (
-  <Wrapper>
+function Box({ children, errorMessage, withoutError }) {
+  return <Wrapper>
     {!withoutError && (
       <Text fontSize="md" color="lightOrange" style={{ textAlign: 'center' }} lineHeight="18px">
         {errorMessage}&nbsp;
@@ -12,7 +12,7 @@ const Box = ({ children, errorMessage, withoutError }) => (
     )}
     {children}
   </Wrapper>
-);
+}
 
 Box.defaultProps = {
   errorMessage: null,

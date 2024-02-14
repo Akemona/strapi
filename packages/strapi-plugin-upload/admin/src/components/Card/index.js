@@ -14,7 +14,7 @@ import Title from '../CardTitle';
 import Tag from '../Tag';
 import Wrapper from '../CardWrapper';
 
-const Card = ({
+function Card({
   children,
   options: {
     checked,
@@ -36,7 +36,7 @@ const Card = ({
     withFileCaching = true,
     withoutFileInfo,
   },
-}) => {
+}) {
   const { formatMessage } = useGlobalContext();
   const [tooltipIsDisplayed, setDisplayTooltip] = useState(false);
   const fileSize = formatBytes(size, 0);
@@ -93,7 +93,7 @@ const Card = ({
       {hasError && <ErrorMessage title={errorMessage}>{errorMessage}</ErrorMessage>}
     </Wrapper>
   );
-};
+}
 
 Card.defaultProps = {
   children: null,

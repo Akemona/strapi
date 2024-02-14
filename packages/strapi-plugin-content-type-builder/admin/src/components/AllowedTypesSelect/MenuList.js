@@ -10,7 +10,7 @@ import UpperFirst from '../UpperFirst';
 import Ul from '../SelectMenuUl';
 import Text from './Text';
 
-const MenuList = ({ selectProps: { changeMediaAllowedTypes, value }, ...rest }) => {
+function MenuList({ selectProps: { changeMediaAllowedTypes, value }, ...rest }) {
   const { formatMessage } = useGlobalContext();
   const Component = components.MenuList;
   const areAllAllowedTypesSelected = value.value && value.value.length === 3;
@@ -97,7 +97,7 @@ const MenuList = ({ selectProps: { changeMediaAllowedTypes, value }, ...rest }) 
       </Ul>
     </Component>
   );
-};
+}
 
 MenuList.defaultProps = {
   selectProps: {

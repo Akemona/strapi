@@ -4,12 +4,12 @@ import pluginPermissions from '../../../permissions';
 
 import RolesListPage from '../ListPage';
 
-const ProtectedRolesListPage = () => {
+function ProtectedRolesListPage() {
   return (
     <CheckPagePermissions permissions={pluginPermissions.accessRoles}>
       <RolesListPage />
     </CheckPagePermissions>
   );
-};
+}
 
 export default ProtectedRolesListPage;

@@ -12,7 +12,7 @@ import InputWrapper from './InputWrapper';
 import FilterButton from './FilterButton';
 import FilterInput from './FilterInput';
 
-const FiltersCard = ({ onChange }) => {
+function FiltersCard({ onChange }) {
   const { plugins } = useGlobalContext();
   const timestamps = getFileModelTimestamps(plugins);
   const [state, dispatch] = useReducer(reducer, initialState, () => init(initialState, timestamps));
@@ -84,7 +84,7 @@ const FiltersCard = ({ onChange }) => {
       </FilterButton>
     </Wrapper>
   );
-};
+}
 
 FiltersCard.defaultProps = {
   onChange: () => {},

@@ -8,7 +8,7 @@ import FormCard from '../../FormBloc';
 import SizedInput from '../../SizedInput';
 import ButtonWithNumber from '../ButtonWithNumber';
 
-const RoleForm = ({ disabled, role, values, errors, onChange, onBlur, isLoading }) => {
+function RoleForm({ disabled, role, values, errors, onChange, onBlur, isLoading }) {
   const { formatMessage } = useIntl();
 
   const actions = [
@@ -73,7 +73,7 @@ const RoleForm = ({ disabled, role, values, errors, onChange, onBlur, isLoading 
       />
     </FormCard>
   );
-};
+}
 
 RoleForm.defaultProps = {
   disabled: false,

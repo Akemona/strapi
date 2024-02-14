@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Ul = () => {
+function Ul() {
   return (
     <svg width="13" height="7" xmlns="http://www.w3.org/2000/svg">
       <g fill="none" fillRule="evenodd">
@@ -10,6 +10,6 @@ const Ul = () => {
       </g>
     </svg>
   );
-};
+}
 
 export default Ul;

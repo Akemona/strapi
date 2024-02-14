@@ -14,7 +14,7 @@ import LoaderWrapper from './LoaderWrapper';
 
 const MOUNT_NODE = document.getElementById('app') || document.createElement('div');
 
-const Loader = ({ show }) => {
+function Loader({ show }) {
   if (show) {
     return createPortal(
       <LoaderWrapper>
@@ -25,7 +25,7 @@ const Loader = ({ show }) => {
   }
 
   return null;
-};
+}
 
 Loader.propTypes = {
   show: PropTypes.bool.isRequired,

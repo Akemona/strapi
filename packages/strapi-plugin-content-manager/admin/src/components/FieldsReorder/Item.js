@@ -9,7 +9,7 @@ import DraggedFieldWithPreview from '../DraggedFieldWithPreview';
 
 import ItemTypes from '../../utils/ItemTypes';
 
-const Item = ({
+function Item({
   componentUid,
   dynamicZoneComponents,
   itemIndex,
@@ -20,7 +20,7 @@ const Item = ({
   rowIndex,
   size,
   type,
-}) => {
+}) {
   const {
     goTo,
     componentLayouts,
@@ -222,7 +222,7 @@ const Item = ({
       ref={refs}
     />
   );
-};
+}
 
 Item.defaultProps = {
   componentUid: '',

@@ -5,7 +5,7 @@ import MenuList from './MenuList';
 import MultipleMenuList from './MultipleMenuList';
 import Value from './Value';
 
-const ComponentSelect = ({
+function ComponentSelect({
   addComponentsToDynamicZone,
   componentCategoryNeededForAddingAfieldWhileCreatingAComponent,
   componentNameNeededForAddingAfieldWhileCreatingAComponent,
@@ -16,7 +16,7 @@ const ComponentSelect = ({
   name,
   value,
   styles,
-}) => {
+}) {
   // Create a ref in order to access the StateManager
   // So we can close the menu after clicking on a menu item
   // This allows us to get rid of the menuIsOpen state management
@@ -56,7 +56,7 @@ const ComponentSelect = ({
       }}
     />
   );
-};
+}
 
 ComponentSelect.defaultProps = {
   componentCategoryNeededForAddingAfieldWhileCreatingAComponent: null,

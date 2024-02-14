@@ -12,7 +12,7 @@ import ModalEdit from '../ModalEdit';
 import ModalDelete from '../ModalDelete';
 import ModalCreate from '../ModalCreate';
 
-const LocaleList = ({ canUpdateLocale, canDeleteLocale, onToggleCreateModal, isCreating }) => {
+function LocaleList({ canUpdateLocale, canDeleteLocale, onToggleCreateModal, isCreating }) {
   const [localeToDelete, setLocaleToDelete] = useState();
   const [localeToEdit, setLocaleToEdit] = useState();
   const { locales, isLoading } = useLocales();
@@ -85,7 +85,7 @@ const LocaleList = ({ canUpdateLocale, canDeleteLocale, onToggleCreateModal, isC
       <ModalCreate isOpened={isCreating} onClose={onToggleCreateModal} />
     </>
   );
-};
+}
 
 LocaleList.defaultProps = {
   onToggleCreateModal: undefined,

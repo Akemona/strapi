@@ -11,7 +11,7 @@ import Logo from '../Logo';
 import Section from '../Section';
 import Box from '../Box';
 
-const ResetPassword = ({ formErrors, modifiedData, onChange, onSubmit, requestError }) => {
+function ResetPassword({ formErrors, modifiedData, onChange, onSubmit, requestError }) {
   const { formatMessage } = useIntl();
 
   return (
@@ -55,7 +55,7 @@ const ResetPassword = ({ formErrors, modifiedData, onChange, onSubmit, requestEr
       <AuthLink label="Auth.link.ready" to="/auth/login" />
     </>
   );
-};
+}
 
 ResetPassword.defaultProps = {
   onSubmit: (e) => e.preventDefault(),

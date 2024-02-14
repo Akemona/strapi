@@ -5,7 +5,7 @@ import PlayIcon from '../PlayIcon';
 import Duration from '../Duration';
 import Wrapper from './Wrapper';
 
-const VideoPlayer = ({ src }) => {
+function VideoPlayer({ src }) {
   const [duration, setDuration] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -44,7 +44,7 @@ const VideoPlayer = ({ src }) => {
       <Duration duration={duration} />
     </Wrapper>
   );
-};
+}
 
 VideoPlayer.defaultProps = {
   src: null,

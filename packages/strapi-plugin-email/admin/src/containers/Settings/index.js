@@ -18,7 +18,7 @@ import { AlignedButton, Text } from './components';
 import schema from '../../utils/schema';
 import pluginPermissions from '../../permissions';
 
-const SettingsPage = () => {
+function SettingsPage() {
   const { formatMessage } = useIntl();
   const [formErrors, setFormErrors] = useState({});
   const [isTestButtonLoading, setIsTestButtonLoading] = useState(false);
@@ -100,8 +100,7 @@ const SettingsPage = () => {
   }, []);
 
   return (
-    <>
-      <CheckPagePermissions permissions={pluginPermissions.settings}>
+    <CheckPagePermissions permissions={pluginPermissions.settings}>
         <SettingsPageTitle name={title} />
         <div>
           <form onSubmit={handleSubmit}>
@@ -178,12 +177,12 @@ const SettingsPage = () => {
               <AlignedButton
                 color="success"
                 disabled={testSuccess}
-                icon={(
+                icon={
                   <Envelope
                     fill={testSuccess ? colors.button.disabled.color : null}
                     style={{ verticalAlign: 'middle', marginRight: '10px' }}
                   />
-                )}
+                }
                 isLoading={isTestButtonLoading}
                 style={{ fontWeight: 600 }}
                 type="submit"
@@ -194,8 +193,7 @@ const SettingsPage = () => {
           </form>
         </div>
       </CheckPagePermissions>
-    </>
   );
-};
+}
 
 export default SettingsPage;

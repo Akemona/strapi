@@ -21,7 +21,7 @@ import Wrapper from './Wrapper';
 
 /* eslint-disable indent */
 
-const ListView = () => {
+function ListView() {
   const {
     initialData,
     modifiedData,
@@ -163,6 +163,7 @@ const ListView = () => {
   const wait = async () => {
     togglePrompt(false);
 
+    // eslint-disable-next-line no-promise-executor-return
     return new Promise((resolve) => setTimeout(resolve, 100));
   };
   const label = get(modifiedData, [firstMainDataPath, 'schema', 'name'], '');
@@ -269,11 +270,11 @@ const ListView = () => {
     ? [...listInjectedComponents, <ListButton {...addButtonProps} key="add-button" />]
     : listInjectedComponents;
 
-  const CustomRow = (props) => {
+  function CustomRow(props) {
     const { name } = props;
 
     return <ListRow {...props} attributeName={name} name={name} onClick={handleClickEditField} />;
-  };
+  }
 
   CustomRow.defaultProps = {
     name: null,
@@ -317,6 +318,6 @@ const ListView = () => {
       </Wrapper>
     </ListViewContext.Provider>
   );
-};
+}
 
 export default ListView;

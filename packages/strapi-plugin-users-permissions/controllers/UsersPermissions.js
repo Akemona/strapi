@@ -64,9 +64,8 @@ module.exports = {
 
   async getPermissions(ctx) {
     try {
-      const permissions = await strapi.plugins[
-        'users-permissions'
-      ].services.userspermissions.getActions();
+      const permissions =
+        await strapi.plugins['users-permissions'].services.userspermissions.getActions();
 
       ctx.send({ permissions });
     } catch (err) {
@@ -86,9 +85,8 @@ module.exports = {
   async getRole(ctx) {
     const { id } = ctx.params;
     const { lang } = ctx.query;
-    const plugins = await strapi.plugins['users-permissions'].services.userspermissions.getPlugins(
-      lang
-    );
+    const plugins =
+      await strapi.plugins['users-permissions'].services.userspermissions.getPlugins(lang);
     const role = await strapi.plugins['users-permissions'].services.userspermissions.getRole(
       id,
       plugins
@@ -113,9 +111,8 @@ module.exports = {
 
   async getRoutes(ctx) {
     try {
-      const routes = await strapi.plugins[
-        'users-permissions'
-      ].services.userspermissions.getRoutes();
+      const routes =
+        await strapi.plugins['users-permissions'].services.userspermissions.getRoutes();
 
       ctx.send({ routes });
     } catch (err) {

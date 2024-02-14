@@ -11,7 +11,7 @@ import Loader from './Loader';
 import Wrapper from './Wrapper';
 import useMenuSections from './useMenuSections';
 
-const LeftMenu = ({ shouldUpdateStrapi, version, plugins, setUpdateMenu }) => {
+function LeftMenu({ shouldUpdateStrapi, version, plugins, setUpdateMenu }) {
   const location = useLocation();
 
   const {
@@ -89,7 +89,7 @@ const LeftMenu = ({ shouldUpdateStrapi, version, plugins, setUpdateMenu }) => {
       <LeftMenuFooter key="footer" version={version} />
     </Wrapper>
   );
-};
+}
 
 LeftMenu.propTypes = {
   shouldUpdateStrapi: PropTypes.bool.isRequired,

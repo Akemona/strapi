@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const OneToMany = ({ isSelected, ...rest }) => {
+function OneToMany({ isSelected, ...rest }) {
   const stroke = isSelected ? '#1C5DE7' : '#919BAE';
   let rectProps = {
     strokeOpacity: '.1',
@@ -46,7 +46,7 @@ const OneToMany = ({ isSelected, ...rest }) => {
       </g>
     </svg>
   );
-};
+}
 
 OneToMany.defaultProps = {
   isSelected: false,

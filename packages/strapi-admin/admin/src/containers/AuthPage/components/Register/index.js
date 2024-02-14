@@ -15,7 +15,7 @@ import Box from '../Box';
 import InputWrapper from './InputWrapper';
 import Span from './Span';
 
-const Register = ({
+function Register({
   fieldsToDisable,
   formErrors,
   inputsPrefix,
@@ -24,7 +24,7 @@ const Register = ({
   onChange,
   onSubmit,
   requestError,
-}) => {
+}) {
   const { formatMessage } = useIntl();
 
   const handleClick = (e, to) => {
@@ -149,7 +149,7 @@ const Register = ({
       )}
     </>
   );
-};
+}
 
 Register.defaultProps = {
   fieldsToDisable: [],

@@ -17,7 +17,7 @@ import { usePlugins, useFetchRole } from '../../../hooks';
 
 import schema from './utils/schema';
 
-const EditPage = () => {
+function EditPage() {
   const { formatMessage } = useIntl();
   const [isSubmiting, setIsSubmiting] = useState(false);
   const { settingsBaseURL } = useGlobalContext();
@@ -156,6 +156,6 @@ const EditPage = () => {
       )}
     </Formik>
   );
-};
+}
 
 export default EditPage;

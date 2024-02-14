@@ -13,7 +13,7 @@ import Wrapper from './Wrapper';
 import IntlText from '../IntlText';
 import Count from './Count';
 
-const ModalTab = ({ isDisabled, label, to, isActive, onClick, count }) => {
+function ModalTab({ isDisabled, label, to, isActive, onClick, count }) {
   const handleClick = (e) => {
     if (isDisabled) {
       e.preventDefault();
@@ -39,7 +39,7 @@ const ModalTab = ({ isDisabled, label, to, isActive, onClick, count }) => {
       </Wrapper>
     </Padded>
   );
-};
+}
 
 ModalTab.defaultProps = {
   count: null,

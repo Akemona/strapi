@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Wrapper from './Wrapper';
 
-const ConditionsButton = ({ onClick, className, hasConditions, isRight }) => {
+function ConditionsButton({ onClick, className, hasConditions, isRight }) {
   const { formatMessage } = useIntl();
 
   return (
@@ -29,7 +29,7 @@ const ConditionsButton = ({ onClick, className, hasConditions, isRight }) => {
       </Padded>
     </Wrapper>
   );
-};
+}
 
 ConditionsButton.defaultProps = {
   className: null,

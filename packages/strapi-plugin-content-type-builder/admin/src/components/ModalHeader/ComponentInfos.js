@@ -5,14 +5,14 @@ import ComponentInfosWrapper from './ComponentInfosWrapper';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 
-const ComponentInfos = ({ category, name }) => {
+function ComponentInfos({ category, name }) {
   return (
     <ComponentInfosWrapper>
       &nbsp; (<UpperFirst content={category} /> &nbsp;—&nbsp;
       <UpperFirst content={name} />)
     </ComponentInfosWrapper>
   );
-};
+}
 
 ComponentInfos.propTypes = {
   category: PropTypes.string.isRequired,

@@ -26,7 +26,7 @@ import reducer, { initialState } from './reducer';
 
 /* eslint-disable indent */
 
-const InputModalStepperProvider = ({
+function InputModalStepperProvider({
   allowedActions,
   allowedTypes,
   children,
@@ -39,7 +39,7 @@ const InputModalStepperProvider = ({
   onInputMediaChange,
   selectedFiles,
   step,
-}) => {
+}) {
   const [formErrors, setFormErrors] = useState(null);
 
   const { formatMessage } = useIntl();
@@ -521,7 +521,7 @@ const InputModalStepperProvider = ({
       {children}
     </InputModalStepperContext.Provider>
   );
-};
+}
 
 InputModalStepperProvider.propTypes = {
   allowedActions: PropTypes.shape({

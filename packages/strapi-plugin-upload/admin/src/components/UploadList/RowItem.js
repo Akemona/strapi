@@ -7,7 +7,7 @@ import CardControl from '../CardControl';
 import CardControlsWrapper from '../CardControlsWrapper';
 import InfiniteLoadingIndicator from '../InfiniteLoadingIndicator';
 
-const RowItem = ({
+function RowItem({
   file,
   fileInfo,
   hasError,
@@ -18,7 +18,7 @@ const RowItem = ({
   onClickDeleteFileToUpload,
   onClickEdit,
   originalIndex,
-}) => {
+}) {
   const url = file ? URL.createObjectURL(file) : null;
 
   const handleClick = () => {
@@ -72,7 +72,7 @@ const RowItem = ({
       </Card>
     </div>
   );
-};
+}
 
 RowItem.defaultProps = {
   file: null,

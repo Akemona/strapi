@@ -6,7 +6,7 @@ import { useIntl } from 'react-intl';
 import ConditionsSelect from '../ConditionsSelect';
 import Wrapper from './Wrapper';
 
-const ActionRow = ({
+function ActionRow({
   arrayOfOptionsGroupedByCategory,
   isFormDisabled,
   isGrey,
@@ -15,7 +15,7 @@ const ActionRow = ({
   onCategoryChange,
   onChange,
   value,
-}) => {
+}) {
   const { formatMessage } = useIntl();
 
   return (
@@ -73,7 +73,7 @@ const ActionRow = ({
       />
     </Wrapper>
   );
-};
+}
 
 ActionRow.propTypes = {
   arrayOfOptionsGroupedByCategory: PropTypes.array.isRequired,

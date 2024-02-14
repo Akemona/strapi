@@ -7,7 +7,7 @@ import ProtectedRolesListPage from './ProtectedListPage';
 import ProtectedRolesEditPage from './ProtectedEditPage';
 import ProtectedRolesCreatePage from './ProtectedCreatePage';
 
-const Roles = () => {
+function Roles() {
   const { settingsBaseURL } = useGlobalContext();
 
   return (
@@ -30,6 +30,6 @@ const Roles = () => {
       <Route path="" component={NotFound} />
     </Switch>
   );
-};
+}
 
 export default Roles;

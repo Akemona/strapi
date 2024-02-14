@@ -14,7 +14,7 @@ import Wrapper from './Wrapper';
 import init from './init';
 import reducer, { initialState } from './reducer';
 
-const OnboardingVideos = () => {
+function OnboardingVideos() {
   const { emitEvent } = useGlobalContext();
   const [reducerState, dispatch] = useReducer(reducer, initialState, init);
   const { isLoading, isOpen, videos } = reducerState.toJS();
@@ -129,6 +129,6 @@ const OnboardingVideos = () => {
       </div>
     </Wrapper>
   );
-};
+}
 
 export default memo(OnboardingVideos);

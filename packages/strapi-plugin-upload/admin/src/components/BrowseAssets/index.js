@@ -13,7 +13,7 @@ import useModalContext from '../../hooks/useModalContext';
 import Wrapper from './Wrapper';
 import CardControl from '../CardControl';
 
-const BrowseAssets = () => {
+function BrowseAssets() {
   const {
     allowedActions,
     allowedTypes,
@@ -120,8 +120,7 @@ const BrowseAssets = () => {
   const areResultsEmptyWithSearchOrFilters = isEmpty(files) && (hasSearch || hasFilters);
 
   return (
-    <>
-      <Wrapper>
+    <Wrapper>
         <Padded top>
           {allowedActions.canRead && (
             <Flex flexWrap="wrap">
@@ -175,8 +174,7 @@ const BrowseAssets = () => {
           </>
         )}
       </Wrapper>
-    </>
   );
-};
+}
 
 export default BrowseAssets;

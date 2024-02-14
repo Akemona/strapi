@@ -8,7 +8,7 @@ import { resetProps, setLayout } from '../ListView/actions';
 import useSyncRbac from '../RBACManager/useSyncRbac';
 import Permissions from './Permissions';
 
-const ListViewLayout = ({ layout, ...props }) => {
+function ListViewLayout({ layout, ...props }) {
   const dispatch = useDispatch();
   const { replace } = useHistory();
   const [{ query, rawQuery }] = useQueryParams();
@@ -36,7 +36,7 @@ const ListViewLayout = ({ layout, ...props }) => {
   }
 
   return <Permissions {...props} layout={layout} permissions={permissions} />;
-};
+}
 
 ListViewLayout.propTypes = {
   layout: PropTypes.exact({

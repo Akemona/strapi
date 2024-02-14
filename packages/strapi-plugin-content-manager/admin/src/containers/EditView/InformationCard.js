@@ -16,7 +16,7 @@ const BaselineAlignment = styled.div`
   padding-top: ${({ size }) => size};
 `;
 
-const InformationCard = () => {
+function InformationCard() {
   const { initialData, hasDraftAndPublish, layout } = useContentManagerEditViewDataManager();
   const { formatMessage } = useIntl();
 
@@ -98,6 +98,6 @@ const InformationCard = () => {
       <BaselineAlignment size="2px" />
     </>
   );
-};
+}
 
 export default InformationCard;

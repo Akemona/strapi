@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CarretTop = () => {
+function CarretTop() {
   return (
     <svg width="7" height="5" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -9,6 +9,6 @@ const CarretTop = () => {
       />
     </svg>
   );
-};
+}
 
 export default CarretTop;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const File = (props) => {
+function File(props) {
   return (
     <svg width="21" height="25" xmlns="http://www.w3.org/2000/svg" {...props}>
       <defs>
@@ -30,6 +30,6 @@ const File = (props) => {
       </g>
     </svg>
   );
-};
+}
 
 export default File;

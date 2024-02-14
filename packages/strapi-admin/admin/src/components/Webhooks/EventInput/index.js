@@ -33,7 +33,7 @@ const displayedData = {
   },
 };
 
-const EventInput = ({ onChange, name: inputName, value: inputValue, shouldShowDPEvents }) => {
+function EventInput({ onChange, name: inputName, value: inputValue, shouldShowDPEvents }) {
   const headersName = shouldShowDPEvents
     ? displayedData.headers.draftAndPublish
     : displayedData.headers.default;
@@ -116,7 +116,7 @@ const EventInput = ({ onChange, name: inputName, value: inputValue, shouldShowDP
       </table>
     </Wrapper>
   );
-};
+}
 
 EventInput.propTypes = {
   name: PropTypes.string.isRequired,

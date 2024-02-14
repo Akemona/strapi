@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import pluginId from '../../pluginId';
 import Title from './Title';
 
-const SectionTitle = ({ isSettings }) => {
+function SectionTitle({ isSettings }) {
   const suffix = isSettings ? 'settings' : 'view';
   const msgId = `${pluginId}.containers.SettingPage.${suffix}`;
 
@@ -14,7 +14,7 @@ const SectionTitle = ({ isSettings }) => {
       <FormattedMessage id={msgId}>{(msg) => <Title>{msg}</Title>}</FormattedMessage>
     </div>
   );
-};
+}
 
 SectionTitle.propTypes = {
   isSettings: PropTypes.bool,

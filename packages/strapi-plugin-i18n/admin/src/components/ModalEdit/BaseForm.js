@@ -14,7 +14,7 @@ import {
 import { useFormikContext } from 'formik';
 import { getTrad } from '../../utils';
 
-const BaseForm = ({ options, defaultOption }) => {
+function BaseForm({ options, defaultOption }) {
   const { formatMessage } = useIntl();
   const { values, handleChange } = useFormikContext();
   const theme = useTheme();
@@ -76,7 +76,7 @@ const BaseForm = ({ options, defaultOption }) => {
       </Col>
     </Row>
   );
-};
+}
 
 BaseForm.defaultProps = {
   defaultOption: undefined,

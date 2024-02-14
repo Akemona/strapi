@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { BaselineAlignment } from '@akemona-org/strapi-helper-plugin';
 import LinkText, { LinkArrow } from './components';
 
-const Link = ({ href, label }) => {
+function Link({ href, label }) {
   return (
     <Padded top size="smd">
       <BaselineAlignment top size="1px" />
@@ -16,7 +16,7 @@ const Link = ({ href, label }) => {
       </LinkText>
     </Padded>
   );
-};
+}
 
 Link.propTypes = {
   href: PropTypes.string.isRequired,

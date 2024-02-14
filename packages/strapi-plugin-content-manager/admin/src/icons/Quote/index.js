@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Quote = () => {
+function Quote() {
   return (
     <svg width="9" height="9" xmlns="http://www.w3.org/2000/svg">
       <g fill="#333740" fillRule="evenodd">
@@ -8,6 +8,6 @@ const Quote = () => {
       </g>
     </svg>
   );
-};
+}
 
 export default Quote;

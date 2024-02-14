@@ -18,7 +18,7 @@ import CMEditViewCopyLocale from '../CMEditViewCopyLocale';
 import OptionComponent from './Option';
 import Wrapper from './Wrapper';
 
-const CMEditViewLocalePicker = ({
+function CMEditViewLocalePicker({
   appLocales,
   createPermissions,
   currentEntityId,
@@ -29,7 +29,7 @@ const CMEditViewLocalePicker = ({
   readPermissions,
   setQuery,
   slug,
-}) => {
+}) {
   const { formatMessage } = useIntl();
   const theme = useTheme();
   const currentLocale = get(query, 'plugins.i18n.locale', false);
@@ -137,7 +137,7 @@ const CMEditViewLocalePicker = ({
       </Padded>
     </Wrapper>
   );
-};
+}
 
 CMEditViewLocalePicker.defaultProps = {
   createPermissions: [],

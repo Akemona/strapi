@@ -9,7 +9,7 @@ import PluginCard from './PluginCard';
 import Wrapper from './Wrapper';
 import MarketplaceBanner from './MarketplaceBanner';
 
-const MarketPlacePage = () => {
+function MarketPlacePage() {
   const history = useHistory();
   const { autoReload, emitEvent, currentEnvironment, formatMessage, plugins } = useGlobalContext();
   const { error, isLoading, data } = useFetchPluginsFromMarketPlace();
@@ -98,6 +98,6 @@ const MarketPlacePage = () => {
       </Wrapper>
     </div>
   );
-};
+}
 
 export default MarketPlacePage;

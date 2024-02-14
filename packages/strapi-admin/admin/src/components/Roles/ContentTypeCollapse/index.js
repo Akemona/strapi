@@ -5,7 +5,7 @@ import CollapsePropertyMatrix from './CollapsePropertyMatrix';
 import { getAvailableActions } from './utils';
 import Wrapper from './Wrapper';
 
-const ContentTypeCollapse = ({
+function ContentTypeCollapse({
   allActions,
   contentTypeName,
   label,
@@ -15,7 +15,7 @@ const ContentTypeCollapse = ({
   onClickToggleCollapse,
   pathToData,
   properties,
-}) => {
+}) {
   const handleClickToggleCollapse = useCallback(() => {
     onClickToggleCollapse(contentTypeName);
   }, [contentTypeName, onClickToggleCollapse]);
@@ -55,7 +55,7 @@ const ContentTypeCollapse = ({
         })}
     </Wrapper>
   );
-};
+}
 
 ContentTypeCollapse.propTypes = {
   allActions: PropTypes.array.isRequired,

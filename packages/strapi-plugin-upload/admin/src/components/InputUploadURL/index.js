@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Wrapper from './Wrapper';
 import { getTrad } from '../../utils';
 
-const InputUploadURL = ({ errors, onChange, value }) => {
+function InputUploadURL({ errors, onChange, value }) {
   const { formatMessage } = useGlobalContext();
   const label = formatMessage({ id: getTrad('input.url.label') });
   const description = formatMessage({ id: getTrad('input.url.description') });
@@ -29,7 +29,7 @@ const InputUploadURL = ({ errors, onChange, value }) => {
       </div>
     </Wrapper>
   );
-};
+}
 
 InputUploadURL.defaultProps = {
   errors: null,

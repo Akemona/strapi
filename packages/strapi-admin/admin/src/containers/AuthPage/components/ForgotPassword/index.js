@@ -10,7 +10,7 @@ import Logo from '../Logo';
 import Section from '../Section';
 import Box from '../Box';
 
-const ForgotPassword = ({ formErrors, modifiedData, onChange, onSubmit }) => {
+function ForgotPassword({ formErrors, modifiedData, onChange, onSubmit }) {
   const { formatMessage } = useIntl();
 
   return (
@@ -49,7 +49,7 @@ const ForgotPassword = ({ formErrors, modifiedData, onChange, onSubmit }) => {
       </Section>
     </>
   );
-};
+}
 
 ForgotPassword.defaultProps = {
   onSubmit: (e) => e.preventDefault(),

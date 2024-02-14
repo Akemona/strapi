@@ -3,7 +3,7 @@ import { Text } from '@buffetjs/core';
 import { useIntl } from 'react-intl';
 import Wrapper from './Wrapper';
 
-const Option = () => {
+function Option() {
   const { formatMessage } = useIntl();
 
   return (
@@ -13,6 +13,6 @@ const Option = () => {
       </Text>
     </Wrapper>
   );
-};
+}
 
 export default Option;

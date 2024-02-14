@@ -63,7 +63,7 @@ import {
 /* eslint-disable indent */
 /* eslint-disable react/no-array-index-key */
 
-const FormModal = () => {
+function FormModal() {
   const [state, setState] = useState(INITIAL_STATE_DATA);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const formModalSelector = useMemo(makeSelectFormModal, []);
@@ -1547,6 +1547,6 @@ const FormModal = () => {
       />
     </>
   );
-};
+}
 
 export default FormModal;

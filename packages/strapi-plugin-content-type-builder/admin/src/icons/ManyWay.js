@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ManyWay = ({ isSelected, ...rest }) => {
+function ManyWay({ isSelected, ...rest }) {
   const rectStroke = isSelected ? '#1C5DE7' : '#E3E9F3';
   const stroke = isSelected ? '#1C5DE7' : '#ABB3C2';
   const otherStroke = isSelected ? '#1C5DE7' : '#ABB3C4';
@@ -23,7 +23,7 @@ const ManyWay = ({ isSelected, ...rest }) => {
       </g>
     </svg>
   );
-};
+}
 
 ManyWay.defaultProps = {
   isSelected: false,

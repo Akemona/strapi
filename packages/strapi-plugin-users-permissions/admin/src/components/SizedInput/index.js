@@ -3,13 +3,13 @@ import { Col } from 'reactstrap';
 import PropTypes from 'prop-types';
 import IntlInput from '../IntlInput';
 
-const SizedInput = ({ size, ...rest }) => {
+function SizedInput({ size, ...rest }) {
   return (
     <Col {...size}>
       <IntlInput {...rest} />
     </Col>
   );
-};
+}
 
 SizedInput.defaultProps = {
   size: {

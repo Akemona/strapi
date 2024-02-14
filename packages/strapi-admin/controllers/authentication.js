@@ -76,9 +76,8 @@ module.exports = {
 
     const { registrationToken } = ctx.request.query;
 
-    const registrationInfo = await strapi.admin.services.user.findRegistrationInfo(
-      registrationToken
-    );
+    const registrationInfo =
+      await strapi.admin.services.user.findRegistrationInfo(registrationToken);
 
     if (!registrationInfo) {
       return ctx.badRequest('Invalid registrationToken');

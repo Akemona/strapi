@@ -6,7 +6,7 @@ import { useIntl } from 'react-intl';
 import { BaselineAlignment } from '@akemona-org/strapi-helper-plugin';
 import { getTrad } from '../../utils';
 
-const AdvancedForm = ({ isDefaultLocale }) => {
+function AdvancedForm({ isDefaultLocale }) {
   const { values, setFieldValue } = useFormikContext();
   const { formatMessage } = useIntl();
 
@@ -42,7 +42,7 @@ const AdvancedForm = ({ isDefaultLocale }) => {
       </Text>
     </div>
   );
-};
+}
 
 AdvancedForm.propTypes = {
   isDefaultLocale: PropTypes.bool.isRequired,

@@ -7,12 +7,12 @@ import { Button } from '@buffetjs/core';
 import { getTrad } from '../../utils';
 import LocaleList from '../../components/LocaleList';
 
-const LocaleSettingsPage = ({
+function LocaleSettingsPage({
   canReadLocale,
   canCreateLocale,
   canDeleteLocale,
   canUpdateLocale,
-}) => {
+}) {
   const { formatMessage } = useIntl();
   const [isOpenedCreateModal, setIsOpenedCreateModal] = useState(false);
 
@@ -57,7 +57,7 @@ const LocaleSettingsPage = ({
       ) : null}
     </>
   );
-};
+}
 
 LocaleSettingsPage.propTypes = {
   canReadLocale: PropTypes.bool.isRequired,

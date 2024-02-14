@@ -4,7 +4,7 @@ import { Picker } from '@buffetjs/core';
 import Button from './Button';
 import List from './List';
 
-const SortPicker = ({ onChange, value }) => {
+function SortPicker({ onChange, value }) {
   return (
     <Picker
       renderButtonContent={Button}
@@ -19,7 +19,7 @@ const SortPicker = ({ onChange, value }) => {
       )}
     />
   );
-};
+}
 
 SortPicker.defaultProps = {
   onChange: () => {},

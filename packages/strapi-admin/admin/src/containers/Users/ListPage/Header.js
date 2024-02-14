@@ -5,7 +5,7 @@ import { Button } from '@buffetjs/core';
 import { Header as HeaderCompo } from '@buffetjs/custom';
 import { Envelope } from '@buffetjs/icons';
 
-const Header = ({
+function Header({
   canCreate,
   canDelete,
   canRead,
@@ -14,7 +14,7 @@ const Header = ({
   isLoading,
   onClickAddUser,
   onClickDelete,
-}) => {
+}) {
   const { formatMessage } = useGlobalContext();
   const tradBaseId = 'Settings.permissions.users.listview.';
   const headerDescriptionSuffix =
@@ -51,7 +51,7 @@ const Header = ({
   /* eslint-enable indent */
 
   return <HeaderCompo {...headerProps} isLoading={isLoading} />;
-};
+}
 
 Header.defaultProps = {
   canCreate: false,

@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 import Wrapper from './components';
 
-const PreviewCarret = ({ isComponent, style }) => (
-  <Wrapper isComponent={isComponent} style={style}>
+function PreviewCarret({ isComponent, style }) {
+  return <Wrapper isComponent={isComponent} style={style}>
     <div />
   </Wrapper>
-);
+}
 
 PreviewCarret.defaultProps = {
   isComponent: false,

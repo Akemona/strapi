@@ -7,7 +7,7 @@ import getTrad from '../../utils/getTrad';
 import RelationTargetPicker from '../RelationTargetPicker';
 import Wrapper from './Wrapper';
 
-const RelationFormBox = ({
+function RelationFormBox({
   disabled,
   error,
   header,
@@ -17,7 +17,7 @@ const RelationFormBox = ({
   oneThatIsCreatingARelationWithAnother,
   target,
   value,
-}) => {
+}) {
   const { formatMessage } = useGlobalContext();
 
   return (
@@ -55,7 +55,7 @@ const RelationFormBox = ({
       </div>
     </Wrapper>
   );
-};
+}
 
 RelationFormBox.defaultProps = {
   disabled: false,

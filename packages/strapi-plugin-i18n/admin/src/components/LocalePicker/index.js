@@ -40,7 +40,7 @@ const EllipsisParagraph = styled(Text)`
   text-align: left;
 `;
 
-const LocalePicker = () => {
+function LocalePicker() {
   const dispatch = useDispatch();
   const locales = useSelector(selectI18NLocales);
   const [{ query }, setQuery] = useQueryParams();
@@ -121,6 +121,6 @@ const LocalePicker = () => {
       }}
     />
   );
-};
+}
 
 export default LocalePicker;

@@ -34,7 +34,7 @@ function getItemStyles(initialOffset, currentOffset, mouseOffset) {
   };
 }
 
-const CustomDragLayer = () => {
+function CustomDragLayer() {
   const { itemType, isDragging, item, initialOffset, currentOffset, mouseOffset } = useDragLayer(
     (monitor) => ({
       item: monitor.getItem(),
@@ -97,6 +97,6 @@ const CustomDragLayer = () => {
       </div>
     </LayoutDndProvider>
   );
-};
+}
 
 export default CustomDragLayer;

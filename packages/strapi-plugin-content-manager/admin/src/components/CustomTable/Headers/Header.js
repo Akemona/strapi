@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Carret, useGlobalContext } from '@akemona-org/strapi-helper-plugin';
 import { useListView } from '../../../hooks';
 
-const Header = ({ fieldSchema: { type }, metadatas: { label, sortable, mainField }, name }) => {
+function Header({ fieldSchema: { type }, metadatas: { label, sortable, mainField }, name }) {
   const { _sort, firstSortableHeader, setQuery } = useListView();
   const { emitEvent } = useGlobalContext();
   const [sortBy, sortOrder] = _sort.split(':');
@@ -42,7 +42,7 @@ const Header = ({ fieldSchema: { type }, metadatas: { label, sortable, mainField
       </span>
     </th>
   );
-};
+}
 
 Header.propTypes = {
   fieldSchema: PropTypes.shape({

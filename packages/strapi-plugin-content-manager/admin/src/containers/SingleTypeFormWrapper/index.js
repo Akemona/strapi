@@ -24,7 +24,7 @@ import { getRequestUrl } from './utils';
 import buildQueryString from '../ListView/utils/buildQueryString';
 
 // This container is used to handle the CRUD
-const SingleTypeFormWrapper = ({ allLayoutData, children, slug }) => {
+function SingleTypeFormWrapper({ allLayoutData, children, slug }) {
   const { emitEvent } = useGlobalContext();
   const { push } = useHistory();
   const emitEventRef = useRef(emitEvent);
@@ -298,7 +298,7 @@ const SingleTypeFormWrapper = ({ allLayoutData, children, slug }) => {
     redirectionLink: '/',
     status,
   });
-};
+}
 
 SingleTypeFormWrapper.propTypes = {
   allLayoutData: PropTypes.shape({

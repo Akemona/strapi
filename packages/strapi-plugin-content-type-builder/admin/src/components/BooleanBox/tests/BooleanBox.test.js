@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
-import defaultThemes from '../../../../../../strapi-admin/admin/src/themes';
+import defaultThemes from '@akemona-org/strapi-admin/admin/src/themes';
 import BooleanBox from '..';
 
 jest.mock('@akemona-org/strapi-helper-plugin', () => ({

@@ -14,7 +14,7 @@ import RowLabelWithCheckbox from '../../RowLabelWithCheckbox';
 import Wrapper from './Wrapper';
 import generateCheckboxesActions from './utils/generateCheckboxesActions';
 
-const Collapse = ({
+function Collapse({
   availableActions,
   isActive,
   isGrey,
@@ -22,7 +22,7 @@ const Collapse = ({
   label,
   onClickToggle,
   pathToData,
-}) => {
+}) {
   const [modalState, setModalState] = useState({ isOpen: false, isMounted: false });
   const { modifiedData, onChangeParentCheckbox, onChangeSimpleCheckbox } =
     usePermissionsDataManager();
@@ -138,7 +138,7 @@ const Collapse = ({
       )}
     </Wrapper>
   );
-};
+}
 
 Collapse.propTypes = {
   availableActions: PropTypes.array.isRequired,

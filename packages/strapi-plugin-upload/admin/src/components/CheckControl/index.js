@@ -12,7 +12,7 @@ import CardControl from '../CardControl';
 import CustomDropdownSection from './CustomDropdownSection';
 import { getTrad } from '../../utils';
 
-const CheckControl = ({ title, onSubmitEdit }) => {
+function CheckControl({ title, onSubmitEdit }) {
   const [isOpen, setIsOpen] = useState(false);
   const { formatMessage } = useGlobalContext();
   const dropdownRef = useRef();
@@ -59,7 +59,7 @@ const CheckControl = ({ title, onSubmitEdit }) => {
       </CustomDropdownSection>
     </div>
   );
-};
+}
 
 CheckControl.defaultProps = {
   onSubmitEdit: () => {},

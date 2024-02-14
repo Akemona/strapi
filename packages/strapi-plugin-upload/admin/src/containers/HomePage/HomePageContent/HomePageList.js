@@ -7,7 +7,7 @@ import { useAppContext } from '../../../hooks';
 import List from '../../../components/List';
 import ListEmpty from '../../../components/ListEmpty';
 
-const HomePageList = ({
+function HomePageList({
   areResultsEmptyWithSettings,
   data,
   dataCount,
@@ -16,7 +16,7 @@ const HomePageList = ({
   onCardClick,
   onChange,
   onClick,
-}) => {
+}) {
   const query = useQuery();
   const {
     allowedActions: { canCreate, canUpdate },
@@ -71,7 +71,7 @@ const HomePageList = ({
       hasSearchApplied={areResultsEmptyWithSettings}
     />
   );
-};
+}
 
 HomePageList.defaultProps = {
   areResultsEmptyWithSettings: false,

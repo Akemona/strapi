@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { uniqBy } from 'lodash';
 import useDataManager from '../../hooks/useDataManager';
 
-const CreatableSelect = ({ onChange, name, styles, value }) => {
+function CreatableSelect({ onChange, name, styles, value }) {
   const { allComponentsCategories } = useDataManager();
 
   const handleChange = (inputValue, actionMeta) => {
@@ -42,7 +42,7 @@ const CreatableSelect = ({ onChange, name, styles, value }) => {
       options={formatOptions()}
     />
   );
-};
+}
 
 CreatableSelect.defaultProps = {
   value: null,

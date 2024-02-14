@@ -18,7 +18,7 @@ const makeSelectLatestRelease = () =>
     shouldUpdateStrapi: adminState.shouldUpdateStrapi,
   }));
 
-const ApplicationInfosPage = () => {
+function ApplicationInfosPage() {
   const { formatMessage } = useIntl();
   const selectAppInfos = useMemo(makeSelectAppInfos, []);
   const selectLatestRealase = useMemo(makeSelectLatestRelease, []);
@@ -84,6 +84,6 @@ const ApplicationInfosPage = () => {
       </Bloc>
     </div>
   );
-};
+}
 
 export default memo(ApplicationInfosPage);

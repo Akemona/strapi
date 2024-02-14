@@ -15,7 +15,7 @@ import UpperFirst from './UpperFirst';
 
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 
-const MenuList = ({ selectProps, ...rest }) => {
+function MenuList({ selectProps, ...rest }) {
   const Component = components.MenuList;
   const { arrayOfOptionsGroupedByCategory } = selectProps;
 
@@ -127,7 +127,7 @@ const MenuList = ({ selectProps, ...rest }) => {
       </Ul>
     </Component>
   );
-};
+}
 
 MenuList.propTypes = {
   selectProps: PropTypes.shape({

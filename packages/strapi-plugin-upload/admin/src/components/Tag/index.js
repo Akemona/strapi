@@ -4,7 +4,7 @@ import { Text } from '@buffetjs/core';
 
 import Wrapper from './Wrapper';
 
-const Tag = ({ label }) => {
+function Tag({ label }) {
   return (
     <Wrapper>
       <Text color="grey" fontWeight="bold" fontSize="xs" textTransform="uppercase">
@@ -12,7 +12,7 @@ const Tag = ({ label }) => {
       </Text>
     </Wrapper>
   );
-};
+}
 
 Tag.defaultProps = {
   label: null,

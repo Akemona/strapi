@@ -8,7 +8,7 @@ import BoundRoute from '../BoundRoute';
 import SizedInput from '../SizedInput';
 import { Header, Wrapper, Sticky } from './Components';
 
-const Policies = () => {
+function Policies() {
   const { modifiedData, selectedAction, routes, policies, onChange } = useUsersPermissions();
   const baseTitle = 'users-permissions.Policies.header';
   const title = !selectedAction ? 'hint' : 'title';
@@ -56,6 +56,6 @@ const Policies = () => {
       </Sticky>
     </Wrapper>
   );
-};
+}
 
 export default Policies;

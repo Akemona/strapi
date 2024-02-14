@@ -18,7 +18,7 @@ const Border = styled.div`
   padding: 0px 10px;
 `;
 
-const SubCategory = ({ subCategory }) => {
+function SubCategory({ subCategory }) {
   const { formatMessage } = useIntl();
   const { onChange, onChangeSelectAll, onSelectedAction, selectedAction, modifiedData } =
     useUsersPermissions();
@@ -102,7 +102,7 @@ const SubCategory = ({ subCategory }) => {
       </Padded>
     </SubCategoryWrapper>
   );
-};
+}
 
 SubCategory.propTypes = {
   subCategory: PropTypes.object.isRequired,

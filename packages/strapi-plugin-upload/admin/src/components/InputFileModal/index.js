@@ -8,7 +8,7 @@ import Label from './Label';
 import Input from '../Input';
 import P from './P';
 
-const InputFileModal = ({ name, onChange }) => {
+function InputFileModal({ name, onChange }) {
   const [isDragging, setIsDragging] = useState(false);
   const { formatMessage } = useGlobalContext();
   const ref = createRef();
@@ -58,7 +58,7 @@ const InputFileModal = ({ name, onChange }) => {
       {isDragging && <div className="dragzone" onDragLeave={handleDragLeave} />}
     </Label>
   );
-};
+}
 
 InputFileModal.defaultProps = {
   name: 'files',

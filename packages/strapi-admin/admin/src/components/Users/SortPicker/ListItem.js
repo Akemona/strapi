@@ -4,7 +4,7 @@ import { Text } from '@buffetjs/core';
 import { useIntl } from 'react-intl';
 import StyledListItem from './StyledListItem';
 
-const ListItem = ({ onClick, selectedItem, label, value }) => {
+function ListItem({ onClick, selectedItem, label, value }) {
   const { formatMessage } = useIntl();
 
   const handleClick = () => {
@@ -18,7 +18,7 @@ const ListItem = ({ onClick, selectedItem, label, value }) => {
       </Text>
     </StyledListItem>
   );
-};
+}
 
 ListItem.defaultProps = {
   selectedItem: null,

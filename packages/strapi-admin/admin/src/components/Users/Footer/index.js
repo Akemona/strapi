@@ -4,7 +4,7 @@ import { PageFooter } from '@akemona-org/strapi-helper-plugin';
 import { Padded } from '@buffetjs/core';
 import Wrapper from './Wrapper';
 
-const Footer = ({ count, onChange, params }) => {
+function Footer({ count, onChange, params }) {
   return (
     <Wrapper>
       <Padded left right size="xs">
@@ -17,7 +17,7 @@ const Footer = ({ count, onChange, params }) => {
       </Padded>
     </Wrapper>
   );
-};
+}
 
 Footer.defaultProps = {
   count: 0,

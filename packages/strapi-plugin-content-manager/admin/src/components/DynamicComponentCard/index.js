@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Wrapper from './Wrapper';
 
-const DynamicComponentCard = ({ children, componentUid, friendlyName, icon, onClick }) => {
+function DynamicComponentCard({ children, componentUid, friendlyName, icon, onClick }) {
   return (
     <Wrapper
       onClick={(e) => {
@@ -23,7 +23,7 @@ const DynamicComponentCard = ({ children, componentUid, friendlyName, icon, onCl
       {children}
     </Wrapper>
   );
-};
+}
 
 DynamicComponentCard.defaultProps = {
   children: null,

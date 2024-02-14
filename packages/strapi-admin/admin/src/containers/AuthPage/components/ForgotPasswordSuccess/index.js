@@ -9,7 +9,7 @@ import Logo from '../Logo';
 import Section from '../Section';
 import Envelope from './Envelope';
 
-const ForgotPasswordSuccess = () => {
+function ForgotPasswordSuccess() {
   const { formatMessage } = useIntl();
   const { push } = useHistory();
 
@@ -72,6 +72,6 @@ const ForgotPasswordSuccess = () => {
       </Section>
     </>
   );
-};
+}
 
 export default ForgotPasswordSuccess;

@@ -3,7 +3,7 @@ import CardImgWrapper from '../CardImgWrapper';
 import Bar from './Bar';
 import Wrapper from './Wrapper';
 
-const CardEmpty = () => {
+function CardEmpty() {
   return (
     <Wrapper>
       <CardImgWrapper />
@@ -11,6 +11,6 @@ const CardEmpty = () => {
       <Bar />
     </Wrapper>
   );
-};
+}
 
 export default CardEmpty;

@@ -8,7 +8,7 @@ import Button from './Button';
 import Container from './Container';
 import Wrapper from './Wrapper';
 
-const InfiniteLoadingIndicator = ({ onClick }) => {
+function InfiniteLoadingIndicator({ onClick }) {
   return (
     <Wrapper>
       <Container>
@@ -26,7 +26,7 @@ const InfiniteLoadingIndicator = ({ onClick }) => {
       </Container>
     </Wrapper>
   );
-};
+}
 
 InfiniteLoadingIndicator.defaultProps = {
   onClick: () => {},

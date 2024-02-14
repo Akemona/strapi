@@ -11,7 +11,7 @@ import ErrorMessage from './ErrorMessage';
 import IndicatorSeparator from './IndicatorSeparator';
 import MultiValueContainer from './MultiValueContainer';
 
-const SelectRoles = ({ error, isDisabled, name, onChange, value }) => {
+function SelectRoles({ error, isDisabled, name, onChange, value }) {
   const { formatMessage } = useGlobalContext();
   const translatedError = error && error.id ? formatMessage(error) : null;
   const { roles: data, isLoading } = useRolesList();
@@ -47,7 +47,7 @@ const SelectRoles = ({ error, isDisabled, name, onChange, value }) => {
       )}
     </>
   );
-};
+}
 
 SelectRoles.defaultProps = {
   error: null,

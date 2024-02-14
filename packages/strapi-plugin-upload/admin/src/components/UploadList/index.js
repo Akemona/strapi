@@ -11,13 +11,13 @@ import ListTitle from './ListTitle';
 import ListTitleWrapper from './ListTitleWrapper';
 import CustomModalSection from './CustomModalSection';
 
-const UploadList = ({
+function UploadList({
   filesToUpload,
   onClickCancelUpload,
   onClickDeleteFileToUpload,
   onClickEditNewFile,
   onGoToAddBrowseFiles,
-}) => {
+}) {
   const matrix = createMatrix(filesToUpload);
   const filesToUploadLength = filesToUpload.length;
   const titleId = `modal.upload-list.sub-header-title.${
@@ -69,7 +69,7 @@ const UploadList = ({
       </CustomModalSection>
     </>
   );
-};
+}
 
 UploadList.defaultProps = {
   filesToUpload: [],

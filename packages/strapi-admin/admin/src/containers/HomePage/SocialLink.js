@@ -33,7 +33,7 @@ function getSrc(name) {
   }
 }
 
-const SocialLink = ({ link, name }) => {
+function SocialLink({ link, name }) {
   return (
     <SocialLinkWrapper className="col-6">
       <a href={link} target="_blank" rel="noopener noreferrer">
@@ -42,7 +42,7 @@ const SocialLink = ({ link, name }) => {
       </a>
     </SocialLinkWrapper>
   );
-};
+}
 
 SocialLink.propTypes = {
   link: PropTypes.string.isRequired,

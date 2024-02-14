@@ -41,7 +41,7 @@ const Name = styled(Label)`
 // TODO : Make this component generic -> InputDropdown.
 // TODO : Use the Compounds components pattern
 // https://blog.bitsrc.io/understanding-compound-components-in-react-23c4b84535b5
-const InputUID = ({
+function InputUID({
   attribute,
   contentTypeUID,
   description,
@@ -54,7 +54,7 @@ const InputUID = ({
   value,
   editable,
   ...inputProps
-}) => {
+}) {
   const { modifiedData, initialData, layout } = useContentManagerEditViewDataManager();
   const [isLoading, setIsLoading] = useState(false);
   const [availability, setAvailability] = useState(null);
@@ -294,7 +294,7 @@ const InputUID = ({
       }}
     </Error>
   );
-};
+}
 
 InputUID.propTypes = {
   attribute: PropTypes.object.isRequired,

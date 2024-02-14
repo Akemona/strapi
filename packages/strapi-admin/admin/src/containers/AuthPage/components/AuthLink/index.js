@@ -7,7 +7,7 @@ import Section from '../Section';
 import Link from './Link';
 import Wrapper from './Wrapper';
 
-const AuthLink = ({ children, label, to }) => {
+function AuthLink({ children, label, to }) {
   const { formatMessage } = useIntl();
   const message = formatMessage({ id: label });
 
@@ -20,7 +20,7 @@ const AuthLink = ({ children, label, to }) => {
       </Wrapper>
     </Section>
   );
-};
+}
 
 AuthLink.defaultProps = {
   children: null,

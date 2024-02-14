@@ -7,7 +7,7 @@ import { Flex } from '@buffetjs/core';
 import CardPreview from '../CardPreview';
 import Chevron from './Chevron';
 
-const InputFilePreview = ({ file, onClick, isSlider }) => {
+function InputFilePreview({ file, onClick, isSlider }) {
   const fileUrl = prefixFileUrlWithBackendUrl(get(file, ['formats', 'small', 'url'], file.url));
 
   return (
@@ -22,7 +22,7 @@ const InputFilePreview = ({ file, onClick, isSlider }) => {
       {isSlider && <Chevron side="right" onClick={() => onClick(true)} />}
     </Flex>
   );
-};
+}
 
 InputFilePreview.propTypes = {
   file: PropTypes.object,

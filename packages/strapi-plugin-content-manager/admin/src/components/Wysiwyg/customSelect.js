@@ -12,7 +12,7 @@ import useWysiwyg from '../../hooks/useWysiwyg';
 import { SELECT_OPTIONS } from './constants';
 import SelectWrapper from './SelectWrapper';
 
-const CustomSelect = ({ disabled }) => {
+function CustomSelect({ disabled }) {
   const { headerValue, isFullscreen, handleChangeSelect } = useWysiwyg();
 
   return (
@@ -26,7 +26,7 @@ const CustomSelect = ({ disabled }) => {
       />
     </SelectWrapper>
   );
-};
+}
 
 CustomSelect.defaultProps = {
   disabled: false,

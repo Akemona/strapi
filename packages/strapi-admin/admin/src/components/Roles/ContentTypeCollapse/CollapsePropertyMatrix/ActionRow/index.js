@@ -14,7 +14,7 @@ import SubActionRow from '../SubActionRow';
 import Wrapper from './Wrapper';
 import getRowLabelCheckboxeState from './utils/getRowLabelCheckboxeState';
 
-const ActionRow = ({
+function ActionRow({
   childrenForm,
   label,
   isFormDisabled,
@@ -23,7 +23,7 @@ const ActionRow = ({
   pathToData,
   propertyActions,
   propertyName,
-}) => {
+}) {
   const [rowToOpen, setRowToOpen] = useState(null);
   const {
     modifiedData,
@@ -141,7 +141,7 @@ const ActionRow = ({
       )}
     </>
   );
-};
+}
 
 ActionRow.defaultProps = {
   childrenForm: [],

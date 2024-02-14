@@ -8,7 +8,7 @@ import CardControlsWrapper from '../CardControlsWrapper';
 import ListWrapper from '../ListWrapper';
 import CardControl from '../CardControl';
 
-const SortableList = ({
+function SortableList({
   allowedActions,
   canSelect,
   data,
@@ -17,7 +17,7 @@ const SortableList = ({
   onChange,
   onClickEditFile,
   selectedItems,
-}) => {
+}) {
   const handleClick = (e) => {
     e.stopPropagation();
   };
@@ -73,7 +73,7 @@ const SortableList = ({
       </div>
     </ListWrapper>
   );
-};
+}
 
 SortableList.defaultProps = {
   allowedActions: {

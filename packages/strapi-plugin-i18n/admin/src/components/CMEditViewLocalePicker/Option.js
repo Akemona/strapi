@@ -18,7 +18,7 @@ const statusToTitleMap = {
   'did-not-create-locale': getTrad('components.Select.locales.not-available'),
 };
 
-const Option = (props) => {
+function Option(props) {
   const { formatMessage } = useIntl();
   const Component = components.Option;
   const options = get(props, ['selectProps', 'options'], {});
@@ -45,7 +45,7 @@ const Option = (props) => {
       </Flex>
     </Component>
   );
-};
+}
 
 Option.defaultProps = {};
 

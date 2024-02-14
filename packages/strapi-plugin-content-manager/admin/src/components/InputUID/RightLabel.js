@@ -7,7 +7,7 @@ import pluginId from '../../pluginId';
 import getTrad from '../../utils/getTrad';
 import RightContentLabel from './RightContentLabel';
 
-const RightLabel = ({ isAvailable }) => {
+function RightLabel({ isAvailable }) {
   const { formatMessage } = useGlobalContext();
 
   return isAvailable ? (
@@ -29,7 +29,7 @@ const RightLabel = ({ isAvailable }) => {
       </RightContentLabel>
     </>
   );
-};
+}
 
 RightLabel.propTypes = {
   isAvailable: PropTypes.bool,

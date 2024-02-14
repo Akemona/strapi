@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Cloud = (props) => {
+function Cloud(props) {
   return (
     <svg width="53" height="42" xmlns="http://www.w3.org/2000/svg" {...props}>
       <defs>
@@ -30,6 +30,6 @@ const Cloud = (props) => {
       </g>
     </svg>
   );
-};
+}
 
 export default Cloud;

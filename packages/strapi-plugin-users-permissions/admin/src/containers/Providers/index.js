@@ -21,7 +21,7 @@ import ModalForm from '../../components/ModalForm';
 import createProvidersArray from './utils/createProvidersArray';
 import forms from './utils/forms';
 
-const ProvidersPage = () => {
+function ProvidersPage() {
   const { formatMessage } = useIntl();
   const { emitEvent } = useGlobalContext();
   const emitEventRef = useRef(emitEvent);
@@ -278,6 +278,6 @@ const ProvidersPage = () => {
       </ModalForm>
     </>
   );
-};
+}
 
 export default ProvidersPage;

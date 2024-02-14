@@ -24,7 +24,7 @@ const EmptyInputMediaWrapper = styled.div`
   }
 `;
 
-const EmptyInputMedia = ({ children, ...props }) => {
+function EmptyInputMedia({ children, ...props }) {
   const { formatMessage } = useIntl();
 
   const [isInDropZone, setIsInDropZone] = useState(false);
@@ -46,7 +46,7 @@ const EmptyInputMedia = ({ children, ...props }) => {
       {isInDropZone ? null : children}
     </EmptyInputMediaWrapper>
   );
-};
+}
 
 EmptyInputMedia.propTypes = {
   disabled: PropTypes.bool,

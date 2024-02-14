@@ -11,7 +11,7 @@ import Wrapper from './Wrapper';
 import ListTitleWrapper from './ListTitleWrapper';
 import ListWrapper from './ListWrapper';
 
-const SelectedAssets = () => {
+function SelectedAssets() {
   const {
     allowedActions,
     selectedFiles,
@@ -51,6 +51,6 @@ const SelectedAssets = () => {
       </ListWrapper>
     </Wrapper>
   );
-};
+}
 
 export default SelectedAssets;

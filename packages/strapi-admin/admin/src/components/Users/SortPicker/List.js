@@ -15,7 +15,7 @@ const sortOptions = {
   username_desc: 'username:DESC',
 };
 
-const SortList = ({ onClick, selectedItem }) => {
+function SortList({ onClick, selectedItem }) {
   return (
     <ListWrapper>
       {Object.keys(sortOptions).map((item) => {
@@ -31,7 +31,7 @@ const SortList = ({ onClick, selectedItem }) => {
       })}
     </ListWrapper>
   );
-};
+}
 
 SortList.defaultProps = {
   onClick: () => {},

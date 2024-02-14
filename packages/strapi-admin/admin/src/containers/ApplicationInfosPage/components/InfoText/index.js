@@ -2,7 +2,7 @@ import React from 'react';
 import { Padded, Text } from '@buffetjs/core';
 import PropTypes from 'prop-types';
 
-const InfoText = ({ content }) => {
+function InfoText({ content }) {
   return (
     <Padded top size="xs">
       <Text fontWeight="semiBold" lineHeight="13px">
@@ -10,7 +10,7 @@ const InfoText = ({ content }) => {
       </Text>
     </Padded>
   );
-};
+}
 
 InfoText.propTypes = {
   content: PropTypes.string.isRequired,

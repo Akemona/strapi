@@ -22,13 +22,13 @@ const relations = {
   manyWay: ManyWay,
 };
 
-const RelationFormNaturePicker = ({
+function RelationFormNaturePicker({
   nature,
   naturePickerType,
   onChange,
   oneThatIsCreatingARelationWithAnother,
   target,
-}) => {
+}) {
   const { contentTypes, modifiedData } = useDataManager();
   const ctRelations = ['oneWay', 'oneToOne', 'oneToMany', 'manyToOne', 'manyToMany', 'manyWay'];
   const componentRelations = ['oneWay', 'manyWay'];
@@ -95,7 +95,7 @@ const RelationFormNaturePicker = ({
       </div>
     </Wrapper>
   );
-};
+}
 
 RelationFormNaturePicker.defaultProps = {
   nature: 'oneWay',

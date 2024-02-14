@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ManyToMany = ({ isSelected, ...rest }) => {
+function ManyToMany({ isSelected, ...rest }) {
   const stroke = isSelected ? '#1C5DE7' : '#919BAE';
   let rectProps = {
     strokeOpacity: '.1',
@@ -76,7 +76,7 @@ const ManyToMany = ({ isSelected, ...rest }) => {
       </g>
     </svg>
   );
-};
+}
 
 ManyToMany.defaultProps = {
   isSelected: false,

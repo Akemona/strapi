@@ -6,7 +6,7 @@ import Add from '../AddDropdown';
 import SortWrapper from '../SortWrapper';
 import Item from './Item';
 
-const SortableList = ({ addItem, buttonData, moveItem, removeItem }) => {
+function SortableList({ addItem, buttonData, moveItem, removeItem }) {
   const { relationsLayout } = useLayoutDnd();
 
   return (
@@ -44,7 +44,7 @@ const SortableList = ({ addItem, buttonData, moveItem, removeItem }) => {
       </SortWrapper>
     </div>
   );
-};
+}
 
 SortableList.defaultProps = {
   buttonData: [],

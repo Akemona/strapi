@@ -9,7 +9,7 @@ import { formatBytes, getTrad } from '../../utils';
 
 import FileDetailsBoxWrapper from './FileDetailsBoxWrapper';
 
-const FileDetailsBox = ({ file }) => {
+function FileDetailsBox({ file }) {
   const { formatMessage } = useIntl();
   const fileSize = file.mime ? get(file, 'size', 0) : get(file, 'size', 0) / 1000;
   const sections = [
@@ -73,7 +73,7 @@ const FileDetailsBox = ({ file }) => {
       })}
     </FileDetailsBoxWrapper>
   );
-};
+}
 
 FileDetailsBox.defaultProps = {
   file: {

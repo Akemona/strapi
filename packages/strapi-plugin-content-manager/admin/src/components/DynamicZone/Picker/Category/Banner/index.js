@@ -6,7 +6,7 @@ import Wrapper from './Wrapper';
 
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 
-const Banner = ({ category, isOpen, onToggle, isFirst }) => {
+function Banner({ category, isOpen, onToggle, isFirst }) {
   const handleClick = () => {
     onToggle(category);
   };
@@ -19,7 +19,7 @@ const Banner = ({ category, isOpen, onToggle, isFirst }) => {
       <div className="label">{category}</div>
     </Wrapper>
   );
-};
+}
 
 Banner.propTypes = {
   category: PropTypes.string.isRequired,

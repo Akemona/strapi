@@ -12,7 +12,7 @@ import extensions from './utils/extensions.json';
 
 import Wrapper from './Wrapper';
 
-const FileIcon = ({ ext }) => {
+function FileIcon({ ext }) {
   const iconName = Object.keys(extensions).find((key) => extensions[key].includes(ext)) || 'alt';
 
   return (
@@ -20,7 +20,7 @@ const FileIcon = ({ ext }) => {
       <FontAwesomeIcon icon={['far', `file-${iconName}`]} />
     </Wrapper>
   );
-};
+}
 
 FileIcon.defaultProps = {
   ext: 'alt',

@@ -13,7 +13,7 @@ const Description = styled(BaseDescription)`
   line-height: normal;
 `;
 
-const RolesSelectComponent = ({ isDisabled, value, error, onChange }) => {
+function RolesSelectComponent({ isDisabled, value, error, onChange }) {
   const { formatMessage } = useIntl();
 
   return (
@@ -37,7 +37,7 @@ const RolesSelectComponent = ({ isDisabled, value, error, onChange }) => {
       </Description>
     </Col>
   );
-};
+}
 
 RolesSelectComponent.defaultProps = {
   value: null,

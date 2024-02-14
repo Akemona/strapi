@@ -7,7 +7,7 @@ import FiltersCard from './FiltersCard';
 
 import formatFilter from './utils/formatFilter';
 
-const FiltersPicker = ({ onChange }) => {
+function FiltersPicker({ onChange }) {
   const handleChange = ({ target: { value } }) => {
     onChange({ target: { name: 'filters', value: formatFilter(value) } });
   };
@@ -30,7 +30,7 @@ const FiltersPicker = ({ onChange }) => {
       )}
     />
   );
-};
+}
 
 FiltersPicker.defaultProps = {
   onChange: () => {},

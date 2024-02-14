@@ -18,7 +18,7 @@ import BaselineAlignment from './BaselineAlignment';
 import pluginId from '../../../pluginId';
 import { getTrad } from '../../../utils';
 
-const RoleListPage = () => {
+function RoleListPage() {
   const { formatMessage } = useIntl();
   const { emitEvent } = useGlobalContext();
   const { push } = useHistory();
@@ -188,6 +188,6 @@ const RoleListPage = () => {
       )}
     </>
   );
-};
+}
 
 export default RoleListPage;

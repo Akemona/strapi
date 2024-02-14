@@ -16,7 +16,7 @@ import init from './init';
 import { initialState, reducer } from './reducer';
 import useChangeLanguage from '../LanguageProvider/hooks/useChangeLanguage';
 
-const AuthPage = ({ hasAdmin, setHasAdmin }) => {
+function AuthPage({ hasAdmin, setHasAdmin }) {
   const { push } = useHistory();
   const changeLocale = useChangeLanguage();
   const {
@@ -307,7 +307,7 @@ const AuthPage = ({ hasAdmin, setHasAdmin }) => {
       </BaselineAlignment>
     </Padded>
   );
-};
+}
 
 AuthPage.defaultProps = {
   hasAdmin: false,

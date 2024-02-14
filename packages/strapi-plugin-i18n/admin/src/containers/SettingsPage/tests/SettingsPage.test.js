@@ -10,11 +10,11 @@ import { request, useUserPermissions } from '@akemona-org/strapi-helper-plugin';
 import { fireEvent, render, screen, within, waitFor } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import themes from '@akemona-org/strapi-admin/admin/src/themes';
 import LocaleSettingsPage from '..';
-import themes from '../../../../../../strapi-admin/admin/src/themes';
 import i18nReducers, { initialState } from '../../../hooks/reducers';
 
-const TestWrapper = ({ children }) => {
+function TestWrapper({ children }) {
   const queryClient = new QueryClient();
 
   const initialStoreState = fromJS(initialState);
@@ -28,7 +28,7 @@ const TestWrapper = ({ children }) => {
       </QueryClientProvider>
     </Provider>
   );
-};
+}
 
 // TODO: we should not be forced to mock this module
 // but it bugs somehow when run with jest

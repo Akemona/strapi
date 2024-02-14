@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Link = () => {
+function Link() {
   return (
     <svg width="12" height="6" xmlns="http://www.w3.org/2000/svg">
       <g fill="none" fillRule="evenodd">
@@ -16,6 +16,6 @@ const Link = () => {
       </g>
     </svg>
   );
-};
+}
 
 export default Link;

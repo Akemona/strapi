@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 
 import LeftMenuLinkContent from './LeftMenuLinkContent';
 
-const LeftMenuLink = ({ destination, iconName, label, location, notificationsCount, search }) => {
+function LeftMenuLink({ destination, iconName, label, location, notificationsCount, search }) {
   return (
     <LeftMenuLinkContent
       destination={destination}
@@ -20,7 +20,7 @@ const LeftMenuLink = ({ destination, iconName, label, location, notificationsCou
       search={search}
     />
   );
-};
+}
 
 LeftMenuLink.propTypes = {
   destination: PropTypes.string.isRequired,

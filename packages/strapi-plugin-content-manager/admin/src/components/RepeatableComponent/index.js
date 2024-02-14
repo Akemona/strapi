@@ -15,7 +15,7 @@ import Button from './AddFieldButton';
 import DraggedItem from './DraggedItem';
 import EmptyComponent from './EmptyComponent';
 
-const RepeatableComponent = ({
+function RepeatableComponent({
   addRepeatableComponentToField,
   formErrors,
   componentUid,
@@ -26,7 +26,7 @@ const RepeatableComponent = ({
   max,
   min,
   name,
-}) => {
+}) {
   const [collapseToOpen, setCollapseToOpen] = useState('');
   const [, drop] = useDrop({ accept: ItemTypes.COMPONENT });
   const { getComponentLayout } = useContentTypeLayout();
@@ -156,7 +156,7 @@ const RepeatableComponent = ({
       )}
     </div>
   );
-};
+}
 
 RepeatableComponent.defaultProps = {
   componentValue: null,

@@ -13,13 +13,13 @@ const NotificationWrapper = styled.div`
   font-size: 11px;
 `;
 
-const NotificationCount = ({ count }) => (
-  <NotificationWrapper>
+function NotificationCount({ count }) {
+  return <NotificationWrapper>
     <Text fontWeight="bold" fontSize="xs" lineHeight="14px" color="#919bae">
       {count}
     </Text>
   </NotificationWrapper>
-);
+}
 
 NotificationCount.defaultProps = {
   count: 0,

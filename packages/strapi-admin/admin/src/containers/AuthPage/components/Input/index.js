@@ -3,7 +3,7 @@ import { Inputs } from '@buffetjs/custom';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
-const Input = ({ error, label, placeholder, ...rest }) => {
+function Input({ error, label, placeholder, ...rest }) {
   const { formatMessage } = useIntl();
   const labelMessage = formatMessage({ id: label });
   const placeholderMessage = placeholder ? formatMessage({ id: placeholder }) : '';
@@ -16,7 +16,7 @@ const Input = ({ error, label, placeholder, ...rest }) => {
   return (
     <Inputs {...rest} error={errorMessage} label={labelMessage} placeholder={placeholderMessage} />
   );
-};
+}
 
 Input.defaultProps = {
   error: null,

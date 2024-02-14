@@ -4,7 +4,7 @@ import { get } from 'lodash';
 import { useParams } from 'react-router-dom';
 import PageTitle from '../../../../components/SettingsPageTitle';
 
-const SettingDispatcher = () => {
+function SettingDispatcher() {
   const { plugins } = useGlobalContext();
   const { pluginId } = useParams();
 
@@ -22,6 +22,6 @@ const SettingDispatcher = () => {
       <Compo settingsBaseURL="/settings" />
     </>
   );
-};
+}
 
 export default memo(SettingDispatcher);

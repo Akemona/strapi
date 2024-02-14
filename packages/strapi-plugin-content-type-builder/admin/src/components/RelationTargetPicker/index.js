@@ -8,7 +8,7 @@ import useDataManager from '../../hooks/useDataManager';
 import Item from './Item';
 import Wrapper from './Wrapper';
 
-const RelationTargetPicker = ({ onChange, oneThatIsCreatingARelationWithAnother, target }) => {
+function RelationTargetPicker({ onChange, oneThatIsCreatingARelationWithAnother, target }) {
   const [isOpen, setIsOpen] = useState(false);
   const { contentTypes, sortedContentTypesList } = useDataManager();
   const allowedContentTypesForRelation = useMemo(
@@ -77,7 +77,7 @@ const RelationTargetPicker = ({ onChange, oneThatIsCreatingARelationWithAnother,
       </Dropdown>
     </Wrapper>
   );
-};
+}
 
 RelationTargetPicker.propTypes = {
   onChange: PropTypes.func.isRequired,

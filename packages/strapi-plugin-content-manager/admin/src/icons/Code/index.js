@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Code = () => {
+function Code() {
   return (
     <svg width="12" height="8" xmlns="http://www.w3.org/2000/svg">
       <g fill="#333740" fillRule="evenodd">
@@ -8,6 +8,6 @@ const Code = () => {
       </g>
     </svg>
   );
-};
+}
 
 export default Code;

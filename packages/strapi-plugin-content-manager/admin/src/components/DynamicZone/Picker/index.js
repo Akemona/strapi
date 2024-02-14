@@ -8,7 +8,7 @@ import { useContentTypeLayout } from '../../../hooks';
 import Category from './Category';
 import Wrapper from './Wrapper';
 
-const Picker = ({ components, isOpen, onClickAddComponent }) => {
+function Picker({ components, isOpen, onClickAddComponent }) {
   const { getComponentLayout } = useContentTypeLayout();
   const [categoryToOpen, setCategoryToOpen] = useState('');
 
@@ -77,7 +77,7 @@ const Picker = ({ components, isOpen, onClickAddComponent }) => {
       </Wrapper>
     </Collapse>
   );
-};
+}
 
 Picker.propTypes = {
   components: PropTypes.array.isRequired,

@@ -6,7 +6,7 @@ import Header from './Header';
 import ActionRow from './ActionRow';
 import Wrapper from './Wrapper';
 
-const CollapsePropertyMatrix = ({
+function CollapsePropertyMatrix({
   availableActions,
   childrenForm,
   isLast,
@@ -14,7 +14,7 @@ const CollapsePropertyMatrix = ({
   label,
   pathToData,
   propertyName,
-}) => {
+}) {
   const propertyActions = useMemo(
     () => generateHeadersFromActions(availableActions, propertyName),
     [availableActions, propertyName]
@@ -40,7 +40,7 @@ const CollapsePropertyMatrix = ({
       </Padded>
     </Wrapper>
   );
-};
+}
 
 CollapsePropertyMatrix.propTypes = {
   childrenForm: PropTypes.array.isRequired,

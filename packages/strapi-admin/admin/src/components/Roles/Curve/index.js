@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
-const Curve = (props) => (
-  <svg
+function Curve(props) {
+  return <svg
     style={{
       height: '14px',
       transform: 'translate(-3.2px, -1px)',
@@ -23,7 +23,7 @@ const Curve = (props) => (
       />
     </g>
   </svg>
-);
+}
 
 Curve.defaultProps = {
   fill: '#f3f4f4',
