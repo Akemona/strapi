@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.12.4",
+  "version": "3.13.0",
   "description": "A powerful UI to easily manage your data.",
   "strapi": {
     "name": "Content Manager",
@@ -12,8 +12,8 @@
     "required": true
   },
   "dependencies": {
-    "@akemona-org/strapi-helper-plugin": "3.12.4",
-    "@akemona-org/strapi-utils": "3.12.4",
+    "@akemona-org/strapi-helper-plugin": "3.13.0",
+    "@akemona-org/strapi-utils": "3.13.0",
     "@buffetjs/core": "3.3.8",
     "@buffetjs/custom": "3.3.8",
     "@buffetjs/hooks": "3.3.8",
