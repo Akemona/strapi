@@ -28,7 +28,7 @@ exports[`VideoPreview shows its initial state with no props 1`] = `
   border-radius: 2px;
 }
 
-.c1:before {
+.c1::before {
   content: '';
   display: block;
   position: absolute;

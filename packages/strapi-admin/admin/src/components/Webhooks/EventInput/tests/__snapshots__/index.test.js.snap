@@ -172,7 +172,7 @@ exports[`<EventInput /> should match the snapshot 1`] = `
   overflow: hidden;
 }
 
-.c0 tr:before {
+.c0 tr::before {
   content: '-';
   position: absolute;
   left: 20px;
@@ -185,7 +185,7 @@ exports[`<EventInput /> should match the snapshot 1`] = `
   background-color: #f6f6f6;
 }
 
-.c0 tr:first-of-type:before {
+.c0 tr:first-of-type::before {
   left: 0;
   height: 2px;
   width: 100%;
@@ -207,7 +207,7 @@ exports[`<EventInput /> should match the snapshot 1`] = `
 .c0 tbody {
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-  box-shadow: inset 0px 0px 0px 1px #f6f6f6;
+  box-shadow: inset 0 0 0 1px #f6f6f6;
 }
 
 .c0 tbody td {
@@ -215,7 +215,7 @@ exports[`<EventInput /> should match the snapshot 1`] = `
   padding-top: 3px;
 }
 
-.c0 tbody td input[type='checkbox']:disabled:before {
+.c0 tbody td input[type='checkbox']:disabled::before {
   background-color: #e8e5e5;
 }
 

@@ -172,7 +172,7 @@ exports[`<Inputs /> should match the snapshot if type is events 1`] = `
   overflow: hidden;
 }
 
-.c2 tr:before {
+.c2 tr::before {
   content: '-';
   position: absolute;
   left: 20px;
@@ -185,7 +185,7 @@ exports[`<Inputs /> should match the snapshot if type is events 1`] = `
   background-color: #f6f6f6;
 }
 
-.c2 tr:first-of-type:before {
+.c2 tr:first-of-type::before {
   left: 0;
   height: 2px;
   width: 100%;
@@ -207,7 +207,7 @@ exports[`<Inputs /> should match the snapshot if type is events 1`] = `
 .c2 tbody {
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-  box-shadow: inset 0px 0px 0px 1px #f6f6f6;
+  box-shadow: inset 0 0 0 1px #f6f6f6;
 }
 
 .c2 tbody td {
@@ -215,7 +215,7 @@ exports[`<Inputs /> should match the snapshot if type is events 1`] = `
   padding-top: 3px;
 }
 
-.c2 tbody td input[type='checkbox']:disabled:before {
+.c2 tbody td input[type='checkbox']:disabled::before {
   background-color: #e8e5e5;
 }
 
@@ -621,7 +621,7 @@ exports[`<Inputs /> should match the snapshot if type is headers 1`] = `
 
 .c2 {
   margin-top: 12px;
-  padding: 23px 24px 26px 24px;
+  padding: 23px 24px 26px;
   background-color: #fafafb;
   border-radius: 2px;
 }
