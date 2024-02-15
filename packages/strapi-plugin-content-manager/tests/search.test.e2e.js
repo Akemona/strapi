@@ -62,7 +62,8 @@ const bedFixtures = [
     sku: 'sleepybed_0152',
     savEmail: 'sav@bed.fr',
     type: 'foam',
-    serialNumber: 9999999999999999n,
+    // eslint-disable-next-line no-loss-of-precision
+    serialNumber: 9999999999999999,
     peopleNumber: 6,
     fabricThickness: 1.14157,
   },
@@ -74,7 +75,7 @@ const bedFixtures = [
     sku: 'tiredbed_0001',
     savEmail: 'sav@sleep.fr',
     type: 'feather',
-    serialNumber: 1111111111111111n,
+    serialNumber: 1111111111111111,
     peopleNumber: 1,
     fabricThickness: 1.0001,
   },
