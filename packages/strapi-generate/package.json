@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.13.3",
+  "version": "3.14.0",
   "description": "Master of ceremonies for the Strapi generators.",
   "homepage": "https://strapi.akemona.com",
   "keywords": [
@@ -19,7 +19,7 @@
     "test": "echo \"no tests yet\""
   },
   "dependencies": {
-    "@akemona-org/strapi-utils": "3.13.3",
+    "@akemona-org/strapi-utils": "3.14.0",
     "async": "^2.6.2",
     "fs-extra": "^9.1.0",
     "lodash": "4.17.21",
