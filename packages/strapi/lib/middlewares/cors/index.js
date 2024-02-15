@@ -41,7 +41,7 @@ module.exports = (strapi) => {
               return '*';
             }
 
-            if (!whitelist.includes(requestOrigin)) {
+            if (requestOrigin && !whitelist.includes(requestOrigin)) {
               return ctx.throw(`${requestOrigin} is not a valid origin`);
             }
             return requestOrigin;
