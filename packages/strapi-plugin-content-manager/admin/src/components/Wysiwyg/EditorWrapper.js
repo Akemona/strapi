@@ -5,11 +5,7 @@ const EditorWrapper = styled.div`
     if (isFullscreen) {
       return css`
         position: fixed;
-        z-index: 1040;
-        top: calc(6rem + 90px);
-        left: calc(24rem + 28px);
-        right: 28px;
-        bottom: 32px;
+        inset: calc(6rem + 90px) 28px 32px calc(24rem + 28px);
         display: flex;
         background-color: transparent;
         z-index: 99999;
@@ -58,7 +54,7 @@ const EditorWrapper = styled.div`
     border-radius: 0.25rem;
     line-height: 18px !important;
     font-size: 13px;
-    box-shadow: 0px 1px 1px rgba(104, 118, 142, 0.05);
+    box-shadow: 0 1px 1px rgb(104 118 142 / 5%);
     background-color: #fff;
     position: relative;
   }
@@ -70,7 +66,7 @@ const EditorWrapper = styled.div`
   .editor {
     min-height: 294px;
     max-height: 555px;
-    padding: 20px 20px 0 20px;
+    padding: 20px 20px 0;
     font-size: 13px;
     background-color: #fff;
     line-height: 18px !important;

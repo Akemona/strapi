@@ -19,7 +19,7 @@ const Border = styled.div`
   flex: 1;
   align-self: center;
   border-top: 1px solid #f6f6f6;
-  padding: 0px 10px;
+  padding: 0 10px;
 `;
 
 function SubCategory({ categoryName, isFormDisabled, subCategoryName, actions, pathToData }) {

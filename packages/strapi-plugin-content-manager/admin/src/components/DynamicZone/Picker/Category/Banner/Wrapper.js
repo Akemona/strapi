@@ -8,7 +8,7 @@ const BannerWrapper = styled.button`
   width: 100%;
   padding: 0 15px;
   border-bottom: 0;
-  border: 1px solid rgba(227, 233, 243, 0.75);
+  border: 1px solid rgb(227 233 243 / 75%);
   background-color: ${({ theme }) => theme.main.colors.white};
   font-size: ${({ theme }) => theme.main.sizes.fonts.md};
   font-weight: ${({ theme }) => theme.main.fontWeights.semiBold};

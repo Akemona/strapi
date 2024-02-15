@@ -12,10 +12,10 @@ const ContainerFluid = styled.div`
     border: 1px solid #dfe0e1;
     font-weight: 500;
     font-size: 13px;
-    &:before {
+    &::before {
       margin-right: 10px;
       content: '\f08e';
-      font-family: 'FontAwesome';
+      font-family: FontAwesome;
       font-size: 10px;
     }
   }

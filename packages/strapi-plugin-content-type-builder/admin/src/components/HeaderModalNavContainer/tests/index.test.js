@@ -10,8 +10,8 @@ describe('<HeaderModalNavContainer />', () => {
 
   it('should render its children', () => {
     function Child() {
-  return <div>Some child</div>
-}
+      return <div>Some child</div>;
+    }
     const wrapper = shallow(
       <HeaderModalNavContainer>
         <Child />

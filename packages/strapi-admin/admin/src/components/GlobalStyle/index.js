@@ -1,12 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 
+/* stylelint-disable selector-not-notation */
 const GlobalStyle = createGlobalStyle`
   html {
     font-size: 62.5%;
   }
 
   body {
-    font-family: 'Lato';
+    font-family: Lato;
     font-size: 1.4rem;
     line-height: 1.5;
     color: #292b2c;
@@ -15,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
   * {
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
-    font-family: 'Lato';
+    font-family: Lato;
   }
 
   h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -52,7 +53,7 @@ const GlobalStyle = createGlobalStyle`
 
   .modal-content {
     border-radius: .2rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 5%);
     border: none;
 
   }
@@ -101,7 +102,7 @@ const GlobalStyle = createGlobalStyle`
   .btn-secondary,
   .show > .btn-secondary.dropdown-toggle:focus {
     &:focus, &:active, &:hover, &.focus {
-      box-shadow: 0 0 0 0px rgba(134,142,150,0.5);
+      box-shadow: 0 0 0 0 rgba(134,142,150,50%);
       color: rgb(51, 55, 64);
       background-color: rgb(250, 250, 251) !important;
 

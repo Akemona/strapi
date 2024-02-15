@@ -7,7 +7,7 @@ const Wrapper = styled.div`
     height: 30px;
     width: 100%;
     justify-content: space-between;
-    background: #ffffff;
+    background: #fff;
     color: #333740;
     border-radius: 2px;
     border: solid 1px #007eff;
@@ -19,7 +19,7 @@ const Wrapper = styled.div`
       width: 100%;
       color: #333740;
       text-align: left;
-      background-color: #ffffff;
+      background-color: #fff;
       border: none;
       font-size: 13px;
       font-weight: 500;
@@ -59,8 +59,7 @@ const Wrapper = styled.div`
       border-top-right-radius: 0;
       border-color: #e3e9f3 !important;
       border-top-color: #aed4fb !important;
-      box-shadow: 0 2px 3px rgba(227, 233, 245, 0.5);
-
+      box-shadow: 0 2px 3px rgb(227 233 245 / 50%);
       overflow: scroll;
 
       button {

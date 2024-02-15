@@ -8,8 +8,8 @@ const Button = styled(PlusButton)`
   transition: transform 0.1s ease-in-out;
   &:hover {
     background-color: #aed4fb;
-    :before,
-    :after {
+    ::before,
+    ::after {
       background-color: #007eff;
     }
   }

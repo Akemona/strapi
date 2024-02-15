@@ -13,11 +13,11 @@ import moment from 'moment';
 import * as yup from 'yup';
 import { translatedErrors as errorsTrads } from '@akemona-org/strapi-helper-plugin';
 
-yup.addMethod(yup.mixed, 'defined', function() {
+yup.addMethod(yup.mixed, 'defined', function () {
   return this.test('defined', errorsTrads.required, (value) => value !== undefined);
 });
 
-yup.addMethod(yup.array, 'notEmptyMin', function(min) {
+yup.addMethod(yup.array, 'notEmptyMin', function (min) {
   return this.test('notEmptyMin', errorsTrads.min, (value) => {
     if (isEmpty(value)) {
       return true;
@@ -27,8 +27,8 @@ yup.addMethod(yup.array, 'notEmptyMin', function(min) {
   });
 });
 
-yup.addMethod(yup.string, 'isInferior', function(message, max) {
-  return this.test('isInferior', message, function(value) {
+yup.addMethod(yup.string, 'isInferior', function (message, max) {
+  return this.test('isInferior', message, function (value) {
     if (!value) {
       return true;
     }
@@ -41,8 +41,8 @@ yup.addMethod(yup.string, 'isInferior', function(message, max) {
   });
 });
 
-yup.addMethod(yup.string, 'isSuperior', function(message, min) {
-  return this.test('isSuperior', message, function(value) {
+yup.addMethod(yup.string, 'isSuperior', function (message, min) {
+  return this.test('isSuperior', message, function (value) {
     if (!value) {
       return true;
     }

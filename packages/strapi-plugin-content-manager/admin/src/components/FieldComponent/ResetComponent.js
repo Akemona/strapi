@@ -5,7 +5,6 @@ const ResetComponent = styled.div`
   top: 0;
   right: 15px;
   display: flex;
-
   cursor: pointer;
   color: #4b515a;
 
@@ -18,6 +17,7 @@ const ResetComponent = styled.div`
     > div {
       background-color: #faa684;
     }
+
     color: #f64d0a;
     > span {
       display: initial;
@@ -30,7 +30,7 @@ const ResetComponent = styled.div`
     background-color: #f3f4f4;
     text-align: center;
     border-radius: 2px;
-    &:after {
+    &::after {
       content: '\f2ed';
       font-size: 10px;
       font-family: FontAwesome;

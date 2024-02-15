@@ -19,7 +19,7 @@ const Span = styled.span`
   vertical-align: text-top;
   cursor: pointer;
 
-  &:after {
+  &::after {
     margin-left: 2px;
     content: '\f077';
     font-family: FontAwesome;
@@ -41,7 +41,7 @@ const Div = styled.div`
   margin: ${(props) => (props.show ? '-100px -30px 30px' : `-${props.number}px -30px 103px`)};
   background: #fff;
   box-shadow: 3px 2px 4px #e3e9f3;
-  padding: 18px 30px 0px 30px;
+  padding: 18px 30px 0;
   transition: ${(props) => {
     if (props.anim) {
       return props.show

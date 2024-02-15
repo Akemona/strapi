@@ -31,14 +31,14 @@ const Wrapper = styled.div`
     position: absolute;
     top: 36px;
     left: 20px;
-    background: #ffffff;
+    background: #fff;
     width: 12px;
     height: 12px;
     border: solid 1px #b4b6ba;
     border-radius: 50%;
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       content: '';
       display: block;
       border-radius: 50%;
@@ -49,7 +49,7 @@ const Wrapper = styled.div`
       left: 1px;
     }
 
-    &:after {
+    &::after {
       transform: scale(0);
       transition: inherit;
       will-change: transform;
@@ -65,7 +65,6 @@ const Wrapper = styled.div`
       border: solid 1px #aed4fb;
       &::after {
         background: #007eff;
-
         transform: scale(1);
       }
     }

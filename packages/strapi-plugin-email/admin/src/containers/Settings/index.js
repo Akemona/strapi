@@ -101,98 +101,98 @@ function SettingsPage() {
 
   return (
     <CheckPagePermissions permissions={pluginPermissions.settings}>
-        <SettingsPageTitle name={title} />
-        <div>
-          <form onSubmit={handleSubmit}>
-            <Header
-              title={{ label: title }}
-              content={formatMessage({ id: getTrad('Settings.subTitle') })}
-              isLoading={showLoader}
+      <SettingsPageTitle name={title} />
+      <div>
+        <form onSubmit={handleSubmit}>
+          <Header
+            title={{ label: title }}
+            content={formatMessage({ id: getTrad('Settings.subTitle') })}
+            isLoading={showLoader}
+          />
+          <BaselineAlignment top size="3px" />
+          <FormBloc
+            title={formatMessage({ id: getTrad('Settings.form.title.config') })}
+            isLoading={showLoader}
+          >
+            <Text fontSize="md" lineHeight="18px">
+              <FormattedMessage
+                id={getTrad('Settings.form.text.configuration')}
+                values={{
+                  file: <code>./config/plugins.js</code>,
+                  link: (
+                    <a
+                      href="https://strapi.akemona.com/documentation/developer-docs/latest/development/plugins/email.html#configure-the-plugin"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      link
+                    </a>
+                  ),
+                }}
+              />
+            </Text>
+            <SizedInput
+              disabled
+              label={getTrad('Settings.form.label.defaultFrom')}
+              name="default-from"
+              placeholder={getTrad('Settings.form.placeholder.defaultFrom')}
+              size={{ xs: 6 }}
+              type="email"
+              value={config.settings.defaultFrom}
             />
-            <BaselineAlignment top size="3px" />
-            <FormBloc
-              title={formatMessage({ id: getTrad('Settings.form.title.config') })}
-              isLoading={showLoader}
-            >
-              <Text fontSize="md" lineHeight="18px">
-                <FormattedMessage
-                  id={getTrad('Settings.form.text.configuration')}
-                  values={{
-                    file: <code>./config/plugins.js</code>,
-                    link: (
-                      <a
-                        href="https://strapi.akemona.com/documentation/developer-docs/latest/development/plugins/email.html#configure-the-plugin"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        link
-                      </a>
-                    ),
-                  }}
+            <SizedInput
+              disabled
+              label={getTrad('Settings.form.label.defaultReplyTo')}
+              name="default-reply-to"
+              placeholder={getTrad('Settings.form.placeholder.defaultReplyTo')}
+              size={{ xs: 6 }}
+              type="email"
+              value={config.settings.defaultReplyTo}
+            />
+            <SizedInput
+              disabled
+              label={getTrad('Settings.form.label.provider')}
+              name="provider"
+              options={providers}
+              size={{ xs: 6 }}
+              type="select"
+              value={`strapi-provider-email-${config.provider}`}
+            />
+          </FormBloc>
+          <BaselineAlignment top size="32px" />
+          <FormBloc
+            title={formatMessage({ id: getTrad('Settings.form.title.test') })}
+            isLoading={showLoader}
+          >
+            <SizedInput
+              label={getTrad('Settings.form.label.testAddress')}
+              name="test-address"
+              placeholder={getTrad('Settings.form.placeholder.testAddress')}
+              onChange={(event) => setTestAddress(event.target.value)}
+              size={{ xs: 6 }}
+              type="email"
+              value={testAddress}
+              error={formErrors.email}
+            />
+            <AlignedButton
+              color="success"
+              disabled={testSuccess}
+              icon={
+                <Envelope
+                  fill={testSuccess ? colors.button.disabled.color : null}
+                  style={{ verticalAlign: 'middle', marginRight: '10px' }}
                 />
-              </Text>
-              <SizedInput
-                disabled
-                label={getTrad('Settings.form.label.defaultFrom')}
-                name="default-from"
-                placeholder={getTrad('Settings.form.placeholder.defaultFrom')}
-                size={{ xs: 6 }}
-                type="email"
-                value={config.settings.defaultFrom}
-              />
-              <SizedInput
-                disabled
-                label={getTrad('Settings.form.label.defaultReplyTo')}
-                name="default-reply-to"
-                placeholder={getTrad('Settings.form.placeholder.defaultReplyTo')}
-                size={{ xs: 6 }}
-                type="email"
-                value={config.settings.defaultReplyTo}
-              />
-              <SizedInput
-                disabled
-                label={getTrad('Settings.form.label.provider')}
-                name="provider"
-                options={providers}
-                size={{ xs: 6 }}
-                type="select"
-                value={`strapi-provider-email-${config.provider}`}
-              />
-            </FormBloc>
-            <BaselineAlignment top size="32px" />
-            <FormBloc
-              title={formatMessage({ id: getTrad('Settings.form.title.test') })}
-              isLoading={showLoader}
+              }
+              isLoading={isTestButtonLoading}
+              style={{ fontWeight: 600 }}
+              type="submit"
             >
-              <SizedInput
-                label={getTrad('Settings.form.label.testAddress')}
-                name="test-address"
-                placeholder={getTrad('Settings.form.placeholder.testAddress')}
-                onChange={(event) => setTestAddress(event.target.value)}
-                size={{ xs: 6 }}
-                type="email"
-                value={testAddress}
-                error={formErrors.email}
-              />
-              <AlignedButton
-                color="success"
-                disabled={testSuccess}
-                icon={
-                  <Envelope
-                    fill={testSuccess ? colors.button.disabled.color : null}
-                    style={{ verticalAlign: 'middle', marginRight: '10px' }}
-                  />
-                }
-                isLoading={isTestButtonLoading}
-                style={{ fontWeight: 600 }}
-                type="submit"
-              >
-                {formatMessage({ id: getTrad('Settings.button.test-email') })}
-              </AlignedButton>
-            </FormBloc>
-          </form>
-        </div>
-      </CheckPagePermissions>
+              {formatMessage({ id: getTrad('Settings.button.test-email') })}
+            </AlignedButton>
+          </FormBloc>
+        </form>
+      </div>
+    </CheckPagePermissions>
   );
 }
 

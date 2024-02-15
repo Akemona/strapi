@@ -26,14 +26,13 @@ const Toggle = styled(DropdownToggle)`
 
   &:disabled {
     cursor: not-allowed !important;
-
     background: #fafafb;
     border: 1px solid #e3e9f3;
     border-radius: 2px;
     color: #b3b5b9;
   }
 
-  &:before {
+  &::before {
     ${beforeStyle}
   }
 
@@ -42,7 +41,7 @@ const Toggle = styled(DropdownToggle)`
   :focus {
     ${openedStyle}
 
-    &:before {
+    &::before {
       ${beforeStyle}
     }
   }

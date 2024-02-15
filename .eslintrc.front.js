@@ -129,5 +129,6 @@ module.exports = {
     'class-methods-use-this': 0,
     'no-loss-of-precision': 0,
     'default-param-last': 0,
+    'space-before-function-paren': 0,
   },
 };

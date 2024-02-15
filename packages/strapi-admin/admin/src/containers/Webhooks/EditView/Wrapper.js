@@ -16,7 +16,7 @@ const Wrapper = styled.div`
     }
   }
   .header-title + div {
-    button: first-of-type {
+    button:first-of-type {
       position: relative;
       margin-right: 30px;
       overflow: initial;
@@ -42,8 +42,8 @@ const Wrapper = styled.div`
   }
   .form-card {
     margin-bottom: 30px;
-    padding: 21px 25px 0px 25px;
-    background-color: #ffffff;
+    padding: 21px 25px 0;
+    background-color: #fff;
     border-radius: 2px;
     box-shadow: 0 2px 4px 0 #e3e9f3;
   }

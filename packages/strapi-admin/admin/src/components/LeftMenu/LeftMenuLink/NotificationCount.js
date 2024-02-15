@@ -7,18 +7,20 @@ const NotificationWrapper = styled.div`
   height: 14px;
   margin-top: 4px;
   margin-right: 20px;
-  padding: 0px 4px;
+  padding: 0 4px;
   background-color: #383d49;
   border-radius: 2px;
   font-size: 11px;
 `;
 
 function NotificationCount({ count }) {
-  return <NotificationWrapper>
-    <Text fontWeight="bold" fontSize="xs" lineHeight="14px" color="#919bae">
-      {count}
-    </Text>
-  </NotificationWrapper>
+  return (
+    <NotificationWrapper>
+      <Text fontWeight="bold" fontSize="xs" lineHeight="14px" color="#919bae">
+        {count}
+      </Text>
+    </NotificationWrapper>
+  );
 }
 
 NotificationCount.defaultProps = {

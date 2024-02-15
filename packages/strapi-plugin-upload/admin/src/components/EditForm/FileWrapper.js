@@ -21,9 +21,10 @@ const FileWrapper = styled(CardImgWrapper)`
   }
 
   .point-se {
-    &:before {
+    &::before {
       display: none;
     }
+
     height: 5px;
     width: 5px;
   }

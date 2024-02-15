@@ -31,13 +31,10 @@ const Wrapper = styled.div`
       height: 17px;
       border-radius: 9px;
       background-color: #f1f1f1;
-      &:before {
+      &::before {
         content: '';
         position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        inset: 0;
         z-index: -1;
         margin: -1px;
         border-radius: inherit;

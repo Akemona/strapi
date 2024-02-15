@@ -2,19 +2,21 @@
 import React from 'react';
 
 function Envelope() {
-  return <svg width="24" height="17" xmlns="http://www.w3.org/2000/svg">
-    <text
-      transform="translate(-23 -9)"
-      fill="#4B515A"
-      fillRule="evenodd"
-      fontSize="24"
-      fontFamily="AppleColorEmoji, Apple Color Emoji"
-    >
-      <tspan x="23" y="28">
-        ✉️
-      </tspan>
-    </text>
-  </svg>
+  return (
+    <svg width="24" height="17" xmlns="http://www.w3.org/2000/svg">
+      <text
+        transform="translate(-23 -9)"
+        fill="#4B515A"
+        fillRule="evenodd"
+        fontSize="24"
+        fontFamily="AppleColorEmoji, Apple Color Emoji"
+      >
+        <tspan x="23" y="28">
+          ✉️
+        </tspan>
+      </text>
+    </svg>
+  );
 }
 
 export default Envelope;

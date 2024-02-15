@@ -26,7 +26,7 @@ const Wrapper = styled.div`
 
   .fullScreenWrapper {
     cursor: pointer;
-    &:after {
+    &::after {
       content: '\f065';
       margin-left: 8px;
       font-family: FontAwesome;

@@ -121,59 +121,59 @@ function BrowseAssets() {
 
   return (
     <Wrapper>
-        <Padded top>
-          {allowedActions.canRead && (
-            <Flex flexWrap="wrap">
-              {multiple && (
-                <Padded right size="sm">
-                  <SelectAll
-                    checked={areAllCheckboxesSelected}
-                    onChange={handleAllFilesSelection}
-                    someChecked={hasSomeCheckboxSelected && !areAllCheckboxesSelected}
-                  />
-                </Padded>
-              )}
-              <SortPicker onChange={handleChangeParams} value={params._sort} />
-              <Padded left size="sm" />
-              <Filters
-                filters={params.filters}
-                onChange={handleChangeParams}
-                onClick={handleDeleteFilter}
-              />
-            </Flex>
-          )}
-        </Padded>
-        {!files || files.length === 0 ? (
-          <ListEmpty
-            canCreate={allowedActions.canCreate}
-            numberOfRows={2}
-            onClick={handleGoToUpload}
-            hasSearchApplied={areResultsEmptyWithSearchOrFilters}
-          />
-        ) : (
-          <>
-            <List
-              data={files}
-              onChange={handleCheckboxChange}
-              selectedItems={selectedFiles}
-              onCardClick={handleListCardClick}
-              allowedTypes={allowedTypes}
-              smallCards
-              renderCardControl={renderCardControl}
-            />
-            <Padded left right>
-              <Padded left right size="xs">
-                <PageFooter
-                  context={{ emitEvent: () => {} }}
-                  count={count}
-                  onChangeParams={handleChangeListParams}
-                  params={paginationParams}
+      <Padded top>
+        {allowedActions.canRead && (
+          <Flex flexWrap="wrap">
+            {multiple && (
+              <Padded right size="sm">
+                <SelectAll
+                  checked={areAllCheckboxesSelected}
+                  onChange={handleAllFilesSelection}
+                  someChecked={hasSomeCheckboxSelected && !areAllCheckboxesSelected}
                 />
               </Padded>
-            </Padded>
-          </>
+            )}
+            <SortPicker onChange={handleChangeParams} value={params._sort} />
+            <Padded left size="sm" />
+            <Filters
+              filters={params.filters}
+              onChange={handleChangeParams}
+              onClick={handleDeleteFilter}
+            />
+          </Flex>
         )}
-      </Wrapper>
+      </Padded>
+      {!files || files.length === 0 ? (
+        <ListEmpty
+          canCreate={allowedActions.canCreate}
+          numberOfRows={2}
+          onClick={handleGoToUpload}
+          hasSearchApplied={areResultsEmptyWithSearchOrFilters}
+        />
+      ) : (
+        <>
+          <List
+            data={files}
+            onChange={handleCheckboxChange}
+            selectedItems={selectedFiles}
+            onCardClick={handleListCardClick}
+            allowedTypes={allowedTypes}
+            smallCards
+            renderCardControl={renderCardControl}
+          />
+          <Padded left right>
+            <Padded left right size="xs">
+              <PageFooter
+                context={{ emitEvent: () => {} }}
+                count={count}
+                onChangeParams={handleChangeListParams}
+                params={paginationParams}
+              />
+            </Padded>
+          </Padded>
+        </>
+      )}
+    </Wrapper>
   );
 }
 

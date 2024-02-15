@@ -17,7 +17,6 @@ const BannerWrapper = styled.button`
         return 'rgba(227, 233, 243, 0.75)';
       }
     }};
-
   ${({ doesPreviousFieldContainErrorsAndIsOpen }) => {
     if (doesPreviousFieldContainErrorsAndIsOpen) {
       return `
@@ -25,7 +24,6 @@ const BannerWrapper = styled.button`
       `;
     }
   }}
-
   ${({ isFirst }) => {
     if (isFirst) {
       return `
@@ -34,7 +32,6 @@ const BannerWrapper = styled.button`
       `;
     }
   }}
-
   ${({ hasMinError, isFirst }) => {
     if (hasMinError) {
       return `
@@ -44,12 +41,10 @@ const BannerWrapper = styled.button`
         `;
     }
   }}
-
   border-bottom: 0;
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-
   background-color: ${({ hasErrors, isOpen, isReadOnly }) => {
     if (isReadOnly) {
       return '#fafafb';

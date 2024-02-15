@@ -4,9 +4,11 @@ import adminPermissions from '../../../permissions';
 import ListView from '../ListView';
 
 function ProtectedListView() {
-  return <CheckPagePermissions permissions={adminPermissions.settings.webhooks.main}>
-    <ListView />
-  </CheckPagePermissions>
+  return (
+    <CheckPagePermissions permissions={adminPermissions.settings.webhooks.main}>
+      <ListView />
+    </CheckPagePermissions>
+  );
 }
 
 export default ProtectedListView;

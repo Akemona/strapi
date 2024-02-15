@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const SubCategoryWrapper = styled.div`
   padding-bottom: 2.6rem;
   input[type='checkbox'] {
-    &:after {
+    &::after {
       color: ${({ theme }) => theme.main.colors.mediumBlue};
     }
   }

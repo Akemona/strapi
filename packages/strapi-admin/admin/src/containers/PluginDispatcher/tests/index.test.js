@@ -4,10 +4,10 @@ import { BlockerComponent } from '@akemona-org/strapi-helper-plugin';
 import { PluginDispatcher } from '../index';
 
 function BlockerComponent2() {
-  return <div>BlockerComponent</div>
+  return <div>BlockerComponent</div>;
 }
 function Email() {
-  return <div>Email Plugin</div>
+  return <div>Email Plugin</div>;
 }
 
 describe('<PluginDispatcher />', () => {

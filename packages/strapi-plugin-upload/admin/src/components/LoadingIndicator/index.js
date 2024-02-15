@@ -29,7 +29,7 @@ const LoadingIndicator = styled.div`
   overflow: hidden;
   background-color: #515764;
   border-radius: 2px;
-  &:before {
+  &::before {
     content: '';
     display: block;
     position: absolute;

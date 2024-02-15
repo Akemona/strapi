@@ -5,7 +5,7 @@ const ActiveStatus = styled.div`
   text-overflow: ellipsis;
   white-space: nowrap;
 
-  &:before {
+  &::before {
     content: '';
     display: inline-block;
     width: 6px;

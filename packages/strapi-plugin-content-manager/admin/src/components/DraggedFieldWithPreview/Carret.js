@@ -9,7 +9,7 @@ const Carret = styled.div`
       right: -4px;
     `;
     }
-
+    // eslint-disable-next-line newline-before-return
     return `
     left: -1px;
   `;

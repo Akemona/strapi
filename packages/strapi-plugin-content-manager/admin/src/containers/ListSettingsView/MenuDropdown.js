@@ -11,9 +11,8 @@ const MenuDropdown = styled(DropdownMenu)`
   border-top-right-radius: 0;
   border-color: #e3e9f3 !important;
   border-top-color: #aed4fb !important;
-  box-shadow: 0 2px 3px rgba(227, 233, 245, 0.5);
-  transform: translate3d(-199px, 30px, 0px) !important;
-
+  box-shadow: 0 2px 3px rgb(227 233 245 / 50%);
+  transform: translate3d(-199px, 30px, 0) !important;
   overflow: scroll;
 
   button {

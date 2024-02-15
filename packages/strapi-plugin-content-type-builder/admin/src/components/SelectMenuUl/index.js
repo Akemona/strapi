@@ -21,7 +21,6 @@ const Ul = styled.ul`
     }
     .chevron {
       margin: auto;
-
       font-size: 11px;
       color: #919bae;
     }
@@ -49,10 +48,7 @@ const Ul = styled.ul`
         content: '';
         position: absolute;
         z-index: 1;
-        top: 0;
-        left: -30px;
-        right: -30px;
-        bottom: 0;
+        inset: 0 -30px;
         background-color: #e6f0fb;
       }
     }

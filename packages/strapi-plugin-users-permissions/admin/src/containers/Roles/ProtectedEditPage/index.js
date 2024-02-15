@@ -4,9 +4,11 @@ import pluginPermissions from '../../../permissions';
 import RolesEditPage from '../EditPage';
 
 function ProtectedRolesEditPage() {
-  return <CheckPagePermissions permissions={pluginPermissions.updateRole}>
-    <RolesEditPage />
-  </CheckPagePermissions>
+  return (
+    <CheckPagePermissions permissions={pluginPermissions.updateRole}>
+      <RolesEditPage />
+    </CheckPagePermissions>
+  );
 }
 
 export default ProtectedRolesEditPage;

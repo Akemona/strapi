@@ -349,143 +349,141 @@ function ListView({
 
   return (
     <ListViewProvider
-        _q={_q}
-        _sort={_sort}
-        data={data}
-        entriesToDelete={entriesToDelete}
+      _q={_q}
+      _sort={_sort}
+      data={data}
+      entriesToDelete={entriesToDelete}
+      filters={filters}
+      firstSortableHeader={firstSortableHeader}
+      label={label}
+      onChangeBulk={onChangeBulk}
+      onChangeBulkSelectall={onChangeBulkSelectall}
+      onClickDelete={handleClickDelete}
+      slug={slug}
+      toggleModalDeleteAll={handleToggleModalDeleteAll}
+      setQuery={setQuery}
+    >
+      <FilterPicker
+        contentType={contentType}
         filters={filters}
-        firstSortableHeader={firstSortableHeader}
-        label={label}
-        onChangeBulk={onChangeBulk}
-        onChangeBulkSelectall={onChangeBulkSelectall}
-        onClickDelete={handleClickDelete}
-        slug={slug}
-        toggleModalDeleteAll={handleToggleModalDeleteAll}
+        isOpen={isFilterPickerOpen}
+        metadatas={metadatas}
+        name={label}
+        toggleFilterPickerState={toggleFilterPickerState}
         setQuery={setQuery}
+        slug={slug}
+      />
+      <Container className="container-fluid">
+        {!isFilterPickerOpen && <Header {...headerProps} isLoading={isLoading && canRead} />}
+        {isSearchable && canRead && (
+          <Search changeParams={setQuery} initValue={_q} model={label} value={_q} />
+        )}
+
+        {!canRead && (
+          <Flex justifyContent="flex-end">
+            <Padded right size="sm">
+              <InjectionZone area={`${pluginId}.listView.actions`} />
+            </Padded>
+          </Flex>
+        )}
+
+        {canRead && (
+          <Wrapper>
+            <div className="row" style={{ marginBottom: '5px' }}>
+              <div className="col-9">
+                <div className="row" style={{ marginLeft: 0, marginRight: 0 }}>
+                  {isFilterable && (
+                    <>
+                      <AddFilterCta type="button" onClick={toggleFilterPickerState}>
+                        <FilterIcon />
+                        <FormattedMessage id="app.utils.filters" />
+                      </AddFilterCta>
+                      {filters.map(({ filter: filterName, name, value }, key) => (
+                        <Filter
+                          contentType={contentType}
+                          filterName={filterName}
+                          filters={filters}
+                          index={key}
+                          key={key}
+                          metadatas={metadatas}
+                          name={name}
+                          toggleFilterPickerState={toggleFilterPickerState}
+                          isFilterPickerOpen={isFilterPickerOpen}
+                          setQuery={setQuery}
+                          value={value}
+                        />
+                      ))}
+                    </>
+                  )}
+                </div>
+              </div>
+
+              <div className="col-3">
+                <Flex justifyContent="flex-end">
+                  <Padded right size="sm">
+                    <InjectionZone area={`${pluginId}.listView.actions`} />
+                  </Padded>
+
+                  <CheckPermissions permissions={pluginPermissions.collectionTypesConfigurations}>
+                    <FieldPicker
+                      displayedHeaders={displayedHeaders}
+                      items={allAllowedHeaders}
+                      onChange={handleChangeListLabels}
+                      onClickReset={onResetListHeaders}
+                      slug={slug}
+                    />
+                  </CheckPermissions>
+                </Flex>
+              </div>
+            </div>
+            <div className="row" style={{ paddingTop: '12px' }}>
+              <div className="col-12">
+                <CustomTable
+                  data={data}
+                  canCreate={canCreate}
+                  canDelete={canDelete}
+                  canUpdate={canUpdate}
+                  displayedHeaders={displayedHeaders}
+                  hasDraftAndPublish={hasDraftAndPublish}
+                  isBulkable={isBulkable}
+                  setQuery={setQuery}
+                  showLoader={isLoading}
+                />
+                <Footer count={total} params={query} onChange={setQuery} />
+              </div>
+            </div>
+          </Wrapper>
+        )}
+      </Container>
+      <PopUpWarning
+        isOpen={showWarningDelete}
+        toggleModal={toggleModalDelete}
+        content={{
+          message: getTrad('popUpWarning.bodyMessage.contentType.delete'),
+        }}
+        onConfirm={handleConfirmDeleteData}
+        popUpWarningType="danger"
+        onClosed={handleModalClose}
+        isConfirmButtonLoading={showModalConfirmButtonLoading}
       >
-        <FilterPicker
-          contentType={contentType}
-          filters={filters}
-          isOpen={isFilterPickerOpen}
-          metadatas={metadatas}
-          name={label}
-          toggleFilterPickerState={toggleFilterPickerState}
-          setQuery={setQuery}
-          slug={slug}
-        />
-        <Container className="container-fluid">
-          {!isFilterPickerOpen && <Header {...headerProps} isLoading={isLoading && canRead} />}
-          {isSearchable && canRead && (
-            <Search changeParams={setQuery} initValue={_q} model={label} value={_q} />
-          )}
-
-          {!canRead && (
-            <Flex justifyContent="flex-end">
-              <Padded right size="sm">
-                <InjectionZone area={`${pluginId}.listView.actions`} />
-              </Padded>
-            </Flex>
-          )}
-
-          {canRead && (
-            <Wrapper>
-              <div className="row" style={{ marginBottom: '5px' }}>
-                <div className="col-9">
-                  <div className="row" style={{ marginLeft: 0, marginRight: 0 }}>
-                    {isFilterable && (
-                      <>
-                        <AddFilterCta type="button" onClick={toggleFilterPickerState}>
-                          <FilterIcon />
-                          <FormattedMessage id="app.utils.filters" />
-                        </AddFilterCta>
-                        {filters.map(({ filter: filterName, name, value }, key) => (
-                          <Filter
-                            contentType={contentType}
-                            filterName={filterName}
-                            filters={filters}
-                            index={key}
-                            key={key}
-                            metadatas={metadatas}
-                            name={name}
-                            toggleFilterPickerState={toggleFilterPickerState}
-                            isFilterPickerOpen={isFilterPickerOpen}
-                            setQuery={setQuery}
-                            value={value}
-                          />
-                        ))}
-                      </>
-                    )}
-                  </div>
-                </div>
-
-                <div className="col-3">
-                  <Flex justifyContent="flex-end">
-                    <Padded right size="sm">
-                      <InjectionZone area={`${pluginId}.listView.actions`} />
-                    </Padded>
-
-                    <CheckPermissions permissions={pluginPermissions.collectionTypesConfigurations}>
-                      <FieldPicker
-                        displayedHeaders={displayedHeaders}
-                        items={allAllowedHeaders}
-                        onChange={handleChangeListLabels}
-                        onClickReset={onResetListHeaders}
-                        slug={slug}
-                      />
-                    </CheckPermissions>
-                  </Flex>
-                </div>
-              </div>
-              <div className="row" style={{ paddingTop: '12px' }}>
-                <div className="col-12">
-                  <CustomTable
-                    data={data}
-                    canCreate={canCreate}
-                    canDelete={canDelete}
-                    canUpdate={canUpdate}
-                    displayedHeaders={displayedHeaders}
-                    hasDraftAndPublish={hasDraftAndPublish}
-                    isBulkable={isBulkable}
-                    setQuery={setQuery}
-                    showLoader={isLoading}
-                  />
-                  <Footer count={total} params={query} onChange={setQuery} />
-                </div>
-              </div>
-            </Wrapper>
-          )}
-        </Container>
-        <PopUpWarning
-          isOpen={showWarningDelete}
-          toggleModal={toggleModalDelete}
-          content={{
-            message: getTrad('popUpWarning.bodyMessage.contentType.delete'),
-          }}
-          onConfirm={handleConfirmDeleteData}
-          popUpWarningType="danger"
-          onClosed={handleModalClose}
-          isConfirmButtonLoading={showModalConfirmButtonLoading}
-        >
-          <InjectionZoneList area={`${pluginId}.listView.deleteModalAdditionalInfos`} />
-        </PopUpWarning>
-        <PopUpWarning
-          isOpen={showWarningDeleteAll}
-          toggleModal={toggleModalDeleteAll}
-          content={{
-            message: getTrad(
-              `popUpWarning.bodyMessage.contentType.delete${
-                entriesToDelete.length > 1 ? '.all' : ''
-              }`
-            ),
-          }}
-          popUpWarningType="danger"
-          onConfirm={handleConfirmDeleteAllData}
-          onClosed={handleModalClose}
-          isConfirmButtonLoading={showModalConfirmButtonLoading}
-        >
-          <InjectionZoneList area={`${pluginId}.listView.deleteModalAdditionalInfos`} />
-        </PopUpWarning>
-      </ListViewProvider>
+        <InjectionZoneList area={`${pluginId}.listView.deleteModalAdditionalInfos`} />
+      </PopUpWarning>
+      <PopUpWarning
+        isOpen={showWarningDeleteAll}
+        toggleModal={toggleModalDeleteAll}
+        content={{
+          message: getTrad(
+            `popUpWarning.bodyMessage.contentType.delete${entriesToDelete.length > 1 ? '.all' : ''}`
+          ),
+        }}
+        popUpWarningType="danger"
+        onConfirm={handleConfirmDeleteAllData}
+        onClosed={handleModalClose}
+        isConfirmButtonLoading={showModalConfirmButtonLoading}
+      >
+        <InjectionZoneList area={`${pluginId}.listView.deleteModalAdditionalInfos`} />
+      </PopUpWarning>
+    </ListViewProvider>
   );
 }
 

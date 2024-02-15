@@ -18,7 +18,7 @@ const Wrapper = styled.div`
   > button:last-child {
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
-    border-right: 1px solid rgba(16, 22, 34, 0.1);
+    border-right: 1px solid rgb(16 22 34 / 10%);
   }
 `;
 

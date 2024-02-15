@@ -5,41 +5,43 @@ import PropTypes from 'prop-types';
 import Bloc from '../Bloc';
 
 function FormBloc({ children, actions, isLoading, title, subtitle }) {
-  return <Bloc>
-    <BaselineAlignment top size={title ? '18px' : '22px'} />
-    <Padded left right size="sm">
-      {isLoading ? (
-        <>
-          <LoadingIndicator />
-          <BaselineAlignment bottom size="22px" />
-        </>
-      ) : (
-        <>
-          {title && (
-            <>
-              <Padded left right size="xs">
-                <Flex justifyContent="space-between">
-                  <Padded left right size="sm">
-                    <Text fontSize="lg" fontWeight="bold">
-                      {title}
-                    </Text>
-                    {subtitle && (
-                      <Text color="grey" lineHeight="1.8rem">
-                        {subtitle}
+  return (
+    <Bloc>
+      <BaselineAlignment top size={title ? '18px' : '22px'} />
+      <Padded left right size="sm">
+        {isLoading ? (
+          <>
+            <LoadingIndicator />
+            <BaselineAlignment bottom size="22px" />
+          </>
+        ) : (
+          <>
+            {title && (
+              <>
+                <Padded left right size="xs">
+                  <Flex justifyContent="space-between">
+                    <Padded left right size="sm">
+                      <Text fontSize="lg" fontWeight="bold">
+                        {title}
                       </Text>
-                    )}
-                  </Padded>
-                  {actions}
-                </Flex>
-              </Padded>
-              <BaselineAlignment top size="18px" />
-            </>
-          )}
-          <Row>{children}</Row>
-        </>
-      )}
-    </Padded>
-  </Bloc>
+                      {subtitle && (
+                        <Text color="grey" lineHeight="1.8rem">
+                          {subtitle}
+                        </Text>
+                      )}
+                    </Padded>
+                    {actions}
+                  </Flex>
+                </Padded>
+                <BaselineAlignment top size="18px" />
+              </>
+            )}
+            <Row>{children}</Row>
+          </>
+        )}
+      </Padded>
+    </Bloc>
+  );
 }
 
 FormBloc.defaultProps = {

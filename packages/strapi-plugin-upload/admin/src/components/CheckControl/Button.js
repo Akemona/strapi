@@ -6,7 +6,7 @@ const Button = styled(Text)`
   align-items: center;
   height: 36px;
   width: 280px;
-  padding: 0 15px 0;
+  padding: 0 15px;
   color: ${({ theme }) => theme.main.colors.black};
   background-color: #fafafb;
   border: 1px solid transparent;

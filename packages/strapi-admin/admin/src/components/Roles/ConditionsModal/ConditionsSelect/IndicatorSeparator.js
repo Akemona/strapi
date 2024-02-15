@@ -1,5 +1,5 @@
 function IndicatorSeparator() {
-  return null
+  return null;
 }
 
 export default IndicatorSeparator;

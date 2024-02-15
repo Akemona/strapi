@@ -21,7 +21,7 @@ const Wrapper = styled.div`
         box-shadow: none;
         color: black;
       }
-      &:after {
+      &::after {
         position: absolute;
         top: calc(50% - 0.1rem);
         right: 1.5rem;
@@ -43,6 +43,7 @@ const Wrapper = styled.div`
         }
       }
     }
+
     /* Dropdown List */
     > button + div {
       max-width: 100%;
@@ -64,11 +65,11 @@ const Wrapper = styled.div`
         &:focus,
         &:active {
           outline: 0;
-          background-color: rgb(255, 255, 255) !important;
-          color: rgba(50, 55, 64, 0.75);
+          background-color: rgb(255 255 255) !important;
+          color: rgb(50 55 64 / 75%);
         }
         > p {
-          color: rgba(50, 55, 64, 0.75);
+          color: rgb(50 55 64 / 75%);
           line-height: 3rem;
           white-space: nowrap;
           overflow: hidden;

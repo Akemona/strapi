@@ -10,7 +10,7 @@ const ToggleModeWrapper = styled.div`
     min-width: 32px;
     padding-left: 10px;
     padding-right: 10px;
-    border: 1px solid rgba(16, 22, 34, 0.1);
+    border: 1px solid rgb(16 22 34 / 10%);
     border-radius: 3px;
     background: #f3f4f4;
     font-size: 13px;

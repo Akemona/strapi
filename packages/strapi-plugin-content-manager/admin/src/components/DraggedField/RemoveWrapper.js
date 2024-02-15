@@ -7,8 +7,8 @@ const RemoveWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   position: absolute;
-  top: 0px;
-  bottom: 0px;
+  top: 0;
+  bottom: 0;
   right: 0;
   width: 30px;
   text-align: center;

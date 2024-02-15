@@ -5,8 +5,8 @@ const Block = styled.div`
   width: 100%;
   position: relative;
   margin-bottom: 34px;
-  background: #ffffff;
-  padding: 19px 30px 30px 30px;
+  background: #fff;
+  padding: 19px 30px 30px;
   box-shadow: 0 2px 4px 0 #e3e9f3;
   border-radius: 3px;
   line-height: 18px;
@@ -24,7 +24,7 @@ const Block = styled.div`
       border-radius: 0.3rem;
       content: '';
       opacity: 0.1;
-      background: #ffffff;
+      background: #fff;
     }
   }
   h2,
@@ -35,7 +35,7 @@ const Block = styled.div`
     display: inline-block;
   }
   #mainHeader {
-    &:after {
+    &::after {
       content: '';
       width: 100%;
       height: 3px;
@@ -58,7 +58,7 @@ const Block = styled.div`
 `;
 
 const Container = styled.div`
-  padding: 47px 13px 0 13px;
+  padding: 47px 13px 0;
   > div {
     margin: 0;
   }
@@ -76,7 +76,7 @@ const P = styled.p`
 `;
 
 const Wave = styled.div`
-  &:before {
+  &::before {
     content: '👋';
     position: absolute;
     top: 24px;
@@ -96,12 +96,11 @@ const ALink = styled.a`
   line-height: 34px;
   font-size: 13px;
 
-  &:before {
+  &::before {
     content: '\f105';
-
     font-weight: 600;
     margin-right: 10px;
-    font-family: 'FontAwesome';
+    font-family: FontAwesome;
   }
 
   &:hover,
@@ -120,7 +119,7 @@ const ALink = styled.a`
     border-radius: 0.3rem;
     content: '';
     opacity: 0.1;
-    background: #ffffff;
+    background: #fff;
   }
 
   ${({ type }) =>
@@ -128,22 +127,22 @@ const ALink = styled.a`
       ? css`
           padding-left: 20px;
           margin-top: 16px;
-          color: #ffffff;
+          color: #fff;
           text-transform: uppercase;
           font-size: 13px;
           font-weight: 500;
-          &:before {
+          &::before {
             font-size: 16px;
           }
           &:hover {
-            color: #ffffff;
+            color: #fff;
           }
         `
       : css`
           margin-top: 9px;
           font-size: 14px;
           color: #005fea;
-          &:before {
+          &::before {
             font-size: 12px;
           }
           &:hover {
@@ -185,11 +184,11 @@ const LinkWrapper = styled.a`
     outline: 0;
   }
 
-  &:before {
+  &::before {
     position: absolute;
     left: 30px;
     top: 38px;
-    font-family: 'FontAwesome';
+    font-family: FontAwesome;
     font-size: 38px;
 
     ${({ type }) => {
@@ -213,6 +212,7 @@ const LinkWrapper = styled.a`
     &:first-child {
       font-size: 16px;
     }
+
     color: #919bae;
     text-overflow: ellipsis;
     overflow: hidden;

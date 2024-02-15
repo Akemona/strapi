@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   margin-bottom: 35px;
-  background: #ffffff;
+  background: #fff;
   padding: 22px 28px 18px;
   padding-bottom: 13px;
   border-radius: 2px;
@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 `;
 
 const Sub = styled.div`
-  padding-top: 0px;
+  padding-top: 0;
   line-height: 18px;
   > p:first-child {
     margin-bottom: 1px;

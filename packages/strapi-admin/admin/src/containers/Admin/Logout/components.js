@@ -45,7 +45,7 @@ const Wrapper = styled.div`
     }
   }
 
-  &:after {
+  &::after {
     position: absolute;
     right: -1px;
     top: calc(50% - 10px);
@@ -57,7 +57,7 @@ const Wrapper = styled.div`
     transition: opacity 0.2s ease-out;
   }
 
-  &:hover:after {
+  &:hover::after {
     opacity: 0;
   }
 
@@ -74,29 +74,29 @@ const Wrapper = styled.div`
     border-top-right-radius: 0 !important;
     font-size: 14px;
     overflow: hidden;
-    box-shadow: 0 1px 4px 0px rgba(40, 42, 49, 0.05);
+    box-shadow: 0 1px 4px 0 rgb(40 42 49 / 5%);
     &:active {
       outline: 0;
     }
 
-    &:before {
+    &::before {
       content: '';
       position: absolute;
       top: 0;
       left: -1px;
       width: calc(100% + 1px);
       height: 3px;
-      box-shadow: 0 1px 2px 0 rgba(40, 42, 49, 0.16);
+      box-shadow: 0 1px 2px 0 rgb(40 42 49 / 16%);
     }
 
     > button {
       height: 54px;
-      padding: 0px 15px;
+      padding: 0 15px;
       &:hover,
       &:focus,
       &:active {
         background-color: #fafafb !important;
-        border-radius: 0px;
+        border-radius: 0;
         cursor: pointer;
         outline: 0;
       }

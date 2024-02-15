@@ -5,9 +5,11 @@ import PropTypes from 'prop-types';
 import Wrapper from './Wrapper';
 
 function Chevron({ side, onClick }) {
-  return <Wrapper onClick={onClick}>
-    <FontAwesomeIcon color="white" icon={`chevron-${side}`} />
-  </Wrapper>
+  return (
+    <Wrapper onClick={onClick}>
+      <FontAwesomeIcon color="white" icon={`chevron-${side}`} />
+    </Wrapper>
+  );
 }
 
 Chevron.propTypes = {

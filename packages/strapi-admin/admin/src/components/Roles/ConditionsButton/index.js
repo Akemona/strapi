@@ -46,4 +46,5 @@ ConditionsButton.propTypes = {
 // This is a styled component advanced usage :
 // Used to make a ref to a non styled component.
 // https://styled-components.com/docs/advanced#caveat
+/* stylelint-disable no-empty-source */
 export default styled(ConditionsButton)``;

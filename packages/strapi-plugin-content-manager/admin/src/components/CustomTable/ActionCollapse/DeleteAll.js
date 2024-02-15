@@ -5,7 +5,7 @@ const DeleteAll = styled.span`
   color: #f64d0a;
   font-weight: 500;
   cursor: pointer;
-  &:after {
+  &::after {
     position: relative;
     top: -1px;
     content: '\f2ed';

@@ -56,7 +56,7 @@ const Li = styled.li`
         display: inline-block;
         vertical-align: top;
         height: 100%;
-        font-family: 'FontAwesome';
+        font-family: FontAwesome;
         color: white;
         font-size: 10px;
         margin-left: 3px;

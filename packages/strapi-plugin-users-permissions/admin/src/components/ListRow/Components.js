@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   margin: 0 3.2rem 0 1.9rem;
-  padding: 0 1.4rem 0 0rem;
-  border-bottom: 1px solid rgba(14, 22, 34, 0.04);
+  padding: 0 1.4rem 0 0;
+  border-bottom: 1px solid rgb(14 22 34 / 4%);
   color: #333740;
   font-size: 1.3rem;
   > div {

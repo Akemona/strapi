@@ -7,7 +7,7 @@ const Required = styled.span`
 `;
 
 function RequiredSign() {
-  return <Required>*</Required>
+  return <Required>*</Required>;
 }
 
 export default RequiredSign;

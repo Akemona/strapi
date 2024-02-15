@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   line-height: 53px;
   margin: 0 28px 0 36px;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(14, 22, 34, 0.04);
+  border-bottom: 1px solid rgb(14 22 34 / 4%);
   font-size: 13px;
   color: #333740;
   > div:first-child {
@@ -24,6 +24,7 @@ const Wrapper = styled.div`
     align-self: center;
     text-align: right;
   }
+
   -webkit-font-smoothing: antialiased;
 `;
 
@@ -39,10 +40,10 @@ const StyledButton = styled(Button)`
       return css`
         margin-right: 10px;
         border: 1px solid #dfe0e1;
-        &:before {
+        &::before {
           margin-right: 10px;
           content: '\f08e';
-          font-family: 'FontAwesome';
+          font-family: FontAwesome;
           font-size: 10px;
         }
       `;
@@ -52,10 +53,10 @@ const StyledButton = styled(Button)`
         background: #e6f0fb;
         border: 1px solid #aed4fb;
         color: #007eff;
-        &:before {
+        &::before {
           margin-right: 10px;
           content: '\f021';
-          font-family: 'FontAwesome';
+          font-family: FontAwesome;
           font-size: 10px;
         }
       `;
@@ -64,10 +65,10 @@ const StyledButton = styled(Button)`
       return css`
         margin-left: 25px;
         font-weight: 400;
-        &:before {
+        &::before {
           margin-right: 10px;
           content: '\f2ed';
-          font-family: 'FontAwesome';
+          font-family: FontAwesome;
           font-size: 12 px;
         }
       `;

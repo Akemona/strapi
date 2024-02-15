@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 import { NotFound } from '@akemona-org/strapi-helper-plugin';
 
 function NotFoundPage(props) {
-  return <NotFound {...props} />
+  return <NotFound {...props} />;
 }
 
 NotFoundPage.propTypes = {

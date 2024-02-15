@@ -11,15 +11,17 @@ import { Wrapper, Title } from './components';
 const renderMsg = (msg) => <p>{msg}</p>;
 
 function Block({ children, description, style, title }) {
-  return <div className="col-md-12">
-    <Wrapper style={style}>
-      <Title>
-        <FormattedMessage id={title} />
-        <FormattedMessage id={description}>{renderMsg}</FormattedMessage>
-      </Title>
-      {children}
-    </Wrapper>
-  </div>
+  return (
+    <div className="col-md-12">
+      <Wrapper style={style}>
+        <Title>
+          <FormattedMessage id={title} />
+          <FormattedMessage id={description}>{renderMsg}</FormattedMessage>
+        </Title>
+        {children}
+      </Wrapper>
+    </div>
+  );
 }
 
 Block.defaultProps = {

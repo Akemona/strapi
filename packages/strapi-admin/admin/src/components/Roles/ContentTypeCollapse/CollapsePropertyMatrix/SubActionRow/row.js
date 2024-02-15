@@ -21,7 +21,7 @@ const RowStyle = styled.div`
       ${activeStyle(theme)}
     }
   `}
-  ${({ isActive, theme }) => isActive && activeStyle(theme)}}
+  ${({ isActive, theme }) => isActive && activeStyle(theme)}
 `;
 
 RowStyle.propTypes = {

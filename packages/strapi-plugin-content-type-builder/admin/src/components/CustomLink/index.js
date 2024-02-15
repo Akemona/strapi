@@ -6,14 +6,16 @@ import P from './P';
 import StyledCustomLink from './StyledCustomLink';
 
 function CustomLink({ disabled, id, onClick }) {
-  return <StyledCustomLink disabled={disabled}>
-    <button onClick={onClick} disabled={disabled} type="button">
-      <P>
-        <Plus fill="#007EFF" width="11px" height="11px" />
-        {id && <FormattedMessage id={id} />}
-      </P>
-    </button>
-  </StyledCustomLink>
+  return (
+    <StyledCustomLink disabled={disabled}>
+      <button onClick={onClick} disabled={disabled} type="button">
+        <P>
+          <Plus fill="#007EFF" width="11px" height="11px" />
+          {id && <FormattedMessage id={id} />}
+        </P>
+      </button>
+    </StyledCustomLink>
+  );
 }
 
 CustomLink.defaultProps = {

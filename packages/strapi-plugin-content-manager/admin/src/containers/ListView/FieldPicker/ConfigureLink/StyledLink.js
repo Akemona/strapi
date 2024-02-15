@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 const StyledLink = styled(Link)`
   display: block;
   width: 100%;
-
   text-decoration: none;
   color: #333740;
   font-size: 13px;

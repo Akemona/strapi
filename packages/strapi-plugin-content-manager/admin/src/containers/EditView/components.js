@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Flex, Text } from '@buffetjs/core';
 
 const SubWrapper = styled.div`
-  background: #ffffff;
+  background: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 4px #e3e9f3;
 `;
@@ -12,11 +12,12 @@ const MainWrapper = styled(SubWrapper)`
     margin-right: 0;
     margin-left: 0;
   }
+
   padding: 22px 10px;
 `;
 
 const LinkWrapper = styled(SubWrapper)`
-  background: #ffffff;
+  background: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 4px #e3e9f3;
   ul {
@@ -50,7 +51,6 @@ const StatusWrapper = styled.div`
   display: flex;
   align-items: center;
   border-radius: 2px;
-
   height: 36px;
   padding: 0 15px;
   ${({ theme, isGreen }) =>

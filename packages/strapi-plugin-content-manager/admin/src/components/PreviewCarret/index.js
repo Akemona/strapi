@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 import Wrapper from './components';
 
 function PreviewCarret({ isComponent, style }) {
-  return <Wrapper isComponent={isComponent} style={style}>
-    <div />
-  </Wrapper>
+  return (
+    <Wrapper isComponent={isComponent} style={style}>
+      <div />
+    </Wrapper>
+  );
 }
 
 PreviewCarret.defaultProps = {

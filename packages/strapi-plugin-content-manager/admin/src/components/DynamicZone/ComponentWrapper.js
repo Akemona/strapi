@@ -21,7 +21,7 @@ const ComponentWrapper = styled.div`
     }
     &:not(:first-of-type) {
       margin-top: 32px;
-      &:before {
+      &::before {
         content: '&';
         position: absolute;
         top: -30px;

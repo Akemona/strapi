@@ -36,15 +36,15 @@ const Button = styled.button`
     outline: 0;
   }
 
-  :before {
+  ::before {
     ${beforeStyle}
   }
-  :after {
+  ::after {
     ${afterStyle}
   }
 
-  :before,
-  :after {
+  ::before,
+  ::after {
     background-color: #b4b6ba;
   }
 `;

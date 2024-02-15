@@ -29,7 +29,7 @@ const Table = styled.table`
 const TableEmpty = styled.tr`
   width: 100%;
   height: 108px;
-  background: #ffffff;
+  background: #fff;
 
   td {
     height: 106px;
@@ -45,7 +45,7 @@ const TableEmpty = styled.tr`
 
 const TableRow = styled.tr`
   height: 54px;
-  background: #ffffff;
+  background: #fff;
 
   &:hover {
     cursor: pointer;
@@ -75,7 +75,7 @@ const LoadingWrapper = styled.div`
   display: flex;
   background: ${(props) => props.theme.main.colors.white};
   box-shadow: 0 2px 4px ${(props) => props.theme.main.colors.darkGrey};
-  clip-path: inset(0px -5px -5px -5px);
+  clip-path: inset(0 -5px -5px -5px);
 `;
 
 LoadingWrapper.propTypes = {

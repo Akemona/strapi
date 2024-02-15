@@ -46,7 +46,7 @@ const Wrapper = styled.div`
     margin-bottom: 0;
   }
   .videosHeader {
-    padding: 25px 15px 18px 15px;
+    padding: 25px 15px 18px;
     p {
       display: inline-block;
       vertical-align: top;
@@ -86,11 +86,11 @@ const Wrapper = styled.div`
       animation: ${fadeOut} 0.5s forwards;
     }
     ul {
-      padding: 0 0 8px 0;
+      padding: 0 0 8px;
       margin-bottom: 0;
       list-style: none;
       &:last-of-type {
-        padding: 8px 0 10px 0;
+        padding: 8px 0 10px;
         border-top: 1px solid #f6f6f6;
       }
     }
@@ -105,7 +105,7 @@ const Wrapper = styled.div`
       border-radius: 50%;
       color: white;
       background: #0e7de7;
-      box-shadow: 0px 2px 4px 0px rgba(227, 233, 243, 1);
+      box-shadow: 0 2px 4px 0 rgb(227 233 243 / 100%);
       i,
       svg {
         margin: auto;

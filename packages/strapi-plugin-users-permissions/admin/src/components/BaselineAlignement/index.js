@@ -8,10 +8,8 @@ import styled from 'styled-components';
 // I create it to temporary fix the baseline alignment until we have the design system.
 
 const BaselineAlignment = styled.div`
-  padding-top: ${({ size, top }) => top && size};
-  padding-right: ${({ size, right }) => right && size};
-  padding-bottom: ${({ size, bottom }) => bottom && size};
-  padding-left: ${({ size, left }) => left && size};
+  padding: ${({ size, top }) => top && size} ${({ size, right }) => right && size}
+    ${({ size, bottom }) => bottom && size} ${({ size, left }) => left && size};
 `;
 
 BaselineAlignment.defaultProps = {

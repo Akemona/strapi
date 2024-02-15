@@ -17,10 +17,7 @@ const List = styled.ul`
 `;
 
 const ListItem = styled.li`
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-left: -10px;
-  margin-right: -10px;
+  margin: 0 -10px;
   padding-left: 10px;
   padding-right: 10px;
   height: 36px;

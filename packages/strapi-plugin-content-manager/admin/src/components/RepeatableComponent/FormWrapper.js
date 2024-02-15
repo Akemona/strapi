@@ -3,10 +3,7 @@ import styled from 'styled-components';
 /* eslint-disable indent */
 
 const FormWrapper = styled.div`
-  padding-top: 24px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 10px;
+  padding: 24px 20px 10px;
   border-top: 1px solid
     ${({ hasErrors, isOpen, isReadOnly }) => {
       if (hasErrors) {

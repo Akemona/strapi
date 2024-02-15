@@ -5,7 +5,7 @@ const RoundCTA = styled.div`
   width: 31px;
   border-radius: 50%;
   background-color: #f2f3f4;
-  border: 2px solid #ffffff;
+  border: 2px solid #fff;
   cursor: pointer;
   display: flex;
   z-index: 9;
@@ -27,8 +27,8 @@ const RoundCTA = styled.div`
   &.arrow-btn {
     height: 22px;
     width: 22px;
-    background-color: #ffffff;
-    border: 2px solid #ffffff;
+    background-color: #fff;
+    border: 2px solid #fff;
     svg {
       font-size: 10px;
       line-height: 22px;

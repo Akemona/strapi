@@ -5,7 +5,7 @@ const FilterOptionsCTA = styled.button`
   justify-content: center;
   height: 20px;
   width: 20px;
-  margin: 8px 5px 0px 0px;
+  margin: 8px 5px 0 0;
   border-radius: 50%;
   border: 1px solid #e3e9f3;
   cursor: pointer;

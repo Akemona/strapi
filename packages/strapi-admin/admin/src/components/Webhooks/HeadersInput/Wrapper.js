@@ -9,7 +9,7 @@ import { sizes } from '@buffetjs/styles';
 
 const Wrapper = styled.div`
   margin-top: 12px;
-  padding: 23px 24px 26px 24px;
+  padding: 23px 24px 26px;
   background-color: #fafafb;
   border-radius: ${sizes.borderRadius};
   > ul {

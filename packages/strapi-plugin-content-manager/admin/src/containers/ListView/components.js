@@ -20,7 +20,7 @@ const AddFilterCta = styled(Button)`
   margin-right: 10px;
   padding: 0 10px;
   text-align: center;
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #e3e9f3;
   border-radius: 2px;
   line-height: 28px;
@@ -44,7 +44,7 @@ const AddFilterCta = styled(Button)`
 const Img = styled.img`
   height: 7px;
   margin: auto;
-  margin-right: 0px;
+  margin-right: 0;
   font-size: 12px;
 `;
 
@@ -72,8 +72,8 @@ const FilterWrapper = styled.div`
   margin-bottom: 6px;
   margin-right: 10px;
   padding: 0 10px;
-  background: rgba(0, 126, 255, 0.08);
-  border: 1px solid rgba(0, 126, 255, 0.24);
+  background: rgb(0 126 255 / 8%);
+  border: 1px solid rgb(0 126 255 / 24%);
   border-radius: 2px;
   line-height: 28px;
   color: #007eff;
@@ -100,7 +100,7 @@ const Separator = styled.span`
   margin-left: 10px;
   margin-right: 10px;
   line-height: 30px;
-  &:after {
+  &::after {
     content: '';
     height: 15px;
     border-left: 1px solid #007eff;
@@ -113,7 +113,7 @@ const Remove = styled.span`
   cursor: pointer;
   vertical-align: middle;
 
-  &:after {
+  &::after {
     display: inline-block;
     content: '';
     width: 8px;

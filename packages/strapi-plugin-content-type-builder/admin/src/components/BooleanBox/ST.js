@@ -8,7 +8,7 @@ function ST({ selected }) {
     <STSelected aria-hidden data-testid="st-selected" />
   ) : (
     <STUnselected aria-hidden data-testid="st-unselected" />
-  )
+  );
 }
 
 ST.defaultProps = {

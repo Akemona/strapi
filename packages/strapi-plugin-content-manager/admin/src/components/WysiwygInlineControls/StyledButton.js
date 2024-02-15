@@ -5,8 +5,8 @@ const Button = styled.button`
   display: flex;
   height: 32px;
   min-width: 32px;
-  background-color: #ffffff;
-  border: 1px solid rgba(16, 22, 34, 0.1);
+  background-color: #fff;
+  border: 1px solid rgb(16 22 34 / 10%);
   font-size: 13px;
   font-weight: 500;
   line-height: 32px;
@@ -25,10 +25,10 @@ const Button = styled.button`
     if (active) {
       return css`
         border: 0;
-        background: rgba(16, 22, 34, 0);
+        background: rgb(16 22 34 / 0%);
         box-shadow:
-          inset 0 -1px 0 0 rgba(16, 22, 34, 0.04),
-          inset 0 1px 0 0 rgba(16, 22, 34, 0.04);
+          inset 0 -1px 0 0 rgb(16 22 34 / 4%),
+          inset 0 1px 0 0 rgb(16 22 34 / 4%);
       `;
     }
 

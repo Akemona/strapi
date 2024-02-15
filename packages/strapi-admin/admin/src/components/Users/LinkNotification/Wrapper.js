@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   width: 100%;
   display: flex;
   margin-bottom: 4px;
-  &:before {
+  &::before {
     content: '';
     width: 5px;
     height: 100%;
@@ -14,8 +14,9 @@ const Wrapper = styled.div`
     border-top-left-radius: ${({ theme }) => theme.main.sizes.borderRadius};
     border-bottom-left-radius: ${({ theme }) => theme.main.sizes.borderRadius};
   }
+
   border-radius: ${({ theme }) => theme.main.sizes.borderRadius};
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 5%);
 
   .icon-duplicate {
     margin-left: 10px;

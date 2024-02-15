@@ -21,7 +21,7 @@ const SearchWrapper = styled.div`
     position: absolute;
     top: 1px;
     right: 0;
-    padding: 5px 0 0px 5px;
+    padding: 5px 0 0 5px;
     line-height: 11px;
     outline: 0;
     i,

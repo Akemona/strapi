@@ -4,14 +4,16 @@ import { Text } from '@buffetjs/core';
 import Wrapper from './Wrapper';
 
 function Box({ children, errorMessage, withoutError }) {
-  return <Wrapper>
-    {!withoutError && (
-      <Text fontSize="md" color="lightOrange" style={{ textAlign: 'center' }} lineHeight="18px">
-        {errorMessage}&nbsp;
-      </Text>
-    )}
-    {children}
-  </Wrapper>
+  return (
+    <Wrapper>
+      {!withoutError && (
+        <Text fontSize="md" color="lightOrange" style={{ textAlign: 'center' }} lineHeight="18px">
+          {errorMessage}&nbsp;
+        </Text>
+      )}
+      {children}
+    </Wrapper>
+  );
 }
 
 Box.defaultProps = {

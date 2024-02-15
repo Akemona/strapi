@@ -6,18 +6,18 @@ import Wrapper from './Wrapper';
 function CheckboxWithDescription({ description, error, label, value, ...rest }) {
   return (
     <Wrapper>
-        <Checkbox {...rest} message={label} label={label} type="checkbox" value={value} />
-        {description && (
-          <Text color="grey" title={description} fontSize="sm" ellipsis>
-            {description}
-          </Text>
-        )}
-        {error && (
-          <Text color="lightOrange" lineHeight="18px">
-            {error}
-          </Text>
-        )}
-      </Wrapper>
+      <Checkbox {...rest} message={label} label={label} type="checkbox" value={value} />
+      {description && (
+        <Text color="grey" title={description} fontSize="sm" ellipsis>
+          {description}
+        </Text>
+      )}
+      {error && (
+        <Text color="lightOrange" lineHeight="18px">
+          {error}
+        </Text>
+      )}
+    </Wrapper>
   );
 }
 

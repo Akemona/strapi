@@ -17,7 +17,7 @@ const SelectWrapper = styled.div`
         `;
       }
     }}
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
+    box-shadow: 0 0 0 rgb(0 0 0 / 0%) !important;
   }
 `;
 

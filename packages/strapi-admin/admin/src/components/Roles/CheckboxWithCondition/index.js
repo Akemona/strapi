@@ -10,7 +10,7 @@ const CheckboxWithCondition = styled(Checkbox)`
 
   input[type='checkbox'] {
     z-index: 10;
-    &:after {
+    &::after {
       color: ${({ theme }) => theme.main.colors.mediumBlue};
     }
   }

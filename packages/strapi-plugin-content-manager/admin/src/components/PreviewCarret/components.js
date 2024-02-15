@@ -8,14 +8,12 @@ const Wrapper = styled.div`
   height: 30px;
   width: 100%;
   padding: 0 5px;
-
   ${({ isComponent }) =>
     isComponent &&
     `
     height: 34px;
     padding: 0;
   `}
-
   border-radius: 2px;
   > div {
     width: 100%;

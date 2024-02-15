@@ -6,12 +6,12 @@ const Wrapper = styled.div`
   width: 139px !important;
   margin: 0 10px 10px 0;
   padding: 18px 10px;
-  background-color: #ffffff;
+  background-color: #fff;
   color: #919bae;
   text-align: center;
   border-radius: 2px;
   cursor: pointer;
-  border: 1px solid #ffffff;
+  border: 1px solid #fff;
 
   button {
     outline: 0;

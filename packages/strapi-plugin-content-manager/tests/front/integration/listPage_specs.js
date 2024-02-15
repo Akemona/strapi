@@ -3,7 +3,7 @@ const animDelay = Cypress.config('animDelay');
 const frontLoadingDelay = Cypress.config('frontLoadingDelay');
 const backendUrl = Cypress.config('backendUrl');
 
-describe('Testing Content Manager ListPages', function() {
+describe('Testing Content Manager ListPages', function () {
   before(() => {
     cy.login()
       .then((data) => {

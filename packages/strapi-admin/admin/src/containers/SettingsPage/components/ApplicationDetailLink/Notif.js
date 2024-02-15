@@ -4,7 +4,7 @@ const Notif = styled.div`
   margin: auto;
   margin-right: 15px;
 
-  &:before {
+  &::before {
     content: '';
     display: flex;
     width: 6px;

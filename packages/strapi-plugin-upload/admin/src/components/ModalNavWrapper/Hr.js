@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { themePropTypes } from '@akemona-org/strapi-helper-plugin';
 
 const Hr = styled.hr`
-  margin: 0px;
+  margin: 0;
   width: 50%;
   height: 1px;
   border: 0;

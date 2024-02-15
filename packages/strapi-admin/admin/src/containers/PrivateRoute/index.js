@@ -15,20 +15,22 @@ import { auth } from '@akemona-org/strapi-helper-plugin';
 /* eslint-disable react/jsx-curly-newline */
 
 function PrivateRoute({ component: Component, path, ...rest }) {
-  return <Route
-    path={path}
-    render={(props) =>
-      auth.getToken() !== null ? (
-        <Component {...rest} {...props} />
-      ) : (
-        <Redirect
-          to={{
-            pathname: '/auth/login',
-          }}
-        />
-      )
-    }
-  />
+  return (
+    <Route
+      path={path}
+      render={(props) =>
+        auth.getToken() !== null ? (
+          <Component {...rest} {...props} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: '/auth/login',
+            }}
+          />
+        )
+      }
+    />
+  );
 }
 
 PrivateRoute.propTypes = {

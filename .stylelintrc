@@ -1,13 +1,16 @@
 {
-  "processors": [
-    "stylelint-processor-styled-components"
-  ],
-  "extends": [
-    "stylelint-config-recommended",
-    "stylelint-config-styled-components"
-  ],
+  "extends": ["stylelint-config-standard"],
+  "customSyntax": "postcss-styled-syntax",
   "rules": {
     "font-family-no-missing-generic-family-keyword": null,
-    "no-descending-specificity": null
+    "no-descending-specificity": null,
+    "rule-empty-line-before": null,
+    "media-feature-range-notation": null,
+    "selector-class-pattern": null,
+    "selector-id-pattern": null,
+    "color-function-notation": null,
+    "media-query-no-invalid": null,
+    "selector-not-notation": null,
+    "no-empty-source": null
   }
 }

@@ -88,8 +88,7 @@ const Wrapper = styled(List)`
           width: 100%;
           display: flex;
           flex-wrap: nowrap;
-          overflow-x: auto;
-          overflow-y: hidden;
+          overflow: auto hidden;
           li {
             margin-right: 9px;
           }
@@ -110,7 +109,6 @@ const Wrapper = styled(List)`
     bottom: 14px;
     left: 34px;
     background-color: ${({ isFromDynamicZone }) => (isFromDynamicZone ? '#AED4FB' : '#f3f4f4')};
-
     color: transparent;
     text-align: center;
     line-height: 27px;

@@ -48,6 +48,7 @@ const Wrapper = styled.div`
     > span:last-child {
       color: #1c5de7;
     }
+
     -webkit-font-smoothing: antialiased;
   }
 
@@ -135,7 +136,7 @@ const Wrapper = styled.div`
     -webkit-font-smoothing: antialiased;
 
     &:active {
-      box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.15);
+      box-shadow: inset 1px 1px 3px rgb(0 0 0 / 15%);
     }
   }
 

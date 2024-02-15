@@ -10,12 +10,14 @@ import { FormattedMessage } from 'react-intl';
 import PreviewControlWrapper from './PreviewControlWrapper';
 
 function PreviewControl({ onClick }) {
-  return <PreviewControlWrapper onClick={onClick}>
-    <div />
-    <div className="wysiwygCollapse">
-      <FormattedMessage id="components.Wysiwyg.collapse" />
-    </div>
-  </PreviewControlWrapper>
+  return (
+    <PreviewControlWrapper onClick={onClick}>
+      <div />
+      <div className="wysiwygCollapse">
+        <FormattedMessage id="components.Wysiwyg.collapse" />
+      </div>
+    </PreviewControlWrapper>
+  );
 }
 
 PreviewControl.defaultProps = {

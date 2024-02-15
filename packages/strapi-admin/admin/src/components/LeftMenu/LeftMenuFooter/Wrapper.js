@@ -13,7 +13,7 @@ const Wrapper = styled.div`
     padding-left: 15px;
     padding-right: 15px;
     line-height: 3rem;
-    background-color: rgba(255, 255, 255, 0.02);
+    background-color: rgb(255 255 255 / 2%);
     font-size: 1rem;
     font-weight: 400;
     letter-spacing: 0.05rem;

@@ -19,7 +19,7 @@ const NotificationWrapper = styled.div`
   pointer-events: auto;
 
   &:hover {
-    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 5px 0 rgb(0 0 0 / 20%);
   }
 `;
 

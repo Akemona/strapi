@@ -4,9 +4,11 @@ import adminPermissions from '../../../permissions';
 import EditView from '../EditView';
 
 function ProtectedCreateView() {
-  return <CheckPagePermissions permissions={adminPermissions.settings.webhooks.create}>
-    <EditView />
-  </CheckPagePermissions>
+  return (
+    <CheckPagePermissions permissions={adminPermissions.settings.webhooks.create}>
+      <EditView />
+    </CheckPagePermissions>
+  );
 }
 
 export default ProtectedCreateView;

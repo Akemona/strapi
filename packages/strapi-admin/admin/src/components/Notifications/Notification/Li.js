@@ -31,7 +31,7 @@ const GlobalNotification = createGlobalStyle`
     width: 220px;
     margin: 0;
     padding-right: 10px;
-    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    border-right: 1px solid rgb(255 255 255 / 30%);
   }
 
   .notificationTitle {
@@ -118,7 +118,7 @@ const Li = styled.li`
   margin-bottom: 14px;
   background: ${(props) => props.theme.main.colors.white};
   border-radius: 2px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 15%);
   color: #333740;
   transition: all 0.15s ease;
   overflow: hidden;
@@ -141,7 +141,7 @@ const Li = styled.li`
 
   &:hover {
     cursor: pointer;
-    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 5px 0 rgb(0 0 0 / 20%);
   }
 `;
 

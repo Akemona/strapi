@@ -8,7 +8,7 @@ const Tooltip = styled.div`
   line-height: 20px;
   height: 20px;
   padding: 0 10px;
-  background-color: #000000;
+  background-color: #000;
   font-size: 12px;
   color: #fff;
   opacity: 0.5;

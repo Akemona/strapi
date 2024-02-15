@@ -9,11 +9,11 @@ describe('Content Type Builder | utils | getComponents', () => {
 
   it('should return the correct components', () => {
     function TestCompo1() {
-  return <div>TestCompo1</div>
-}
+      return <div>TestCompo1</div>;
+    }
     function TestCompo2() {
-  return <div>TestCompo2</div>
-}
+      return <div>TestCompo2</div>;
+    }
 
     const plugins = {
       test: {

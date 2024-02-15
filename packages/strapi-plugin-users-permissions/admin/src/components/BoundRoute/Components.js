@@ -49,7 +49,7 @@ const Verb = styled.div`
   justify-content: center;
   padding: 0 1rem;
   border-radius: 3px;
-  color: #ffffff;
+  color: #fff;
   font-size: 12px;
   font-weight: ${({ theme }) => theme.main.fontWeights.bold};
   text-transform: uppercase;

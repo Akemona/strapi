@@ -26,47 +26,53 @@ import latoBlackWoff2 from '@buffetjs/styles/webfonts/Lato-Black.woff2';
 
 const Fonts = createGlobalStyle`
   @font-face {
-    font-family: 'FontAwesome';
+    font-family: FontAwesome;
     src: url(${faBrandsLight2}) format("woff2"), url(${faBrandsLight}) format("woff");
     font-weight: 400;
     font-style: normal;
   }
+
   @font-face {
-    font-family: 'FontAwesome';
+    font-family: FontAwesome;
     src: url(${faRegularLight2}) format("woff2"), url(${faRegularLight}) format("woff");
     font-weight: 400;
     font-style: normal;
   }
+
   @font-face {
-    font-family: 'FontAwesome';
+    font-family: FontAwesome;
     src: url(${faSolidHeavy2}) format("woff2"), url(${faSolidHeavy}) format("woff");
     font-weight: 400;
     font-style: normal;
   }
+
   /* Lato Regular - 400 */
   @font-face {
-    font-family: 'Lato';
+    font-family: Lato;
     src: url(${latoRegularWoff2}) format('woff2'), url(${latoRegularWoff}) format('woff'), url(${latoRegular}) format('truetype');
     font-weight: 400;
     font-style: normal;
   }
+
   /* Lato Semi-Bold - 500 */
   @font-face {
-    font-family: 'Lato';
+    font-family: Lato;
     src: url(${latoSemiBoldWoff2}) format('woff2'), url(${latoSemiBoldWoff}) format('woff'), url(${latoSemiBold}) format('truetype');
     font-weight: 500;
     font-style: normal;
   }
+
   /* Lato Bold - 600 */
   @font-face {
-    font-family: 'Lato';
+    font-family: Lato;
     src: url(${latoBoldWoff2}) format('woff2'), url(${latoBoldWoff}) format('woff'), url(${latoBold}) format('truetype');
     font-weight: 600;
     font-style: normal;
   }
+
   /* Lato Black - 900 */
   @font-face {
-    font-family: 'Lato';
+    font-family: Lato;
     src:  url(${latoBlackWoff2}) format('woff2'), url(${latoBlackWoff}) format('woff'), url(${latoBlack}) format('truetype');
     font-weight: 900;
     font-style: normal;

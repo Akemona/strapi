@@ -6,11 +6,11 @@ const Wrapper = styled.div`
   max-height: 555px;
   min-height: 294px;
   overflow: auto;
-  padding: 20px 20px 0 20px;
+  padding: 20px 20px 0;
   font-size: 16px;
   background-color: #fff;
   line-height: 24px !important;
-  font-family: 'Lato';
+  font-family: Lato;
   cursor: text;
 
   h1,
@@ -19,9 +19,8 @@ const Wrapper = styled.div`
   h4,
   h5,
   h6 {
-    margin-block-start: 10px;
-    margin-block-end: 10px;
-    font-family: 'Lato';
+    margin-block: 10px 10px;
+    font-family: Lato;
   }
 
   h1 {
@@ -61,7 +60,7 @@ const Wrapper = styled.div`
   table {
     font-size: 13px;
     thead {
-      background: rgb(243, 243, 243);
+      background: rgb(243 243 243);
       tr {
         height: 43px;
       }
@@ -87,7 +86,7 @@ const Wrapper = styled.div`
   pre,
   code {
     font-size: 13px;
-    font-family: 'Lato';
+    font-family: Lato;
     border-radius: 3px;
     background-color: #002b36;
   }

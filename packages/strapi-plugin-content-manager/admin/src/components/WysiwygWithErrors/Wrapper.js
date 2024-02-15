@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   padding-bottom: 2.8rem;
   font-size: 1.3rem;
-  font-family: 'Lato';
+  font-family: Lato;
   label {
     display: block;
     margin-bottom: 1rem;

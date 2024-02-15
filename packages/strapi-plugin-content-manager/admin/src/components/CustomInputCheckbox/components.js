@@ -8,14 +8,14 @@ const Label = styled.label`
   > input {
     display: none;
   }
-  &:before {
+  &::before {
     content: '';
     position: absolute;
     left: 15px;
     top: calc(50% - 8px);
     width: 14px;
     height: 14px;
-    border: 1px solid rgba(16, 22, 34, 0.15);
+    border: 1px solid rgb(16 22 34 / 15%);
     background-color: #fdfdfd;
     border-radius: 3px;
   }
@@ -23,13 +23,13 @@ const Label = styled.label`
   ${({ shouldDisplaySomeChecked }) => {
     if (shouldDisplaySomeChecked) {
       return css`
-        &:after {
+        &::after {
           content: '\f068';
           position: absolute;
           top: calc(50% - 8px);
           left: 18px;
           font-size: 10px;
-          font-family: 'FontAwesome';
+          font-family: FontAwesome;
           font-weight: 100;
           color: #1c5de7;
         }
@@ -40,13 +40,13 @@ const Label = styled.label`
   ${({ shouldDisplayAllChecked }) => {
     if (shouldDisplayAllChecked) {
       return css`
-        &:after {
+        &::after {
           content: '\f00c';
           position: absolute;
           top: calc(50% - 9px);
           left: 17px;
           font-size: 10px;
-          font-family: 'FontAwesome';
+          font-family: FontAwesome;
           font-weight: 100;
           color: #1c5de7;
           transition: all 0.2s;
@@ -58,13 +58,13 @@ const Label = styled.label`
   ${({ isChecked }) => {
     if (isChecked) {
       return css`
-        &:after {
+        &::after {
           content: '\f00c';
           position: absolute;
           top: calc(50% - 11px);
           left: 17px;
           font-size: 10px;
-          font-family: 'FontAwesome';
+          font-family: FontAwesome;
           font-weight: 100;
           color: #1c5de7;
           transition: all 0.2s;

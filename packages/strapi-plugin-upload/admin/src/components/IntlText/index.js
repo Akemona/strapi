@@ -5,9 +5,11 @@ import PropTypes from 'prop-types';
 import { Text } from '@buffetjs/core';
 
 function IntlText({ id, defaultMessage, values, ...textProps }) {
-  return <FormattedMessage id={id} defaultMessage={defaultMessage} values={values}>
-    {(msg) => <Text {...textProps}>{msg}</Text>}
-  </FormattedMessage>
+  return (
+    <FormattedMessage id={id} defaultMessage={defaultMessage} values={values}>
+      {(msg) => <Text {...textProps}>{msg}</Text>}
+    </FormattedMessage>
+  );
 }
 
 IntlText.defaultProps = {

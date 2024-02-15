@@ -15,10 +15,10 @@ const BackButton = styled.button`
   text-align: center;
   color: #81848a;
   border-right: 1px solid #f3f4f4;
-  &:before {
+  &::before {
     line-height: normal;
     content: '\f053';
-    font-family: 'FontAwesome';
+    font-family: FontAwesome;
     font-size: ${({ theme }) => theme.main.sizes.fonts.lg};
     font-weight: ${({ theme }) => theme.main.fontWeights.bold};
   }

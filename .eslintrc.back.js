@@ -6,10 +6,10 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'prettier',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:node/recommended',
+    'prettier',
   ],
   env: {
     es6: true,
@@ -36,5 +36,6 @@ module.exports = {
     'node/no-callback-literal': 'error',
     'node/handle-callback-err': 'error',
     'one-var': ['error', 'never'],
+    'space-before-function-paren': 'off',
   },
 };

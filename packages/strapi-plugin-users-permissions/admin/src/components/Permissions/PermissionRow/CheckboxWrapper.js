@@ -16,12 +16,14 @@ const CheckboxWrapper = styled.div`
       font-size: 1.4rem;
       color: ${({ theme }) => theme.main.colors.greyDark};
     }
+
     cursor: pointer;
   }
   &:hover {
     ${PolicyWrapper} {
       opacity: 1;
     }
+
     background-color: ${({ theme }) => theme.main.colors.mediumGrey};
   }
   ${({ isActive, theme }) =>

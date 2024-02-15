@@ -5,16 +5,18 @@ import { Text } from '@buffetjs/core';
 import Wrapper from './Wrapper';
 
 function Count({ count, isActive }) {
-  return <Wrapper isActive={isActive} justifyContent="center" alignItems="center">
-    <Text
-      lineHeight="none"
-      fontWeight="bold"
-      color={isActive ? 'mediumBlue' : 'grey'}
-      fontSize="xs"
-    >
-      {count}
-    </Text>
-  </Wrapper>
+  return (
+    <Wrapper isActive={isActive} justifyContent="center" alignItems="center">
+      <Text
+        lineHeight="none"
+        fontWeight="bold"
+        color={isActive ? 'mediumBlue' : 'grey'}
+        fontSize="xs"
+      >
+        {count}
+      </Text>
+    </Wrapper>
+  );
 }
 
 Count.propTypes = {

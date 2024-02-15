@@ -9,17 +9,19 @@ import OptionsTitle from './OptionsTitle';
 import RightOptionLabel from './RightOptionLabel';
 
 function Options({ options, title }) {
-  return <OptionsWrapper>
-    {title && <OptionsTitle>{title}</OptionsTitle>}
-    {options.map((option) => (
-      <Option key={option.id} onClick={option.onClick}>
-        <div>{option.label}</div>
-        <FormattedMessage id={getTrad('components.uid.apply')}>
-          {(msg) => <RightOptionLabel className="right-label">{msg}</RightOptionLabel>}
-        </FormattedMessage>
-      </Option>
-    ))}
-  </OptionsWrapper>
+  return (
+    <OptionsWrapper>
+      {title && <OptionsTitle>{title}</OptionsTitle>}
+      {options.map((option) => (
+        <Option key={option.id} onClick={option.onClick}>
+          <div>{option.label}</div>
+          <FormattedMessage id={getTrad('components.uid.apply')}>
+            {(msg) => <RightOptionLabel className="right-label">{msg}</RightOptionLabel>}
+          </FormattedMessage>
+        </Option>
+      ))}
+    </OptionsWrapper>
+  );
 }
 
 Options.propTypes = {

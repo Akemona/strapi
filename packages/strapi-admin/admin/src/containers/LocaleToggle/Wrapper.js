@@ -60,21 +60,21 @@ const Wrapper = styled.div`
     border: none !important;
     border-top-left-radius: 0 !important;
     border-top-right-radius: 0 !important;
-    box-shadow: 0 1px 4px 0px rgba(40, 42, 49, 0.05);
+    box-shadow: 0 1px 4px 0 rgb(40 42 49 / 5%);
 
-    &:before {
+    &::before {
       content: '';
       position: absolute;
       top: -3px;
       left: -1px;
       width: calc(100% + 1px);
       height: 3px;
-      box-shadow: 0 1px 2px 0 rgba(40, 42, 49, 0.16);
+      box-shadow: 0 1px 2px 0 rgb(40 42 49 / 16%);
     }
 
     > button {
       height: 40px;
-      padding: 0px 15px;
+      padding: 0 15px;
       line-height: 40px;
       color: #f75b1d;
       font-size: 13px;
@@ -84,7 +84,7 @@ const Wrapper = styled.div`
       &:focus,
       &:active {
         background-color: #fafafb !important;
-        border-radius: 0px;
+        border-radius: 0;
         cursor: pointer;
       }
     }
@@ -112,7 +112,7 @@ const Wrapper = styled.div`
     background: transparent !important;
     box-shadow: none !important;
     border: 1px solid #e3e9f3 !important;
-    border-top: 0px !important;
+    border-top: 0 !important;
 
     button {
       padding-left: 17px;
@@ -121,7 +121,7 @@ const Wrapper = styled.div`
       }
     }
 
-    &:before {
+    &::before {
       box-shadow: none !important;
     }
   }

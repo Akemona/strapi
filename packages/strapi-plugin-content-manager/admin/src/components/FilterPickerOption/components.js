@@ -6,14 +6,14 @@ const Wrapper = styled.div`
   min-height: 38px;
   border-left: ${(props) => props.borderLeft && '3px solid #007EFF'};
   padding-left: ${(props) => (props.borderLeft ? '10px' : '13px')};
-  margin-bottom: 0px !important;
+  margin-bottom: 0 !important;
 `;
 
 const InputWrapper = styled.div`
   display: flex;
   input,
   select {
-    margin: 0px 5px !important;
+    margin: 0 5px !important;
   }
 `;
 
@@ -54,7 +54,7 @@ const Input = styled.input`
   border-radius: 0.25rem;
   line-height: 3.4rem;
   font-size: 1.3rem;
-  font-family: 'Lato' !important;
-  box-shadow: 0px 1px 1px rgba(104, 118, 142, 0.05);
+  font-family: Lato !important;
+  box-shadow: 0 1px 1px rgb(104 118 142 / 5%);
 `;
 export { InputWrapper, Wrapper, InputWrapperDate, Input };

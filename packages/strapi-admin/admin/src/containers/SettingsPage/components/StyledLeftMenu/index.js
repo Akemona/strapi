@@ -6,6 +6,7 @@ const StyledLeftMenu = styled(LeftMenu)`
   > div {
     margin-bottom: 27px;
   }
+
   min-height: unset;
   height: unset;
 `;

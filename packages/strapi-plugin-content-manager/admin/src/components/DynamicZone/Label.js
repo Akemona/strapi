@@ -6,7 +6,7 @@ const Label = styled.div`
   font-weight: 600;
   position: relative;
   min-height: 64px;
-  &:after {
+  &::after {
     content: '•';
     position: absolute;
     top: 15px;
@@ -19,7 +19,7 @@ const Label = styled.div`
     border-radius: 4px;
     border: 1px solid white;
   }
-  &:before {
+  &::before {
     content: '&';
     position: absolute;
     top: 22px;

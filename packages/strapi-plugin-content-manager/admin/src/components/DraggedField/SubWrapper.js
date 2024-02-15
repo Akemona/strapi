@@ -14,10 +14,8 @@ const SubWrapper = styled.div`
     `;
     }
   }};
-
   line-height: ${({ withLongerHeight }) => getHeight(withLongerHeight)};
   cursor: pointer;
-
   background: ${({ isOverEditBlock, isOverRemove, isSelected }) => {
     if (isOverRemove) {
       return '#ffe9e0';

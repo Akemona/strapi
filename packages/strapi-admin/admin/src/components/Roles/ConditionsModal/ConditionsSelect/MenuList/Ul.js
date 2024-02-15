@@ -6,7 +6,7 @@ const Ul = styled.ul`
   max-height: 150px;
   font-size: 13px;
   padding: 0 15px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   list-style: none;
   background-color: #fff;
   > li {
@@ -14,7 +14,7 @@ const Ul = styled.ul`
       flex-shrink: 1;
       width: fit-content !important;
       cursor: pointer;
-      margin-bottom: 0px;
+      margin-bottom: 0;
     }
 
     .check-wrapper {
@@ -25,7 +25,6 @@ const Ul = styled.ul`
     }
     .chevron {
       margin: auto;
-
       font-size: 11px;
       color: #919bae;
     }
@@ -53,10 +52,7 @@ const Ul = styled.ul`
         content: '';
         position: absolute;
         z-index: 1;
-        top: 0;
-        left: -30px;
-        right: -30px;
-        bottom: 0;
+        inset: 0 -30px;
         background-color: ${({ theme }) => theme.main.colors.lightBlue};
       }
     }

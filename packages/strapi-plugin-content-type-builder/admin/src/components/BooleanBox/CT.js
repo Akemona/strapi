@@ -8,7 +8,7 @@ function CT({ selected }) {
     <CTSelected aria-hidden data-testid="ct-selected" />
   ) : (
     <CTUnselected aria-hidden data-testid="ct-unselected" />
-  )
+  );
 }
 
 CT.defaultProps = {

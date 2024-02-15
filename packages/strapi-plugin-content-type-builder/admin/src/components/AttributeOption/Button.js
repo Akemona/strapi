@@ -4,16 +4,16 @@ const Button = styled.button`
   display: flex;
   width: 100% !important;
   height: 4rem;
-  padding: 0 1rem 0 1rem;
+  padding: 0 1rem;
   margin-top: 0.6rem;
   margin-bottom: 0.8rem;
   align-items: center;
   justify-content: space-between;
   border-radius: 0.25rem;
   border: 1px solid #e3e9f3;
-  background: #ffffff;
+  background: #fff;
   line-height: 4rem;
-  box-shadow: 1px 1px 1px rgba(104, 118, 145, 0.05);
+  box-shadow: 1px 1px 1px rgb(104 118 145 / 5%);
   cursor: pointer;
 
   &:hover,

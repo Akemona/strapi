@@ -16,10 +16,11 @@ const PreviewControlWrapper = styled.div`
       font-size: 12px;
     }
   }
+
   cursor: pointer;
 
   .wysiwygCollapse {
-    &:after {
+    &::after {
       content: '\f066';
       font-family: FontAwesome;
       margin-left: 8px;
