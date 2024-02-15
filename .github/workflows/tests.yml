@@ -35,7 +35,7 @@ jobs:
           key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('**/yarn.lock') }}
       - run: yarn install --frozen-lockfile
       - name: Run lint
-        run: yarn run -s lint
+        run: yarn run --silent lint
 
   unit_back:
     name: 'unit_back (node: ${{ matrix.node }})'
@@ -58,7 +58,7 @@ jobs:
 
       - run: yarn install --frozen-lockfile
       - name: Run tests
-        run: yarn run -s test:unit --coverage
+        run: yarn run --silent test:unit --coverage
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
@@ -88,7 +88,7 @@ jobs:
       - name: Build
         run: yarn build
       - name: Run test
-        run: yarn run -s test:front:ce --coverage
+        run: yarn run --silent test:front:ce --coverage
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:

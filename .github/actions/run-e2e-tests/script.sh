@@ -5,5 +5,5 @@ fi
 
 opts=($DB_OPTIONS)
 
-yarn run -s test:generate-app "${opts[@]}" $@
-yarn run -s test:e2e
+yarn run --silent test:generate-app "${opts[@]}" $@
+yarn run --silent test:e2e
