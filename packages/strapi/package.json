@@ -11,9 +11,7 @@
     "bin": "./bin"
   },
   "main": "./lib",
-  "bin": {
-    "strapi": "./bin/strapi.js"
-  },
+  "bin": "./bin/strapi.js",
   "dependencies": {
     "@akemona-org/strapi-database": "3.13.3",
     "@akemona-org/strapi-generate": "3.13.3",

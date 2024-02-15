@@ -15,9 +15,7 @@
     "strapi"
   ],
   "main": "./index.js",
-  "bin": {
-    "create-strapi-app": "./index.js"
-  },
+  "bin": "./index.js",
   "dependencies": {
     "@akemona-org/strapi-generate-new": "3.13.3",
     "chalk": "4.1.1",
