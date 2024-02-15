@@ -23,11 +23,13 @@ jobs:
       matrix:
         node: [18, 20]
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - name: Enable Corepack
+        run: corepack enable
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('**/yarn.lock') }}
@@ -43,11 +45,13 @@ jobs:
       matrix:
         node: [18, 20]
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - name: Enable Corepack
+        run: corepack enable
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('**/yarn.lock') }}
@@ -56,7 +60,7 @@ jobs:
       - name: Run tests
         run: yarn run -s test:unit --coverage
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           directory: ./coverage
           flags: back,unit_back
@@ -69,11 +73,13 @@ jobs:
       matrix:
         node: [18, 20]
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - name: Enable Corepack
+        run: corepack enable
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('**/yarn.lock') }}
@@ -84,7 +90,7 @@ jobs:
       - name: Run test
         run: yarn run -s test:front:ce --coverage
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           directory: ./coverage
           flags: front,unit_front
@@ -117,8 +123,8 @@ jobs:
   #         # Maps tcp port 5432 on service container to the host
   #         - 5432:5432
   #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: actions/setup-node@v3
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-node@v4
   #       with:
   #         node-version: ${{ matrix.node }}
   #     - uses: ./.github/actions/install-modules
@@ -153,8 +159,8 @@ jobs:
   #         # Maps tcp port 5432 on service container to the host
   #         - 3306:3306
   #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: actions/setup-node@v3
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-node@v4
   #       with:
   #         node-version: ${{ matrix.node }}
   #     - uses: ./.github/actions/install-modules
@@ -171,11 +177,13 @@ jobs:
         node: [18, 20]
         sqlite_pkg: ['better-sqlite3']
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - name: Enable Corepack
+        run: corepack enable
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('**/yarn.lock') }}
@@ -198,11 +206,13 @@ jobs:
         ports:
           - 27017:27017
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - name: Enable Corepack
+        run: corepack enable
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('**/yarn.lock') }}
