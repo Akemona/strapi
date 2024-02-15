@@ -130,7 +130,7 @@ module.exports = async ({ models, target }, ctx) => {
       _.omitBy(definition.loadedModel, ({ type }) => type === 'virtual')
     );
 
-    const findLifecycles = ['find', 'findOne', 'findOneAndUpdate', 'findOneAndRemove'];
+    const findLifecycles = ['find', 'findOne', 'findOneAndUpdate', 'findOneAndDelete'];
 
     /*
         Override populate path for polymorphic association.

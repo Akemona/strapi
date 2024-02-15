@@ -548,7 +548,7 @@ module.exports = ({ model, strapi }) => {
 
   async function deleteOne(id, { session = null } = {}) {
     const entry = await model
-      .findOneAndRemove({ [model.primaryKey]: id }, { session })
+      .findOneAndDelete({ [model.primaryKey]: id }, { session })
       .populate(defaultPopulate());
 
     if (!entry) {
