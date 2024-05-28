@@ -7,7 +7,7 @@
 // Public node modules.
 const path = require('path');
 const fs = require('fs');
-const url = require('url');
+const { URL } = require('url');
 const _ = require('lodash');
 const mongoose = require('mongoose');
 require('mongoose-long')(mongoose);
@@ -64,8 +64,7 @@ module.exports = function (strapi) {
 
       const { uri, host, port, username, password, database, srv } = connection.settings;
 
-      // eslint-disable-next-line node/no-deprecated-api
-      const uriOptions = uri ? url.parse(uri, true).query : {};
+      const uriOptions = uri ? Object.fromEntries(new URL(uri).searchParams) : {};
       const { authenticationDatabase, ssl, debug } = _.defaults(
         connection.options,
         uriOptions,
