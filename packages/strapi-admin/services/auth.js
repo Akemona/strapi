@@ -20,6 +20,22 @@ const hashPassword = (password) => bcrypt.hash(password, 10);
 const validatePassword = (password, hash) => bcrypt.compare(password, hash);
 
 /**
+ *
+ * @param {string} ip
+ * @returns {boolean} is allowed
+ */
+const checkNetworkAccess = (ip) => {
+  if (process.env.STRAPI_ADMIN_ENABLE_NETWORK_CHECK === 'true') {
+    const ipListStr = process.env.STRAPI_ADMIN_ALLOWED_IP_LIST ?? '';
+    const allowedList = ipListStr.split(',').map((item) => item.trim());
+    if (!allowedList.includes(ip)) {
+      return false;
+    }
+  }
+  return true;
+};
+
+/**
  * Check login credentials
  * @param {Object} options
  * @param {string} options.email
@@ -105,6 +121,7 @@ const resetPassword = async ({ resetPasswordToken, password } = {}) => {
 };
 
 module.exports = {
+  checkNetworkAccess,
   checkCredentials,
   validatePassword,
   hashPassword,

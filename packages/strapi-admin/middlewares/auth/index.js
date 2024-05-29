@@ -8,18 +8,6 @@ module.exports = (strapi) => ({
 
     strapi.app.use(async (ctx, next) => {
       if (
-        process.env.STRAPI_ADMIN_ENABLE_NETWORK_CHECK === 'true' &&
-        process.env.STRAPI_ADMIN_ALLOWED_IP_LIST
-      ) {
-        const allowedList = process.env.STRAPI_ADMIN_ALLOWED_IP_LIST.split(',').map((item) =>
-          item.trim()
-        );
-        if (!allowedList.includes(ctx.request.ip)) {
-          return ctx.forbidden('Invalid network');
-        }
-      }
-
-      if (
         ctx.request.header.authorization &&
         ctx.request.header.authorization.split(' ')[0] === 'Bearer'
       ) {
@@ -33,6 +21,11 @@ module.exports = (strapi) => ({
 
           if (!admin || !(admin.isActive === true)) {
             return ctx.forbidden('Invalid credentials');
+          }
+
+          const accessAllowed = strapi.admin.services.auth.checkNetworkAccess(ctx.request.ip);
+          if (!accessAllowed) {
+            return ctx.forbidden('Invalid network');
           }
 
           ctx.state.admin = admin;

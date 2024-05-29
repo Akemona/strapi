@@ -20,6 +20,11 @@ module.exports = {
           return ctx.badImplementation();
         }
 
+        const accessAllowed = strapi.admin.services.auth.checkNetworkAccess(ctx.request.ip);
+        if (!accessAllowed) {
+          return ctx.badRequest('Access is not allowed from this network.');
+        }
+
         if (!user) {
           strapi.eventHub.emit('admin.auth.error', {
             error: new Error(info.message),
