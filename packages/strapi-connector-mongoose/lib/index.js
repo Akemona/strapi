@@ -7,7 +7,6 @@
 // Public node modules.
 const path = require('path');
 const fs = require('fs');
-const { URL } = require('url');
 const _ = require('lodash');
 const mongoose = require('mongoose');
 require('mongoose-long')(mongoose);
@@ -64,7 +63,7 @@ module.exports = function (strapi) {
 
       const { uri, host, port, username, password, database, srv } = connection.settings;
 
-      const uriOptions = uri ? Object.fromEntries(new URL(uri).searchParams) : {};
+      const uriOptions = uri ? new URLSearchParams(uri.split('?').pop()) : {};
       const { authenticationDatabase, ssl, debug } = _.defaults(
         connection.options,
         uriOptions,
