@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.15.1",
+  "version": "3.15.2",
   "description": "Local provider for strapi upload",
   "homepage": "https://strapi.akemona.com",
   "keywords": [

@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.15.1",
+  "version": "3.15.2",
   "description": "Strapi plugin to create content type (API).",
   "strapi": {
     "name": "Content Type Builder",
@@ -11,10 +11,10 @@
     "description": "content-type-builder.plugin.description"
   },
   "dependencies": {
-    "@akemona-org/strapi-generate": "3.15.1",
-    "@akemona-org/strapi-generate-api": "3.15.1",
-    "@akemona-org/strapi-helper-plugin": "3.15.1",
-    "@akemona-org/strapi-utils": "3.15.1",
+    "@akemona-org/strapi-generate": "3.15.2",
+    "@akemona-org/strapi-generate-api": "3.15.2",
+    "@akemona-org/strapi-helper-plugin": "3.15.2",
+    "@akemona-org/strapi-utils": "3.15.2",
     "@buffetjs/core": "3.3.8",
     "@buffetjs/custom": "3.3.8",
     "@buffetjs/hooks": "3.3.8",

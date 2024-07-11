@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.15.1",
+  "version": "3.15.2",
   "description": "Strapi Admin",
   "repository": {
     "type": "git",
@@ -17,8 +17,8 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@akemona-org/strapi-helper-plugin": "3.15.1",
-    "@akemona-org/strapi-utils": "3.15.1",
+    "@akemona-org/strapi-helper-plugin": "3.15.2",
+    "@akemona-org/strapi-utils": "3.15.2",
     "@babel/core": "^7.14.0",
     "@babel/plugin-proposal-async-generator-functions": "^7.13.15",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
