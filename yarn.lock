@@ -23,7 +23,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@akemona-org/create-strapi-app@workspace:packages/create-strapi-app"
   dependencies:
-    "@akemona-org/strapi-generate-new": "npm:3.15.2"
+    "@akemona-org/strapi-generate-new": "npm:3.16.0"
     chalk: "npm:4.1.1"
     commander: "npm:6.1.0"
     inquirer: "npm:8.1.0"
@@ -38,7 +38,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@akemona-org/create-strapi-starter@workspace:packages/create-strapi-starter"
   dependencies:
-    "@akemona-org/strapi-generate-new": "npm:3.15.2"
+    "@akemona-org/strapi-generate-new": "npm:3.16.0"
     chalk: "npm:4.1.1"
     ci-info: "npm:3.1.1"
     commander: "npm:7.1.0"
@@ -55,12 +55,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-admin@npm:3.15.2, @akemona-org/strapi-admin@workspace:packages/strapi-admin":
+"@akemona-org/strapi-admin@npm:3.16.0, @akemona-org/strapi-admin@workspace:packages/strapi-admin":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-admin@workspace:packages/strapi-admin"
   dependencies:
-    "@akemona-org/strapi-helper-plugin": "npm:3.15.2"
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-helper-plugin": "npm:3.16.0"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     "@babel/core": "npm:^7.14.0"
     "@babel/plugin-proposal-async-generator-functions": "npm:^7.13.15"
     "@babel/plugin-proposal-class-properties": "npm:^7.12.1"
@@ -162,11 +162,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-connector-bookshelf@npm:3.15.2, @akemona-org/strapi-connector-bookshelf@workspace:packages/strapi-connector-bookshelf":
+"@akemona-org/strapi-connector-bookshelf@npm:3.16.0, @akemona-org/strapi-connector-bookshelf@workspace:packages/strapi-connector-bookshelf":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-connector-bookshelf@workspace:packages/strapi-connector-bookshelf"
   dependencies:
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     bookshelf: "npm:1.2.0"
     date-fns: "npm:^2.19.0"
     inquirer: "npm:^6.3.1"
@@ -179,11 +179,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-connector-mongoose@npm:3.15.2, @akemona-org/strapi-connector-mongoose@workspace:packages/strapi-connector-mongoose":
+"@akemona-org/strapi-connector-mongoose@npm:3.16.0, @akemona-org/strapi-connector-mongoose@workspace:packages/strapi-connector-mongoose":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-connector-mongoose@workspace:packages/strapi-connector-mongoose"
   dependencies:
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     lodash: "npm:4.17.21"
     mongodb-connection-string-url: "npm:3.0.1"
     mongoose: "npm:8.5.0"
@@ -195,11 +195,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-database@npm:3.15.2, @akemona-org/strapi-database@workspace:packages/strapi-database":
+"@akemona-org/strapi-database@npm:3.16.0, @akemona-org/strapi-database@workspace:packages/strapi-database":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-database@workspace:packages/strapi-database"
   dependencies:
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     debug: "npm:4.3.1"
     lodash: "npm:4.17.21"
     p-map: "npm:4.0.0"
@@ -207,36 +207,36 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-generate-api@npm:3.15.2, @akemona-org/strapi-generate-api@workspace:packages/strapi-generate-api":
+"@akemona-org/strapi-generate-api@npm:3.16.0, @akemona-org/strapi-generate-api@workspace:packages/strapi-generate-api":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-generate-api@workspace:packages/strapi-generate-api"
   dependencies:
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     lodash: "npm:4.17.21"
     pluralize: "npm:^8.0.0"
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-generate-controller@npm:3.15.2, @akemona-org/strapi-generate-controller@workspace:packages/strapi-generate-controller":
+"@akemona-org/strapi-generate-controller@npm:3.16.0, @akemona-org/strapi-generate-controller@workspace:packages/strapi-generate-controller":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-generate-controller@workspace:packages/strapi-generate-controller"
   dependencies:
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     lodash: "npm:4.17.21"
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-generate-model@npm:3.15.2, @akemona-org/strapi-generate-model@workspace:packages/strapi-generate-model":
+"@akemona-org/strapi-generate-model@npm:3.16.0, @akemona-org/strapi-generate-model@workspace:packages/strapi-generate-model":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-generate-model@workspace:packages/strapi-generate-model"
   dependencies:
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     lodash: "npm:4.17.21"
     pluralize: "npm:^8.0.0"
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-generate-new@npm:3.15.2, @akemona-org/strapi-generate-new@workspace:packages/strapi-generate-new":
+"@akemona-org/strapi-generate-new@npm:3.16.0, @akemona-org/strapi-generate-new@workspace:packages/strapi-generate-new":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-generate-new@workspace:packages/strapi-generate-new"
   dependencies:
@@ -255,39 +255,39 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-generate-plugin@npm:3.15.2, @akemona-org/strapi-generate-plugin@workspace:packages/strapi-generate-plugin":
+"@akemona-org/strapi-generate-plugin@npm:3.16.0, @akemona-org/strapi-generate-plugin@workspace:packages/strapi-generate-plugin":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-generate-plugin@workspace:packages/strapi-generate-plugin"
   dependencies:
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     fs-extra: "npm:^9.1.0"
     lodash: "npm:4.17.21"
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-generate-policy@npm:3.15.2, @akemona-org/strapi-generate-policy@workspace:packages/strapi-generate-policy":
+"@akemona-org/strapi-generate-policy@npm:3.16.0, @akemona-org/strapi-generate-policy@workspace:packages/strapi-generate-policy":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-generate-policy@workspace:packages/strapi-generate-policy"
   dependencies:
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     lodash: "npm:4.17.21"
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-generate-service@npm:3.15.2, @akemona-org/strapi-generate-service@workspace:packages/strapi-generate-service":
+"@akemona-org/strapi-generate-service@npm:3.16.0, @akemona-org/strapi-generate-service@workspace:packages/strapi-generate-service":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-generate-service@workspace:packages/strapi-generate-service"
   dependencies:
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     lodash: "npm:4.17.21"
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-generate@npm:3.15.2, @akemona-org/strapi-generate@workspace:packages/strapi-generate":
+"@akemona-org/strapi-generate@npm:3.16.0, @akemona-org/strapi-generate@workspace:packages/strapi-generate":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-generate@workspace:packages/strapi-generate"
   dependencies:
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     async: "npm:^2.6.2"
     fs-extra: "npm:^9.1.0"
     lodash: "npm:4.17.21"
@@ -295,7 +295,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-helper-plugin@npm:3.15.2, @akemona-org/strapi-helper-plugin@workspace:packages/strapi-helper-plugin":
+"@akemona-org/strapi-helper-plugin@npm:3.16.0, @akemona-org/strapi-helper-plugin@workspace:packages/strapi-helper-plugin":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-helper-plugin@workspace:packages/strapi-helper-plugin"
   dependencies:
@@ -348,7 +348,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-hook-redis@workspace:packages/strapi-hook-redis"
   dependencies:
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     ioredis: "npm:^4.27.1"
     lodash: "npm:4.17.21"
     rimraf: "npm:4.1.0"
@@ -356,7 +356,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-middleware-views@npm:3.15.2, @akemona-org/strapi-middleware-views@workspace:packages/strapi-middleware-views":
+"@akemona-org/strapi-middleware-views@npm:3.16.0, @akemona-org/strapi-middleware-views@workspace:packages/strapi-middleware-views":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-middleware-views@workspace:packages/strapi-middleware-views"
   dependencies:
@@ -366,12 +366,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-plugin-content-manager@npm:3.15.2, @akemona-org/strapi-plugin-content-manager@workspace:packages/strapi-plugin-content-manager":
+"@akemona-org/strapi-plugin-content-manager@npm:3.16.0, @akemona-org/strapi-plugin-content-manager@workspace:packages/strapi-plugin-content-manager":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-plugin-content-manager@workspace:packages/strapi-plugin-content-manager"
   dependencies:
-    "@akemona-org/strapi-helper-plugin": "npm:3.15.2"
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-helper-plugin": "npm:3.16.0"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     "@buffetjs/core": "npm:3.3.8"
     "@buffetjs/custom": "npm:3.3.8"
     "@buffetjs/hooks": "npm:3.3.8"
@@ -412,14 +412,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-plugin-content-type-builder@npm:3.15.2, @akemona-org/strapi-plugin-content-type-builder@workspace:packages/strapi-plugin-content-type-builder":
+"@akemona-org/strapi-plugin-content-type-builder@npm:3.16.0, @akemona-org/strapi-plugin-content-type-builder@workspace:packages/strapi-plugin-content-type-builder":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-plugin-content-type-builder@workspace:packages/strapi-plugin-content-type-builder"
   dependencies:
-    "@akemona-org/strapi-generate": "npm:3.15.2"
-    "@akemona-org/strapi-generate-api": "npm:3.15.2"
-    "@akemona-org/strapi-helper-plugin": "npm:3.15.2"
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-generate": "npm:3.16.0"
+    "@akemona-org/strapi-generate-api": "npm:3.16.0"
+    "@akemona-org/strapi-helper-plugin": "npm:3.16.0"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     "@buffetjs/core": "npm:3.3.8"
     "@buffetjs/custom": "npm:3.3.8"
     "@buffetjs/hooks": "npm:3.3.8"
@@ -445,11 +445,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-plugin-documentation@npm:3.15.2, @akemona-org/strapi-plugin-documentation@workspace:packages/strapi-plugin-documentation":
+"@akemona-org/strapi-plugin-documentation@npm:3.16.0, @akemona-org/strapi-plugin-documentation@workspace:packages/strapi-plugin-documentation":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-plugin-documentation@workspace:packages/strapi-plugin-documentation"
   dependencies:
-    "@akemona-org/strapi-helper-plugin": "npm:3.15.2"
+    "@akemona-org/strapi-helper-plugin": "npm:3.16.0"
     "@buffetjs/core": "npm:3.3.8"
     "@buffetjs/custom": "npm:3.3.8"
     "@buffetjs/hooks": "npm:3.3.8"
@@ -479,23 +479,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-plugin-email@npm:3.15.2, @akemona-org/strapi-plugin-email@workspace:packages/strapi-plugin-email":
+"@akemona-org/strapi-plugin-email@npm:3.16.0, @akemona-org/strapi-plugin-email@workspace:packages/strapi-plugin-email":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-plugin-email@workspace:packages/strapi-plugin-email"
   dependencies:
-    "@akemona-org/strapi-helper-plugin": "npm:3.15.2"
-    "@akemona-org/strapi-provider-email-sendmail": "npm:3.15.2"
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-helper-plugin": "npm:3.16.0"
+    "@akemona-org/strapi-provider-email-sendmail": "npm:3.16.0"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     lodash: "npm:4.17.21"
     rimraf: "npm:4.1.0"
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-plugin-graphql@npm:3.15.2, @akemona-org/strapi-plugin-graphql@workspace:packages/strapi-plugin-graphql":
+"@akemona-org/strapi-plugin-graphql@npm:3.16.0, @akemona-org/strapi-plugin-graphql@workspace:packages/strapi-plugin-graphql":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-plugin-graphql@workspace:packages/strapi-plugin-graphql"
   dependencies:
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     "@apollo/federation": "npm:^0.20.7"
     "@graphql-tools/utils": "npm:7.2.4"
     apollo-server-koa: "npm:2.24.0"
@@ -518,11 +518,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-plugin-i18n@npm:3.15.2, @akemona-org/strapi-plugin-i18n@workspace:packages/strapi-plugin-i18n":
+"@akemona-org/strapi-plugin-i18n@npm:3.16.0, @akemona-org/strapi-plugin-i18n@workspace:packages/strapi-plugin-i18n":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-plugin-i18n@workspace:packages/strapi-plugin-i18n"
   dependencies:
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     lodash: "npm:4.17.21"
     p-map: "npm:4.0.0"
     pluralize: "npm:8.0.0"
@@ -537,13 +537,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-plugin-upload@npm:3.15.2, @akemona-org/strapi-plugin-upload@workspace:packages/strapi-plugin-upload":
+"@akemona-org/strapi-plugin-upload@npm:3.16.0, @akemona-org/strapi-plugin-upload@workspace:packages/strapi-plugin-upload":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-plugin-upload@workspace:packages/strapi-plugin-upload"
   dependencies:
-    "@akemona-org/strapi-helper-plugin": "npm:3.15.2"
-    "@akemona-org/strapi-provider-upload-local": "npm:3.15.2"
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-helper-plugin": "npm:3.16.0"
+    "@akemona-org/strapi-provider-upload-local": "npm:3.16.0"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     "@buffetjs/core": "npm:3.3.8"
     "@buffetjs/custom": "npm:3.3.8"
     "@buffetjs/hooks": "npm:3.3.8"
@@ -573,12 +573,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-plugin-users-permissions@npm:3.15.2, @akemona-org/strapi-plugin-users-permissions@workspace:packages/strapi-plugin-users-permissions":
+"@akemona-org/strapi-plugin-users-permissions@npm:3.16.0, @akemona-org/strapi-plugin-users-permissions@workspace:packages/strapi-plugin-users-permissions":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-plugin-users-permissions@workspace:packages/strapi-plugin-users-permissions"
   dependencies:
-    "@akemona-org/strapi-helper-plugin": "npm:3.15.2"
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-helper-plugin": "npm:3.16.0"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     "@buffetjs/core": "npm:3.3.8"
     "@buffetjs/custom": "npm:3.3.8"
     "@buffetjs/hooks": "npm:3.3.8"
@@ -611,17 +611,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-provider-email-amazon-ses@workspace:packages/strapi-provider-email-amazon-ses"
   dependencies:
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     "@aws-sdk/client-ses": "npm:3.637.0"
     nodemailer: "npm:6.9.14"
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-provider-email-mailgun@npm:3.15.2, @akemona-org/strapi-provider-email-mailgun@workspace:packages/strapi-provider-email-mailgun":
+"@akemona-org/strapi-provider-email-mailgun@npm:3.16.0, @akemona-org/strapi-provider-email-mailgun@workspace:packages/strapi-provider-email-mailgun":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-provider-email-mailgun@workspace:packages/strapi-provider-email-mailgun"
   dependencies:
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     mailgun-js: "npm:0.22.0"
   languageName: unknown
   linkType: soft
@@ -639,21 +639,21 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-provider-email-sendgrid@workspace:packages/strapi-provider-email-sendgrid"
   dependencies:
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     "@sendgrid/mail": "npm:6.4.0"
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-provider-email-sendmail@npm:3.15.2, @akemona-org/strapi-provider-email-sendmail@workspace:packages/strapi-provider-email-sendmail":
+"@akemona-org/strapi-provider-email-sendmail@npm:3.16.0, @akemona-org/strapi-provider-email-sendmail@workspace:packages/strapi-provider-email-sendmail":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-provider-email-sendmail@workspace:packages/strapi-provider-email-sendmail"
   dependencies:
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     sendmail: "npm:^1.6.1"
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-provider-upload-aws-s3@npm:3.15.2, @akemona-org/strapi-provider-upload-aws-s3@workspace:packages/strapi-provider-upload-aws-s3":
+"@akemona-org/strapi-provider-upload-aws-s3@npm:3.16.0, @akemona-org/strapi-provider-upload-aws-s3@workspace:packages/strapi-provider-upload-aws-s3":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-provider-upload-aws-s3@workspace:packages/strapi-provider-upload-aws-s3"
   dependencies:
@@ -661,7 +661,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-provider-upload-cloudinary@npm:3.15.2, @akemona-org/strapi-provider-upload-cloudinary@workspace:packages/strapi-provider-upload-cloudinary":
+"@akemona-org/strapi-provider-upload-cloudinary@npm:3.16.0, @akemona-org/strapi-provider-upload-cloudinary@workspace:packages/strapi-provider-upload-cloudinary":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-provider-upload-cloudinary@workspace:packages/strapi-provider-upload-cloudinary"
   dependencies:
@@ -672,7 +672,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-provider-upload-local@npm:3.15.2, @akemona-org/strapi-provider-upload-local@workspace:packages/strapi-provider-upload-local":
+"@akemona-org/strapi-provider-upload-local@npm:3.16.0, @akemona-org/strapi-provider-upload-local@workspace:packages/strapi-provider-upload-local":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-provider-upload-local@workspace:packages/strapi-provider-upload-local"
   peerDependencies:
@@ -680,7 +680,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi-utils@npm:3.15.2, @akemona-org/strapi-utils@workspace:packages/strapi-utils":
+"@akemona-org/strapi-utils@npm:3.16.0, @akemona-org/strapi-utils@workspace:packages/strapi-utils":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi-utils@workspace:packages/strapi-utils"
   dependencies:
@@ -694,20 +694,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@akemona-org/strapi@npm:3.15.2, @akemona-org/strapi@workspace:packages/strapi":
+"@akemona-org/strapi@npm:3.16.0, @akemona-org/strapi@workspace:packages/strapi":
   version: 0.0.0-use.local
   resolution: "@akemona-org/strapi@workspace:packages/strapi"
   dependencies:
-    "@akemona-org/strapi-database": "npm:3.15.2"
-    "@akemona-org/strapi-generate": "npm:3.15.2"
-    "@akemona-org/strapi-generate-api": "npm:3.15.2"
-    "@akemona-org/strapi-generate-controller": "npm:3.15.2"
-    "@akemona-org/strapi-generate-model": "npm:3.15.2"
-    "@akemona-org/strapi-generate-new": "npm:3.15.2"
-    "@akemona-org/strapi-generate-plugin": "npm:3.15.2"
-    "@akemona-org/strapi-generate-policy": "npm:3.15.2"
-    "@akemona-org/strapi-generate-service": "npm:3.15.2"
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi-database": "npm:3.16.0"
+    "@akemona-org/strapi-generate": "npm:3.16.0"
+    "@akemona-org/strapi-generate-api": "npm:3.16.0"
+    "@akemona-org/strapi-generate-controller": "npm:3.16.0"
+    "@akemona-org/strapi-generate-model": "npm:3.16.0"
+    "@akemona-org/strapi-generate-new": "npm:3.16.0"
+    "@akemona-org/strapi-generate-plugin": "npm:3.16.0"
+    "@akemona-org/strapi-generate-policy": "npm:3.16.0"
+    "@akemona-org/strapi-generate-service": "npm:3.16.0"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     "@koa/cors": "npm:5.0.0"
     "@koa/router": "npm:12.0.1"
     async: "npm:3.2.5"
@@ -14871,23 +14871,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "getstarted@workspace:examples/getstarted"
   dependencies:
-    "@akemona-org/strapi": "npm:3.15.2"
-    "@akemona-org/strapi-admin": "npm:3.15.2"
-    "@akemona-org/strapi-connector-bookshelf": "npm:3.15.2"
-    "@akemona-org/strapi-connector-mongoose": "npm:3.15.2"
-    "@akemona-org/strapi-middleware-views": "npm:3.15.2"
-    "@akemona-org/strapi-plugin-content-manager": "npm:3.15.2"
-    "@akemona-org/strapi-plugin-content-type-builder": "npm:3.15.2"
-    "@akemona-org/strapi-plugin-documentation": "npm:3.15.2"
-    "@akemona-org/strapi-plugin-email": "npm:3.15.2"
-    "@akemona-org/strapi-plugin-graphql": "npm:3.15.2"
-    "@akemona-org/strapi-plugin-i18n": "npm:3.15.2"
-    "@akemona-org/strapi-plugin-upload": "npm:3.15.2"
-    "@akemona-org/strapi-plugin-users-permissions": "npm:3.15.2"
-    "@akemona-org/strapi-provider-email-mailgun": "npm:3.15.2"
-    "@akemona-org/strapi-provider-upload-aws-s3": "npm:3.15.2"
-    "@akemona-org/strapi-provider-upload-cloudinary": "npm:3.15.2"
-    "@akemona-org/strapi-utils": "npm:3.15.2"
+    "@akemona-org/strapi": "npm:3.16.0"
+    "@akemona-org/strapi-admin": "npm:3.16.0"
+    "@akemona-org/strapi-connector-bookshelf": "npm:3.16.0"
+    "@akemona-org/strapi-connector-mongoose": "npm:3.16.0"
+    "@akemona-org/strapi-middleware-views": "npm:3.16.0"
+    "@akemona-org/strapi-plugin-content-manager": "npm:3.16.0"
+    "@akemona-org/strapi-plugin-content-type-builder": "npm:3.16.0"
+    "@akemona-org/strapi-plugin-documentation": "npm:3.16.0"
+    "@akemona-org/strapi-plugin-email": "npm:3.16.0"
+    "@akemona-org/strapi-plugin-graphql": "npm:3.16.0"
+    "@akemona-org/strapi-plugin-i18n": "npm:3.16.0"
+    "@akemona-org/strapi-plugin-upload": "npm:3.16.0"
+    "@akemona-org/strapi-plugin-users-permissions": "npm:3.16.0"
+    "@akemona-org/strapi-provider-email-mailgun": "npm:3.16.0"
+    "@akemona-org/strapi-provider-upload-aws-s3": "npm:3.16.0"
+    "@akemona-org/strapi-provider-upload-cloudinary": "npm:3.16.0"
+    "@akemona-org/strapi-utils": "npm:3.16.0"
     knex: "npm:2.4.0"
     lodash: "npm:4.17.21"
     mysql: "npm:2.18.1"
