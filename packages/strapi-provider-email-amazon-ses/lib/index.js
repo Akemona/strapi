@@ -11,8 +11,8 @@ module.exports = {
     const ses = new aws.SESClient({
       region: providerOptions.region,
       credentials: {
-        secretAccessKey: providerOptions.key,
-        accessKeyId: providerOptions.secret,
+        secretAccessKey: providerOptions.secret,
+        accessKeyId: providerOptions.key,
       },
     });
 
