@@ -1,36 +1,51 @@
 'use strict';
 
-const nodeSES = require('node-ses');
+const aws = require('@aws-sdk/client-ses');
 const { removeUndefined } = require('@akemona-org/strapi-utils');
+
+const nodemailer = require('nodemailer');
 
 module.exports = {
   init: (providerOptions = {}, settings = {}) => {
-    var client = nodeSES.createClient({ ...providerOptions });
+    // Create SES service object.
+    const ses = new aws.SESClient({
+      region: providerOptions.region,
+      credentials: {
+        secretAccessKey: providerOptions.secretAccessKey,
+        accessKeyId: providerOptions.accessKeyId,
+      },
+    });
 
+    const transporter = nodemailer.createTransport({
+      SES: { ses, aws },
+    });
     return {
       send: (options) => {
         return new Promise((resolve, reject) => {
-          const { from, to, cc, bcc, replyTo, subject, text, html, ...rest } = options;
+          const { from, to, cc, bcc, replyTo, subject, text, html, attachments, ...rest } = options;
 
-          let msg = {
+          const msg = {
             from: from || settings.defaultFrom,
             to,
             cc,
             bcc,
             replyTo: replyTo || settings.defaultReplyTo,
             subject,
-            altText: text,
-            message: html,
+            text,
+            html,
+            attachments,
             ...rest,
           };
-          client.sendEmail(removeUndefined(msg), function (err) {
+          transporter.sendMail(removeUndefined(msg), (err, info) => {
             if (err) {
-              if (err.Message) {
-                reject(`${err.Message} ${err.Detail ? err.Detail : ''}`);
+              if (err.message) {
+                reject(
+                  `email send error: ${err.message} from: ${info.envelope.from}, to: ${info.envelope.to}`
+                );
               }
               reject(err);
             } else {
-              resolve();
+              resolve(info.messageId);
             }
           });
         });
