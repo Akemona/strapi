@@ -11,8 +11,8 @@ module.exports = {
     const ses = new aws.SESClient({
       region: providerOptions.region,
       credentials: {
-        secretAccessKey: providerOptions.secretAccessKey,
-        accessKeyId: providerOptions.accessKeyId,
+        secretAccessKey: providerOptions.key,
+        accessKeyId: providerOptions.secret,
       },
     });
 
@@ -40,7 +40,7 @@ module.exports = {
             if (err) {
               if (err.message) {
                 reject(
-                  `email send error: ${err.message} from: ${info.envelope.from}, to: ${info.envelope.to}`
+                  `email send error: ${err.message} from: ${info?.envelope.from}, to: ${info?.envelope.to}`
                 );
               }
               reject(err);
