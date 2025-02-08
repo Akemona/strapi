@@ -2,7 +2,7 @@
 
 const path = require('path');
 const _ = require('lodash');
-const session = require('koa-session');
+const session = require('koa-session').default;
 
 /**
  * Session middleware

@@ -20,13 +20,13 @@
   "dependencies": {
     "@akemona-org/strapi-utils": "3.16.2",
     "lodash": "4.17.21",
-    "mongodb-connection-string-url": "3.0.1",
-    "mongoose": "8.5.0",
+    "mongodb-connection-string-url": "3.0.2",
+    "mongoose": "8.10.0",
     "mongoose-float": "1.0.4",
     "mongoose-long": "0.8.0",
     "p-map": "4.0.0",
     "pluralize": "8.0.0",
-    "semver": "~7.6.0"
+    "semver": "~7.7.1"
   },
   "author": {
     "email": "strapi@akemona.com",
@@ -48,7 +48,7 @@
     "url": "https://github.com/akemona/strapi/issues"
   },
   "engines": {
-    "node": ">=18.17.0 <=20.x.x",
+    "node": ">=20.16.0 <=22.x.x",
     "npm": ">=6.0.0"
   },
   "license": "SEE LICENSE IN LICENSE",
