@@ -21,15 +21,15 @@
   "dependencies": {
     "@akemona-org/strapi-utils": "3.16.2",
     "bookshelf": "1.2.0",
-    "date-fns": "^2.19.0",
-    "inquirer": "^6.3.1",
+    "date-fns": "^2.30.0",
+    "inquirer": "^6.5.2",
     "lodash": "4.17.21",
     "p-map": "4.0.0",
     "pluralize": "^8.0.0",
-    "rimraf": "4.1.0"
+    "rimraf": "6.0.1"
   },
   "peerDependencies": {
-    "knex": "2.4.0"
+    "knex": "2.4.2"
   },
   "strapi": {
     "dependencies": [
@@ -60,7 +60,7 @@
   },
   "engines": {
     "node": ">=20.16.0 <=22.x.x",
-    "npm": ">=6.0.0"
+    "npm": ">=10.0.0"
   },
   "license": "SEE LICENSE IN LICENSE",
   "gitHead": "57095241bb8bc011c97ecbc8c7274b674b01cd0f"

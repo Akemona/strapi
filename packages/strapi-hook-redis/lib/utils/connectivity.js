@@ -1,7 +1,7 @@
 'use strict';
 
 // Public node modules
-const rimraf = require('rimraf');
+const { rimraf } = require('rimraf');
 
 // Logger.
 const logger = require('@akemona-org/strapi-utils').logger;

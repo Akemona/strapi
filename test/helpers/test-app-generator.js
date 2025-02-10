@@ -1,7 +1,7 @@
 'use strict';
 
 const path = require('path');
-const rimraf = require('rimraf');
+const { rimraf } = require('rimraf');
 const generateNew = require('../../packages/strapi-generate-new/lib/generate-new');
 
 /**
@@ -9,12 +9,7 @@ const generateNew = require('../../packages/strapi-generate-new/lib/generate-new
  * @param {string} appName - name of the app / folder where the app is located
  */
 const cleanTestApp = (appName) => {
-  return new Promise((resolve, reject) => {
-    rimraf(path.resolve(appName), (err) => {
-      if (err) reject(err);
-      resolve();
-    });
-  });
+  return rimraf(path.resolve(appName));
 };
 
 /**
