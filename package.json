@@ -28,7 +28,7 @@
     "fs-extra": "9.1.0",
     "get-port": "5.1.1",
     "glob": "7.1.7",
-    "husky": "8.0.3",
+    "husky": "9.1.7",
     "istanbul": "~0.4.2",
     "jest": "29.0.3",
     "jest-circus": "29.0.3",
@@ -54,7 +54,7 @@
     "yargs": "17.6.2"
   },
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky",
     "setup": "yarn && yarn build",
     "watch": "lerna run --stream watch --no-private",
     "build": "lerna run --stream build --no-private",
