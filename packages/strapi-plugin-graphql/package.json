@@ -1,6 +1,6 @@
 {
   "name": "@akemona-org/strapi-plugin-graphql",
-  "version": "3.17.0",
+  "version": "3.16.1",
   "publishConfig": {
     "access": "public"
   },
@@ -14,7 +14,7 @@
     "test": "echo \"no tests yet\""
   },
   "dependencies": {
-    "@akemona-org/strapi-utils": "3.17.0",
+    "@akemona-org/strapi-utils": "3.16.1",
     "@apollo/federation": "^0.20.7",
     "@graphql-tools/utils": "7.2.4",
     "apollo-server-koa": "2.24.0",
