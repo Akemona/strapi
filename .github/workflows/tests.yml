@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [18, 20]
+        node: [20, 22]
     steps:
       - uses: actions/checkout@v4
       - name: Enable Corepack
@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [18, 20]
+        node: [20, 22]
     steps:
       - uses: actions/checkout@v4
       - name: Enable Corepack
@@ -71,7 +71,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [18, 20]
+        node: [20, 22]
     steps:
       - uses: actions/checkout@v4
       - name: Enable Corepack
@@ -174,7 +174,7 @@ jobs:
     name: '[CE] E2E (sqlite, node: ${{ matrix.node }})'
     strategy:
       matrix:
-        node: [18, 20]
+        node: [20, 22]
         sqlite_pkg: ['better-sqlite3']
     steps:
       - uses: actions/checkout@v4
@@ -198,7 +198,7 @@ jobs:
     name: '[CE] E2E (mongo, node: ${{ matrix.node }})'
     strategy:
       matrix:
-        node: [18, 20]
+        node: [20, 22]
       max-parallel: 2
     services:
       mongo:
