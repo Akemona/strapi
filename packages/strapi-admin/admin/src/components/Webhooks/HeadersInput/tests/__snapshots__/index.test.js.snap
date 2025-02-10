@@ -235,7 +235,7 @@ exports[`Admin | components | HeadersInput should render properly should match t
       <li>
         <section>
           <div
-            class=" css-2b097c-container"
+            class="css-2b097c-container"
           >
             <span
               aria-atomic="false"
@@ -244,16 +244,16 @@ exports[`Admin | components | HeadersInput should render properly should match t
               class="css-1f43avz-a11yText-A11yText"
             />
             <div
-              class=" css-1w9ejix-control"
+              class="css-1w9ejix-control"
             >
               <div
-                class=" css-g1d714-ValueContainer"
+                class="css-1hwfws3"
               >
                 <div
-                  class=" css-1uccc91-singleValue"
+                  class="css-1uccc91-singleValue"
                 />
                 <div
-                  class="css-b8ldur-Input"
+                  class="css-1g6gooi"
                 >
                   <div
                     class=""
@@ -278,11 +278,11 @@ exports[`Admin | components | HeadersInput should render properly should match t
                 </div>
               </div>
               <div
-                class=" css-1hb7zxy-IndicatorsContainer"
+                class="css-1wy0on6"
               >
                 <div
                   aria-hidden="true"
-                  class=" css-tlfecz-indicatorContainer"
+                  class="css-tlfecz-indicatorContainer"
                 >
                   <svg
                     aria-hidden="true"
@@ -298,11 +298,11 @@ exports[`Admin | components | HeadersInput should render properly should match t
                   </svg>
                 </div>
                 <span
-                  class=" css-1okebmr-indicatorSeparator"
+                  class="css-1okebmr-indicatorSeparator"
                 />
                 <div
                   aria-hidden="true"
-                  class=" css-tlfecz-indicatorContainer"
+                  class="css-tlfecz-indicatorContainer"
                 >
                   <svg
                     aria-hidden="true"

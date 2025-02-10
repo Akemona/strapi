@@ -1,5 +1,8 @@
 'use strict';
 
-module.exports = {
+/** @type {import('jest').Config} */
+const config = {
   testPathIgnorePatterns: ['<rootDir>/'],
 };
+
+module.exports = config;

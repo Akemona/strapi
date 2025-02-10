@@ -788,7 +788,7 @@ exports[`<Inputs /> should match the snapshot if type is headers 1`] = `
       <li>
         <section>
           <div
-            className=" css-2b097c-container"
+            className="css-2b097c-container"
             onKeyDown={[Function]}
           >
             <span
@@ -798,18 +798,18 @@ exports[`<Inputs /> should match the snapshot if type is headers 1`] = `
               className="css-1f43avz-a11yText-A11yText"
             />
             <div
-              className=" css-1w9ejix-control"
+              className="css-1w9ejix-control"
               onMouseDown={[Function]}
               onTouchEnd={[Function]}
             >
               <div
-                className=" css-g1d714-ValueContainer"
+                className="css-1hwfws3"
               >
                 <div
-                  className=" css-1uccc91-singleValue"
+                  className="css-1uccc91-singleValue"
                 />
                 <div
-                  className="css-b8ldur-Input"
+                  className="css-1g6gooi"
                 >
                   <div
                     className=""
@@ -867,11 +867,11 @@ exports[`<Inputs /> should match the snapshot if type is headers 1`] = `
                 </div>
               </div>
               <div
-                className=" css-1hb7zxy-IndicatorsContainer"
+                className="css-1wy0on6"
               >
                 <div
                   aria-hidden="true"
-                  className=" css-tlfecz-indicatorContainer"
+                  className="css-tlfecz-indicatorContainer"
                   onMouseDown={[Function]}
                   onTouchEnd={[Function]}
                 >
@@ -889,11 +889,11 @@ exports[`<Inputs /> should match the snapshot if type is headers 1`] = `
                   </svg>
                 </div>
                 <span
-                  className=" css-1okebmr-indicatorSeparator"
+                  className="css-1okebmr-indicatorSeparator"
                 />
                 <div
                   aria-hidden="true"
-                  className=" css-tlfecz-indicatorContainer"
+                  className="css-tlfecz-indicatorContainer"
                   onMouseDown={[Function]}
                   onTouchEnd={[Function]}
                 >
