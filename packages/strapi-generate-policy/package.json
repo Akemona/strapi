@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.17.2",
+  "version": "3.18.0",
   "description": "Generate a policy for a Strapi API.",
   "homepage": "https://strapi.akemona.com",
   "keywords": [
@@ -17,7 +17,7 @@
     "lib": "./lib"
   },
   "dependencies": {
-    "@akemona-org/strapi-utils": "3.17.2",
+    "@akemona-org/strapi-utils": "3.18.0",
     "lodash": "4.17.21"
   },
   "scripts": {
@@ -43,7 +43,7 @@
     "url": "https://github.com/akemona/strapi/issues"
   },
   "engines": {
-    "node": ">=20.16.0 <=22.x.x",
+    "node": ">=22.12.0 <=22.x.x",
     "npm": ">=10.0.0"
   },
   "license": "SEE LICENSE IN LICENSE",

@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.17.2",
+  "version": "3.18.0",
   "description": "Helper for Strapi plugins development",
   "files": [
     "dist"
@@ -14,7 +14,7 @@
     "directory": "packages/strapi-helper-plugin"
   },
   "engines": {
-    "node": ">=20.16.0 <=22.x.x",
+    "node": ">=22.12.0 <=22.x.x",
     "npm": ">=10.0.0"
   },
   "author": {

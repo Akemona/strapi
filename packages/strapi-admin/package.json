@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.17.2",
+  "version": "3.18.0",
   "description": "Strapi Admin",
   "repository": {
     "type": "git",
@@ -17,8 +17,8 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@akemona-org/strapi-helper-plugin": "3.17.2",
-    "@akemona-org/strapi-utils": "3.17.2",
+    "@akemona-org/strapi-helper-plugin": "3.18.0",
+    "@akemona-org/strapi-utils": "3.18.0",
     "@babel/core": "^7.14.0",
     "@babel/plugin-proposal-async-generator-functions": "^7.13.15",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
@@ -118,7 +118,7 @@
     "yup": "^0.32.9"
   },
   "engines": {
-    "node": ">=20.16.0 <=22.x.x",
+    "node": ">=22.12.0 <=22.x.x",
     "npm": ">=10.0.0"
   },
   "license": "SEE LICENSE IN LICENSE",
