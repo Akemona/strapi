@@ -3,3 +3,5 @@ testApp
 dist
 build
 .cache
+
+/.nx/workspace-data

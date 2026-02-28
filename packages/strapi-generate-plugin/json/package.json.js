@@ -37,7 +37,7 @@ module.exports = (scope) => {
       },
     ],
     engines: {
-      node: '>=20.16.0 <=22.x.x',
+      node: '>=22.12.0 <=22.x.x',
       npm: '>=6.0.0',
     },
     license: scope.license || 'MIT',
