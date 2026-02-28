@@ -1,6 +1,6 @@
 {
   "name": "@akemona-org/strapi-provider-email-sendgrid",
-  "version": "3.18.1",
+  "version": "3.18.2",
   "publishConfig": {
     "access": "public"
   },
@@ -16,7 +16,7 @@
   },
   "main": "./lib",
   "dependencies": {
-    "@akemona-org/strapi-utils": "3.18.1",
+    "@akemona-org/strapi-utils": "3.18.2",
     "@sendgrid/mail": "6.4.0"
   },
   "strapi": {
@@ -49,5 +49,5 @@
   "scripts": {
     "test": "echo \"no tests yet\""
   },
-  "gitHead": "c576106152925604b78f6ec965d1b13a28d68117"
+  "gitHead": "2e608296ea6bf529caa4b49f4275382cedaed295"
 }

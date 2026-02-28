@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.18.1",
+  "version": "3.18.2",
   "description": "Helper for Strapi plugins development",
   "files": [
     "dist"
@@ -85,5 +85,5 @@
     "styled-components": "^5.2.3",
     "whatwg-fetch": "^3.6.2"
   },
-  "gitHead": "c576106152925604b78f6ec965d1b13a28d68117"
+  "gitHead": "2e608296ea6bf529caa4b49f4275382cedaed295"
 }

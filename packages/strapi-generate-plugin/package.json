@@ -1,6 +1,6 @@
 {
   "name": "@akemona-org/strapi-generate-plugin",
-  "version": "3.18.1",
+  "version": "3.18.2",
   "publishConfig": {
     "access": "public"
   },
@@ -16,7 +16,7 @@
     "lib": "./lib"
   },
   "dependencies": {
-    "@akemona-org/strapi-utils": "3.18.1",
+    "@akemona-org/strapi-utils": "3.18.2",
     "fs-extra": "^9.1.0",
     "lodash": "4.17.21"
   },
@@ -47,5 +47,5 @@
     "npm": ">=10.0.0"
   },
   "license": "SEE LICENSE IN LICENSE",
-  "gitHead": "c576106152925604b78f6ec965d1b13a28d68117"
+  "gitHead": "2e608296ea6bf529caa4b49f4275382cedaed295"
 }
