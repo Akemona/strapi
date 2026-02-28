@@ -24,7 +24,7 @@
     "mongoose": "9.2.3",
     "mongoose-float": "1.0.4",
     "mongoose-long": "0.8.0",
-    "p-map": "7.0.4",
+    "p-map": "4.0.0",
     "pluralize": "8.0.0",
     "semver": "~7.7.1"
   },

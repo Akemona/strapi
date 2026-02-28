@@ -163,7 +163,7 @@ __metadata:
     bookshelf: "npm:1.2.0"
     date-fns: "npm:^2.30.0"
     inquirer: "npm:^6.5.2"
-    lodash: "npm:4.17.21"
+    lodash: "npm:4.17.23"
     p-map: "npm:4.0.0"
     pluralize: "npm:^8.0.0"
     rimraf: "npm:6.0.1"
@@ -182,7 +182,7 @@ __metadata:
     mongoose: "npm:9.2.3"
     mongoose-float: "npm:1.0.4"
     mongoose-long: "npm:0.8.0"
-    p-map: "npm:7.0.4"
+    p-map: "npm:4.0.0"
     pluralize: "npm:8.0.0"
     semver: "npm:~7.7.1"
   languageName: unknown
@@ -194,7 +194,7 @@ __metadata:
   dependencies:
     "@akemona-org/strapi-utils": "npm:3.17.2"
     debug: "npm:4.3.1"
-    lodash: "npm:4.17.21"
+    lodash: "npm:4.17.23"
     p-map: "npm:4.0.0"
     verror: "npm:^1.10.0"
   languageName: unknown
@@ -516,7 +516,7 @@ __metadata:
   resolution: "@akemona-org/strapi-plugin-i18n@workspace:packages/strapi-plugin-i18n"
   dependencies:
     "@akemona-org/strapi-utils": "npm:3.17.2"
-    lodash: "npm:4.17.21"
+    lodash: "npm:4.17.23"
     p-map: "npm:4.0.0"
     pluralize: "npm:8.0.0"
   languageName: unknown
@@ -721,19 +721,19 @@ __metadata:
     glob: "npm:^7.2.3"
     inquirer: "npm:^6.2.1"
     is-docker: "npm:2.2.1"
-    koa: "npm:2.15.3"
+    koa: "npm:2.16.4"
     koa-body: "npm:4.2.0"
     koa-compose: "npm:4.1.0"
     koa-compress: "npm:5.1.1"
     koa-convert: "npm:^2.0.0"
     koa-favicon: "npm:^2.1.0"
     koa-i18n: "npm:^2.1.0"
-    koa-ip: "npm:2.1.3"
+    koa-ip: "npm:2.1.4"
     koa-locale: "npm:~1.3.0"
     koa-lusca: "npm:~2.2.0"
     koa-session: "npm:7.0.2"
     koa-static: "npm:5.0.0"
-    lodash: "npm:4.17.21"
+    lodash: "npm:4.17.23"
     node-fetch: "npm:2.7.0"
     node-machine-id: "npm:1.1.12"
     node-schedule: "npm:2.1.1"
@@ -11984,6 +11984,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"debug@npm:4.4.3":
+  version: 4.4.3
+  resolution: "debug@npm:4.4.3"
+  dependencies:
+    ms: "npm:^2.1.3"
+  peerDependenciesMeta:
+    supports-color:
+      optional: true
+  checksum: 10c0/d79136ec6c83ecbefd0f6a5593da6a9c91ec4d7ddc4b54c883d6e71ec9accb5f67a1a5e96d00a328196b5b5c86d365e98d8a3a70856aaf16b4e7b1985e67f5a6
+  languageName: node
+  linkType: hard
+
 "debug@npm:^3.1.0, debug@npm:^3.2.7":
   version: 3.2.7
   resolution: "debug@npm:3.2.7"
@@ -18628,14 +18640,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"koa-ip@npm:2.1.3":
-  version: 2.1.3
-  resolution: "koa-ip@npm:2.1.3"
+"koa-ip@npm:2.1.4":
+  version: 2.1.4
+  resolution: "koa-ip@npm:2.1.4"
   dependencies:
-    debug: "npm:4.3.4"
+    debug: "npm:4.4.3"
     lodash.isplainobject: "npm:4.0.6"
     request-ip: "npm:3.3.0"
-  checksum: 10c0/1a996b9555fd09ce581dbfd902e618b6776443787b6cf24323c1e9edb0faa0f85537b68c8e993806dcfd8fb307ddd185005d97f904e51495bebfa4eab6ca57a6
+  checksum: 10c0/084c3498fb82e74c41728f2c8eabd717a160953236d3a17679b87ea2500f2e2699fc1f569078aafad14d15a0ca6c6ac8ce33921bad9a02e5e70ef53c02723703
   languageName: node
   linkType: hard
 
@@ -18777,7 +18789,38 @@ __metadata:
   languageName: node
   linkType: hard
 
-"koa@npm:2.15.3, koa@npm:^2.13.1":
+"koa@npm:2.16.4":
+  version: 2.16.4
+  resolution: "koa@npm:2.16.4"
+  dependencies:
+    accepts: "npm:^1.3.5"
+    cache-content-type: "npm:^1.0.0"
+    content-disposition: "npm:~0.5.2"
+    content-type: "npm:^1.0.4"
+    cookies: "npm:~0.9.0"
+    debug: "npm:^4.3.2"
+    delegates: "npm:^1.0.0"
+    depd: "npm:^2.0.0"
+    destroy: "npm:^1.0.4"
+    encodeurl: "npm:^1.0.2"
+    escape-html: "npm:^1.0.3"
+    fresh: "npm:~0.5.2"
+    http-assert: "npm:^1.3.0"
+    http-errors: "npm:^1.6.3"
+    is-generator-function: "npm:^1.0.7"
+    koa-compose: "npm:^4.1.0"
+    koa-convert: "npm:^2.0.0"
+    on-finished: "npm:^2.3.0"
+    only: "npm:~0.0.2"
+    parseurl: "npm:^1.3.2"
+    statuses: "npm:^1.5.0"
+    type-is: "npm:^1.6.16"
+    vary: "npm:^1.1.2"
+  checksum: 10c0/bf21ffcf409bf847dca3f60349fc64a3b33e725e0ced3f405192a22fa51b4211cac29748f51df9674df82ca87691b3bdda64bbf80755ba6cdc6b2f35e878b0f5
+  languageName: node
+  linkType: hard
+
+"koa@npm:^2.13.1":
   version: 2.15.3
   resolution: "koa@npm:2.15.3"
   dependencies:
@@ -21849,13 +21892,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"p-map@npm:7.0.4":
-  version: 7.0.4
-  resolution: "p-map@npm:7.0.4"
-  checksum: 10c0/a5030935d3cb2919d7e89454d1ce82141e6f9955413658b8c9403cfe379283770ed3048146b44cde168aa9e8c716505f196d5689db0ae3ce9a71521a2fef3abd
-  languageName: node
-  linkType: hard
-
 "p-map@npm:^2.0.0, p-map@npm:^2.1.0":
   version: 2.1.0
   resolution: "p-map@npm:2.1.0"
@@ -23635,12 +23671,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qs@npm:6.14.0, qs@npm:^6.12.3, qs@npm:^6.14.0, qs@npm:^6.4.0, qs@npm:^6.5.2, qs@npm:^6.9.4, qs@npm:^6.9.6":
+"qs@npm:6.14.0, qs@npm:^6.12.3, qs@npm:^6.14.0, qs@npm:^6.5.2, qs@npm:^6.9.4, qs@npm:^6.9.6":
   version: 6.14.0
   resolution: "qs@npm:6.14.0"
   dependencies:
     side-channel: "npm:^1.1.0"
   checksum: 10c0/8ea5d91bf34f440598ee389d4a7d95820e3b837d3fd9f433871f7924801becaa0cd3b3b4628d49a7784d06a8aea9bc4554d2b6d8d584e2d221dc06238a42909c
+  languageName: node
+  linkType: hard
+
+"qs@npm:^6.4.0":
+  version: 6.15.0
+  resolution: "qs@npm:6.15.0"
+  dependencies:
+    side-channel: "npm:^1.1.0"
+  checksum: 10c0/ff341078a78a991d8a48b4524d52949211447b4b1ad907f489cac0770cbc346a28e47304455c0320e5fb000f8762d64b03331e3b71865f663bf351bcba8cdb4b
   languageName: node
   linkType: hard
 

@@ -34,7 +34,7 @@
     "@akemona-org/strapi-utils": "3.17.2",
     "debug": "4.3.1",
     "lodash": "4.17.23",
-    "p-map": "7.0.4",
+    "p-map": "4.0.0",
     "verror": "^1.10.0"
   },
   "gitHead": "57095241bb8bc011c97ecbc8c7274b674b01cd0f"
