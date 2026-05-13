@@ -605,7 +605,7 @@ __metadata:
   resolution: "@akemona-org/strapi-provider-email-amazon-ses@workspace:packages/strapi-provider-email-amazon-ses"
   dependencies:
     "@akemona-org/strapi-utils": "npm:3.19.2"
-    "@aws-sdk/client-ses": "npm:3.1045.0"
+    "@aws-sdk/client-sesv2": "npm:3.1045.0"
     nodemailer: "npm:8.0.7"
   languageName: unknown
   linkType: soft
@@ -986,9 +986,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-ses@npm:3.1045.0":
+"@aws-sdk/client-sesv2@npm:3.1045.0":
   version: 3.1045.0
-  resolution: "@aws-sdk/client-ses@npm:3.1045.0"
+  resolution: "@aws-sdk/client-sesv2@npm:3.1045.0"
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
@@ -999,6 +999,7 @@ __metadata:
     "@aws-sdk/middleware-recursion-detection": "npm:^3.972.11"
     "@aws-sdk/middleware-user-agent": "npm:^3.972.38"
     "@aws-sdk/region-config-resolver": "npm:^3.972.13"
+    "@aws-sdk/signature-v4-multi-region": "npm:^3.996.25"
     "@aws-sdk/types": "npm:^3.973.8"
     "@aws-sdk/util-endpoints": "npm:^3.996.8"
     "@aws-sdk/util-user-agent-browser": "npm:^3.972.10"
@@ -1028,9 +1029,8 @@ __metadata:
     "@smithy/util-middleware": "npm:^4.2.14"
     "@smithy/util-retry": "npm:^4.3.6"
     "@smithy/util-utf8": "npm:^4.2.2"
-    "@smithy/util-waiter": "npm:^4.3.0"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/bd8313aa8e9fb9b5f8cd2ce44420dce4e0c5187d900a942995558f03dc7e91e89842b95828bbb2b2e38d65a493202fa976a4bc9c1a303e82057a4573e6f96f0a
+  checksum: 10c0/5e9f4ca272167e10e6c130cf328274e19c506b72bdb9067b6b9516ae72a1f78826880c857753e92c80abccbad320678688484c9a500f936238a92a6dbf8073bc
   languageName: node
   linkType: hard
 

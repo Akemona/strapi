@@ -1,6 +1,6 @@
 'use strict';
 
-const aws = require('@aws-sdk/client-ses');
+const { SESv2Client, SendEmailCommand } = require('@aws-sdk/client-sesv2');
 const { removeUndefined } = require('@akemona-org/strapi-utils');
 
 const nodemailer = require('nodemailer');
@@ -8,7 +8,7 @@ const nodemailer = require('nodemailer');
 module.exports = {
   init: (providerOptions = {}, settings = {}) => {
     // Create SES service object.
-    const ses = new aws.SESClient({
+    const sesClient = new SESv2Client({
       region: providerOptions.region,
       credentials: {
         secretAccessKey: providerOptions.secret,
@@ -17,7 +17,7 @@ module.exports = {
     });
 
     const transporter = nodemailer.createTransport({
-      SES: { ses, aws },
+      SES: { sesClient, SendEmailCommand },
     });
     return {
       send: (options) => {
