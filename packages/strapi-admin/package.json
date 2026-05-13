@@ -118,7 +118,7 @@
     "yup": "^0.32.9"
   },
   "engines": {
-    "node": ">=22.12.0 <=22.x.x",
+    "node": "24.x.x",
     "npm": ">=10.0.0"
   },
   "license": "SEE LICENSE IN LICENSE",

@@ -18,8 +18,8 @@
   "main": "./lib",
   "dependencies": {
     "@akemona-org/strapi-utils": "3.18.2",
-    "@aws-sdk/client-ses": "3.637.0",
-    "nodemailer": "6.9.14"
+    "@aws-sdk/client-ses": "3.1045.0",
+    "nodemailer": "8.0.7"
   },
   "author": {
     "email": "2557058+imaksp@users.noreply.github.com",
@@ -40,7 +40,7 @@
     "url": "https://github.com/akemona/strapi/issues"
   },
   "engines": {
-    "node": ">=22.12.0 <=22.x.x",
+    "node": "24.x.x",
     "npm": ">=10.0.0"
   },
   "license": "SEE LICENSE IN LICENSE",

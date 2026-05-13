@@ -14,7 +14,7 @@
     "directory": "packages/strapi-helper-plugin"
   },
   "engines": {
-    "node": ">=22.12.0 <=22.x.x",
+    "node": "24.x.x",
     "npm": ">=10.0.0"
   },
   "author": {
